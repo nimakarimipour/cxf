@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <scanner>
-    <serialization active="false" />
+    <serialization active="true" />
     <uuid>123ef4ea-5c7e-4cf9-ba72-ba332c998478</uuid>
     <path>/home/nima/Developer/taint-benchmarks/cxf/annotator-out/0</path>
     <processor>
