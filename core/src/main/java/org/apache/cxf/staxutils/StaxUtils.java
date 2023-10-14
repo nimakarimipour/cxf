@@ -93,6 +93,7 @@ import org.apache.cxf.common.util.SystemPropertyAction;
 import org.apache.cxf.helpers.CastUtils;
 import org.apache.cxf.helpers.DOMUtils;
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public final class StaxUtils {
     // System properties for defaults, but also contextual properties usable
@@ -1140,7 +1141,7 @@ public final class StaxUtils {
             }
         }
     }
-    public static Document read(File is) throws XMLStreamException, IOException {
+    public static Document read(@RUntainted File is) throws XMLStreamException, IOException {
         try (InputStream fin = Files.newInputStream(is.toPath())) {
             return read(fin);
         }

@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<scanner>
-    <serialization active="true" />
-    <uuid>123ef4ea-5c7e-4cf9-ba72-ba332c998478</uuid>
-    <path>/home/nima/Developer/taint-benchmarks/cxf/annotator-out/0</path>
-    <processor>
-        <LOMBOK active="true" />
-    </processor>
-    <annotations />
-</scanner>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><scanner><serialization active="false"/><uuid>fcf46cc8-8164-46d2-92bd-84a86a7fef6f</uuid><path>/home/nima/Developer/taint-benchmarks/cxf/annotator-out/0</path><processor><LOMBOK active="true"/></processor><annotations/></scanner>

@@ -39,6 +39,7 @@ import jakarta.activation.ActivationDataFlavor;
 import jakarta.activation.DataContentHandler;
 import jakarta.activation.DataSource;
 import org.apache.cxf.helpers.IOUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  *
@@ -78,7 +79,7 @@ public class ImageDataContentHandler implements DataContentHandler {
     }
 
     @Override
-    public void writeTo(Object obj, String mimeType, OutputStream os) throws IOException {
+    public void writeTo(@RUntainted Object obj, String mimeType, OutputStream os) throws IOException {
         if (obj instanceof Image) {
             Iterator<ImageWriter> writers = ImageIO.getImageWritersByMIMEType(mimeType);
             if (writers.hasNext()) {

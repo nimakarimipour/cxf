@@ -8,7 +8,7 @@ REPO = subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).strip().
 OUT_DIR = '{}/annotator-out'.format(REPO)
 ANNOTATOR_JAR = "{}/.m2/repository/edu/ucr/cs/riple/annotator/annotator-core/{}/annotator-core-{}.jar".format(str(Path.home()), VERSION, VERSION)
 BUILD_SYSTEM = "maven"
-COMPILE_COMMAND = "./gradlew compileJava --rerun-tasks" if BUILD_SYSTEM is "gradle" else "mvn clean compile -pl core -Drat.skip=true"
+COMPILE_COMMAND = "./gradlew compileJava --rerun-tasks" if BUILD_SYSTEM == "gradle" else "mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip"
 
 def prepare():
     os.makedirs(OUT_DIR, exist_ok=True)

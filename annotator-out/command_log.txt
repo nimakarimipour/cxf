@@ -1,0 +1,86 @@
+2023-10-14T10:47:16.102494:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true
+
+2023-10-14T10:47:32.240548:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true
+
+2023-10-14T10:48:01.685523:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true
+
+2023-10-14T10:48:33.446394:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true
+
+2023-10-14T10:49:05.719439:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true
+
+2023-10-14T10:49:10.794429:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true
+
+2023-10-14T10:49:15.832106:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true
+
+2023-10-14T10:49:20.881893:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true
+
+2023-10-14T10:49:25.826902:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true
+
+2023-10-14T10:49:30.883434:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true
+
+2023-10-14T11:22:56.040550:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:23:22.726648:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:23:52.699315:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:24:21.996672:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:24:50.782559:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:25:19.634785:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:25:48.033766:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:26:16.110074:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:26:44.536853:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:27:12.587145:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:27:40.991584:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:28:09.333836:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:28:37.950567:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:29:05.964356:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:29:34.867527:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:30:03.427167:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:30:31.506121:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:31:00.263266:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:31:28.652881:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:31:57.691756:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:32:26.157120:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:32:54.945768:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:33:23.073265:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:33:51.196383:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:34:19.693540:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:34:48.305115:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:35:16.651190:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:35:45.268743:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:36:13.921533:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:36:41.733201:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:37:10.277304:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:37:38.082083:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+
+2023-10-14T11:38:06.570613:cd /home/nima/Developer/taint-benchmarks/cxf && mvn clean compile -pl core -Drat.skip=true -Dcheckstyle.skip
+

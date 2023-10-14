@@ -49,6 +49,7 @@ import org.apache.cxf.helpers.FileUtils;
 import org.apache.cxf.helpers.IOUtils;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class CachedWriter extends Writer {
     private static final File DEFAULT_TEMP_DIR;

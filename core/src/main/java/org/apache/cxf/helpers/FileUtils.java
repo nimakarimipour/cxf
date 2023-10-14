@@ -34,6 +34,8 @@ import java.util.regex.Pattern;
 
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.SystemPropertyAction;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public final class FileUtils {
     private static final long RETRY_SLEEP_MILLIS = 10L;
