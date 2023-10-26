@@ -79,7 +79,7 @@ public class ImageDataContentHandler implements DataContentHandler {
     }
 
     @Override
-    public void writeTo(Object obj, String mimeType, OutputStream os) throws IOException {
+    public void writeTo(@RUntainted Object obj, String mimeType, OutputStream os) throws IOException {
         if (obj instanceof Image) {
             Iterator<ImageWriter> writers = ImageIO.getImageWritersByMIMEType(mimeType);
             if (writers.hasNext()) {
@@ -99,7 +99,7 @@ public class ImageDataContentHandler implements DataContentHandler {
         } else if (obj instanceof InputStream) {
             IOUtils.copyAndCloseInput((InputStream)obj, os);
         } else if (obj instanceof File) {
-            InputStream file = Files.newInputStream(((@RUntainted File)obj).toPath());
+            InputStream file = Files.newInputStream(((File)obj).toPath());
             IOUtils.copyAndCloseInput(file, os);
         } else {
             throw new IOException("Attachment type not spported " + obj.getClass());
