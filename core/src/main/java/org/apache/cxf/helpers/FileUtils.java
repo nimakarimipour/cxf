@@ -134,7 +134,7 @@ public final class FileUtils {
     public static File createTmpDir() {
         return createTmpDir(true);
     }
-    public static File createTmpDir(boolean addHook) {
+    public static @RUntainted File createTmpDir(boolean addHook) {
         String s = SystemPropertyAction.getProperty("java.io.tmpdir");
         File checkExists = new File(s);
         if (!exists(checkExists) || !checkExists.isDirectory()) {
