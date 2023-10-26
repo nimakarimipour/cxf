@@ -43,6 +43,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
@@ -478,7 +479,7 @@ public final class SSLUtils {
         return cipherSuites;
     }
 
-    public static String getTruststore(String trustStoreLocation, Logger log) {
+    public static @RUntainted String getTruststore(@RUntainted String trustStoreLocation, Logger log) {
         final String logMsg;
         if (trustStoreLocation != null) {
             logMsg = "TRUST_STORE_SET";

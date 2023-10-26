@@ -26,6 +26,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.binding.BindingFactoryManager;
@@ -335,7 +336,7 @@ public class ExtensionManagerBus extends AbstractBasicInterceptorProvider implem
         properties.putAll(map);
     }
 
-    public Object getProperty(String s) {
+    public @RUntainted Object getProperty(@RUntainted String s) {
         return properties.get(s);
     }
 

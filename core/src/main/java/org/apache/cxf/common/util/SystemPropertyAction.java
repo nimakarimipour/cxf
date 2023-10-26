@@ -24,20 +24,21 @@ import java.security.PrivilegedAction;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.logging.LogUtils;
 
 /**
  *
  */
-public final class SystemPropertyAction implements PrivilegedAction<String> {
+public final class SystemPropertyAction implements PrivilegedAction<@RUntainted String> {
     private static final Logger LOG = LogUtils.getL7dLogger(SystemPropertyAction.class);
-    private final String property;
-    private final String def;
-    private SystemPropertyAction(String name) {
+    private final @RUntainted String property;
+    private final @RUntainted String def;
+    private @RUntainted SystemPropertyAction(@RUntainted String name) {
         property = name;
         def = null;
     }
-    private SystemPropertyAction(String name, String d) {
+    private SystemPropertyAction(@RUntainted String name, @RUntainted String d) {
         property = name;
         def = d;
     }
@@ -45,18 +46,18 @@ public final class SystemPropertyAction implements PrivilegedAction<String> {
     /* (non-Javadoc)
      * @see java.security.PrivilegedAction#run()
      */
-    public String run() {
+    public @RUntainted String run() {
         if (def != null) {
             return System.getProperty(property, def);
         }
         return System.getProperty(property);
     }
 
-    public static String getProperty(String name) {
+    public static @RUntainted String getProperty(@RUntainted String name) {
         return AccessController.doPrivileged(new SystemPropertyAction(name));
     }
 
-    public static String getProperty(String name, String def) {
+    public static String getProperty(@RUntainted String name, @RUntainted String def) {
         try {
             return AccessController.doPrivileged(new SystemPropertyAction(name, def));
         } catch (SecurityException ex) {
@@ -70,7 +71,7 @@ public final class SystemPropertyAction implements PrivilegedAction<String> {
      * raised, just return null;
      * @param name
      */
-    public static String getPropertyOrNull(String name) {
+    public static @RUntainted String getPropertyOrNull(@RUntainted String name) {
         try {
             return AccessController.doPrivileged(new SystemPropertyAction(name));
         } catch (SecurityException ex) {

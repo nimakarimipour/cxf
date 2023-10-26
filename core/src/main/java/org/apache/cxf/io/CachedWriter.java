@@ -42,6 +42,7 @@ import java.util.List;
 import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.common.util.SystemPropertyAction;
@@ -51,7 +52,7 @@ import org.apache.cxf.helpers.IOUtils;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class CachedWriter extends Writer {
-    private static final File DEFAULT_TEMP_DIR;
+    private static final @RUntainted File DEFAULT_TEMP_DIR;
     private static int defaultThreshold;
     private static long defaultMaxSize;
     private static String defaultCipherTransformation;
@@ -85,7 +86,7 @@ public class CachedWriter extends Writer {
     private boolean cosClosed;
     private long threshold = defaultThreshold;
     private long maxSize = defaultMaxSize;
-    private File outputDir = DEFAULT_TEMP_DIR;
+    private @RUntainted File outputDir = DEFAULT_TEMP_DIR;
     private String cipherTransformation = defaultCipherTransformation;
 
     private long totalLength;
@@ -93,7 +94,7 @@ public class CachedWriter extends Writer {
     private boolean inmem;
 
     private boolean tempFileFailed;
-    private File tempFile;
+    private @RUntainted File tempFile;
     private boolean allowDeleteOfFile = true;
     private CipherPair ciphers;
 
@@ -150,8 +151,8 @@ public class CachedWriter extends Writer {
         }
     }
 
-    private static String getBusProperty(Bus b, String key, String dflt) {
-        String v = (String)b.getProperty(key);
+    private static @RUntainted String getBusProperty(Bus b, @RUntainted String key, @RUntainted String dflt) {
+        String v = (@RUntainted String)b.getProperty(key);
         return v != null ? v : dflt;
     }
 
@@ -561,7 +562,7 @@ public class CachedWriter extends Writer {
         }
     }
 
-    public void setOutputDir(File outputDir) throws IOException {
+    public void setOutputDir(@RUntainted File outputDir) throws IOException {
         this.outputDir = outputDir;
     }
     public void setThreshold(long threshold) {
@@ -644,7 +645,7 @@ public class CachedWriter extends Writer {
         };
     }
 
-    private InputStreamReader createInputStreamReader(File file) throws IOException {
+    private InputStreamReader createInputStreamReader(@RUntainted File file) throws IOException {
         InputStream in = Files.newInputStream(file.toPath());
         if (cipherTransformation != null) {
             in = new CipherInputStream(in, ciphers.getDecryptor()) {

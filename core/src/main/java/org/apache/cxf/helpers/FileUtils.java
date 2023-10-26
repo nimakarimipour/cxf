@@ -32,12 +32,13 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.SystemPropertyAction;
 
 public final class FileUtils {
     private static final long RETRY_SLEEP_MILLIS = 10L;
-    private static File defaultTempDir;
+    private static @RUntainted File defaultTempDir;
     private static Thread shutdownHook;
     private static final char[] ILLEGAL_CHARACTERS
         = {'/', '\n', '\r', '\t', '\0', '\f', '`', '?', '*', '\\', '<', '>', '|', '\"', ':'};
@@ -70,7 +71,7 @@ public final class FileUtils {
         return isValid;
     }
 
-    public static synchronized File getDefaultTempDir() {
+    public static synchronized @RUntainted File getDefaultTempDir() {
         if (defaultTempDir != null
             && exists(defaultTempDir)) {
             return defaultTempDir;
@@ -259,11 +260,11 @@ public final class FileUtils {
         }
     }
 
-    public static File createTempFile(String prefix, String suffix) throws IOException {
+    public static @RUntainted File createTempFile(String prefix, String suffix) throws IOException {
         return createTempFile(prefix, suffix, null, false);
     }
 
-    public static File createTempFile(String prefix, String suffix, File parentDir,
+    public static @RUntainted File createTempFile(String prefix, String suffix, @RUntainted File parentDir,
                                boolean deleteOnExit) throws IOException {
         File parent = (parentDir == null)
             ? getDefaultTempDir()
