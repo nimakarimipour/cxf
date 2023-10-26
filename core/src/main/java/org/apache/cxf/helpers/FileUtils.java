@@ -264,7 +264,7 @@ public final class FileUtils {
         return createTempFile(prefix, suffix, null, false);
     }
 
-    public static @RUntainted File createTempFile(String prefix, String suffix, @RUntainted File parentDir,
+    public static @RUntainted File createTempFile(@RUntainted String prefix, @RUntainted String suffix, @RUntainted File parentDir,
                                boolean deleteOnExit) throws IOException {
         File parent = (parentDir == null)
             ? getDefaultTempDir()

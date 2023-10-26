@@ -69,6 +69,7 @@ import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.stax.StAXSource;
 import javax.xml.transform.stream.StreamSource;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Attr;
 import org.w3c.dom.CDATASection;
 import org.w3c.dom.Comment;
@@ -220,7 +221,7 @@ public final class StaxUtils {
 
     private StaxUtils() {
     }
-    private static int getInteger(String prop, int def) {
+    private static int getInteger(@RUntainted String prop, int def) {
         try {
             String s = SystemPropertyAction.getPropertyOrNull(prop);
             if (StringUtils.isEmpty(s)) {
@@ -236,7 +237,7 @@ public final class StaxUtils {
         }
         return def;
     }
-    private static long getLong(String prop, long def) {
+    private static long getLong(@RUntainted String prop, long def) {
         try {
             String s = SystemPropertyAction.getPropertyOrNull(prop);
             if (StringUtils.isEmpty(s)) {
@@ -1140,7 +1141,7 @@ public final class StaxUtils {
             }
         }
     }
-    public static Document read(File is) throws XMLStreamException, IOException {
+    public static Document read(@RUntainted File is) throws XMLStreamException, IOException {
         try (InputStream fin = Files.newInputStream(is.toPath())) {
             return read(fin);
         }
