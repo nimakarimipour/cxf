@@ -38,6 +38,7 @@ import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
 import javax.tools.ToolProvider;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.helpers.FileUtils;
 
 public class Compiler {
@@ -274,7 +275,7 @@ public class Compiler {
     public boolean internalCompile(String[] args, int sourceFileIndex) {
         File tmpFile = null;
         try {
-            final String[] cmdArray;
+            final @RUntainted String[] cmdArray;
             if (isLongCommandLines(args) && sourceFileIndex >= 0) {
                 tmpFile = FileUtils.createTempFile("cxf-compiler", null);
                 try (PrintWriter out = new PrintWriter(new FileWriter(tmpFile))) {
