@@ -260,7 +260,7 @@ public final class FileUtils {
         }
     }
 
-    public static @RUntainted File createTempFile(String prefix, String suffix) throws IOException {
+    public static @RUntainted File createTempFile(@RUntainted String prefix, @RUntainted String suffix) throws IOException {
         return createTempFile(prefix, suffix, null, false);
     }
 
