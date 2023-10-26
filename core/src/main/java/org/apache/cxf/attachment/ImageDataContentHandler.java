@@ -35,6 +35,7 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.ImageOutputStream;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.activation.ActivationDataFlavor;
 import jakarta.activation.DataContentHandler;
 import jakarta.activation.DataSource;
@@ -98,7 +99,7 @@ public class ImageDataContentHandler implements DataContentHandler {
         } else if (obj instanceof InputStream) {
             IOUtils.copyAndCloseInput((InputStream)obj, os);
         } else if (obj instanceof File) {
-            InputStream file = Files.newInputStream(((File)obj).toPath());
+            InputStream file = Files.newInputStream(((@RUntainted File)obj).toPath());
             IOUtils.copyAndCloseInput(file, os);
         } else {
             throw new IOException("Attachment type not spported " + obj.getClass());
