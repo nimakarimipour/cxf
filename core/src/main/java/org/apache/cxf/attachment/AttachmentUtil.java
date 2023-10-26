@@ -46,6 +46,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.activation.CommandInfo;
 import jakarta.activation.CommandMap;
 import jakarta.activation.DataContentHandler;
@@ -179,9 +180,9 @@ public final class AttachmentUtil {
         Object directory = message.getContextualProperty(AttachmentDeserializer.ATTACHMENT_DIRECTORY);
         if (directory != null) {
             if (directory instanceof File) {
-                bos.setOutputDir((File) directory);
+                bos.setOutputDir((@RUntainted File) directory);
             } else if (directory instanceof String) {
-                bos.setOutputDir(new File((String) directory));
+                bos.setOutputDir(new File((@RUntainted String) directory));
             } else {
                 throw new IOException("The value set as " + AttachmentDeserializer.ATTACHMENT_DIRECTORY
                         + " should be either an instance of File or String");
