@@ -27,6 +27,7 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Map;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.bus.CXFBusFactory;
@@ -52,7 +53,7 @@ public class BusExtensionLoadingTest {
         try {
             Thread.currentThread().setContextClassLoader(new TestClassLoader());
             BusFactory factory = new CXFBusFactory() {
-                public Bus createBus(Map<Class<?>, Object> e, Map<String, Object> properties) {
+                public Bus createBus(Map<Class<?>, Object> e, Map<String, @RUntainted Object> properties) {
                     return new ExtensionManagerBus(e, properties, this.getClass().getClassLoader());
                 }
             };

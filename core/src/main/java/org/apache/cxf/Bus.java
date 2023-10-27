@@ -50,10 +50,10 @@ public interface Bus extends InterceptorProvider {
 
     void shutdown(boolean wait);
 
-    void setProperty(String s, Object o);
+    void setProperty(String s, @RUntainted Object o);
     @RUntainted Object getProperty(@RUntainted String s);
-    void setProperties(Map<String, Object> properties);
-    Map<String, Object> getProperties();
+    void setProperties(Map<String, @RUntainted Object> properties);
+    Map<String, @RUntainted Object> getProperties();
 
     Collection<Feature> getFeatures();
     void setFeatures(Collection<? extends Feature> features);

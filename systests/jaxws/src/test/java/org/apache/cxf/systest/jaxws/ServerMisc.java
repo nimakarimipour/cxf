@@ -27,6 +27,7 @@ import java.util.Map;
 
 import com.codahale.metrics.MetricRegistry;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.xml.ws.Endpoint;
 import org.apache.cxf.Bus;
 import org.apache.cxf.anonymous_complex_type.AnonymousComplexTypeImpl;
@@ -90,7 +91,7 @@ public class ServerMisc extends AbstractBusTestServerBase {
         JAXWSMethodInvoker invoker = new JAXWSMethodInvoker(factory);
         JaxWsServerFactoryBean factoryBean;
 
-        Map<String, Object> properties = new HashMap<>();
+        Map<String, @RUntainted Object> properties = new HashMap<>();
         properties.put("bus.jmx.usePlatformMBeanServer", Boolean.TRUE);
         properties.put("bus.jmx.enabled", Boolean.TRUE);
         Bus b = new CXFBusFactory().createBus(null, properties);
