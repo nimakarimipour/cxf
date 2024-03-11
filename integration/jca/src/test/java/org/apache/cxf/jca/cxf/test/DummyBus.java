@@ -126,7 +126,7 @@ public class DummyBus extends AbstractBasicInterceptorProvider implements Bus {
     }
 
 
-    public Map<String, Object> getProperties() {
+    public Map<@RUntainted String, @RUntainted Object> getProperties() {
         return Collections.emptyMap();
     }
 

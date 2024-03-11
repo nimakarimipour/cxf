@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Element;
 
 import org.apache.cxf.Bus;
@@ -161,7 +162,7 @@ public class BusDefinitionParser extends AbstractBeanDefinitionParser {
         String busName;
         String id;
         Collection<Feature> features;
-        Map<String, Object> properties;
+        Map<@RUntainted String, @RUntainted Object> properties;
 
         public BusConfig(String busName) {
             this.busName = busName;
@@ -287,13 +288,13 @@ public class BusDefinitionParser extends AbstractBeanDefinitionParser {
 
         }
 
-        public Map<String, Object> getProperties() {
+        public Map<@RUntainted String, @RUntainted Object> getProperties() {
             if (bus != null) {
                 return bus.getProperties();
             }
             return properties;
         }
-        public void setProperties(Map<String, Object> s) {
+        public void setProperties(Map<@RUntainted String, @RUntainted Object> s) {
             if (bus != null) {
                 bus.setProperties(s);
             } else {

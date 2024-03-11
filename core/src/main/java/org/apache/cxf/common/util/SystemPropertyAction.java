@@ -25,6 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.logging.LogUtils;
 
 /**
@@ -32,13 +33,13 @@ import org.apache.cxf.common.logging.LogUtils;
  */
 public final class SystemPropertyAction implements PrivilegedAction<String> {
     private static final Logger LOG = LogUtils.getL7dLogger(SystemPropertyAction.class);
-    private final String property;
+    private final @RUntainted String property;
     private final String def;
-    private SystemPropertyAction(String name) {
+    private SystemPropertyAction(@RUntainted String name) {
         property = name;
         def = null;
     }
-    private SystemPropertyAction(String name, String d) {
+    private SystemPropertyAction(@RUntainted String name, String d) {
         property = name;
         def = d;
     }

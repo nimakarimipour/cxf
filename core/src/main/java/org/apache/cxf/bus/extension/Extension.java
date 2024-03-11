@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.common.i18n.Message;
 import org.apache.cxf.common.logging.LogUtils;
@@ -41,7 +42,7 @@ public class Extension {
     protected ClassLoader classloader;
     protected volatile Class<?> clazz;
     protected volatile Class<?> intf;
-    protected String interfaceName;
+    protected @RUntainted String interfaceName;
     protected boolean deferred;
     protected Collection<String> namespaces = new ArrayList<>();
     protected Object[] args;
@@ -160,7 +161,7 @@ public class Extension {
         args = a;
     }
 
-    protected Class<?> tryClass(String name, ClassLoader cl) {
+    protected Class<?> tryClass(@RUntainted String name, ClassLoader cl) {
         Throwable origEx = null;
         if (classloader != null) {
             try {

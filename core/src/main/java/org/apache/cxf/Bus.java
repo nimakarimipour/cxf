@@ -54,7 +54,7 @@ public interface Bus extends InterceptorProvider {
     void setProperty(String s, Object o);
     @RUntainted Object getProperty(@RUntainted String s);
     void setProperties(Map<String, Object> properties);
-    Map<String, Object> getProperties();
+    Map<@RUntainted String, @RUntainted Object> getProperties();
 
     Collection<Feature> getFeatures();
     void setFeatures(Collection<? extends Feature> features);

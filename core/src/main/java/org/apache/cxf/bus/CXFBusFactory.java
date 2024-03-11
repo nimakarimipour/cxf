@@ -22,6 +22,7 @@ package org.apache.cxf.bus;
 import java.util.HashMap;
 import java.util.Map;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.bus.extension.ExtensionManagerBus;
@@ -36,7 +37,7 @@ public class CXFBusFactory extends BusFactory {
         return createBus(e, new HashMap<>());
     }
 
-    public Bus createBus(Map<Class<?>, Object> e, Map<String, Object> properties) {
+    public Bus createBus(Map<Class<?>, Object> e, Map<@RUntainted String, @RUntainted Object> properties) {
         ExtensionManagerBus bus = new ExtensionManagerBus(e, properties);
         possiblySetDefaultBus(bus);
         initializeBus(bus);

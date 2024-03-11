@@ -62,6 +62,7 @@ import javax.xml.transform.Source;
 import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.stream.StreamResult;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -260,7 +261,7 @@ public final class JAXBUtils {
      * @param namespaceURI the namespace URI.
      * @return the package name.
      */
-    public static String namespaceURIToPackage(String namespaceURI) {
+    public static @RPolyTainted String namespaceURIToPackage(@RPolyTainted String namespaceURI) {
         try {
             return nameSpaceURIToPackage(new URI(namespaceURI));
         } catch (URISyntaxException ex) {
@@ -275,7 +276,7 @@ public final class JAXBUtils {
      * @param uri the namespace URI.
      * @return the package name.
      */
-    public static String nameSpaceURIToPackage(URI uri) {
+    public static @RPolyTainted String nameSpaceURIToPackage(@RPolyTainted URI uri) {
 
         StringBuilder packageName = new StringBuilder();
         String authority = uri.getAuthority();
