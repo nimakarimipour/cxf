@@ -27,6 +27,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.StringTokenizer;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
 
 public final class URIParserUtil {
@@ -81,7 +82,7 @@ public final class URIParserUtil {
         }
         return sb.toString();
     }
-    public static String normalize(final String uri) {
+    public static String normalize(final @RUntainted String uri) {
         URL url = null;
         String result;
         try {
@@ -114,7 +115,7 @@ public final class URIParserUtil {
         return result;
     }
 
-    public static String getAbsoluteURI(final String arg) {
+    public static String getAbsoluteURI(final @RUntainted String arg) {
         if (arg == null) {
             return null;
         }
