@@ -183,12 +183,12 @@
         <dependency>
             <groupId>org.checkerframework</groupId>
             <artifactId>checker-qual</artifactId>
-            <version>${env.CF_VERSION}</version>
+            <version>3.42.0</version>
         </dependency>
         <dependency>
             <groupId>edu.ucr.cs.riple.taint</groupId>
             <artifactId>ucrtainting-checker-qual</artifactId>
-            <version>${env.UCRT_VERSION}</version>
+            <version>0.1-alpha-3-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <build>
@@ -345,7 +345,7 @@
                                 <path>
                                     <groupId>edu.ucr.cs.riple.taint</groupId>
                                     <artifactId>ucrtainting-checker</artifactId>
-                                    <version>${env.UCRT_VERSION}</version>
+                                    <version>0.1-alpha-3-SNAPSHOT</version>
                                 </path>
                                 <!-- <path>
                                     <groupId>edu.ucr.cs.riple.annotator</groupId>
@@ -355,7 +355,7 @@
                                 <path>
                                     <groupId>org.checkerframework</groupId>
                                     <artifactId>checker-qual</artifactId>
-                                    <version>${env.CF_VERSION}</version>
+                                    <version>3.42.0</version>
                                 </path>
                             </annotationProcessorPaths>
                             <annotationProcessors>
@@ -378,10 +378,10 @@
                                 <arg>-AenablePolyTaintInference=${env.ANNOTATOR_POLY}</arg>
                                 <arg>-AenableTypeArgumentInference=${env.ANNOTATOR_TYPE_ARG}</arg>
                                 <arg>-AenableSerialization</arg>
-                                <arg>-AserializationConfigPath=/home/nima/Developer/taint-benchmarks/cxf/annotator-out/checker.xml</arg>
+                                <arg>-AserializationConfigPath=/Users/kknock/RIPLE/taint/summer/cxf/annotator-out/checker.xml</arg>
                                 <arg>-XDcompilePolicy=simple</arg>
                                 <arg>-parameters</arg>
-                                <!-- <arg>-Xplugin:ErrorProne -XepDisableAllChecks -Xep:AnnotatorScanner:ERROR -XepOpt:AnnotatorScanner:ConfigPath=/home/nima/Developer/taint-benchmarks/cxf/annotator-out/scanner.xml</arg> -->
+                                <!-- <arg>-Xplugin:ErrorProne -XepDisableAllChecks -Xep:AnnotatorScanner:ERROR -XepOpt:AnnotatorScanner:ConfigPath=/Users/kknock/RIPLE/taint/summer/cxf/annotator-out/scanner.xml</arg> -->
                             </compilerArgs>
                         </configuration>
                     </plugin>
@@ -391,12 +391,12 @@
                 <dependency>
                     <groupId>org.checkerframework</groupId>
                     <artifactId>checker</artifactId>
-                    <version>${env.CF_VERSION}</version>
+                    <version>3.42.0</version>
                 </dependency>
                 <dependency>
                     <groupId>org.checkerframework</groupId>
                     <artifactId>checker-qual</artifactId>
-                    <version>${env.CF_VERSION}</version>
+                    <version>3.42.0</version>
                 </dependency>
             </dependencies>
         </profile>
