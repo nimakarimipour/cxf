@@ -18,6 +18,8 @@
  */
 package org.apache.cxf.common.util;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
@@ -51,7 +53,7 @@ public class ProxyClassLoader extends ClassLoader {
     }
 
     @Override
-    public Class<?> findClass(String name) throws ClassNotFoundException {
+    public Class<?> findClass(@RUntainted String name) throws ClassNotFoundException {
         if (classes != null) {
             for (Class<?> c : classes) {
                 if (name.equals(c.getName())) {

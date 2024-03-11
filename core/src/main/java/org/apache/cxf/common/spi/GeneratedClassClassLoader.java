@@ -21,6 +21,7 @@ package org.apache.cxf.common.spi;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
 import org.apache.cxf.common.logging.LogUtils;
@@ -79,7 +80,7 @@ public class GeneratedClassClassLoader {
         }
 
         @Override
-        protected Class<?> findClass(String name) throws ClassNotFoundException {
+        protected Class<?> findClass(@RUntainted String name) throws ClassNotFoundException {
             if (name.endsWith("package-info")) {
                 return getParent().loadClass(name);
             }

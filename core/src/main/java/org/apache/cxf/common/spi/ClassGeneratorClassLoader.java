@@ -23,6 +23,7 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.common.util.StringUtils;
@@ -117,7 +118,7 @@ public class ClassGeneratorClassLoader {
         }
 
         @Override
-        protected Class<?> findClass(String name) throws ClassNotFoundException {
+        protected Class<?> findClass(@RUntainted String name) throws ClassNotFoundException {
             if (name.endsWith("package-info")) {
                 return getParent().loadClass(name);
             }

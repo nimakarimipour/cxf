@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.logging.LogUtils;
 
 
@@ -121,7 +122,7 @@ public class PlugInClassLoader extends SecureClassLoader {
         return urlList.toArray(new String[0]);
     }
 
-    protected Class<?> findClass(String name) throws ClassNotFoundException {
+    protected Class<?> findClass(@RUntainted String name) throws ClassNotFoundException {
         String path = name.replace('.', '/').concat(".class");
         LOG.fine("findClass " + path);
         byte[] bytes = null;

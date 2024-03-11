@@ -29,6 +29,7 @@ import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Node;
 
 import org.apache.cxf.annotations.SchemaValidation.SchemaValidationType;
