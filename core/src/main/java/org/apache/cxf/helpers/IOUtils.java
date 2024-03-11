@@ -34,12 +34,13 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.Objects;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.io.CopyingOutputStream;
 import org.apache.cxf.io.Transferable;
 
 public final class IOUtils {
     public static final Charset UTF8_CHARSET = java.nio.charset.StandardCharsets.UTF_8;
-    public static final int DEFAULT_BUFFER_SIZE = 1024 * 4;
+    public static final @RUntainted int DEFAULT_BUFFER_SIZE = 1024 * 4;
 
     private IOUtils() {
 
@@ -201,7 +202,7 @@ public final class IOUtils {
     }
 
     public static void copyAndCloseInput(final Reader input,
-            final Writer output, int bufferSize) throws IOException {
+            final Writer output, @RUntainted int bufferSize) throws IOException {
         try (Reader r = input) {
             copy(r, output, bufferSize);
         }
@@ -267,7 +268,7 @@ public final class IOUtils {
                                    int atLeast) throws IOException {
         Objects.requireNonNull(input, "The reader is required but null value was provided");
         Objects.requireNonNull(output, "The writer is required but null value was provided");
-        final char[] buffer = new char[4096];
+        final @RUntainted char[] buffer = new char[4096];
         int n = atLeast > buffer.length ? buffer.length : atLeast;
         n = input.read(buffer, 0, n);
         while (-1 != n) {
@@ -286,10 +287,10 @@ public final class IOUtils {
 
 
     public static void copy(final Reader input, final Writer output,
-            final int bufferSize) throws IOException {
+            final @RUntainted int bufferSize) throws IOException {
         Objects.requireNonNull(input, "The reader is required but null value was provided");
         Objects.requireNonNull(output, "The writer is required but null value was provided");
-        final char[] buffer = new char[bufferSize];
+        final @RUntainted char[] buffer = new char[bufferSize];
         int n = input.read(buffer);
         while (-1 != n) {
             output.write(buffer, 0, n);
