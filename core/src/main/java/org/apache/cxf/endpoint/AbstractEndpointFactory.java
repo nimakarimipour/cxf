@@ -28,6 +28,7 @@ import java.util.logging.Logger;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusException;
 import org.apache.cxf.BusFactory;
@@ -62,7 +63,7 @@ public abstract class AbstractEndpointFactory extends AbstractBasicInterceptorPr
     protected Map<String, Object> properties;
     protected List<Feature> features;
     protected BindingConfiguration bindingConfig;
-    protected EndpointReferenceType endpointReference;
+    protected @RUntainted EndpointReferenceType endpointReference;
     protected ConduitSelector conduitSelector;
 
     protected abstract Endpoint createEndpoint() throws BusException, EndpointException;
@@ -148,7 +149,7 @@ public abstract class AbstractEndpointFactory extends AbstractBasicInterceptorPr
         return serviceName;
     }
 
-    public void setEndpointReference(EndpointReferenceType epr) {
+    public void setEndpointReference(@RUntainted EndpointReferenceType epr) {
         endpointReference = epr;
     }
 

@@ -32,6 +32,7 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.SystemPropertyAction;
@@ -71,7 +72,7 @@ public final class FileUtils {
         return isValid;
     }
 
-    public static synchronized File getDefaultTempDir() {
+    public static synchronized @RUntainted File getDefaultTempDir() {
         if (defaultTempDir != null
             && exists(defaultTempDir)) {
             return defaultTempDir;
@@ -134,7 +135,7 @@ public final class FileUtils {
     public static File createTmpDir() {
         return createTmpDir(true);
     }
-    public static File createTmpDir(boolean addHook) {
+    public static @RUntainted File createTmpDir(boolean addHook) {
         String s = SystemPropertyAction.getProperty("java.io.tmpdir");
         File checkExists = new File(s);
         if (!exists(checkExists) || !checkExists.isDirectory()) {
@@ -175,7 +176,7 @@ public final class FileUtils {
             newTmpDir = f;
         }
         if (addHook) {
-            final @RUntainted File f2 = newTmpDir;
+            final File f2 = newTmpDir;
             Thread hook = new Thread() {
                 @Override
                 public void run() {
@@ -260,11 +261,11 @@ public final class FileUtils {
         }
     }
 
-    public static File createTempFile(String prefix, String suffix) throws IOException {
+    public static @RPolyTainted File createTempFile(@RPolyTainted String prefix, @RPolyTainted String suffix) throws IOException {
         return createTempFile(prefix, suffix, null, false);
     }
 
-    public static File createTempFile(String prefix, String suffix, File parentDir,
+    public static @RPolyTainted File createTempFile(@RPolyTainted String prefix, @RPolyTainted String suffix, @RPolyTainted File parentDir,
                                boolean deleteOnExit) throws IOException {
         File parent = (parentDir == null)
             ? getDefaultTempDir()

@@ -26,6 +26,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.binding.BindingFactoryManager;
@@ -65,12 +67,12 @@ public class ExtensionManagerBus extends AbstractBasicInterceptorProvider implem
     protected String id;
     private BusState state;
     private final Collection<Feature> features = new CopyOnWriteArrayList<>();
-    private final Map<String, Object> properties = new ConcurrentHashMap<>(16, 0.75f, 4);
+    private final Map<@RUntainted String, @RUntainted Object> properties = new ConcurrentHashMap<>(16, 0.75f, 4);
 
 
     private final ExtensionManagerImpl extensionManager;
 
-    public ExtensionManagerBus(Map<Class<?>, Object> extensions, Map<String, Object> props,
+    public ExtensionManagerBus(Map<Class<?>, Object> extensions, Map<@RUntainted String, @RUntainted Object> props,
           ClassLoader extensionClassLoader) {
         this.extensions = extensions == null ? new ConcurrentHashMap<>(16, 0.75f, 4)
                 : new ConcurrentHashMap<>(extensions);
@@ -326,20 +328,20 @@ public class ExtensionManagerBus extends AbstractBasicInterceptorProvider implem
         <T> T findExtension(Class<T> cls);
     }
 
-    public Map<String, Object> getProperties() {
+    public Map<@RUntainted String, @RUntainted Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(Map<String, Object> map) {
+    public void setProperties(Map<@RUntainted String, @RUntainted Object> map) {
         properties.clear();
         properties.putAll(map);
     }
 
-    public Object getProperty(String s) {
+    public @RUntainted Object getProperty(@RUntainted String s) {
         return properties.get(s);
     }
 
-    public void setProperty(String s, Object o) {
+    public void setProperty(@RUntainted String s, @RUntainted Object o) {
         if (o == null) {
             properties.remove(s);
         } else {
@@ -349,7 +351,7 @@ public class ExtensionManagerBus extends AbstractBasicInterceptorProvider implem
 
 
 
-    private static String getBusId(Map<String, Object> properties) {
+    private static @RUntainted String getBusId(Map<@RUntainted String, @RUntainted Object> properties) {
 
         String busId;
 

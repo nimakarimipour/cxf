@@ -26,6 +26,7 @@ import java.net.URI;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.catalog.OASISCatalogManager;
@@ -202,7 +203,7 @@ public abstract class AbstractToolContainer implements ToolContainer {
 
         return bus;
     }
-    protected String getCatalogURL() {
+    protected @RUntainted String getCatalogURL() {
         String catalogLocation = (String) context.get(ToolConstants.CFG_CATALOG);
         return URIParserUtil.getAbsoluteURI(catalogLocation);
     }

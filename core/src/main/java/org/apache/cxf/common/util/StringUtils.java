@@ -19,6 +19,8 @@
 
 package org.apache.cxf.common.util;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -85,11 +87,11 @@ public final class StringUtils {
         return null;
     }
 
-    public static String addDefaultPortIfMissing(String urlString) {
+    public static String addDefaultPortIfMissing(@RUntainted String urlString) {
         return addDefaultPortIfMissing(urlString, "80");
     }
 
-    public static String addDefaultPortIfMissing(String urlString, String defaultPort) {
+    public static String addDefaultPortIfMissing(@RUntainted String urlString, String defaultPort) {
         try {
             if (new URL(urlString).getPort() != -1) {
                 return urlString;

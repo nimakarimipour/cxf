@@ -22,6 +22,8 @@ package org.apache.cxf;
 import java.util.Collection;
 import java.util.Map;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.feature.Feature;
 import org.apache.cxf.interceptor.InterceptorProvider;
 
@@ -50,7 +52,7 @@ public interface Bus extends InterceptorProvider {
     void shutdown(boolean wait);
 
     void setProperty(String s, Object o);
-    Object getProperty(String s);
+    @RUntainted Object getProperty(@RUntainted String s);
     void setProperties(Map<String, Object> properties);
     Map<String, Object> getProperties();
 

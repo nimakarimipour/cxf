@@ -25,6 +25,8 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusException;
 import org.apache.cxf.common.i18n.Message;
@@ -129,7 +131,7 @@ public class DummyBus extends AbstractBasicInterceptorProvider implements Bus {
     }
 
 
-    public Object getProperty(String s) {
+    public @RUntainted Object getProperty(@RUntainted String s) {
         return null;
     }
 

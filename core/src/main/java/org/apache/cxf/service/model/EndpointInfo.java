@@ -21,6 +21,7 @@ package org.apache.cxf.service.model;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.ws.addressing.AttributedURIType;
 import org.apache.cxf.ws.addressing.EndpointReferenceType;
 
@@ -32,7 +33,7 @@ public class EndpointInfo extends AbstractDescriptionElement implements NamedIte
     ServiceInfo service;
     BindingInfo binding;
     QName name;
-    EndpointReferenceType address;
+    @RUntainted EndpointReferenceType address;
 
     public EndpointInfo() {
     }
@@ -88,7 +89,7 @@ public class EndpointInfo extends AbstractDescriptionElement implements NamedIte
         binding = b;
     }
 
-    public String getAddress() {
+    public @RUntainted String getAddress() {
         return (null != address && null != address.getAddress()) ? address.getAddress().getValue() : null;
     }
 
@@ -108,7 +109,7 @@ public class EndpointInfo extends AbstractDescriptionElement implements NamedIte
         }
     }
 
-    public void setAddress(EndpointReferenceType endpointReference) {
+    public void setAddress(@RUntainted EndpointReferenceType endpointReference) {
         address = endpointReference;
     }
 

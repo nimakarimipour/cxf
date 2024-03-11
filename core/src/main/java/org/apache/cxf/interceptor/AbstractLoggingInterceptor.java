@@ -36,6 +36,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 import javax.xml.transform.stream.StreamSource;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.PropertyUtils;
 import org.apache.cxf.common.util.StringUtils;
@@ -111,7 +112,7 @@ public abstract class AbstractLoggingInterceptor extends AbstractPhaseIntercepto
         return logger;
     }
 
-    public void setOutputLocation(String s) {
+    public void setOutputLocation(@RUntainted String s) {
         if (s == null || "<logger>".equals(s)) {
             writer = null;
         } else if ("<stdout>".equals(s)) {

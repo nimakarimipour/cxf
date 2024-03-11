@@ -26,6 +26,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.interceptor.AbstractLoggingInterceptor;
 
 /**
@@ -47,8 +48,8 @@ public @interface Logging {
      * <logger> which means to log to the java.util.logging.Logger,
      * but <stdout>, <stderr>, and a "file:/.." URI are acceptable.
      */
-    String inLocation() default "<logger>";
-    String outLocation() default "<logger>";
+    @RUntainted String inLocation() default "<logger>";
+    @RUntainted String outLocation() default "<logger>";
 
 
     /**

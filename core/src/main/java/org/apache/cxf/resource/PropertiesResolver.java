@@ -19,14 +19,16 @@
 
 package org.apache.cxf.resource;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.io.InputStream;
 import java.util.Map;
 
 public class PropertiesResolver implements ResourceResolver {
 
-    private final Map<String, Object> properties;
+    private final Map<@RUntainted String, @RUntainted Object> properties;
 
-    public PropertiesResolver(Map<String, Object> p) {
+    public PropertiesResolver(Map<@RUntainted String, @RUntainted Object> p) {
         properties = p;
     }
 

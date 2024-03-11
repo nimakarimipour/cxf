@@ -39,7 +39,7 @@ public class GeneratedClassClassLoader {
     public GeneratedClassClassLoader(Bus bus) {
         this.bus = bus;
     }
-    protected Class<?> findClass(String className, Class<?> callingClass) {
+    protected Class<?> findClass(@RUntainted String className, Class<?> callingClass) {
         ClassLoader cl = getClassLoader();
         try {
             return cl.loadClass(className);

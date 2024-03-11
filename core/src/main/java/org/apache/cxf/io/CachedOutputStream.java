@@ -40,6 +40,7 @@ import java.util.List;
 import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.common.util.SystemPropertyAction;
@@ -130,7 +131,7 @@ public class CachedOutputStream extends OutputStream {
         }
     }
 
-    private static String getBusProperty(Bus b, String key, String dflt) {
+    private static @RUntainted String getBusProperty(Bus b, @RUntainted String key, @RUntainted String dflt) {
         String v = (String)b.getProperty(key);
         return v != null ? v : dflt;
     }

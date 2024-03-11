@@ -29,6 +29,7 @@ import java.util.logging.Logger;
 
 import javax.xml.datatype.Duration;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.endpoint.Client;
@@ -371,7 +372,7 @@ public class Proxy {
     }
 
     protected Client createClient(Bus bus, Endpoint endpoint, final ProtocolVariation protocol,
-                                  Conduit conduit, final EndpointReferenceType address) {
+                                  Conduit conduit, final @RUntainted EndpointReferenceType address) {
         ConduitSelector cs = new DeferredConduitSelector(conduit) {
             @Override
             public synchronized Conduit selectConduit(Message message) {

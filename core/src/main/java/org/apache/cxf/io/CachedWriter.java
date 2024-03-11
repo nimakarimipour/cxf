@@ -42,6 +42,7 @@ import java.util.List;
 import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.common.util.SystemPropertyAction;
@@ -150,7 +151,7 @@ public class CachedWriter extends Writer {
         }
     }
 
-    private static String getBusProperty(Bus b, String key, String dflt) {
+    private static @RUntainted String getBusProperty(Bus b, @RUntainted String key, @RUntainted String dflt) {
         String v = (String)b.getProperty(key);
         return v != null ? v : dflt;
     }
@@ -325,7 +326,7 @@ public class CachedWriter extends Writer {
         // read the file
         try (Reader fin = createInputStreamReader(tempFile)) {
             CharArrayWriter out = new CharArrayWriter((int)tempFile.length());
-            char[] bytes = new char[1024];
+            @RUntainted char[] bytes = new char[1024];
             int x = fin.read(bytes);
             while (x != -1) {
                 out.write(bytes, 0, x);
@@ -346,7 +347,7 @@ public class CachedWriter extends Writer {
         } else {
             // read the file
             try (Reader fin = createInputStreamReader(tempFile)) {
-                char[] bytes = new char[1024];
+                @RUntainted char[] bytes = new char[1024];
                 int x = fin.read(bytes);
                 while (x != -1) {
                     out.write(bytes, 0, x);
@@ -454,7 +455,7 @@ public class CachedWriter extends Writer {
     }
 
 
-    public void write(char[] cbuf, int off, int len) throws IOException {
+    public void write(@RUntainted char[] cbuf, int off, int len) throws IOException {
         if (!outputLocked) {
             onWrite();
             this.totalLength += len;
