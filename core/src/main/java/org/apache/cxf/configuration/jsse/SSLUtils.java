@@ -202,7 +202,7 @@ public final class SSLUtils {
         return Files.readAllBytes(path);
     }
 
-    public static String getKeystore(String keyStoreLocation, Logger log) {
+    public static @RPolyTainted String getKeystore(@RPolyTainted String keyStoreLocation, Logger log) {
         final String logMsg;
         if (keyStoreLocation != null) {
             logMsg = "KEY_STORE_SET";
