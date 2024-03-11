@@ -34,6 +34,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.activation.DataHandler;
 import org.apache.cxf.common.util.Base64Utility;
 import org.apache.cxf.helpers.IOUtils;
@@ -47,7 +48,7 @@ public class AttachmentSerializer {
     private String contentTransferEncoding = AttachmentUtil.BINARY;
 
     private Message message;
-    private String bodyBoundary;
+    private @RUntainted String bodyBoundary;
     private OutputStream out;
     private String encoding;
 

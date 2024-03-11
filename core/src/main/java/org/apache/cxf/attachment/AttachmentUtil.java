@@ -46,6 +46,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.activation.CommandInfo;
 import jakarta.activation.CommandMap;
 import jakarta.activation.DataContentHandler;
@@ -255,7 +256,7 @@ public final class AttachmentUtil {
             + URLEncoder.encode(cid, StandardCharsets.UTF_8.name());
     }
 
-    public static String getUniqueBoundaryValue() {
+    public static @RUntainted String getUniqueBoundaryValue() {
         //generate a random UUID.
         //we don't need the cryptographically secure random uuid that
         //UUID.randomUUID() will produce.  Thus, use a faster

@@ -32,12 +32,13 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.SystemPropertyAction;
 
 public final class FileUtils {
     private static final long RETRY_SLEEP_MILLIS = 10L;
-    private static File defaultTempDir;
+    private static @RUntainted File defaultTempDir;
     private static Thread shutdownHook;
     private static final char[] ILLEGAL_CHARACTERS
         = {'/', '\n', '\r', '\t', '\0', '\f', '`', '?', '*', '\\', '<', '>', '|', '\"', ':'};
@@ -174,7 +175,7 @@ public final class FileUtils {
             newTmpDir = f;
         }
         if (addHook) {
-            final File f2 = newTmpDir;
+            final @RUntainted File f2 = newTmpDir;
             Thread hook = new Thread() {
                 @Override
                 public void run() {
@@ -223,11 +224,11 @@ public final class FileUtils {
         return true;
     }
 
-    public static void removeDir(File d) {
+    public static void removeDir(@RUntainted File d) {
         removeDir(d, false);
     }
-    private static void removeDir(File d, boolean inShutdown) {
-        String[] list = d.list();
+    private static void removeDir(@RUntainted File d, boolean inShutdown) {
+        @RUntainted String[] list = d.list();
         if (list == null) {
             list = new String[0];
         }

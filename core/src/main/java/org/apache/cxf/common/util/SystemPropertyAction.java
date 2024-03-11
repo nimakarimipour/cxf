@@ -71,7 +71,7 @@ public final class SystemPropertyAction implements PrivilegedAction<String> {
      * raised, just return null;
      * @param name
      */
-    public static String getPropertyOrNull(String name) {
+    public static @RPolyTainted String getPropertyOrNull(@RPolyTainted String name) {
         try {
             return AccessController.doPrivileged(new SystemPropertyAction(name));
         } catch (SecurityException ex) {
