@@ -24,6 +24,7 @@ import java.security.PrivilegedAction;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 import org.apache.cxf.common.logging.LogUtils;
 
 /**
@@ -52,7 +53,7 @@ public final class SystemPropertyAction implements PrivilegedAction<String> {
         return System.getProperty(property);
     }
 
-    public static String getProperty(String name) {
+    public static @RPolyTainted String getProperty(@RPolyTainted String name) {
         return AccessController.doPrivileged(new SystemPropertyAction(name));
     }
 
