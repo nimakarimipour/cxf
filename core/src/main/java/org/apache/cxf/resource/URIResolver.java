@@ -102,7 +102,7 @@ public class URIResolver implements AutoCloseable {
         this.is = null;
     }
 
-    public void resolve(@RUntainted String baseUriStr, @RUntainted String uriStr, Class<?> callingCls) throws IOException {
+    public void resolve(@RUntainted String baseUriStr, @RUntainted String uriStr, @RUntainted Class<?> callingCls) throws IOException {
         this.calling = (callingCls != null) ? callingCls : getClass();
         this.file = null;
         this.uri = null;

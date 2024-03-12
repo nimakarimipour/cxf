@@ -30,6 +30,7 @@ import java.util.logging.Logger;
 
 import javax.xml.transform.dom.DOMSource;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Document;
 
 import org.apache.cxf.Bus;
@@ -50,7 +51,7 @@ public abstract class AbstractServiceFactoryBean {
     private static final Logger LOG = LogUtils.getL7dLogger(AbstractServiceFactoryBean.class);
 
     protected boolean dataBindingSet;
-    protected List<String> schemaLocations;
+    protected List<@RUntainted String> schemaLocations;
 
     private Bus bus;
     private DataBinding dataBinding;

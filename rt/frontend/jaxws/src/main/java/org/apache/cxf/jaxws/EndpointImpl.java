@@ -35,6 +35,7 @@ import javax.wsdl.Definition;
 import javax.xml.namespace.QName;
 import javax.xml.transform.Source;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Element;
 
 import jakarta.xml.ws.Binding;
@@ -113,7 +114,7 @@ public class EndpointImpl extends jakarta.xml.ws.Endpoint
     private QName serviceName;
     private Class<?> implementorClass;
 
-    private List<String> schemaLocations;
+    private List<@RUntainted String> schemaLocations;
     private List<Feature> features;
     private List<Interceptor<? extends Message>> in
         = new ModCountCopyOnWriteArrayList<>();
@@ -790,11 +791,11 @@ public class EndpointImpl extends jakarta.xml.ws.Endpoint
         return serverFactory.getBindingConfig();
     }
 
-    public List<String> getSchemaLocations() {
+    public List<@RUntainted String> getSchemaLocations() {
         return schemaLocations;
     }
 
-    public void setSchemaLocations(List<String> schemaLocations) {
+    public void setSchemaLocations(List<@RUntainted String> schemaLocations) {
         this.schemaLocations = schemaLocations;
     }
 

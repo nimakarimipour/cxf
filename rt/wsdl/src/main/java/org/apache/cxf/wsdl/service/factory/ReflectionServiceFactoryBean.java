@@ -49,6 +49,7 @@ import java.util.logging.Logger;
 import javax.wsdl.Operation;
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.DOMError;
 import org.w3c.dom.DOMErrorHandler;
 
@@ -2619,7 +2620,7 @@ public class ReflectionServiceFactoryBean extends org.apache.cxf.service.factory
         this.validate = validate;
     }
 
-    public void setSchemaLocations(List<String> schemaLocations) {
+    public void setSchemaLocations(List<@RUntainted String> schemaLocations) {
         this.schemaLocations = schemaLocations;
     }
 }

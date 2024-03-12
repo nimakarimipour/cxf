@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.List;
 
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.BusException;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
 import org.apache.cxf.common.classloader.ClassLoaderUtils.ClassLoaderHolder;
@@ -77,7 +78,7 @@ import org.apache.cxf.wsdl11.WSDLEndpointFactory;
 public class ServerFactoryBean extends AbstractWSDLBasedEndpointFactory {
     private boolean start = true;
     private Object serviceBean;
-    private List<String> schemaLocations;
+    private List<@RUntainted String> schemaLocations;
     private Invoker invoker;
 
     public ServerFactoryBean() {
@@ -296,11 +297,11 @@ public class ServerFactoryBean extends AbstractWSDLBasedEndpointFactory {
         this.serviceBean = serviceBean;
     }
 
-    public List<String> getSchemaLocations() {
+    public List<@RUntainted String> getSchemaLocations() {
         return schemaLocations;
     }
 
-    public void setSchemaLocations(List<String> schemaLocations) {
+    public void setSchemaLocations(List<@RUntainted String> schemaLocations) {
         this.schemaLocations = schemaLocations;
     }
 
