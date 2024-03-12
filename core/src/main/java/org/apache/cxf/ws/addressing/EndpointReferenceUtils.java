@@ -105,8 +105,8 @@ public final class EndpointReferenceUtils {
             this.bus = b;
         }
 
-        public LSInput resolveResource(String type, String namespaceURI, String publicId,
-                                       String systemId, String baseURI) {
+        public LSInput resolveResource(String type, String namespaceURI, @RUntainted String publicId,
+                                       @RUntainted String systemId, @RUntainted String baseURI) {
 
             String newId = systemId;
             if (baseURI != null && systemId != null) {  //add additional systemId null check

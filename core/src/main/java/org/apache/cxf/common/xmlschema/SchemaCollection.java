@@ -27,6 +27,7 @@ import java.util.Set;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -60,7 +61,7 @@ import org.apache.ws.commons.schema.utils.XmlSchemaObjectBase;
  */
 public class SchemaCollection {
 
-    private final XmlSchemaCollection xmlSchemaCollection;
+    private final @RUntainted XmlSchemaCollection xmlSchemaCollection;
     private final Map<XmlSchema, Set<XmlSchemaType>> xmlTypesCheckedForCrossImportsPerSchema
         = new HashMap<>();
 
@@ -68,7 +69,7 @@ public class SchemaCollection {
         this(new XmlSchemaCollection());
     }
 
-    public SchemaCollection(XmlSchemaCollection col) {
+    public SchemaCollection(@RUntainted XmlSchemaCollection col) {
         xmlSchemaCollection = col;
         if (xmlSchemaCollection.getNamespaceContext() == null) {
             // an empty prefix map avoids extra checks for null.
@@ -76,7 +77,7 @@ public class SchemaCollection {
         }
     }
 
-    public XmlSchemaCollection getXmlSchemaCollection() {
+    public @RUntainted XmlSchemaCollection getXmlSchemaCollection() {
         return xmlSchemaCollection;
     }
 
@@ -113,7 +114,7 @@ public class SchemaCollection {
         return xmlSchemaCollection.getXmlSchema(systemId);
     }
 
-    public XmlSchema[] getXmlSchemas() {
+    public @RUntainted XmlSchema[] getXmlSchemas() {
         return xmlSchemaCollection.getXmlSchemas();
     }
 
