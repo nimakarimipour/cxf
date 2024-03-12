@@ -33,6 +33,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.i18n.Message;
 import org.apache.cxf.common.logging.LogUtils;
 
@@ -59,7 +60,7 @@ public final class Base64Utility {
 
     // base 64 character set
     //
-    private static final char[] BCS = {
+    private static final @RUntainted char[] BCS = {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
         'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
         'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd',
@@ -69,7 +70,7 @@ public final class Base64Utility {
         '8', '9', '+', '/'
     };
 
-    private static final char[] BCS_URL_SAFE = Arrays.copyOf(BCS, BCS.length);
+    private static final @RUntainted char[] BCS_URL_SAFE = Arrays.copyOf(BCS, BCS.length);
 
     // base 64 padding
     private static final char PAD = '=';
@@ -246,26 +247,26 @@ public final class Base64Utility {
 
     // Returns base64 representation of specified byte array.
     //
-    public static String encode(byte[] id) {
+    public static @RUntainted String encode(@RUntainted byte[] id) {
         return encode(id, false);
     }
 
-    public static String encode(byte[] id, boolean urlSafe) {
-        char[] cd = encodeChunk(id, 0, id.length, urlSafe);
+    public static @RUntainted String encode(@RUntainted byte[] id, @RUntainted boolean urlSafe) {
+        @RUntainted char[] cd = encodeChunk(id, 0, id.length, urlSafe);
         return new String(cd, 0, cd.length);
     }
 
     // Returns base64 representation of specified byte array.
     //
-    public static char[] encodeChunk(byte[] id,
-                                     int o,
-                                     int l) {
+    public static @RUntainted char[] encodeChunk(@RUntainted byte[] id,
+                                     @RUntainted int o,
+                                     @RUntainted int l) {
         return encodeChunk(id, o, l, false);
     }
 
-    public static char[] encodeChunk(byte[] id,
-                                     int o,
-                                     int l,
+    public static @RUntainted char[] encodeChunk(@RUntainted byte[] id,
+                                     @RUntainted int o,
+                                     @RUntainted int l,
                                      boolean urlSafe) {
         if (id != null && id.length == 0 && l == 0) {
             return new char[0];
@@ -273,7 +274,7 @@ public final class Base64Utility {
             return null;
         }
 
-        char[] out;
+        @RUntainted char[] out;
 
         // If not a multiple of 3 octets then a final padded 4 char
         // slot is needed.
@@ -289,7 +290,7 @@ public final class Base64Utility {
         int windex = 0;
         int rest = l;
 
-        final char[] base64Table = urlSafe ? BCS_URL_SAFE : BCS;
+        final @RUntainted char[] base64Table = urlSafe ? BCS_URL_SAFE : BCS;
         while (rest >= 3) {
             int i = ((id[rindex] & 0xff) << 16)
                     + ((id[rindex + 1] & 0xff) << 8)
@@ -390,9 +391,9 @@ public final class Base64Utility {
     // Outputs base64 representation of the specified byte array
     // to a byte stream.
     //
-    public static void encodeChunk(byte[] id,
-                                   int o,
-                                   int l,
+    public static void encodeChunk(@RUntainted byte[] id,
+                                   @RUntainted int o,
+                                   @RUntainted int l,
                                    OutputStream ostream) throws Base64Exception {
         try {
             ostream.write(new String(encodeChunk(id, o, l)).getBytes());
@@ -404,9 +405,9 @@ public final class Base64Utility {
     // Outputs base64 representation of the specified byte
     // array to a character stream.
     //
-    public static void encode(byte[] id,
-                              int o,
-                              int l,
+    public static void encode(@RUntainted byte[] id,
+                              @RUntainted int o,
+                              @RUntainted int l,
                               Writer writer) throws Base64Exception {
         try {
             writer.write(encodeChunk(id, o, l));

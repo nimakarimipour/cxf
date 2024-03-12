@@ -518,7 +518,7 @@ public final class AttachmentUtil {
     }
 
     public static Attachment createMtomAttachmentFromDH(
-        boolean isXop, DataHandler handler, String elementNS, int threshold) {
+        boolean isXop, @RUntainted DataHandler handler, String elementNS, int threshold) {
         if (!isXop) {
             return null;
         }
@@ -566,7 +566,7 @@ public final class AttachmentUtil {
         return att;
     }
 
-    public static DataSource getAttachmentDataSource(String contentId, Collection<Attachment> atts) {
+    public static DataSource getAttachmentDataSource(@RUntainted String contentId, Collection<Attachment> atts) {
         //
         // RFC-2392 (https://datatracker.ietf.org/doc/html/rfc2392) says:
         //

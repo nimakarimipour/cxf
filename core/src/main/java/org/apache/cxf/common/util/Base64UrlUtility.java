@@ -27,6 +27,8 @@ package org.apache.cxf.common.util;
  *
  */
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
@@ -41,16 +43,16 @@ public final class Base64UrlUtility {
         return Base64Utility.decode(encoded, true);
     }
 
-    public static String encode(String str) {
+    public static @RUntainted String encode(@RUntainted String str) {
         return encode(str.getBytes(StandardCharsets.UTF_8));
     }
 
-    public static String encode(byte[] id) {
+    public static @RUntainted String encode(@RUntainted byte[] id) {
         return encodeChunk(id, 0, id.length);
     }
 
-    public static String encodeChunk(byte[] id, int offset, int length) {
-        char[] chunk = Base64Utility.encodeChunk(id, offset, length, true);
+    public static @RUntainted String encodeChunk(@RUntainted byte[] id, @RUntainted int offset, @RUntainted int length) {
+        @RUntainted char[] chunk = Base64Utility.encodeChunk(id, offset, length, true);
         if (chunk != null) {
             return new String(chunk);
         }

@@ -18,6 +18,8 @@
  */
 package org.apache.cxf.common.util;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -36,13 +38,13 @@ public class MessageDigestInputStream extends java.security.DigestInputStream {
             throw new SecurityException(ex);
         }
     }
-    public byte[] getDigestBytes() {
+    public @RUntainted byte[] getDigestBytes() {
         return super.getMessageDigest().digest();
     }
-    public String getBase64Digest() {
+    public @RUntainted String getBase64Digest() {
         return Base64Utility.encode(getDigestBytes());
     }
-    public String getBase64UrlDigest() {
+    public @RUntainted String getBase64UrlDigest() {
         return Base64UrlUtility.encode(getDigestBytes());
     }
 }
