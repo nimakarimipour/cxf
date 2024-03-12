@@ -60,7 +60,7 @@ public class URIResolver implements AutoCloseable {
     private static final Logger LOG = LogUtils.getLogger(URIResolver.class);
 
     private Map<String, LoadingByteArrayOutputStream> cache = new HashMap<>();
-    private File file;
+    private @RUntainted File file;
     private @RUntainted URI uri;
     private @RUntainted URL url;
     private InputStream is;
@@ -445,7 +445,7 @@ public class URIResolver implements AutoCloseable {
         return false;
     }
 
-    public File getFile() {
+    public @RUntainted File getFile() {
         return file;
     }
 

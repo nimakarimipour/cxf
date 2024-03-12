@@ -59,7 +59,7 @@ public class OASISCatalogManager {
 
 
     private EntityResolver resolver;
-    private Object catalog;
+    private @RUntainted Object catalog;
     private Set<String> loadedCatalogs = new CopyOnWriteArraySet<>();
     private Bus bus;
 
@@ -79,7 +79,7 @@ public class OASISCatalogManager {
         return !loadedCatalogs.isEmpty();
     }
 
-    private static Object getCatalog(EntityResolver resolver) {
+    private static @RUntainted Object getCatalog(@RUntainted EntityResolver resolver) {
         try {
             return ((CatalogResolver)resolver).getCatalog();
         } catch (Throwable t) {
@@ -224,20 +224,20 @@ public class OASISCatalogManager {
 
     }
 
-    public String resolveSystem(String sys) throws MalformedURLException, IOException {
+    public @RUntainted String resolveSystem(@RUntainted String sys) throws MalformedURLException, IOException {
         if (catalog == null) {
             return null;
         }
         return ((Catalog)catalog).resolveSystem(sys);
     }
 
-    public String resolveURI(String uri) throws MalformedURLException, IOException {
+    public @RUntainted String resolveURI(@RUntainted String uri) throws MalformedURLException, IOException {
         if (catalog == null) {
             return null;
         }
         return ((Catalog)catalog).resolveURI(uri);
     }
-    public String resolvePublic(String uri, String parent) throws MalformedURLException, IOException {
+    public @RUntainted String resolvePublic(@RUntainted String uri, @RUntainted String parent) throws MalformedURLException, IOException {
         if (resolver == null) {
             return null;
         }
