@@ -28,6 +28,7 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
@@ -89,7 +90,7 @@ public final class AnnotationUtil {
         return clazz;
     }
 
-    private static String getClassPath() {
+    private static @RUntainted String getClassPath() {
         ClassLoader loader = AnnotationUtil.class.getClassLoader();
         StringBuilder classpath = new StringBuilder(System.getProperty("java.class.path"));
         if (loader instanceof URLClassLoader) {

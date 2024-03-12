@@ -158,7 +158,7 @@ public final class SSLUtils {
         return null;
     }
 
-    private static InputStream getResourceAsStream(String resource) {
+    private static InputStream getResourceAsStream(@RUntainted String resource) {
         InputStream is = ClassLoaderUtils.getResourceAsStream(resource, SSLUtils.class);
         if (is == null) {
             Bus bus = BusFactory.getThreadDefaultBus(true);

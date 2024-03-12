@@ -41,7 +41,7 @@ public final class URIParserUtil {
         return ch <= 0x20 || ch >= 0x7F || EXCLUDED_CHARS.indexOf(ch) != -1;
     }
 
-    public static URL[] pathToURLs(String path) {
+    public static URL[] pathToURLs(@RUntainted String path) {
         StringTokenizer st = new StringTokenizer(path, File.pathSeparator);
         URL[] urls = new URL[st.countTokens()];
         int count = 0;
