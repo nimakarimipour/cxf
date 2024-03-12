@@ -30,6 +30,7 @@ import java.security.PrivilegedExceptionAction;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLStreamException;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Document;
 
 import org.xml.sax.InputSource;
@@ -153,7 +154,7 @@ public class ControlledValidationXmlBeanDefinitionReader extends XmlBeanDefiniti
         return super.loadBeanDefinitions(encodedResource);
     }
 
-    private int fastInfosetLoadBeanDefinitions(EncodedResource encodedResource)
+    private int fastInfosetLoadBeanDefinitions(@RUntainted EncodedResource encodedResource)
         throws IOException, StaleFastinfosetException,
         ParserConfigurationException, XMLStreamException {
 
