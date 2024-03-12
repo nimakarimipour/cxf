@@ -24,6 +24,7 @@ import java.util.concurrent.Executor;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.endpoint.ClientCallback;
 import org.apache.cxf.endpoint.ConduitSelector;
@@ -107,7 +108,7 @@ class FrontendClientAdapter implements org.apache.cxf.endpoint.Client {
     }
 
     @Override
-    public void setThreadLocalRequestContext(boolean b) {
+    public void setThreadLocalRequestContext(@RUntainted boolean b) {
         throw new UnsupportedOperationException();
     }
 

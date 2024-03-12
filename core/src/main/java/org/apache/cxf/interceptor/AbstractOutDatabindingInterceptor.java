@@ -31,6 +31,7 @@ import javax.xml.stream.XMLStreamWriter;
 import javax.xml.stream.events.XMLEvent;
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.annotations.SchemaValidation.SchemaValidationType;
 import org.apache.cxf.databinding.DataWriter;
 import org.apache.cxf.helpers.ServiceUtils;
@@ -185,7 +186,7 @@ public abstract class AbstractOutDatabindingInterceptor extends AbstractPhaseInt
     protected <T> DataWriter<T> getDataWriter(Message message, Service service, Class<T> output) {
         DataWriter<T> writer = service.getDataBinding().createWriter(output);
 
-        Collection<Attachment> atts = message.getAttachments();
+        Collection<@RUntainted Attachment> atts = message.getAttachments();
         if (MessageUtils.getContextualBoolean(message, Message.MTOM_ENABLED, false)
               && atts == null) {
             atts = new ArrayList<>();

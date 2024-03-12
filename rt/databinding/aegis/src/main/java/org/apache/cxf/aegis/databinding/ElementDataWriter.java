@@ -26,6 +26,7 @@ import java.util.logging.Logger;
 
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Element;
 
 import org.apache.cxf.aegis.Context;
@@ -48,7 +49,7 @@ public class ElementDataWriter implements DataWriter<Element> {
 
     private AegisDatabinding databinding;
 
-    private Collection<Attachment> attachments;
+    private Collection<@RUntainted Attachment> attachments;
 
     private Map<String, Object> properties;
 
@@ -56,7 +57,7 @@ public class ElementDataWriter implements DataWriter<Element> {
         this.databinding = databinding;
     }
 
-    public void setAttachments(Collection<Attachment> attachments) {
+    public void setAttachments(Collection<@RUntainted Attachment> attachments) {
         this.attachments = attachments;
     }
 

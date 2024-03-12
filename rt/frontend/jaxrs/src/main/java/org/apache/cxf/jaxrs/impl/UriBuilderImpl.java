@@ -33,6 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.MultivaluedMap;
 import jakarta.ws.rs.core.PathSegment;
@@ -70,9 +71,9 @@ public class UriBuilderImpl extends UriBuilder implements Cloneable {
     private MultivaluedMap<String, String> query = new MetadataMap<>();
     private MultivaluedMap<String, String> matrix = new MetadataMap<>();
 
-    private Map<String, Object> resolvedTemplates;
-    private Map<String, Object> resolvedTemplatesPathEnc;
-    private Map<String, Object> resolvedEncodedTemplates;
+    private Map<@RUntainted String, @RUntainted Object> resolvedTemplates;
+    private Map<@RUntainted String, @RUntainted Object> resolvedTemplatesPathEnc;
+    private Map<@RUntainted String, @RUntainted Object> resolvedEncodedTemplates;
 
     private boolean queryValueIsCollection;
     private boolean useArraySyntaxForQueryParams;
@@ -86,7 +87,7 @@ public class UriBuilderImpl extends UriBuilder implements Cloneable {
     /**
      * Creates builder with empty URI and properties
      */
-    public UriBuilderImpl(Map<String, Object> properties) {
+    public UriBuilderImpl(Map<@RUntainted String, @RUntainted Object> properties) {
         queryValueIsCollection = PropertyUtils.isTrue(properties, EXPAND_QUERY_VALUE_AS_COLLECTION);
         useArraySyntaxForQueryParams = PropertyUtils.isTrue(properties, USE_ARRAY_SYNTAX_FOR_QUERY_VALUES);
     }
@@ -106,9 +107,9 @@ public class UriBuilderImpl extends UriBuilder implements Cloneable {
         return doBuild(false, true, values);
     }
 
-    private static Map<String, Object> getResolvedTemplates(Map<String, Object> rtemplates) {
+    private static Map<@RUntainted String, @RUntainted Object> getResolvedTemplates(Map<@RUntainted String, @RUntainted Object> rtemplates) {
         return rtemplates == null
-            ? Collections.<String, Object>emptyMap() : new LinkedHashMap<String, Object>(rtemplates);
+            ? Collections.<String, Object>emptyMap() : new LinkedHashMap<@RUntainted String, @RUntainted Object>(rtemplates);
     }
 
     private URI doBuild(boolean fromEncoded, boolean encodePathSlash, Object... values) {
@@ -138,9 +139,9 @@ public class UriBuilderImpl extends UriBuilder implements Cloneable {
     private UriParts doBuildUriParts(boolean fromEncoded, boolean encodePathSlash,
                                      boolean allowUnresolved, Object... values) {
 
-        Map<String, Object> alreadyResolvedTs = getResolvedTemplates(resolvedTemplates);
-        Map<String, Object> alreadyResolvedTsPathEnc = getResolvedTemplates(resolvedTemplatesPathEnc);
-        Map<String, Object> alreadyResolvedEncTs = getResolvedTemplates(resolvedEncodedTemplates);
+        Map<@RUntainted String, @RUntainted Object> alreadyResolvedTs = getResolvedTemplates(resolvedTemplates);
+        Map<@RUntainted String, @RUntainted Object> alreadyResolvedTsPathEnc = getResolvedTemplates(resolvedTemplatesPathEnc);
+        Map<@RUntainted String, @RUntainted Object> alreadyResolvedEncTs = getResolvedTemplates(resolvedEncodedTemplates);
         final int resolvedTsSize = alreadyResolvedTs.size()
             + alreadyResolvedEncTs.size()
             + alreadyResolvedTsPathEnc.size();
@@ -269,9 +270,9 @@ public class UriBuilderImpl extends UriBuilder implements Cloneable {
                                boolean encodePathSlash)
         throws IllegalArgumentException, UriBuilderException {
         try {
-            Map<String, Object> alreadyResolvedTs = getResolvedTemplates(resolvedTemplates);
-            Map<String, Object> alreadyResolvedTsPathEnc = getResolvedTemplates(resolvedTemplatesPathEnc);
-            Map<String, Object> alreadyResolvedEncTs = getResolvedTemplates(resolvedEncodedTemplates);
+            Map<@RUntainted String, @RUntainted Object> alreadyResolvedTs = getResolvedTemplates(resolvedTemplates);
+            Map<@RUntainted String, @RUntainted Object> alreadyResolvedTsPathEnc = getResolvedTemplates(resolvedTemplatesPathEnc);
+            Map<@RUntainted String, @RUntainted Object> alreadyResolvedEncTs = getResolvedTemplates(resolvedEncodedTemplates);
 
             String thePath = buildPath();
             thePath = substituteMapped(thePath, map, alreadyResolvedTs, alreadyResolvedTsPathEnc,
@@ -294,9 +295,9 @@ public class UriBuilderImpl extends UriBuilder implements Cloneable {
     }
     //CHECKSTYLE:OFF
     private String substituteVarargs(URITemplate templ, //NOPMD
-                                     Map<String, Object> alreadyResolvedTs,
-                                     Map<String, Object> alreadyResolvedTsPathEnc,
-                                     Map<String, Object> alreadyResolvedTsEnc,
+                                     Map<@RUntainted String, @RUntainted Object> alreadyResolvedTs,
+                                     Map<@RUntainted String, @RUntainted Object> alreadyResolvedTsPathEnc,
+                                     Map<@RUntainted String, @RUntainted Object> alreadyResolvedTsEnc,
                                      Object[] values,
                                      int ind,
                                      boolean isQuery,
@@ -323,7 +324,7 @@ public class UriBuilderImpl extends UriBuilder implements Cloneable {
             boolean resolvedPathVarHasToBeEncoded = alreadyResolvedTsPathEnc.containsKey(var);
             boolean varValueHasToBeEncoded = resolvedPathVarHasToBeEncoded || alreadyResolvedTs.containsKey(var);
 
-            Map<String, Object> resolved = !varValueHasToBeEncoded ? alreadyResolvedTsEnc
+            Map<@RUntainted String, @RUntainted Object> resolved = !varValueHasToBeEncoded ? alreadyResolvedTsEnc
                 : resolvedPathVarHasToBeEncoded ? alreadyResolvedTsPathEnc : alreadyResolvedTs;
             Object oval = resolved.isEmpty() ? null : resolved.remove(var);
             boolean valueFromEncodedMap = false;
@@ -360,9 +361,9 @@ public class UriBuilderImpl extends UriBuilder implements Cloneable {
     //CHECKSTYLE:OFF
     private String substituteMapped(String path,
                                     Map<String, ? extends Object> varValueMap,
-                                    Map<String, Object> alreadyResolvedTs,
-                                    Map<String, Object> alreadyResolvedTsPathEnc,
-                                    Map<String, Object> alreadyResolvedTsEnc,
+                                    Map<@RUntainted String, @RUntainted Object> alreadyResolvedTs,
+                                    Map<@RUntainted String, @RUntainted Object> alreadyResolvedTsPathEnc,
+                                    Map<@RUntainted String, @RUntainted Object> alreadyResolvedTsEnc,
                                     boolean isQuery,
                                     boolean fromEncoded,
                                     boolean encodePathSlash) {
@@ -380,12 +381,12 @@ public class UriBuilderImpl extends UriBuilder implements Cloneable {
         Set<String> pathEncodeVars = alreadyResolvedTsPathEnc.isEmpty() && !encodePathSlash
             ? Collections.<String>emptySet() : new HashSet<>();
 
-        Map<String, Object> theMap = new LinkedHashMap<>();
+        Map<@RUntainted String, @RUntainted Object> theMap = new LinkedHashMap<>();
         for (String var : uniqueVars) {
             boolean isPathEncVar = !isQuery && alreadyResolvedTsPathEnc.containsKey(var);
 
             boolean isVarEncoded = !(isPathEncVar || alreadyResolvedTs.containsKey(var));
-            Map<String, Object> resolved = isVarEncoded ? alreadyResolvedTsEnc
+            Map<@RUntainted String, @RUntainted Object> resolved = isVarEncoded ? alreadyResolvedTsEnc
                 : isPathEncVar ? alreadyResolvedTsPathEnc : alreadyResolvedTs;
             Object oval = resolved.isEmpty() ? null : resolved.remove(var);
             if (oval == null) {
@@ -456,11 +457,11 @@ public class UriBuilderImpl extends UriBuilder implements Cloneable {
         builder.originalPathEmpty = originalPathEmpty;
         builder.queryValueIsCollection = queryValueIsCollection;
         builder.resolvedEncodedTemplates =
-            resolvedEncodedTemplates == null ? null : new HashMap<String, Object>(resolvedEncodedTemplates);
+            resolvedEncodedTemplates == null ? null : new HashMap<@RUntainted String, @RUntainted Object>(resolvedEncodedTemplates);
         builder.resolvedTemplates =
-            resolvedTemplates == null ? null : new HashMap<String, Object>(resolvedTemplates);
+            resolvedTemplates == null ? null : new HashMap<@RUntainted String, @RUntainted Object>(resolvedTemplates);
         builder.resolvedTemplatesPathEnc =
-            resolvedTemplatesPathEnc == null ? null : new HashMap<String, Object>(resolvedTemplatesPathEnc);
+            resolvedTemplatesPathEnc == null ? null : new HashMap<@RUntainted String, @RUntainted Object>(resolvedTemplatesPathEnc);
         builder.useArraySyntaxForQueryParams = useArraySyntaxForQueryParams;
         return builder;
     }
@@ -1056,12 +1057,12 @@ public class UriBuilderImpl extends UriBuilder implements Cloneable {
     }
 
     @Override
-    public UriBuilder resolveTemplates(Map<String, Object> values) throws IllegalArgumentException {
+    public UriBuilder resolveTemplates(Map<@RUntainted String, @RUntainted Object> values) throws IllegalArgumentException {
         return resolveTemplates(values, true);
     }
 
     @Override
-    public UriBuilder resolveTemplates(Map<String, Object> values, boolean encodePathSlash)
+    public UriBuilder resolveTemplates(Map<@RUntainted String, @RUntainted Object> values, boolean encodePathSlash)
         throws IllegalArgumentException {
         if (encodePathSlash) {
             resolvedTemplatesPathEnc = fillInResolveTemplates(resolvedTemplatesPathEnc, values);
@@ -1077,13 +1078,13 @@ public class UriBuilderImpl extends UriBuilder implements Cloneable {
     }
 
     @Override
-    public UriBuilder resolveTemplatesFromEncoded(Map<String, Object> values)
+    public UriBuilder resolveTemplatesFromEncoded(Map<@RUntainted String, @RUntainted Object> values)
         throws IllegalArgumentException {
         resolvedEncodedTemplates = fillInResolveTemplates(resolvedEncodedTemplates, values);
         return this;
     }
 
-    private static Map<String, Object> fillInResolveTemplates(Map<String, Object> map, Map<String, Object> values)
+    private static Map<@RUntainted String, @RUntainted Object> fillInResolveTemplates(Map<@RUntainted String, @RUntainted Object> map, Map<@RUntainted String, @RUntainted Object> values)
         throws IllegalArgumentException {
         if (values == null) {
             throw new IllegalArgumentException();
@@ -1092,7 +1093,7 @@ public class UriBuilderImpl extends UriBuilder implements Cloneable {
             map = new LinkedHashMap<>();
         }
 
-        for (Map.Entry<String, Object> entry : values.entrySet()) {
+        for (Map.Entry<@RUntainted String, @RUntainted Object> entry : values.entrySet()) {
             if (entry.getKey() == null || entry.getValue() == null) {
                 throw new IllegalArgumentException();
             }

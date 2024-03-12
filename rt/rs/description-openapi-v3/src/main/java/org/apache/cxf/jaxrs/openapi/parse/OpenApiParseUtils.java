@@ -32,6 +32,7 @@ import java.util.Set;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
@@ -97,12 +98,12 @@ public final class OpenApiParseUtils {
     }
     public static UserApplication getUserApplicationFromJson(String json, ParseConfiguration cfg) {
         JsonMapObjectReaderWriter reader = new JsonMapObjectReaderWriter();
-        Map<String, Object> map = reader.fromJson(json);
+        Map<@RUntainted String, @RUntainted Object> map = reader.fromJson(json);
 
         UserApplication app = new UserApplication();
         app.setBasePath("/");
         
-        List<Map<String, Object>> servers = CastUtils.cast((List<?>)map.get("servers"));
+        List<Map<@RUntainted String, @RUntainted Object>> servers = CastUtils.cast((List<?>)map.get("servers"));
         if (servers != null && !servers.isEmpty()) {
             final String url = (String)servers.get(0).get("url");
             if (url != null) {
@@ -112,9 +113,9 @@ public final class OpenApiParseUtils {
 
         Map<String, List<UserOperation>> userOpsMap = new LinkedHashMap<>();
         Set<String> tags = new HashSet<>();
-        List<Map<String, Object>> tagsProp = CastUtils.cast((List<?>)map.get("tags"));
+        List<Map<@RUntainted String, @RUntainted Object>> tagsProp = CastUtils.cast((List<?>)map.get("tags"));
         if (tagsProp != null) {
-            for (Map<String, Object> tagProp : tagsProp) {
+            for (Map<@RUntainted String, @RUntainted Object> tagProp : tagsProp) {
                 tags.add((String)tagProp.get("name"));
             }
         } else {
@@ -126,22 +127,22 @@ public final class OpenApiParseUtils {
         }
 
 
-        Map<String, Map<String, Object>> paths = CastUtils.cast((Map<?, ?>)map.get("paths"));
-        for (Map.Entry<String, Map<String, Object>> pathEntry : paths.entrySet()) {
+        Map<String, Map<@RUntainted String, @RUntainted Object>> paths = CastUtils.cast((Map<?, ?>)map.get("paths"));
+        for (Map.Entry<String, Map<@RUntainted String, @RUntainted Object>> pathEntry : paths.entrySet()) {
             String operPath = pathEntry.getKey();
 
-            Map<String, Object> operations = pathEntry.getValue();
-            for (Map.Entry<String, Object> operEntry : operations.entrySet()) {
+            Map<@RUntainted String, @RUntainted Object> operations = pathEntry.getValue();
+            for (Map.Entry<@RUntainted String, @RUntainted Object> operEntry : operations.entrySet()) {
 
                 UserOperation userOp = new UserOperation();
                 userOp.setVerb(operEntry.getKey().toUpperCase());
 
-                Map<String, Object> oper = CastUtils.cast((Map<?, ?>)operEntry.getValue());
+                Map<@RUntainted String, @RUntainted Object> oper = CastUtils.cast((Map<?, ?>)operEntry.getValue());
                 
                 userOp.setPath(operPath);
 
                 userOp.setName((String)oper.get("operationId"));
-                Map<String, Object> responses = CastUtils.cast((Map<?, ?>)oper.get("responses"));
+                Map<@RUntainted String, @RUntainted Object> responses = CastUtils.cast((Map<?, ?>)oper.get("responses"));
                 if (responses != null) {
                     userOp.setProduces(listToString(
                         responses
@@ -155,7 +156,7 @@ public final class OpenApiParseUtils {
                     ));
                 }
 
-                Map<String, Object> payloads = CastUtils.cast((Map<?, ?>)oper.get("requestBody"));
+                Map<@RUntainted String, @RUntainted Object> payloads = CastUtils.cast((Map<?, ?>)oper.get("requestBody"));
                 if (payloads != null) {
                     userOp.setConsumes(listToString(
                         payloads
@@ -170,9 +171,9 @@ public final class OpenApiParseUtils {
                 }
 
                 List<Parameter> userOpParams = new LinkedList<>();
-                List<Map<String, Object>> params = CastUtils.cast((List<?>)oper.get("parameters"));
+                List<Map<@RUntainted String, @RUntainted Object>> params = CastUtils.cast((List<?>)oper.get("parameters"));
                 if (params != null) {
-                    for (Map<String, Object> param : params) {
+                    for (Map<@RUntainted String, @RUntainted Object> param : params) {
                         String name = (String)param.get("name");
                         //"query", "header", "path" or "cookie".
                         String paramType = (String)param.get("in");

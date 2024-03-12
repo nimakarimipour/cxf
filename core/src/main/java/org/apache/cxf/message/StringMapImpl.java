@@ -19,6 +19,8 @@
 
 package org.apache.cxf.message;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +29,7 @@ import java.util.Map;
  * returned by {@link Class#getName()}.
  */
 public class StringMapImpl
-    extends HashMap<String, Object>
+    extends HashMap<@RUntainted String, @RUntainted Object>
     implements StringMap {
 
     private static final long serialVersionUID = -4590903451121887L;
@@ -39,7 +41,7 @@ public class StringMapImpl
         super(initialSize, factor);
     }
 
-    public StringMapImpl(Map<String, Object> i) {
+    public StringMapImpl(Map<@RUntainted String, @RUntainted Object> i) {
         super(i);
     }
 

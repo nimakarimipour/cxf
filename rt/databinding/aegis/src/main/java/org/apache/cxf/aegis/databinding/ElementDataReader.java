@@ -24,6 +24,7 @@ import java.util.Collection;
 import javax.xml.namespace.QName;
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Element;
 
 import org.apache.cxf.aegis.AegisElementDataReader;
@@ -80,7 +81,7 @@ public class ElementDataReader implements DataReader<Element> {
     /**
      * {@inheritDoc}
      * */
-    public void setAttachments(Collection<Attachment> attachments) {
+    public void setAttachments(Collection<@RUntainted Attachment> attachments) {
         reader.getContext().setAttachments(attachments);
     }
 

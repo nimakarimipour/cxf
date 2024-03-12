@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.aegis.type.TypeMapping;
 import org.apache.cxf.interceptor.Fault;
 import org.apache.cxf.message.Attachment;
@@ -32,10 +33,10 @@ import org.apache.cxf.message.Attachment;
  */
 public class Context {
     private AegisContext globalContext;
-    private Collection<Attachment> attachments;
+    private Collection<@RUntainted Attachment> attachments;
     private Fault fault;
     private Map<Class<?>, Object> properties;
-    private Map<String, Object> namedProperties;
+    private Map<@RUntainted String, @RUntainted Object> namedProperties;
 
     public Context(AegisContext aegisContext) {
         this.globalContext = aegisContext;
@@ -51,7 +52,7 @@ public class Context {
         return attachments;
     }
 
-    public void setAttachments(Collection<Attachment> attachments) {
+    public void setAttachments(Collection<@RUntainted Attachment> attachments) {
         this.attachments = attachments;
     }
 

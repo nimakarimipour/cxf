@@ -23,6 +23,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.interceptor.InterceptorChain;
 import org.apache.cxf.transport.Destination;
 
@@ -49,7 +50,7 @@ public abstract class AbstractWrappedMessage implements Message {
         return message.containsValue(value);
     }
 
-    public Set<Entry<String, Object>> entrySet() {
+    public Set<Entry<@RUntainted String, @RUntainted Object>> entrySet() {
         return message.entrySet();
     }
 
@@ -61,11 +62,11 @@ public abstract class AbstractWrappedMessage implements Message {
         return message.get(key);
     }
 
-    public Collection<Attachment> getAttachments() {
+    public Collection<@RUntainted Attachment> getAttachments() {
         return message.getAttachments();
     }
 
-    public void setAttachments(Collection<Attachment> attachments) {
+    public void setAttachments(Collection<@RUntainted Attachment> attachments) {
         message.setAttachments(attachments);
     }
 
@@ -161,7 +162,7 @@ public abstract class AbstractWrappedMessage implements Message {
         return message.remove(key);
     }
 
-    public Object getContextualProperty(String key) {
+    public @RUntainted Object getContextualProperty(@RUntainted String key) {
         return message.getContextualProperty(key);
     }
     void setContextualProperty(String key, Object v) {
@@ -175,7 +176,7 @@ public abstract class AbstractWrappedMessage implements Message {
         }
     }
 
-    public Set<String> getContextualPropertyKeys() {
+    public Set<@RUntainted String> getContextualPropertyKeys() {
         return message.getContextualPropertyKeys();
     }
 

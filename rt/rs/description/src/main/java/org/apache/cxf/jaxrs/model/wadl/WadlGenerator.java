@@ -66,6 +66,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -201,7 +202,7 @@ public class WadlGenerator implements ContainerRequestFilter {
     private Bus bus;
     private final List<DocumentationProvider> docProviders = new LinkedList<>();
     private ResourceIdGenerator idGenerator;
-    private Map<String, Object> jaxbContextProperties;
+    private Map<@RUntainted String, @RUntainted Object> jaxbContextProperties;
 
     private List<Class<?>> extraClasses = Collections.emptyList();
 
@@ -2300,7 +2301,7 @@ public class WadlGenerator implements ContainerRequestFilter {
     public void setIncrementNamespacePrefix(boolean incrementNamespacePrefix) {
         this.incrementNamespacePrefix = incrementNamespacePrefix;
     }
-    public void setJaxbContextProperties(Map<String, Object> jaxbContextProperties) {
+    public void setJaxbContextProperties(Map<@RUntainted String, @RUntainted Object> jaxbContextProperties) {
         this.jaxbContextProperties = jaxbContextProperties;
     }
 

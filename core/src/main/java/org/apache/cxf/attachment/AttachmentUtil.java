@@ -46,6 +46,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.activation.CommandInfo;
 import jakarta.activation.CommandMap;
@@ -75,7 +76,7 @@ public final class AttachmentUtil {
     public static final String ATTACHMENT_XOP_FOLLOW_URLS_PROPERTY = "org.apache.cxf.attachment.xop.follow.urls";
     public static final String BODY_ATTACHMENT_ID = "root.message@cxf.apache.org";
 
-    static final String BINARY = "binary";
+    static final @RUntainted String BINARY = "binary";
     
     private static final Logger LOG = LogUtils.getL7dLogger(AttachmentUtil.class);
 
@@ -339,7 +340,7 @@ public final class AttachmentUtil {
         }
         
         @Override
-        public DataHandler put(String key, DataHandler value) {
+        public @RUntainted DataHandler put(@RUntainted String key, @RUntainted DataHandler value) {
             Iterator<Attachment> i = list.iterator();
             DataHandler ret = null;
             while (i.hasNext()) {
@@ -355,7 +356,7 @@ public final class AttachmentUtil {
         }
     }
 
-    public static String cleanContentId(String id) {
+    public static @RPolyTainted String cleanContentId(@RPolyTainted String id) {
         if (id != null) {
             if (id.startsWith("<")) {
                 // strip <>
@@ -380,34 +381,34 @@ public final class AttachmentUtil {
         return id;
     }
 
-    static String getHeaderValue(List<String> v) {
+    static @RPolyTainted String getHeaderValue(List<@RPolyTainted String> v) {
         if (v != null && !v.isEmpty()) {
             return v.get(0);
         }
         return null;
     }
-    static String getHeaderValue(List<String> v, String delim) {
+    static @RUntainted String getHeaderValue(List<@RUntainted String> v, @RUntainted String delim) {
         if (v != null && !v.isEmpty()) {
             return String.join(delim, v);
         }
         return null;
     }
-    static String getHeader(Map<String, List<String>> headers, String h) {
+    static @RUntainted String getHeader(Map<@RUntainted String, List<@RUntainted String>> headers, @RUntainted String h) {
         return getHeaderValue(headers.get(h));
     }
-    static String getHeader(Map<String, List<String>> headers, String h, String delim) {
+    static String getHeader(Map<@RUntainted String, List<@RUntainted String>> headers, @RUntainted String h, @RUntainted String delim) {
         return getHeaderValue(headers.get(h), delim);
     }
 
     /**
      * @deprecated use createAttachment(InputStream stream, Map<String, List<String>> headers, Message message)
      */
-    public static Attachment createAttachment(InputStream stream, Map<String, List<String>> headers) 
+    public static Attachment createAttachment(InputStream stream, Map<@RUntainted String, List<@RUntainted String>> headers)
             throws IOException {
         return createAttachment(stream, headers, null /* no Message */);
     }
 
-    public static Attachment createAttachment(InputStream stream, Map<String, List<String>> headers, Message message)
+    public static Attachment createAttachment(InputStream stream, Map<@RUntainted String, List<@RUntainted String>> headers, Message message)
             throws IOException {
 
         String id = cleanContentId(getHeader(headers, "Content-ID"));
@@ -424,7 +425,7 @@ public final class AttachmentUtil {
 
         String encoding = null;
 
-        for (Map.Entry<String, List<String>> e : headers.entrySet()) {
+        for (Map.Entry<@RUntainted String, List<@RUntainted String>> e : headers.entrySet()) {
             String name = e.getKey();
             if ("Content-Transfer-Encoding".equalsIgnoreCase(name)) {
                 encoding = getHeader(headers, name);

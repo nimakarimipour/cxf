@@ -27,6 +27,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.message.Message;
 
 /**
@@ -68,7 +69,7 @@ public class ClientCallback implements Future<Object[]> {
      * @param ctx
      * @param res
      */
-    public void handleResponse(Map<String, Object> ctx, Object[] res) {
+    public void handleResponse(Map<@RUntainted String, @RUntainted Object> ctx, Object[] res) {
         context = ctx;
         delegate.complete(res);
 
@@ -87,7 +88,7 @@ public class ClientCallback implements Future<Object[]> {
      * @param ctx
      * @param ex
      */
-    public void handleException(Map<String, Object> ctx, Throwable ex) {
+    public void handleException(Map<@RUntainted String, @RUntainted Object> ctx, Throwable ex) {
         context = ctx;
         delegate.completeExceptionally(ex);
         

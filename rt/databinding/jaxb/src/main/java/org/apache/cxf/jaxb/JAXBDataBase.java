@@ -29,6 +29,7 @@ import java.util.logging.Logger;
 
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.ValidationEventHandler;
 import jakarta.xml.bind.annotation.XmlAttachmentRef;
@@ -55,7 +56,7 @@ public abstract class JAXBDataBase {
 
     protected JAXBContext context;
     protected Schema schema;
-    protected Collection<Attachment> attachments;
+    protected Collection<@RUntainted Attachment> attachments;
     protected Integer mtomThreshold; // null if we should default.
 
     protected JAXBDataBase(JAXBContext ctx) {
@@ -77,11 +78,11 @@ public abstract class JAXBDataBase {
         return context;
     }
 
-    public Collection<Attachment> getAttachments() {
+    public Collection<@RUntainted Attachment> getAttachments() {
         return attachments;
     }
 
-    public void setAttachments(Collection<Attachment> attachments) {
+    public void setAttachments(Collection<@RUntainted Attachment> attachments) {
         this.attachments = attachments;
     }
 

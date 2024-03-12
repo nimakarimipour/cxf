@@ -190,7 +190,7 @@ public class CXFNonSpringJaxrsServlet extends CXFNonSpringServlet {
              CastUtils.cast((Map<?, ?>)parseMapSequence(servletConfig.getInitParameter(EXTENSIONS_PARAM))));
         bean.setLanguageMappings(
              CastUtils.cast((Map<?, ?>)parseMapSequence(servletConfig.getInitParameter(LANGUAGES_PARAM))));
-        Map<String, Object> properties = CastUtils.cast(
+        Map<@RUntainted String, @RUntainted Object> properties = CastUtils.cast(
                 parseMapSequence(servletConfig.getInitParameter(PROPERTIES_PARAM)),
                 String.class, Object.class);
         if (properties != null) {
@@ -584,7 +584,7 @@ public class CXFNonSpringJaxrsServlet extends CXFNonSpringServlet {
         appClassName = getClassNameAndProperties(appClassName, props);
         Class<?> appClass = loadApplicationClass(appClassName);
         ApplicationInfo appInfo = (ApplicationInfo)createSingletonInstance(appClass, props, servletConfig);
-        Map<String, Object> servletProps = new HashMap<>();
+        Map<@RUntainted String, @RUntainted Object> servletProps = new HashMap<>();
         ServletContext servletContext = servletConfig.getServletContext();
         for (Enumeration<String> names = servletContext.getInitParameterNames(); names.hasMoreElements();) {
             String name = names.nextElement();

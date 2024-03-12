@@ -63,6 +63,7 @@ import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.stream.StreamResult;
 
 import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -1178,7 +1179,7 @@ public final class JAXBUtils {
         return null;
     }
     public static JAXBContext createContext(final Set<Class<?>> classes,
-                                            final Map<String, Object> map) throws JAXBException {
+                                            final Map<@RUntainted String, @RUntainted Object> map) throws JAXBException {
         JAXBContext ctx = null;
         try {
             ctx = AccessController.doPrivileged(new PrivilegedExceptionAction<JAXBContext>() {

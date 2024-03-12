@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.configuration.ConfiguredBeanLocator;
 import org.apache.cxf.endpoint.Endpoint;
@@ -115,11 +116,11 @@ public abstract class AbstractMetricsInterceptor extends AbstractPhaseIntercepto
         return o;
     }
 
-    private Map<String, Object> getRestMetricsMap(Endpoint e) {
+    private Map<@RUntainted String, @RUntainted Object> getRestMetricsMap(Endpoint e) {
         synchronized (e) {
             Object mmo = e.get(REST_METRICS_MAP);
             if (mmo == null) {
-                e.put(REST_METRICS_MAP, new ConcurrentHashMap<String, Object>());
+                e.put(REST_METRICS_MAP, new ConcurrentHashMap<@RUntainted String, @RUntainted Object>());
                 mmo = e.get(REST_METRICS_MAP);
             }
             return CastUtils.cast((Map<?, ?>)mmo);
@@ -158,7 +159,7 @@ public abstract class AbstractMetricsInterceptor extends AbstractPhaseIntercepto
     }
 
     private synchronized Object createMetricsContextForRestResource(Message message, String resource) {
-        Map<String, Object> restMap = getRestMetricsMap(message.getExchange().getEndpoint());
+        Map<@RUntainted String, @RUntainted Object> restMap = getRestMetricsMap(message.getExchange().getEndpoint());
         Object o = restMap.get(resource);
         if (o != null) {
             return o;

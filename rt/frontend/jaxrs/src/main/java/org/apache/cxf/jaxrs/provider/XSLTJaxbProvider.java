@@ -53,6 +53,7 @@ import javax.xml.transform.sax.TransformerHandler;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.xml.sax.XMLFilter;
 import org.xml.sax.XMLReader;
 
@@ -294,7 +295,7 @@ public class XSLTJaxbProvider<T> extends JAXBElementProvider<T> {
             //set the parameters.
             Transformer tr = (Transformer)filter.getClass().getMethod("getTransformer").invoke(filter);
             tr.setURIResolver(ti.resolver);
-            for (Map.Entry<String, Object> entry : ti.transformParameters.entrySet()) {
+            for (Map.Entry<@RUntainted String, @RUntainted Object> entry : ti.transformParameters.entrySet()) {
                 tr.setParameter(entry.getKey(), entry.getValue());
             }
             for (Map.Entry<String, String> entry : ti.outProps.entrySet()) {
@@ -474,7 +475,7 @@ public class XSLTJaxbProvider<T> extends JAXBElementProvider<T> {
             templ.setTransformerParameter(RELATIVE_PATH_PARAMETER, ui.getPath());
             templ.setTransformerParameter(BASE_PATH_PARAMETER, ui.getBaseUri().toString());
             if (configuredParams != null) {
-                for (Map.Entry<String, Object> entry : configuredParams.entrySet()) {
+                for (Map.Entry<@RUntainted String, @RUntainted Object> entry : configuredParams.entrySet()) {
                     templ.setTransformerParameter(entry.getKey(), entry.getValue());
                 }
             }
@@ -575,7 +576,7 @@ public class XSLTJaxbProvider<T> extends JAXBElementProvider<T> {
         public Transformer newTransformer() throws TransformerConfigurationException {
             Transformer tr = templates.newTransformer();
             tr.setURIResolver(resolver);
-            for (Map.Entry<String, Object> entry : transformParameters.entrySet()) {
+            for (Map.Entry<@RUntainted String, @RUntainted Object> entry : transformParameters.entrySet()) {
                 tr.setParameter(entry.getKey(), entry.getValue());
             }
             for (Map.Entry<String, String> entry : outProps.entrySet()) {

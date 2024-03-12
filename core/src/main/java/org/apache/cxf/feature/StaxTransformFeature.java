@@ -21,6 +21,7 @@ package org.apache.cxf.feature;
 import java.util.List;
 import java.util.Map;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.common.injection.NoJSR250Annotations;
 import org.apache.cxf.interceptor.InterceptorProvider;
@@ -89,7 +90,7 @@ public class StaxTransformFeature extends DelegatingFeature<StaxTransformFeature
         delegate.setOutDefaultNamespace(ns);
     }
 
-    public void setContextPropertyName(String propertyName) {
+    public void setContextPropertyName(@RUntainted String propertyName) {
         delegate.setContextPropertyName(propertyName);
     }
 
@@ -153,7 +154,7 @@ public class StaxTransformFeature extends DelegatingFeature<StaxTransformFeature
             out.setDefaultNamespace(ns);
         }
 
-        public void setContextPropertyName(String propertyName) {
+        public void setContextPropertyName(@RUntainted String propertyName) {
             in.setContextPropertyName(propertyName);
             out.setContextPropertyName(propertyName);
         }

@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.jms.Destination;
 import jakarta.jms.JMSException;
 import jakarta.jms.Message;
@@ -62,7 +63,7 @@ public class JMSMessageHeadersType {
     @Deprecated
     public List<JMSPropertyType> getProperty() {
         List<JMSPropertyType> props = new ArrayList<>();
-        for (Entry<String, Object> entry : properties.entrySet()) {
+        for (Entry<@RUntainted String, @RUntainted Object> entry : properties.entrySet()) {
             JMSPropertyType prop = new JMSPropertyType();
             prop.setName(entry.getKey());
             prop.setValue(entry.getValue());
@@ -420,7 +421,7 @@ public class JMSMessageHeadersType {
             jmsMessage.setBooleanProperty(JMSSpecConstants.ISFAULT_FIELD, isSOAPJMSIsFault());
         }
 
-        for (Entry<String, Object> entry : properties.entrySet()) {
+        for (Entry<@RUntainted String, @RUntainted Object> entry : properties.entrySet()) {
             writeProp(jmsMessage, entry.getKey(), entry.getValue());
         }
     }

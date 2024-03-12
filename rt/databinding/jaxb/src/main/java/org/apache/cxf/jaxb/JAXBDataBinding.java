@@ -48,6 +48,7 @@ import javax.xml.stream.XMLStreamWriter;
 import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.dom.DOMSource;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -202,10 +203,10 @@ public class JAXBDataBinding extends AbstractInterceptorProvidingDataBinding
 
     Class<?> cls;
 
-    private Map<String, Object> contextProperties = new HashMap<>();
+    private Map<@RUntainted String, @RUntainted Object> contextProperties = new HashMap<>();
     private List<XmlAdapter<?, ?>> adapters = new ArrayList<>();
-    private Map<String, Object> marshallerProperties = new HashMap<>();
-    private Map<String, Object> unmarshallerProperties = new HashMap<>();
+    private Map<@RUntainted String, @RUntainted Object> marshallerProperties = new HashMap<>();
+    private Map<@RUntainted String, @RUntainted Object> unmarshallerProperties = new HashMap<>();
     private Unmarshaller.Listener unmarshallerListener;
     private Marshaller.Listener marshallerListener;
     private ValidationEventHandler validationEventHandler;
@@ -227,7 +228,7 @@ public class JAXBDataBinding extends AbstractInterceptorProvidingDataBinding
         contextClasses = new LinkedHashSet<>(Arrays.asList(classes));
         setContext(createJAXBContext(contextClasses)); //NOPMD - specifically allow this
     }
-    public JAXBDataBinding(boolean qualified, Map<String, Object> props) throws JAXBException {
+    public JAXBDataBinding(boolean qualified, Map<@RUntainted String, @RUntainted Object> props) throws JAXBException {
         this(qualified);
         if (props != null && props.get("jaxb.additionalContextClasses") != null) {
             Object o = props.get("jaxb.additionalContextClasses");
@@ -527,7 +528,7 @@ public class JAXBDataBinding extends AbstractInterceptorProvidingDataBinding
      *
      * @return the map of JAXB context properties.
      */
-    public Map<String, Object> getContextProperties() {
+    public Map<@RUntainted String, @RUntainted Object> getContextProperties() {
         return contextProperties;
     }
 
@@ -539,7 +540,7 @@ public class JAXBDataBinding extends AbstractInterceptorProvidingDataBinding
      *
      * @param contextProperties map of properties.
      */
-    public void setContextProperties(Map<String, Object> contextProperties) {
+    public void setContextProperties(Map<@RUntainted String, @RUntainted Object> contextProperties) {
         this.contextProperties = contextProperties;
     }
 
@@ -558,7 +559,7 @@ public class JAXBDataBinding extends AbstractInterceptorProvidingDataBinding
      *
      * @return the map of JAXB marshaller properties.
      */
-    public Map<String, Object> getMarshallerProperties() {
+    public Map<@RUntainted String, @RUntainted Object> getMarshallerProperties() {
         return marshallerProperties;
     }
 
@@ -569,7 +570,7 @@ public class JAXBDataBinding extends AbstractInterceptorProvidingDataBinding
      *
      * @param marshallerProperties map of properties.
      */
-    public void setMarshallerProperties(Map<String, Object> marshallerProperties) {
+    public void setMarshallerProperties(Map<@RUntainted String, @RUntainted Object> marshallerProperties) {
         this.marshallerProperties = marshallerProperties;
     }
 
@@ -581,7 +582,7 @@ public class JAXBDataBinding extends AbstractInterceptorProvidingDataBinding
      *
      * @return the map of JAXB unmarshaller properties.
      */
-    public Map<String, Object> getUnmarshallerProperties() {
+    public Map<@RUntainted String, @RUntainted Object> getUnmarshallerProperties() {
         return unmarshallerProperties;
     }
 
@@ -592,7 +593,7 @@ public class JAXBDataBinding extends AbstractInterceptorProvidingDataBinding
      *
      * @param unmarshallerProperties map of properties.
      */
-    public void setUnmarshallerProperties(Map<String, Object> unmarshallerProperties) {
+    public void setUnmarshallerProperties(Map<@RUntainted String, @RUntainted Object> unmarshallerProperties) {
         this.unmarshallerProperties = unmarshallerProperties;
     }
 

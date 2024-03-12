@@ -19,6 +19,8 @@
 
 package org.apache.cxf.service.model;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
@@ -88,7 +90,7 @@ public class BindingOperationInfo extends AbstractPropertiesHolder {
         return bindingInfo;
     }
 
-    public QName getName() {
+    public @RUntainted QName getName() {
         return opInfo.getName();
     }
 

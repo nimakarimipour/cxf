@@ -63,7 +63,7 @@ public class ContainerResponseContextImpl extends AbstractResponseContextImpl
     }
 
     @Override
-    public MultivaluedMap<String, Object> getHeaders() {
+    public MultivaluedMap< String, Object> getHeaders() {
         return r.getMetadata();
     }
 

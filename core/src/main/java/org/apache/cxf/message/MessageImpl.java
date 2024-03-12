@@ -25,6 +25,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.endpoint.Endpoint;
 import org.apache.cxf.helpers.CastUtils;
@@ -45,7 +46,7 @@ public class MessageImpl extends StringMapImpl implements Message {
     private Object[] contents = new Object[20];
     private int index;
 
-    private Map<String, Object> contextCache;
+    private Map<@RUntainted String, @RUntainted Object> contextCache;
 
 
     public MessageImpl() {
@@ -71,11 +72,11 @@ public class MessageImpl extends StringMapImpl implements Message {
         }
     }
 
-    public Collection<Attachment> getAttachments() {
+    public Collection<@RUntainted Attachment> getAttachments() {
         return CastUtils.cast((Collection<?>)get(ATTACHMENTS));
     }
 
-    public void setAttachments(Collection<Attachment> attachments) {
+    public void setAttachments(Collection<@RUntainted Attachment> attachments) {
         put(ATTACHMENTS, attachments);
     }
 
@@ -174,18 +175,18 @@ public class MessageImpl extends StringMapImpl implements Message {
         }
         return super.put(key, value);
     }
-    public Object getContextualProperty(String key) {
+    public @RUntainted Object getContextualProperty(@RUntainted String key) {
         if (contextCache == null) {
             calcContextCache();
         }
         return contextCache.get(key);
     }
-    public Set<String> getContextualPropertyKeys() {
+    public Set<@RUntainted String> getContextualPropertyKeys() {
         return contextCache.keySet();
     }
 
     private void calcContextCache() {
-        Map<String, Object> o = new HashMap<>();
+        Map<@RUntainted String, @RUntainted Object> o = new HashMap<>();
         Exchange ex = getExchange();
         if (ex != null) {
             Bus b = ex.getBus();
@@ -228,7 +229,7 @@ public class MessageImpl extends StringMapImpl implements Message {
         }
     }
 
-    void setContextualProperty(String key, Object v) {
+    void setContextualProperty(@RUntainted String key, @RUntainted Object v) {
         if (contextCache != null && !containsKey(key)) {
             contextCache.put(key, v);
         }

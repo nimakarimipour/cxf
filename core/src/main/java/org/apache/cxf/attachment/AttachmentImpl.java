@@ -23,49 +23,50 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.activation.DataHandler;
 import org.apache.cxf.message.Attachment;
 
 public class AttachmentImpl implements Attachment {
 
-    private DataHandler dataHandler;
-    private String id;
-    private Map<String, String> headers = new HashMap<>();
+    private @RUntainted DataHandler dataHandler;
+    private @RUntainted String id;
+    private Map<@RUntainted String, @RUntainted String> headers = new HashMap<>();
     private boolean xop;
 
-    public AttachmentImpl(String idParam) {
+    public AttachmentImpl(@RUntainted String idParam) {
         this.id = idParam;
     }
 
-    public AttachmentImpl(String idParam, DataHandler handlerParam) {
+    public AttachmentImpl(@RUntainted String idParam, @RUntainted DataHandler handlerParam) {
         this.id = idParam;
         this.dataHandler = handlerParam;
         this.dataHandler.setCommandMap(AttachmentUtil.getCommandMap());
     }
 
-    public String getId() {
+    public @RUntainted String getId() {
         return id;
     }
 
-    public DataHandler getDataHandler() {
+    public @RUntainted DataHandler getDataHandler() {
         return dataHandler;
     }
 
-    public void setDataHandler(DataHandler dataHandler) {
+    public void setDataHandler(@RUntainted DataHandler dataHandler) {
         this.dataHandler = dataHandler;
         this.dataHandler.setCommandMap(AttachmentUtil.getCommandMap());
     }
 
-    public void setHeader(String name, String value) {
+    public void setHeader(@RUntainted String name, @RUntainted String value) {
         headers.put(name, value);
     }
 
-    public String getHeader(String name) {
+    public @RUntainted String getHeader(@RUntainted String name) {
         String value = headers.get(name);
         return value == null ? headers.get(name.toLowerCase()) : value;
     }
 
-    public Iterator<String> getHeaderNames() {
+    public Iterator<@RUntainted String> getHeaderNames() {
         return headers.keySet().iterator();
     }
 

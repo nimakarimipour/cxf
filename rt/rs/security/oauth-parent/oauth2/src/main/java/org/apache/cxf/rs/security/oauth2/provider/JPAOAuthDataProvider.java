@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -310,7 +311,7 @@ public class JPAOAuthDataProvider extends AbstractOAuthDataProvider {
             }
         }
         TypedQuery<T> typedQuery = entityManager.createQuery(query.toString(), resultClass);
-        for (Map.Entry<String, Object> entry : parameterMap.entrySet()) {
+        for (Map.Entry<@RUntainted String, @RUntainted Object> entry : parameterMap.entrySet()) {
             typedQuery.setParameter(entry.getKey(), entry.getValue());
         }
         return typedQuery;

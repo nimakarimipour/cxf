@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.xml.ws.AsyncHandler;
 import jakarta.xml.ws.Provider;
 import jakarta.xml.ws.Response;
@@ -284,7 +285,7 @@ public abstract class AbstractJAXWSMethodInvoker extends FactoryInvoker {
 
     protected void addHandlerProperties(WrappedMessageContext ctx,
                                         Map<String, Object> handlerScopedStuff) {
-        for (Map.Entry<String, Object> key : handlerScopedStuff.entrySet()) {
+        for (Map.Entry<@RUntainted String, @RUntainted Object> key : handlerScopedStuff.entrySet()) {
             ctx.put(key.getKey(), key.getValue(), Scope.HANDLER);
         }
     }

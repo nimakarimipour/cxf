@@ -32,6 +32,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;
 import jakarta.ws.rs.container.PreMatching;
@@ -321,7 +322,7 @@ public class OpenApiFeature extends DelegatingFeature<OpenApiFeature.Portable>
         return delegate.findSwaggerUiRoot();
     }
 
-    public Properties getUserProperties(Map<String, Object> userDefinedOptions) {
+    public Properties getUserProperties(Map<@RUntainted String, @RUntainted Object> userDefinedOptions) {
         return delegate.getUserProperties(userDefinedOptions);
     }
 
@@ -764,7 +765,7 @@ public class OpenApiFeature extends DelegatingFeature<OpenApiFeature.Portable>
             return SwaggerUi.findSwaggerUiRoot(swaggerUiMavenGroupAndArtifact, swaggerUiVersion);
         }
 
-        protected Properties getUserProperties(final Map<String, Object> userDefinedOptions) {
+        protected Properties getUserProperties(final Map<@RUntainted String, @RUntainted Object> userDefinedOptions) {
             final Properties properties = new Properties();
 
             if (userDefinedOptions != null) {

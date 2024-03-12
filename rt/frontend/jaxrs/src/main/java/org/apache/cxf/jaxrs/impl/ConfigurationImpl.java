@@ -28,6 +28,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.ws.rs.RuntimeType;
 import jakarta.ws.rs.core.Configuration;
 import jakarta.ws.rs.core.Feature;
@@ -36,7 +37,7 @@ import org.apache.cxf.jaxrs.utils.AnnotationUtils;
 
 public class ConfigurationImpl implements Configuration {
     private static final Logger LOG = LogUtils.getL7dLogger(ConfigurationImpl.class);
-    private Map<String, Object> props = new HashMap<>();
+    private Map<@RUntainted String, @RUntainted Object> props = new HashMap<>();
     private RuntimeType runtimeType;
     private Map<Object, Map<Class<?>, Integer>> providers =
         new LinkedHashMap<>();
@@ -110,7 +111,7 @@ public class ConfigurationImpl implements Configuration {
     }
 
     @Override
-    public Map<String, Object> getProperties() {
+    public Map<@RUntainted String, @RUntainted Object> getProperties() {
         return Collections.unmodifiableMap(props);
     }
 

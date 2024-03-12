@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.ws.rs.core.CacheControl;
 import jakarta.ws.rs.core.EntityTag;
 import jakarta.ws.rs.core.HttpHeaders;
@@ -66,7 +67,7 @@ public class ResponseBuilderImpl extends ResponseBuilder implements Cloneable {
             status = 204;
         }
         ResponseImpl r = new ResponseImpl(status, null, reasonPhrase);
-        MetadataMap<String, Object> m =
+        MetadataMap<@RUntainted String, @RUntainted Object> m =
             new MetadataMap<>(metadata, false, true);
         r.addMetadata(m);
         r.setEntity(entity, annotations);

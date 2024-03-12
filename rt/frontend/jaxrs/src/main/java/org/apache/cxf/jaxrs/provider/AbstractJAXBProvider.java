@@ -45,6 +45,7 @@ import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Element;
 
 import org.xml.sax.helpers.DefaultHandler;
@@ -633,7 +634,7 @@ public abstract class AbstractJAXBProvider<T> extends AbstractConfigurableProvid
             unmarshaller.setListener(unmarshallerListener);
         }
         if (uProperties != null) {
-            for (Map.Entry<String, Object> entry : uProperties.entrySet()) {
+            for (Map.Entry<@RUntainted String, @RUntainted Object> entry : uProperties.entrySet()) {
                 unmarshaller.setProperty(entry.getKey(), entry.getValue());
             }
         }

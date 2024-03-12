@@ -29,6 +29,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.jaxrs.ext.search.collections.CollectionCheckInfo;
 
 /**
@@ -154,7 +155,7 @@ public class Beanspector<T> {
     }
 
     public Beanspector<T> setValue(Map<String, Object> settersWithValues) throws Throwable {
-        for (Map.Entry<String, Object> entry : settersWithValues.entrySet()) {
+        for (Map.Entry<@RUntainted String, @RUntainted Object> entry : settersWithValues.entrySet()) {
             setValue(entry.getKey(), entry.getValue());
         }
         return this;

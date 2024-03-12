@@ -117,7 +117,7 @@ public class DataReaderImpl<T> extends JAXBDataBase implements DataReader<T> {
                 um.setEventHandler(new WSUIDValidationHandler(veventHandler));
             }
             if (databinding.getUnmarshallerProperties() != null) {
-                for (Map.Entry<String, Object> propEntry
+                for (Map.Entry<@RUntainted String, @RUntainted Object> propEntry
                     : databinding.getUnmarshallerProperties().entrySet()) {
                     try {
                         um.setProperty(propEntry.getKey(), propEntry.getValue());

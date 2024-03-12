@@ -22,6 +22,7 @@ package org.apache.cxf.message;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.binding.Binding;
 import org.apache.cxf.endpoint.ConduitSelector;
@@ -148,7 +149,7 @@ public class ExchangeImpl extends ConcurrentHashMap<String, Object>  implements 
         }
     }
 
-    public Object put(String key, Object value) {
+    public Object put(@RUntainted String key, @RUntainted Object value) {
         setMessageContextProperty(inMessage, key, value);
         setMessageContextProperty(outMessage, key, value);
         setMessageContextProperty(inFaultMessage, key, value);
@@ -163,7 +164,7 @@ public class ExchangeImpl extends ConcurrentHashMap<String, Object>  implements 
         return key.cast(super.remove(key.getName()));
     }
 
-    private void setMessageContextProperty(Message m, String key, Object value) {
+    private void setMessageContextProperty(Message m, @RUntainted String key, @RUntainted Object value) {
         if (m == null) {
             return;
         }

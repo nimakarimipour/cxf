@@ -18,6 +18,8 @@
  */
 package org.apache.cxf.interceptor;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -26,7 +28,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Deprecated
 public final class LoggingMessage {
     public static final String ID_KEY = LoggingMessage.class.getName() + ".ID";
-    private static final AtomicInteger ID = new AtomicInteger();
+    private static final @RUntainted AtomicInteger ID = new AtomicInteger();
 
     private final String heading;
     private final StringBuilder address;
@@ -58,7 +60,7 @@ public final class LoggingMessage {
         return id;
     }
 
-    public static String nextId() {
+    public static @RUntainted String nextId() {
         return Integer.toString(ID.incrementAndGet());
     }
 

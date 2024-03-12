@@ -35,6 +35,7 @@ import java.util.regex.Pattern;
 
 import javax.xml.transform.dom.DOMSource;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.annotation.XmlElementDecl;
@@ -163,7 +164,7 @@ public final class JAXBContextCache {
     }
 
     public static CachedContextAndSchemas getCachedContextAndSchemas(String pkg,
-                                                                     Map<String, Object> props,
+                                                                     Map<@RUntainted String, @RUntainted Object> props,
                                                                      ClassLoader loader)
         throws JAXBException {
         Set<Class<?>> classes = new HashSet<>();
@@ -173,7 +174,7 @@ public final class JAXBContextCache {
 
     public static CachedContextAndSchemas getCachedContextAndSchemas(final Set<Class<?>> classes,
                                                                      String defaultNs,
-                                                                     Map<String, Object> props,
+                                                                     Map<@RUntainted String, @RUntainted Object> props,
                                                                      Collection<Object> typeRefs,
                                                                      boolean exact)
         throws JAXBException {
@@ -186,7 +187,7 @@ public final class JAXBContextCache {
             }
         }
 
-        Map<String, Object> map = new HashMap<>();
+        Map<@RUntainted String, @RUntainted Object> map = new HashMap<>();
         if (defaultNs != null) {
             if (HAS_MOXY) {
                 map.put("eclipselink.default-target-namespace", defaultNs);
@@ -281,7 +282,7 @@ public final class JAXBContextCache {
 
 
     private static JAXBContext createContext(final Set<Class<?>> classes,
-                                      final Map<String, Object> map,
+                                      final Map<@RUntainted String, @RUntainted Object> map,
                                       Collection<Object> typeRefs)
         throws JAXBException {
         JAXBContext ctx;

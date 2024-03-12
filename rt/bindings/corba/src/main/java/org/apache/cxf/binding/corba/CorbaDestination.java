@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.binding.corba.runtime.CorbaDSIServant;
 import org.apache.cxf.binding.corba.utils.CorbaBindingHelper;
 import org.apache.cxf.binding.corba.utils.CorbaUtils;
@@ -452,7 +453,7 @@ public class CorbaDestination implements MultiplexDestination {
         return ref;
     }
 
-    public String getId(Map<String, Object> contextMap) {
+    public String getId(Map<@RUntainted String, @RUntainted Object> contextMap) {
         try {
             Current currentPoa = (Current) orb
                 .resolve_initial_references("POACurrent");

@@ -28,14 +28,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.activation.DataHandler;
 import org.apache.cxf.message.Attachment;
 
 public class LazyAttachmentCollection
-    implements Collection<Attachment> {
+    implements Collection<@RUntainted Attachment> {
 
     private AttachmentDeserializer deserializer;
-    private final List<Attachment> attachments = new ArrayList<>();
+    private final List<@RUntainted Attachment> attachments = new ArrayList<>();
     private final int maxAttachmentCount;
 
     public LazyAttachmentCollection(AttachmentDeserializer deserializer, int maxAttachmentCount) {
@@ -44,7 +45,7 @@ public class LazyAttachmentCollection
         this.maxAttachmentCount = maxAttachmentCount;
     }
 
-    public List<Attachment> getLoadedAttachments() {
+    public List<@RUntainted Attachment> getLoadedAttachments() {
         return attachments;
     }
 
@@ -86,8 +87,8 @@ public class LazyAttachmentCollection
     public boolean hasNext() throws IOException {
         return hasNext(true);
     }
-    public Iterator<Attachment> iterator() {
-        return new Iterator<Attachment>() {
+    public Iterator<@RUntainted Attachment> iterator() {
+        return new Iterator<@RUntainted Attachment>() {
             int current;
             boolean removed;
 
@@ -252,14 +253,14 @@ public class LazyAttachmentCollection
             }
             return null;
         }
-        public DataHandler put(String key, DataHandler value) {
+        public DataHandler put(@RUntainted String key, @RUntainted DataHandler value) {
             Attachment at = new AttachmentImpl(key, value);
             collection.add(at);
             return value;
         }
 
-        public void putAll(Map<? extends String, ? extends DataHandler> t) {
-            for (Map.Entry<? extends String, ? extends DataHandler> ent : t.entrySet()) {
+        public void putAll(Map<? extends @RUntainted String, ? extends @RUntainted DataHandler> t) {
+            for (Map.Entry<? extends @RUntainted String, ? extends @RUntainted DataHandler> ent : t.entrySet()) {
                 put(ent.getKey(), ent.getValue());
             }
         }
@@ -282,7 +283,7 @@ public class LazyAttachmentCollection
                                 public DataHandler getValue() {
                                     return at.getDataHandler();
                                 }
-                                public DataHandler setValue(DataHandler value) {
+                                public DataHandler setValue(@RUntainted DataHandler value) {
                                     if (at instanceof AttachmentImpl) {
                                         DataHandler h = at.getDataHandler();
                                         ((AttachmentImpl)at).setDataHandler(value);

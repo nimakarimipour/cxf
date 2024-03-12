@@ -29,6 +29,7 @@ import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.MultivaluedMap;
@@ -179,7 +180,7 @@ public class JAXRSDataBinding extends AbstractDataBinding {
             }
         }
 
-        public void setAttachments(Collection<Attachment> attachments) {
+        public void setAttachments(Collection<@RUntainted Attachment> attachments) {
             // complete
         }
 

@@ -355,7 +355,7 @@ public class EndpointImpl extends jakarta.xml.ws.Endpoint
                 }
 
                 if (null != properties) {
-                    for (Entry<String, Object> entry : properties.entrySet()) {
+                    for (Entry<@RUntainted String, @RUntainted Object> entry : properties.entrySet()) {
                         endpointInfo.setProperty(entry.getKey(), entry.getValue());
                     }
                 }

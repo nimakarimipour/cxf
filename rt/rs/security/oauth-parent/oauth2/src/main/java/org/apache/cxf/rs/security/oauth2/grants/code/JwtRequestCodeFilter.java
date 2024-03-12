@@ -95,7 +95,7 @@ public class JwtRequestCodeFilter extends OAuthJoseJwtConsumer implements Author
 
             MultivaluedMap<String, String> newParams = new MetadataMap<>(params);
             Map<String, Object> claimsMap = claims.asMap();
-            for (Map.Entry<String, Object> entry : claimsMap.entrySet()) {
+            for (Map.Entry<@RUntainted String, @RUntainted Object> entry : claimsMap.entrySet()) {
                 String key = entry.getKey();
                 Object value = entry.getValue();
                 if (value instanceof Map) {

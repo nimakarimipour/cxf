@@ -19,9 +19,11 @@
 
 package org.apache.cxf.message;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.util.Map;
 
-public interface StringMap extends Map<String, Object> {
+public interface StringMap extends Map<@RUntainted String, @RUntainted Object> {
 
     /**
      * Convenience method for storing/retrieving typed objects from the map.

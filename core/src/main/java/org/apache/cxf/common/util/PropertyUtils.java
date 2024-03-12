@@ -21,6 +21,7 @@ package org.apache.cxf.common.util;
 
 import java.util.Map;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.message.Message;
 
 /**
@@ -82,7 +83,7 @@ public final class PropertyUtils {
         return Boolean.FALSE.equals(property) || "false".equalsIgnoreCase(property.toString());
     }
 
-    public static Long getLong(Message message, String key) {
+    public static Long getLong(Message message, @RUntainted String key) {
         Object o = message.getContextualProperty(key);
         if (o instanceof Long) {
             return (Long)o;
@@ -94,7 +95,7 @@ public final class PropertyUtils {
         return null;
     }
 
-    public static Integer getInteger(Message message, String key) {
+    public static Integer getInteger(Message message, @RUntainted String key) {
         Object o = message.getContextualProperty(key);
         if (o instanceof Integer) {
             return (Integer)o;

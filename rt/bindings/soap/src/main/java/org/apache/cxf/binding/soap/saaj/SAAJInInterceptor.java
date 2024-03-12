@@ -36,6 +36,7 @@ import javax.xml.stream.events.Namespace;
 import javax.xml.stream.events.XMLEvent;
 import javax.xml.transform.dom.DOMSource;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -215,7 +216,7 @@ public class SAAJInInterceptor extends AbstractSoapInterceptor {
                         }
                     }
                     AttachmentPart ap = soapMessage.createAttachmentPart(a.getDataHandler());
-                    Iterator<String> i = a.getHeaderNames();
+                    Iterator<@RUntainted String> i = a.getHeaderNames();
                     while (i != null && i.hasNext()) {
                         String h = i.next();
                         String val = a.getHeader(h);

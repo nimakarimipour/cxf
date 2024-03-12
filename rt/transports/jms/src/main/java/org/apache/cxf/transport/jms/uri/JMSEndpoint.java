@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.jms.ConnectionFactory;
 import jakarta.jms.Message;
 import org.apache.cxf.common.util.StringUtils;
@@ -141,7 +142,7 @@ public class JMSEndpoint {
         if (jaxwsProps == null) {
             return;
         }
-        for (Entry<String, Object> entry : jaxwsProps.entrySet()) {
+        for (Entry<@RUntainted String, @RUntainted Object> entry : jaxwsProps.entrySet()) {
             if (entry.getKey().startsWith(JAXWS_PROPERTY_PREFIX)) {
                 jmsProps.put(entry.getKey().substring(JAXWS_PROPERTY_PREFIX.length()), entry.getValue());
             }
@@ -173,8 +174,8 @@ public class JMSEndpoint {
      *
      * @param params
      */
-    private void configureProperties(Map<String, Object> params) {
-        for (Map.Entry<String, Object> entry : params.entrySet()) {
+    private void configureProperties(Map<@RUntainted String, @RUntainted Object> params) {
+        for (Map.Entry<@RUntainted String, @RUntainted Object> entry : params.entrySet()) {
             Object value = entry.getValue();
             if (value == null || value.equals("")) {
                 continue;

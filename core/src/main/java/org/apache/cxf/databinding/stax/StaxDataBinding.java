@@ -28,6 +28,7 @@ import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Node;
 
 import org.apache.cxf.common.logging.LogUtils;
@@ -143,7 +144,7 @@ public class StaxDataBinding extends AbstractInterceptorProvidingDataBinding {
         public void setSchema(Schema s) {
         }
 
-        public void setAttachments(Collection<Attachment> attachments) {
+        public void setAttachments(Collection<@RUntainted Attachment> attachments) {
         }
 
         public void setProperty(String prop, Object value) {
@@ -177,7 +178,7 @@ public class StaxDataBinding extends AbstractInterceptorProvidingDataBinding {
         public void setSchema(Schema s) {
         }
 
-        public void setAttachments(Collection<Attachment> attachments) {
+        public void setAttachments(Collection<@RUntainted Attachment> attachments) {
         }
 
         public void setProperty(String key, Object value) {

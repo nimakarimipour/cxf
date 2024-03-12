@@ -35,6 +35,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.activation.DataSource;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.StringUtils;
@@ -230,7 +231,7 @@ public class AttachmentDeserializer {
         }
         stream.unread(v);
 
-        Map<String, List<String>> headers = loadPartHeaders(stream);
+        Map<@RUntainted String, List<@RUntainted String>> headers = loadPartHeaders(stream);
         return (AttachmentImpl)createAttachment(headers);
     }
 
@@ -319,7 +320,7 @@ public class AttachmentDeserializer {
      *
      * @throws IOException
      */
-    private Attachment createAttachment(Map<String, List<String>> headers) throws IOException {
+    private Attachment createAttachment(Map<@RUntainted String, List<@RUntainted String>> headers) throws IOException {
         InputStream partStream =
             new DelegatingInputStream(new MimeBodyPartInputStream(stream, boundary, PUSHBACK_AMOUNT),
                                       this);
@@ -369,7 +370,7 @@ public class AttachmentDeserializer {
 
 
 
-    private Map<String, List<String>> loadPartHeaders(InputStream in) throws IOException {
+    private Map<@RUntainted String, List<@RUntainted String>> loadPartHeaders(InputStream in) throws IOException {
         StringBuilder buffer = new StringBuilder(128);
         StringBuilder b = new StringBuilder(128);
         Map<String, List<String>> heads = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);

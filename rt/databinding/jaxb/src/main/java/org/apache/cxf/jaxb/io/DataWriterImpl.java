@@ -161,7 +161,7 @@ public class DataWriterImpl<T> extends JAXBDataBase implements DataWriter<T> {
                 }
             }
             if (databinding.getMarshallerProperties() != null) {
-                for (Map.Entry<String, Object> propEntry
+                for (Map.Entry<@RUntainted String, @RUntainted Object> propEntry
                     : databinding.getMarshallerProperties().entrySet()) {
                     try {
                         marshaller.setProperty(propEntry.getKey(), propEntry.getValue());

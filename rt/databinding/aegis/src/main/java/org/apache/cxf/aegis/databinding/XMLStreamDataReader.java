@@ -24,6 +24,7 @@ import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.aegis.AegisXMLStreamDataReader;
 import org.apache.cxf.aegis.type.AegisType;
@@ -71,7 +72,7 @@ public class XMLStreamDataReader implements DataReader<XMLStreamReader> {
         }
     }
 
-    public void setAttachments(Collection<Attachment> attachments) {
+    public void setAttachments(Collection<@RUntainted Attachment> attachments) {
         reader.getContext().setAttachments(attachments);
     }
 

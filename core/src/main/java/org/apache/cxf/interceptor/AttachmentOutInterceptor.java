@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.attachment.AttachmentSerializer;
 import org.apache.cxf.attachment.AttachmentUtil;
 import org.apache.cxf.common.i18n.BundleUtils;
@@ -106,7 +107,7 @@ public class AttachmentOutInterceptor extends AbstractPhaseInterceptor<Message> 
         return writeOptionalTypeParameters;
     }
 
-    protected Map<String, List<String>> getRootHeaders() {
+    protected Map<@RUntainted String, List<@RUntainted String>> getRootHeaders() {
         return Collections.emptyMap();
     }
 

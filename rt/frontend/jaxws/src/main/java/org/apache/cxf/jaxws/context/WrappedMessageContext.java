@@ -29,6 +29,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.activation.DataHandler;
 import jakarta.xml.ws.BindingProvider;
 import jakarta.xml.ws.handler.MessageContext;
@@ -396,15 +397,15 @@ public class WrappedMessageContext implements MessageContext {
         }
         return Collections.unmodifiableSet(set);
     }
-    public final Set<Entry<String, Object>> entrySet() {
-        Set<Entry<String, Object>> set = new HashSet<>();
-        for (Map.Entry<String, Object> s : message.entrySet()) {
+    public final Set<Entry<@RUntainted String, @RUntainted Object>> entrySet() {
+        Set<Entry<@RUntainted String, @RUntainted Object>> set = new HashSet<>();
+        for (Map.Entry<@RUntainted String, @RUntainted Object> s : message.entrySet()) {
             set.add(s);
 
             final String s2 = mapKeyReverse(s.getKey());
             final Object o = s.getValue();
             if (s2.equals(s.getKey())) {
-                Map.Entry<String, Object> entry = new Map.Entry<String, Object>() {
+                Map.Entry<@RUntainted String, @RUntainted Object> entry = new Map.Entry<@RUntainted String, @RUntainted Object>() {
                     public String getKey() {
                         return s2;
                     }

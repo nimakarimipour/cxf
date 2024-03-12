@@ -22,6 +22,7 @@ package org.apache.cxf.message;
 import java.util.Collection;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.xml.ws.handler.MessageContext;
 import org.apache.cxf.interceptor.InterceptorChain;
 import org.apache.cxf.transport.Destination;
@@ -231,9 +232,9 @@ public interface Message extends StringMap {
      *
      * @return a collection containing the attachments
      */
-    Collection<Attachment> getAttachments();
+    Collection<@RUntainted Attachment> getAttachments();
 
-    void setAttachments(Collection<Attachment> attachments);
+    void setAttachments(Collection<@RUntainted Attachment> attachments);
 
     /**
      * Retrieve the encapsulated content as a particular type. The content is
@@ -274,7 +275,7 @@ public interface Message extends StringMap {
      * correlates to the desired property
      * @return the property's value
      */
-    Object getContextualProperty(String key);
+    @RUntainted Object getContextualProperty(@RUntainted String key);
 
     /**
      * Resets the cache of contextual properties that messages may contain.  Subsequent
@@ -285,5 +286,5 @@ public interface Message extends StringMap {
     /**
      * @return set of defined contextual property keys
      */
-    Set<String> getContextualPropertyKeys();
+    Set<@RUntainted String> getContextualPropertyKeys();
 }

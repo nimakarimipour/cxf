@@ -39,6 +39,7 @@ import java.util.logging.Logger;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.xml.ws.handler.MessageContext;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
@@ -97,13 +98,13 @@ public class ClientImpl
     protected PhaseChainCache outboundChainCache = new PhaseChainCache();
     protected PhaseChainCache inboundChainCache = new PhaseChainCache();
 
-    protected Map<String, Object> currentRequestContext = new ConcurrentHashMap<>(8, 0.75f, 4);
+    protected Map<@RUntainted String, @RUntainted Object> currentRequestContext = new ConcurrentHashMap<>(8, 0.75f, 4);
     protected Thread latestContextThread;
     protected Map<Thread, EchoContext> requestContext
         = Collections.synchronizedMap(new WeakHashMap<Thread, EchoContext>());
 
-    protected Map<Thread, ResponseContext> responseContext
-        = Collections.synchronizedMap(new WeakHashMap<Thread, ResponseContext>());
+    protected Map<@RUntainted Thread, @RUntainted ResponseContext> responseContext
+        = Collections.synchronizedMap(new WeakHashMap<@RUntainted Thread, @RUntainted ResponseContext>());
 
     protected Executor executor;
 
@@ -264,7 +265,7 @@ public class ClientImpl
         };
     }
 
-    public Map<String, Object> getRequestContext() {
+    public Map<@RUntainted String, @RUntainted Object> getRequestContext() {
         if (isThreadLocalRequestContext()) {
             final Thread t = Thread.currentThread();
             requestContext.computeIfAbsent(t, k -> new EchoContext(currentRequestContext));
@@ -280,7 +281,7 @@ public class ClientImpl
         }
         return responseContext.get(Thread.currentThread());
     }
-    protected Map<String, Object> setResponseContext(Map<String, Object> ctx) {
+    protected Map<@RUntainted String, @RUntainted Object> setResponseContext(@RUntainted Map<@RUntainted String, @RUntainted Object> ctx) {
         if (ctx instanceof ResponseContext) {
             ResponseContext c = (ResponseContext)ctx;
             responseContext.put(Thread.currentThread(), c);
@@ -303,7 +304,7 @@ public class ClientImpl
         }
         return false;
     }
-    public void setThreadLocalRequestContext(boolean b) {
+    public void setThreadLocalRequestContext(@RUntainted boolean b) {
         currentRequestContext.put(THREAD_LOCAL_REQUEST_CONTEXT, b);
     }
 
@@ -427,14 +428,14 @@ public class ClientImpl
     public void invoke(ClientCallback callback,
                        BindingOperationInfo oi,
                        Object[] params,
-                       Map<String, Object> context,
+                       Map<@RUntainted String, @RUntainted Object> context,
                        Exchange exchange) throws Exception {
         doInvoke(callback, oi, params, context, exchange);
     }
 
     public Object[] invoke(BindingOperationInfo oi,
                            Object[] params,
-                           Map<String, Object> context,
+                           Map<@RUntainted String, @RUntainted Object> context,
                            Exchange exchange) throws Exception {
         return doInvoke(null, oi, params, context, exchange);
     }
@@ -442,11 +443,11 @@ public class ClientImpl
     private Object[] doInvoke(final ClientCallback callback,
                               BindingOperationInfo oi,
                               Object[] params,
-                              Map<String, Object> context,
+                              Map<@RUntainted String, @RUntainted Object> context,
                               Exchange exchange) throws Exception {
         Bus origBus = BusFactory.getAndSetThreadDefaultBus(bus);
         ClassLoaderHolder origLoader = null;
-        Map<String, Object> resContext = null;
+        Map<@RUntainted String, @RUntainted Object> resContext = null;
         try {
             ClassLoader loader = bus.getExtension(ClassLoader.class);
             if (loader != null) {
@@ -467,8 +468,8 @@ public class ClientImpl
             if (context == null) {
                 context = new HashMap<>();
             }
-            Map<String, Object> reqContext = CastUtils.cast((Map<?, ?>)context.get(REQUEST_CONTEXT));
-            resContext = CastUtils.cast((Map<?, ?>)context.get(RESPONSE_CONTEXT));
+            Map<@RUntainted String, @RUntainted Object> reqContext = CastUtils.cast((@RUntainted Map<?, ?>)context.get(REQUEST_CONTEXT));
+            resContext = CastUtils.cast((@RUntainted Map<?, ?>)context.get(RESPONSE_CONTEXT));
             if (reqContext == null) {
                 reqContext = new HashMap<>(getRequestContext());
                 context.put(REQUEST_CONTEXT, reqContext);
@@ -509,7 +510,7 @@ public class ClientImpl
                             if (message.getContent(Exception.class) == null) {
                                 // handle the right response
                                 Message inMsg = message.getExchange().getInMessage();
-                                Map<String, Object> ctx = responseContext.get(Thread.currentThread());
+                                Map<@RUntainted String, @RUntainted Object> ctx = responseContext.get(Thread.currentThread());
                                 List<Object> resList = CastUtils.cast(inMsg.getContent(List.class));
                                 Object[] result = resList == null ? null : resList.toArray();
                                 callback.handleResponse(ctx, result);
@@ -588,7 +589,7 @@ public class ClientImpl
     protected Object[] processResult(Message message,
                                    Exchange exchange,
                                    BindingOperationInfo oi,
-                                   Map<String, Object> resContext) throws Exception {
+                                   Map<@RUntainted String, @RUntainted Object> resContext) throws Exception {
         Exception ex = null;
         // Check to see if there is a Fault from the outgoing chain if it's an out Message
         if (!message.get(Message.INBOUND_MESSAGE).equals(Boolean.TRUE)) {
@@ -683,7 +684,7 @@ public class ClientImpl
         return null;
     }
 
-    protected void setContext(Map<String, Object> ctx, Message message) {
+    protected void setContext(Map<@RUntainted String, @RUntainted Object> ctx, Message message) {
         if (ctx != null) {
             message.putAll(ctx);
             if (LOG.isLoggable(Level.FINE)) {
@@ -810,7 +811,7 @@ public class ClientImpl
                         //so that asyn callback handler get chance to
                         //handle non-runtime exceptions
                         message.getExchange().setInMessage(message);
-                        Map<String, Object> resCtx = CastUtils
+                        Map<@RUntainted String, @RUntainted Object> resCtx = CastUtils
                                 .cast((Map<?, ?>) message.getExchange()
                                         .getOutMessage().get(
                                                 Message.INVOCATION_CONTEXT));
@@ -840,7 +841,7 @@ public class ClientImpl
             callback = message.getExchange().remove(ClientCallback.class);
             if (callback != null) {
                 message.getExchange().setInMessage(message);
-                Map<String, Object> resCtx = CastUtils.cast((Map<?, ?>)message
+                Map<@RUntainted String, @RUntainted Object> resCtx = CastUtils.cast((Map<?, ?>)message
                                                                 .getExchange()
                                                                 .getOutMessage()
                                                                 .get(Message.INVOCATION_CONTEXT));
@@ -1086,17 +1087,17 @@ public class ClientImpl
      * Class to handle the response contexts.   The clear is overloaded to remove
      * this context from the threadLocal caches in the ClientImpl
      */
-    static class ResponseContext implements Map<String, Object>, Serializable {
+    static class ResponseContext implements Map<@RUntainted String, @RUntainted Object>, Serializable {
         private static final long serialVersionUID = 2L;
-        final Map<String, Object> wrapped;
-        final Map<Thread, ResponseContext> responseContext;
+        final Map<@RUntainted String, @RUntainted Object> wrapped;
+        final @RUntainted Map<@RUntainted Thread, @RUntainted ResponseContext> responseContext;
         
-        ResponseContext(Map<String, Object> origMap, Map<Thread, ResponseContext> rc) {
+        ResponseContext(Map<@RUntainted String, @RUntainted Object> origMap, Map<@RUntainted Thread, @RUntainted ResponseContext> rc) {
             wrapped = origMap;
             responseContext = rc;
         }
 
-        ResponseContext(Map<Thread, ResponseContext> rc) {
+        ResponseContext(Map<@RUntainted Thread, @RUntainted ResponseContext> rc) {
             wrapped = new HashMap<>();
             responseContext = rc;
         }
@@ -1105,7 +1106,7 @@ public class ClientImpl
         public void clear() {
             wrapped.clear();
             try {
-                for (Map.Entry<Thread, ResponseContext> ent : responseContext.entrySet()) {
+                for (Map.Entry<@RUntainted Thread, @RUntainted ResponseContext> ent : responseContext.entrySet()) {
                     if (ent.getValue() == this) {
                         responseContext.remove(ent.getKey());
                         return;
@@ -1129,35 +1130,35 @@ public class ClientImpl
             return wrapped.containsKey(key);
         }
         @Override
-        public boolean containsValue(Object value) {
+        public boolean containsValue(@RUntainted Object value) {
             return wrapped.containsKey(value);
         }
         @Override
-        public Object get(Object key) {
+        public @RUntainted Object get(@RUntainted Object key) {
             return wrapped.get(key);
         }
         @Override
-        public Object put(String key, Object value) {
+        public @RUntainted Object put(@RUntainted String key, @RUntainted Object value) {
             return wrapped.put(key, value);
         }
         @Override
-        public Object remove(Object key) {
+        public @RUntainted Object remove(@RUntainted Object key) {
             return wrapped.remove(key);
         }
         @Override
-        public void putAll(Map<? extends String, ? extends Object> m) {
+        public void putAll(Map<? extends @RUntainted String, ? extends @RUntainted Object> m) {
             wrapped.putAll(m);
         }
         @Override
-        public Set<String> keySet() {
+        public Set<@RUntainted String> keySet() {
             return wrapped.keySet();
         }
         @Override
-        public Collection<Object> values() {
+        public Collection<@RUntainted Object> values() {
             return wrapped.values();
         }
         @Override
-        public Set<Entry<String, Object>> entrySet() {
+        public Set<Entry<@RUntainted String, @RUntainted Object>> entrySet() {
             return wrapped.entrySet();
         }
     }

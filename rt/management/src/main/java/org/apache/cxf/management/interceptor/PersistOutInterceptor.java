@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.interceptor.Fault;
 import org.apache.cxf.io.CacheAndWriteOutputStream;
 import org.apache.cxf.io.CachedOutputStream;
@@ -121,7 +122,7 @@ public class PersistOutInterceptor extends AbstractPhaseInterceptor<Message> {
     }
 
     private void addPropertiesFrom(ExchangeData exchange, Message message) {
-        for (Map.Entry<String, Object> entry : message.entrySet()) {
+        for (Map.Entry<@RUntainted String, @RUntainted Object> entry : message.entrySet()) {
             if (entry.getKey().equals(org.apache.cxf.message.Message.ENCODING)) {
                 exchange.setEncoding((String)entry.getValue());
             } else if (entry.getKey().equals(org.apache.cxf.message.Message.REQUEST_URI)) {

@@ -307,7 +307,7 @@ public class OAuthJSONProvider implements MessageBodyWriter<Object>,
 
         // Here we're going to assume the values are all Strings
         Map<String, String> forcedStringResponse = new HashMap<>(response.size());
-        for (Map.Entry<String, Object> entry : response.entrySet()) {
+        for (Map.Entry<@RUntainted String, @RUntainted Object> entry : response.entrySet()) {
             forcedStringResponse.put(entry.getKey(), entry.getValue().toString());
         }
 

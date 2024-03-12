@@ -27,6 +27,7 @@ import java.util.Map;
 
 import javax.xml.stream.XMLStreamWriter;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.interceptor.StaxOutEndingInterceptor;
 import org.apache.cxf.interceptor.StaxOutInterceptor;
 import org.apache.cxf.message.Exchange;
@@ -55,7 +56,7 @@ public class TransformOutInterceptor extends AbstractPhaseInterceptor<Message> {
     private Map<String, String> outAttributesMap;
     private boolean attributesToElements;
     private boolean skipOnFault;
-    private String contextPropertyName;
+    private @RUntainted String contextPropertyName;
     private String defaultNamespace;
 
     public TransformOutInterceptor() {
@@ -168,7 +169,7 @@ public class TransformOutInterceptor extends AbstractPhaseInterceptor<Message> {
         return !(isRequestor(message) && isGET(message));
     }
 
-    public void setContextPropertyName(String propertyName) {
+    public void setContextPropertyName(@RUntainted String propertyName) {
         contextPropertyName = propertyName;
     }
 

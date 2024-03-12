@@ -27,18 +27,19 @@ import java.util.logging.Logger;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.i18n.Message;
 import org.apache.cxf.common.logging.LogUtils;
 
 public class InterfaceInfo extends AbstractDescriptionElement implements NamedItem {
     private static final Logger LOG = LogUtils.getL7dLogger(InterfaceInfo.class);
 
-    QName name;
+    @RUntainted QName name;
     ServiceInfo service;
 
     Map<QName, OperationInfo> operations = new ConcurrentHashMap<>(4, 0.75f, 2);
 
-    public InterfaceInfo(ServiceInfo info, QName q) {
+    public InterfaceInfo(ServiceInfo info, @RUntainted QName q) {
         name = q;
         service = info;
         info.setInterface(this);
@@ -54,10 +55,10 @@ public class InterfaceInfo extends AbstractDescriptionElement implements NamedIt
         return service;
     }
 
-    public void setName(QName n) {
+    public void setName(@RUntainted QName n) {
         name = n;
     }
-    public QName getName() {
+    public @RUntainted QName getName() {
         return name;
     }
 
@@ -68,7 +69,7 @@ public class InterfaceInfo extends AbstractDescriptionElement implements NamedIt
      * @param oname the qualified name of the operation.
      * @return the operation.
      */
-    public OperationInfo addOperation(QName oname) {
+    public OperationInfo addOperation(@RUntainted QName oname) {
         if (oname == null) {
             throw new NullPointerException(
                 new Message("OPERATION.NAME.NOT.NULL", LOG).toString());

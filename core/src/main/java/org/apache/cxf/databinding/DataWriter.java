@@ -23,6 +23,7 @@ import java.util.Collection;
 
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.message.Attachment;
 import org.apache.cxf.service.model.MessagePartInfo;
 
@@ -44,7 +45,7 @@ public interface DataWriter<T> {
      * Attach a collection of attachments to this writer.
      * @param attachments
      */
-    void setAttachments(Collection<Attachment> attachments);
+    void setAttachments(Collection<@RUntainted Attachment> attachments);
     /**
      * Set a property for the writer.
      * @param key property key

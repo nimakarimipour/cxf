@@ -444,7 +444,7 @@ public final class ServerProviderFactory extends ProviderFactory {
 
         if (application != null) {
             Map<String, Object> appProps = application.getProvider().getProperties();
-            for (Map.Entry<String, Object> entry : appProps.entrySet()) {
+            for (Map.Entry<@RUntainted String, @RUntainted Object> entry : appProps.entrySet()) {
                 configImpl.property(entry.getKey(), entry.getValue());
             }
         }

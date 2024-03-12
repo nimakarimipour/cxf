@@ -81,15 +81,15 @@ public class ToolContext {
         this.javaModel = jModel;
     }
 
-    public void addParameters(Map<String, Object> map) {
-        for (Map.Entry<String, Object> entry : map.entrySet()) {
+    public void addParameters(Map<@RUntainted String, @RUntainted Object> map) {
+        for (Map.Entry<@RUntainted String, @RUntainted Object> entry : map.entrySet()) {
             if (!optionSet(entry.getKey())) {
                 put(entry.getKey(), entry.getValue());
             }
         }
     }
 
-    public void setParameters(Map<String, Object> map) {
+    public void setParameters(Map<@RUntainted String, @RUntainted Object> map) {
         this.paramMap = map;
     }
 

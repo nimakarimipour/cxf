@@ -94,7 +94,7 @@ public class LoggingOutInterceptor extends AbstractLoggingInterceptor {
     }
 
     private LoggingMessage setupBuffer(Message message) {
-        String id = (String)message.getExchange().get(LoggingMessage.ID_KEY);
+        String id = (@RUntainted String)message.getExchange().get(LoggingMessage.ID_KEY);
         if (id == null) {
             id = LoggingMessage.nextId();
             message.getExchange().put(LoggingMessage.ID_KEY, id);

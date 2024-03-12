@@ -28,13 +28,14 @@ import java.util.logging.Logger;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.i18n.Message;
 import org.apache.cxf.common.logging.LogUtils;
 
 public class OperationInfo extends AbstractPropertiesHolder implements NamedItem {
     private static final Logger LOG = LogUtils.getL7dLogger(OperationInfo.class);
     InterfaceInfo intf;
-    QName opName;
+    @RUntainted QName opName;
     String inName;
     MessageInfo inputMessage;
     String outName;
@@ -46,7 +47,7 @@ public class OperationInfo extends AbstractPropertiesHolder implements NamedItem
     public OperationInfo() {
     }
 
-    OperationInfo(InterfaceInfo it, QName n) {
+    OperationInfo(InterfaceInfo it, @RUntainted QName n) {
         intf = it;
         setName(n);
     }
@@ -59,14 +60,14 @@ public class OperationInfo extends AbstractPropertiesHolder implements NamedItem
      * Returns the name of the Operation.
      * @return the name of the Operation
      */
-    public QName getName() {
+    public @RUntainted QName getName() {
         return opName;
     }
     /**
      * Sets the name of the operation.
      * @param name the new name of the operation
      */
-    public final void setName(QName name) {
+    public final void setName(@RUntainted QName name) {
         if (name == null) {
             throw new NullPointerException("Operation Name cannot be null.");
         }

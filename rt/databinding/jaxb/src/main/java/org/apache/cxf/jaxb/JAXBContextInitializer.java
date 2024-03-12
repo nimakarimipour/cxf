@@ -38,6 +38,7 @@ import java.util.logging.Logger;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -68,13 +69,13 @@ class JAXBContextInitializer extends ServiceModelVisitor {
     private Set<Class<?>> classes;
     private Collection<Object> typeReferences;
     private Set<Class<?>> globalAdapters = new HashSet<>();
-    private Map<String, Object> unmarshallerProperties;
+    private Map<@RUntainted String, @RUntainted Object> unmarshallerProperties;
     private Bus bus;
 
     JAXBContextInitializer(Bus bus, ServiceInfo serviceInfo,
                            Set<Class<?>> classes,
                            Collection<Object> typeReferences,
-                           Map<String, Object> unmarshallerProperties) {
+                           Map<@RUntainted String, @RUntainted Object> unmarshallerProperties) {
         super(serviceInfo);
         this.classes = classes;
         this.typeReferences = typeReferences;

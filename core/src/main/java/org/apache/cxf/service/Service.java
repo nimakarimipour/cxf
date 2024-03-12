@@ -25,6 +25,7 @@ import java.util.concurrent.Executor;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.databinding.DataBinding;
 import org.apache.cxf.endpoint.Endpoint;
 import org.apache.cxf.interceptor.InterceptorProvider;
@@ -32,7 +33,7 @@ import org.apache.cxf.service.invoker.Invoker;
 import org.apache.cxf.service.model.EndpointInfo;
 import org.apache.cxf.service.model.ServiceInfo;
 
-public interface Service extends Map<String, Object>, InterceptorProvider {
+public interface Service extends Map<@RUntainted String, @RUntainted Object>, InterceptorProvider {
 
     QName getName();
 

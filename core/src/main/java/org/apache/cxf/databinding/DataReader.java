@@ -24,6 +24,7 @@ import java.util.Collection;
 import javax.xml.namespace.QName;
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.message.Attachment;
 import org.apache.cxf.service.model.MessagePartInfo;
 
@@ -49,7 +50,7 @@ public interface DataReader<T> {
      * of one or more attachments as part of reading from this reader.
      * @param attachments attachments.
      */
-    void setAttachments(Collection<Attachment> attachments);
+    void setAttachments(Collection<@RUntainted Attachment> attachments);
 
     /**
      * Set an arbitrary property on the reader.

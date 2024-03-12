@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Executor;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.binding.Binding;
 import org.apache.cxf.endpoint.Endpoint;
 import org.apache.cxf.feature.Feature;
@@ -117,7 +118,7 @@ public class WrappedEndpoint implements Endpoint {
         return wrappedEndpoint.containsValue(value);
     }
 
-    public Set<Entry<String, Object>> entrySet() {
+    public Set<Entry<@RUntainted String, @RUntainted Object>> entrySet() {
         return wrappedEndpoint.entrySet();
     }
 

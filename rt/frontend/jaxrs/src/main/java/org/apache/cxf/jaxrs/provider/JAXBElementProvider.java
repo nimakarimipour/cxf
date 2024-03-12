@@ -42,6 +42,7 @@ import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
 import javax.xml.transform.Source;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Document;
 
 import jakarta.ws.rs.Consumes;
@@ -543,7 +544,7 @@ public class JAXBElementProvider<T> extends AbstractJAXBProvider<T>  {
                            Annotation[] anns, MediaType mt, Marshaller ms)
         throws Exception {
     //CHECKSTYLE:ON
-        for (Map.Entry<String, Object> entry : mProperties.entrySet()) {
+        for (Map.Entry<@RUntainted String, @RUntainted Object> entry : mProperties.entrySet()) {
             ms.setProperty(entry.getKey(), entry.getValue());
         }
         MessageContext mc = getContext();

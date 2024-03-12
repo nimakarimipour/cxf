@@ -27,6 +27,7 @@ import javax.xml.transform.Source;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -64,7 +65,7 @@ public class NodeDataWriter implements DataWriter<Node> {
     public void setSchema(Schema s) {
     }
 
-    public void setAttachments(Collection<Attachment> attachments) {
+    public void setAttachments(Collection<@RUntainted Attachment> attachments) {
 
     }
 

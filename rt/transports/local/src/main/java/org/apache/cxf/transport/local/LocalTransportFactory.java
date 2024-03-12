@@ -30,6 +30,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.Executor;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.common.injection.NoJSR250Annotations;
 import org.apache.cxf.common.logging.LogUtils;
@@ -192,7 +193,7 @@ public class LocalTransportFactory extends AbstractTransportFactory
         }
 
         // copy all the contents
-        for (Map.Entry<String, Object> e : message.entrySet()) {
+        for (Map.Entry<@RUntainted String, @RUntainted Object> e : message.entrySet()) {
             if ((includes.contains(e.getKey())
                 || messageIncludeProperties.contains(e.getKey()))
                 && !filter.contains(e.getKey())) {

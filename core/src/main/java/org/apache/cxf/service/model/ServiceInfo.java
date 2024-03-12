@@ -29,10 +29,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.xmlschema.SchemaCollection;
 
 public class ServiceInfo extends AbstractDescriptionElement implements NamedItem {
-    QName name;
+    @RUntainted QName name;
     String targetNamespace;
     InterfaceInfo intf;
     List<BindingInfo> bindings = new CopyOnWriteArrayList<>();
@@ -68,10 +69,10 @@ public class ServiceInfo extends AbstractDescriptionElement implements NamedItem
         targetNamespace = ns;
     }
 
-    public void setName(QName n) {
+    public void setName(@RUntainted QName n) {
         name = n;
     }
-    public QName getName() {
+    public @RUntainted QName getName() {
         return name;
     }
 

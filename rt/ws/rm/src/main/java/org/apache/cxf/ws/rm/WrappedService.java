@@ -28,6 +28,7 @@ import java.util.concurrent.Executor;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.databinding.DataBinding;
 import org.apache.cxf.endpoint.Endpoint;
 import org.apache.cxf.interceptor.Interceptor;
@@ -128,7 +129,7 @@ public class WrappedService implements Service {
         return wrappedService.containsValue(value);
     }
 
-    public Set<java.util.Map.Entry<String, Object>> entrySet() {
+    public Set<java.util.Map.Entry<@RUntainted String, @RUntainted Object>> entrySet() {
         return wrappedService.entrySet();
     }
 

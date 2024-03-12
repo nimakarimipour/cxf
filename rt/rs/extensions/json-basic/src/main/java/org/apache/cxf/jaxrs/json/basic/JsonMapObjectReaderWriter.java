@@ -24,6 +24,7 @@ import java.io.OutputStream;
 import java.io.UncheckedIOException;
 import java.util.*;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.util.StringUtils;
 import org.apache.cxf.helpers.IOUtils;
 
@@ -88,8 +89,8 @@ public class JsonMapObjectReaderWriter {
 
     protected void toJsonInternal(Output out, Map<String, Object> map) {
         out.append(OBJECT_START);
-        for (Iterator<Map.Entry<String, Object>> it = map.entrySet().iterator(); it.hasNext();) {
-            Map.Entry<String, Object> entry = it.next();
+        for (Iterator<Map.Entry<@RUntainted String, @RUntainted Object>> it = map.entrySet().iterator(); it.hasNext();) {
+            Map.Entry<@RUntainted String, @RUntainted Object> entry = it.next();
             out.append(DQUOTE).append(escapeJson(entry.getKey())).append(DQUOTE);
             out.append(COLON);
             toJsonInternal(out, entry.getValue(), it.hasNext());

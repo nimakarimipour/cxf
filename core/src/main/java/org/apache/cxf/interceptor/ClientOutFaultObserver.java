@@ -22,6 +22,7 @@ package org.apache.cxf.interceptor;
 import java.util.Map;
 import java.util.SortedSet;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.endpoint.ClientCallback;
@@ -55,7 +56,7 @@ public class ClientOutFaultObserver extends AbstractFaultChainInitiatorObserver 
         ClientCallback callback = m.getExchange().remove(ClientCallback.class);
 
         if (callback != null) {
-            Map<String, Object> resCtx = CastUtils.cast((Map<?, ?>) m.getExchange().getOutMessage().get(
+            Map<@RUntainted String, @RUntainted Object> resCtx = CastUtils.cast((Map<?, ?>) m.getExchange().getOutMessage().get(
                     Message.INVOCATION_CONTEXT));
             resCtx = CastUtils.cast((Map<?, ?>) resCtx.get(Client.RESPONSE_CONTEXT));
             callback.handleException(resCtx, ex);

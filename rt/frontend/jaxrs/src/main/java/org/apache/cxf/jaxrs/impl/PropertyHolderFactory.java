@@ -26,6 +26,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.cxf.helpers.CastUtils;
 import org.apache.cxf.message.Message;
@@ -103,7 +104,7 @@ public final class PropertyHolderFactory {
     private static class MessagePropertyHolder implements PropertyHolder {
         private static final String PROPERTY_KEY = "jaxrs.filter.properties";
         private Message m;
-        private Map<String, Object> props;
+        private Map<@RUntainted String, @RUntainted Object> props;
 
         MessagePropertyHolder(Message m) {
             this.m = m;

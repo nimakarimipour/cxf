@@ -24,6 +24,7 @@ import java.util.concurrent.Executor;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.interceptor.InterceptorProvider;
 import org.apache.cxf.message.Exchange;
@@ -232,7 +233,7 @@ public interface Client extends InterceptorProvider, MessageObserver, ConduitSel
      * to be a ThreadLocal and values set are not seen by other threads.
      * @param b
      */
-    void setThreadLocalRequestContext(boolean b);
+    void setThreadLocalRequestContext(@RUntainted boolean b);
 
     /**
      * Checks if the Request context is thread local or global.

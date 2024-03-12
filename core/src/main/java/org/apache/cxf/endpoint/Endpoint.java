@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.binding.Binding;
 import org.apache.cxf.feature.Feature;
 import org.apache.cxf.interceptor.InterceptorProvider;
@@ -35,7 +36,7 @@ import org.apache.cxf.transport.MessageObserver;
  * Represents an endpoint that receives messages.
  *
  */
-public interface Endpoint extends Map<String, Object>, InterceptorProvider {
+public interface Endpoint extends Map<@RUntainted String, @RUntainted Object>, InterceptorProvider {
 
     EndpointInfo getEndpointInfo();
 

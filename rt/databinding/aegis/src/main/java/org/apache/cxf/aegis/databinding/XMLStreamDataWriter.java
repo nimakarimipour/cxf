@@ -26,6 +26,7 @@ import java.util.logging.Logger;
 import javax.xml.stream.XMLStreamWriter;
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.aegis.Context;
 import org.apache.cxf.aegis.DatabindingException;
@@ -47,14 +48,14 @@ public class XMLStreamDataWriter implements DataWriter<XMLStreamWriter> {
     private static final Logger LOG = LogUtils.getL7dLogger(XMLStreamDataWriter.class);
 
     private AegisDatabinding databinding;
-    private Collection<Attachment> attachments;
+    private Collection<@RUntainted Attachment> attachments;
     private Map<String, Object> properties;
 
     public XMLStreamDataWriter(AegisDatabinding databinding, Bus bus) {
         this.databinding = databinding;
     }
 
-    public void setAttachments(Collection<Attachment> attachments) {
+    public void setAttachments(Collection<@RUntainted Attachment> attachments) {
         this.attachments = attachments;
     }
 

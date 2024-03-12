@@ -24,6 +24,7 @@ import java.util.Map;
 
 import javax.xml.validation.Schema;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.databinding.DataReader;
 import org.apache.cxf.interceptor.Fault;
 
@@ -31,7 +32,7 @@ import org.apache.cxf.interceptor.Fault;
  * Common implementation of the Aegis data readers and writer.
  */
 public abstract class AbstractAegisIoImpl  {
-    protected Map<String, Object> properties;
+    protected Map<@RUntainted String, @RUntainted Object> properties;
     protected Schema schema;
     protected AegisContext aegisContext;
     protected Context context;

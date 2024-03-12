@@ -23,6 +23,7 @@ import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
@@ -51,7 +52,7 @@ public class MultipleEndpointObserver implements MessageObserver {
         = new CopyOnWriteArrayList<>();
     protected List<Interceptor<? extends Message>> routingInterceptors
         = new CopyOnWriteArrayList<>();
-    private Set<Endpoint> endpoints = new CopyOnWriteArraySet<>();
+    private Set<@RUntainted Endpoint> endpoints = new CopyOnWriteArraySet<>();
     private ClassLoader loader;
 
     public MultipleEndpointObserver(Bus bus) {

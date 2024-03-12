@@ -28,6 +28,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Node;
 
 import org.apache.cxf.common.logging.LogUtils;
@@ -145,10 +146,10 @@ public final class MessageUtils {
         return PropertyUtils.isTrue(value);
     }
 
-    public static boolean getContextualBoolean(Message m, String key) {
+    public static boolean getContextualBoolean(Message m, @RUntainted String key) {
         return getContextualBoolean(m, key, false);
     }
-    public static boolean getContextualBoolean(Message m, String key, boolean defaultValue) {
+    public static boolean getContextualBoolean(Message m, @RUntainted String key, boolean defaultValue) {
         if (m != null) {
             Object o = m.getContextualProperty(key);
             if (o != null) {
@@ -158,7 +159,7 @@ public final class MessageUtils {
         return defaultValue;
     }
 
-    public static Collection<Integer> getContextualIntegers(Message m, String key, Collection<Integer> defaultValue) {
+    public static Collection<Integer> getContextualIntegers(Message m, @RUntainted String key, Collection<Integer> defaultValue) {
         if (m != null) {
             Object o = m.getContextualProperty(key);
             if (o instanceof String) {
@@ -178,7 +179,7 @@ public final class MessageUtils {
         return defaultValue;
     }
 
-    public static int getContextualInteger(Message m, String key, int defaultValue) {
+    public static int getContextualInteger(Message m, @RUntainted String key, int defaultValue) {
         if (m != null) {
             Object o = m.getContextualProperty(key);
             if (o instanceof String) {
@@ -195,7 +196,7 @@ public final class MessageUtils {
         return defaultValue;
     }
 
-    public static Set<String> getContextualStrings(Message m, String key, Set<String> defaultValue) {
+    public static Set<String> getContextualStrings(Message m, @RUntainted String key, Set<String> defaultValue) {
         if (m != null) {
             Object o = m.getContextualProperty(key);
             if (o instanceof String) {
@@ -211,7 +212,7 @@ public final class MessageUtils {
         return defaultValue;
     }
 
-    public static String getContextualString(Message m, String key, String defaultValue) {
+    public static String getContextualString(Message m, @RUntainted String key, @RUntainted String defaultValue) {
         if (m != null) {
             final Object o = m.getContextualProperty(key);
             if (o instanceof String) {
@@ -223,7 +224,7 @@ public final class MessageUtils {
         return defaultValue;
     }
 
-    public static Object getContextualProperty(Message m, String propPreferred, String propDefault) {
+    public static Object getContextualProperty(Message m, @RUntainted String propPreferred, @RUntainted String propDefault) {
         Object prop = null;
         if (m != null) {
             prop = m.getContextualProperty(propPreferred);

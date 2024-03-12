@@ -30,6 +30,7 @@ import java.util.concurrent.Executor;
 import javax.xml.namespace.QName;
 import javax.xml.transform.Source;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.ws.rs.core.Response;
 import org.apache.cxf.common.util.PackageUtils;
 import org.apache.cxf.configuration.Configurable;
@@ -210,7 +211,7 @@ public class JAXRSServiceImpl extends AbstractAttributedInterceptorProvider impl
         this.endpoints = endpoints;
     }
 
-    public void setProperties(Map<String, Object> properties) {
+    public void setProperties(Map<@RUntainted String, @RUntainted Object> properties) {
         this.putAll(properties);
     }
 }

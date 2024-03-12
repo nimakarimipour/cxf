@@ -19,6 +19,8 @@
 
 package org.apache.cxf.service.model;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -60,7 +62,7 @@ public abstract class AbstractPropertiesHolder implements Extensible {
             extensors.set(null);
         }
         if (delegateProperties && propertyMap.get() != null) {
-            for (Map.Entry<String, Object> p2 : propertyMap.get().entrySet()) {
+            for (Map.Entry<@RUntainted String, @RUntainted Object> p2 : propertyMap.get().entrySet()) {
                 delegate.setProperty(p2.getKey(), p2.getValue());
             }
             propertyMap.set(null);
