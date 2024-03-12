@@ -38,11 +38,11 @@ public class Extension {
     
     private static final String PROBLEM_CREATING_EXTENSION_CLASS = "PROBLEM_CREATING_EXTENSION_CLASS";
 
-    protected @RUntainted String className;
+    protected String className;
     protected ClassLoader classloader;
     protected volatile Class<?> clazz;
     protected volatile Class<?> intf;
-    protected @RUntainted String interfaceName;
+    protected String interfaceName;
     protected boolean deferred;
     protected Collection<String> namespaces = new ArrayList<>();
     protected Object[] args;
@@ -130,7 +130,7 @@ public class Extension {
         return className;
     }
 
-    public void setClassname(@RUntainted String i) {
+    public void setClassname(String i) {
         clazz = null;
         notFound = false;
         className = i;
@@ -140,7 +140,7 @@ public class Extension {
         return interfaceName;
     }
 
-    public void setInterfaceName(@RUntainted String i) {
+    public void setInterfaceName(String i) {
         interfaceName = i;
         notFound = false;
     }
@@ -161,7 +161,7 @@ public class Extension {
         args = a;
     }
 
-    protected Class<?> tryClass(@RUntainted String name, ClassLoader cl) {
+    protected Class<?> tryClass(String name, ClassLoader cl) {
         Throwable origEx = null;
         if (classloader != null) {
             try {

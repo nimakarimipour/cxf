@@ -30,6 +30,7 @@ import java.util.logging.Logger;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.xml.sax.InputSource;
 
 import org.apache.cxf.Bus;
@@ -67,7 +68,7 @@ public class TransportURIResolver extends ExtendedURIResolver {
         bus = b;
     }
 
-    public InputSource resolve(String curUri, String baseUri) {
+    public InputSource resolve(@RUntainted String curUri, @RUntainted String baseUri) {
         // Spaces must be encoded or URI.resolve() will choke
         curUri = curUri.replace(" ", "%20");
 

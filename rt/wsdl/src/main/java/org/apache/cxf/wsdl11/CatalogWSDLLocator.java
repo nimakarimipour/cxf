@@ -22,6 +22,7 @@ import java.io.IOException;
 
 import javax.wsdl.xml.WSDLLocator;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.xml.sax.InputSource;
 
 import org.apache.cxf.Bus;
@@ -96,7 +97,7 @@ public class CatalogWSDLLocator implements WSDLLocator {
         return resolver.getLatestImportURI();
     }
 
-    public InputSource getImportInputSource(String parent, String importLocation) {
+    public InputSource getImportInputSource(@RUntainted String parent, @RUntainted String importLocation) {
         final String resolvedImportLocation;
         try {
             resolvedImportLocation = new OASISCatalogManagerHelper().resolve(manager,
