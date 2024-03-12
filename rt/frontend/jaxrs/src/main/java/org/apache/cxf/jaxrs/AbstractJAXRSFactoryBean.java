@@ -30,6 +30,7 @@ import java.util.logging.Logger;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusException;
 import org.apache.cxf.binding.BindingConfiguration;
@@ -410,7 +411,7 @@ public class AbstractJAXRSFactoryBean extends AbstractEndpointFactory {
      *
      * @param modelRef the reference to the external model resource.
      */
-    public void setModelRef(String modelRef) {
+    public void setModelRef(@RUntainted String modelRef) {
         List<UserResource> resources = ResourceUtils.getUserResources(modelRef, getBus());
         if (resources != null) {
             serviceFactory.setUserResources(resources);
@@ -426,7 +427,7 @@ public class AbstractJAXRSFactoryBean extends AbstractEndpointFactory {
      * @param modelRef the reference to the external model resource.
      * @param sClasses concrete root resource classes
      */
-    public void setModelRefWithServiceClass(String modelRef, Class<?>... sClasses) {
+    public void setModelRefWithServiceClass(@RUntainted String modelRef, Class<?>... sClasses) {
         List<UserResource> resources = ResourceUtils.getUserResources(modelRef, getBus());
         if (resources != null) {
             serviceFactory.setUserResourcesWithServiceClass(resources, sClasses);

@@ -19,6 +19,8 @@
 
 package org.apache.cxf.configuration;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 /**
  * The configurer's interface
  *
@@ -27,7 +29,7 @@ package org.apache.cxf.configuration;
  */
 public interface Configurer {
 
-    String DEFAULT_USER_CFG_FILE = "cxf.xml";
+    @RUntainted String DEFAULT_USER_CFG_FILE = "cxf.xml";
 
     String USER_CFG_FILE_PROPERTY_NAME = "cxf.config.file";
 

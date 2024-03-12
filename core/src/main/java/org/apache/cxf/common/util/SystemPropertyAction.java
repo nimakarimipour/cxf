@@ -58,7 +58,7 @@ public final class SystemPropertyAction implements PrivilegedAction<String> {
         return AccessController.doPrivileged(new SystemPropertyAction(name));
     }
 
-    public static String getProperty(String name, String def) {
+    public static String getProperty(@RPolyTainted String name, String def) {
         try {
             return AccessController.doPrivileged(new SystemPropertyAction(name, def));
         } catch (SecurityException ex) {

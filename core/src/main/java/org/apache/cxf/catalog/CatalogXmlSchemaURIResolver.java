@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.xml.sax.InputSource;
 
 import org.apache.cxf.Bus;
@@ -51,7 +52,7 @@ public class CatalogXmlSchemaURIResolver implements URIResolver {
         return resolved;
     }
 
-    public InputSource resolveEntity(String targetNamespace, String schemaLocation, String baseUri) {
+    public InputSource resolveEntity(String targetNamespace, @RUntainted String schemaLocation, @RUntainted String baseUri) {
         final String resolvedSchemaLocation;
         OASISCatalogManager catalogResolver = OASISCatalogManager.getCatalogManager(bus);
         try {

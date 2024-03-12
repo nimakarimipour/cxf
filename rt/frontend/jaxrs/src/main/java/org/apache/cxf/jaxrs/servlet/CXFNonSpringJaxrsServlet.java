@@ -31,6 +31,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -114,7 +115,7 @@ public class CXFNonSpringJaxrsServlet extends CXFNonSpringServlet {
     }
 
     @Override
-    public void init(ServletConfig servletConfig) throws ServletException {
+    public void init(@RUntainted ServletConfig servletConfig) throws ServletException {
         super.init(servletConfig);
 
         if (getApplication() != null) {

@@ -37,6 +37,8 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.CXFPermissions;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
 import org.apache.cxf.common.logging.LogUtils;
@@ -59,23 +61,23 @@ public class URIResolver implements AutoCloseable {
 
     private Map<String, LoadingByteArrayOutputStream> cache = new HashMap<>();
     private File file;
-    private URI uri;
-    private URL url;
+    private @RUntainted URI uri;
+    private @RUntainted URL url;
     private InputStream is;
     private Class<?> calling;
 
     public URIResolver() {
     }
 
-    public URIResolver(String path) throws IOException {
+    public URIResolver(@RUntainted String path) throws IOException {
         this("", path);
     }
 
-    public URIResolver(String baseUriStr, String uriStr) throws IOException {
+    public URIResolver(@RUntainted String baseUriStr, @RUntainted String uriStr) throws IOException {
         this(baseUriStr, uriStr, null);
     }
 
-    public URIResolver(String baseUriStr, String uriStr, Class<?> calling) throws IOException {
+    public URIResolver(@RUntainted String baseUriStr, @RUntainted String uriStr, Class<?> calling) throws IOException {
         this.calling = (calling != null) ? calling : getClass();
         if (uriStr.startsWith("classpath:")) {
             tryClasspath(uriStr);
@@ -100,7 +102,7 @@ public class URIResolver implements AutoCloseable {
         this.is = null;
     }
 
-    public void resolve(String baseUriStr, String uriStr, Class<?> callingCls) throws IOException {
+    public void resolve(@RUntainted String baseUriStr, @RUntainted String uriStr, Class<?> callingCls) throws IOException {
         this.calling = (callingCls != null) ? callingCls : getClass();
         this.file = null;
         this.uri = null;
@@ -132,14 +134,14 @@ public class URIResolver implements AutoCloseable {
         }
     }
 
-    private void tryFileSystem(String baseUriStr, String uriStr) throws IOException, MalformedURLException {
+    private void tryFileSystem(@RUntainted String baseUriStr, @RUntainted String uriStr) throws IOException, MalformedURLException {
         // It is possible that spaces have been encoded.  We should decode them first.
         String fileStr = uriStr.replace("%20", " ");
 
         try {
             final File uriFileTemp = new File(fileStr);
 
-            File uriFile = new File(AccessController.doPrivileged(new PrivilegedAction<String>() {
+            File uriFile = new File(AccessController.doPrivileged(new PrivilegedAction<@RUntainted String>() {
                 @Override
                 public String run() {
                     return uriFileTemp.getAbsolutePath();
@@ -286,7 +288,7 @@ public class URIResolver implements AutoCloseable {
     /**
      * Assumption: URI scheme is "file"
      */
-    private String getFilePathFromUri(String uriString) {
+    private @RPolyTainted String getFilePathFromUri(@RPolyTainted String uriString) {
         String path = null;
 
         try {
@@ -311,7 +313,7 @@ public class URIResolver implements AutoCloseable {
         return null;
     }
 
-    private void tryArchive(String baseStr, String uriStr) throws IOException {
+    private void tryArchive(@RUntainted String baseStr, @RUntainted String uriStr) throws IOException {
         int i = baseStr.indexOf('!');
         if (i == -1) {
             tryFileSystem(baseStr, uriStr);
@@ -337,7 +339,7 @@ public class URIResolver implements AutoCloseable {
         tryFileSystem("", uriStr);
     }
 
-    private void tryArchive(String uriStr) throws IOException {
+    private void tryArchive(@RUntainted String uriStr) throws IOException {
         int i = uriStr.indexOf('!');
         if (i == -1) {
             return;
@@ -424,7 +426,7 @@ public class URIResolver implements AutoCloseable {
         }
     }
 
-    public URI getURI() {
+    public @RUntainted URI getURI() {
         return uri;
     }
 

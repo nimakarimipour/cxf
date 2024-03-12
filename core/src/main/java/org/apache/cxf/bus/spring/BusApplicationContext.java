@@ -37,6 +37,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
 import org.apache.cxf.common.i18n.Message;
 import org.apache.cxf.common.logging.LogUtils;
@@ -68,34 +69,34 @@ public class BusApplicationContext extends ClassPathXmlApplicationContext {
 
     private NamespaceHandlerResolver nsHandlerResolver;
     private boolean includeDefaults;
-    private String[] cfgFiles;
+    private @RUntainted String[] cfgFiles;
     private URL[] cfgFileURLs;
 
-    public BusApplicationContext(String cf, boolean include) {
+    public BusApplicationContext(@RUntainted String cf, boolean include) {
         this(cf, include, null);
     }
-    public BusApplicationContext(String[] cfs, boolean include) {
+    public BusApplicationContext(@RUntainted String[] cfs, boolean include) {
         this(cfs, include, null);
     }
 
-    public BusApplicationContext(URL url, boolean include) {
+    public BusApplicationContext(@RUntainted URL url, boolean include) {
         this(url, include, null);
     }
     public BusApplicationContext(URL[] urls, boolean include) {
         this(urls, include, null);
     }
 
-    public BusApplicationContext(String cf, boolean include, ApplicationContext parent) {
+    public BusApplicationContext(@RUntainted String cf, boolean include, ApplicationContext parent) {
         this(new String[] {cf}, include, parent);
     }
 
-    public BusApplicationContext(URL url, boolean include, ApplicationContext parent) {
+    public BusApplicationContext(@RUntainted URL url, boolean include, ApplicationContext parent) {
         this(new URL[] {url}, include, parent, null);
     }
-    public BusApplicationContext(String[] cf, boolean include, ApplicationContext parent) {
+    public BusApplicationContext(@RUntainted String[] cf, boolean include, ApplicationContext parent) {
         this(cf, include, parent, null);
     }
-    public BusApplicationContext(String[] cf, boolean include,
+    public BusApplicationContext(@RUntainted String[] cf, boolean include,
                                  ApplicationContext parent, NamespaceHandlerResolver res) {
         super(new String[0], false, parent);
         cfgFiles = cf;
@@ -241,7 +242,7 @@ public class BusApplicationContext extends ClassPathXmlApplicationContext {
         return res;
     }
 
-    public static Resource findResource(final String cfgFile) {
+    public static Resource findResource(final @RUntainted String cfgFile) {
         try {
             return AccessController.doPrivileged(new PrivilegedAction<Resource>() {
                 public Resource run() {

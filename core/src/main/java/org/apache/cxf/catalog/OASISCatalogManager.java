@@ -34,6 +34,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.xml.sax.EntityResolver;
 
 import jakarta.annotation.Resource;
@@ -97,7 +98,7 @@ public class OASISCatalogManager {
             catalogManager.setUseStaticCatalog(false);
             
             return new CatalogResolver(catalogManager) {
-                public String getResolvedEntity(String publicId, String systemId) {
+                public String getResolvedEntity(@RUntainted String publicId, @RUntainted String systemId) {
                     String s = super.getResolvedEntity(publicId, systemId);
                     if (s != null && s.startsWith("classpath:")) {
                         try (URIResolver r = new URIResolver(s)) {
@@ -174,7 +175,7 @@ public class OASISCatalogManager {
         }
     }
 
-    public final void loadCatalog(URL catalogURL) throws IOException {
+    public final void loadCatalog(@RUntainted URL catalogURL) throws IOException {
         if (!loadedCatalogs.contains(catalogURL.toString())) {
             if ("file".equals(catalogURL.getProtocol())) {
                 try {

@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.xml.sax.InputSource;
 
 
@@ -37,7 +38,7 @@ public class ExtendedURIResolver {
         currentResolver = new org.apache.cxf.resource.URIResolver();
     }
 
-    public InputSource resolve(String curUri, String baseUri) {
+    public InputSource resolve(@RUntainted String curUri, @RUntainted String baseUri) {
         try {
             currentResolver.resolve(baseUri, curUri, getClass());
             if (currentResolver.isResolved()) {

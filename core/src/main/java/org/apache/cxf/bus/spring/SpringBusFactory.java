@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.buslifecycle.BusLifeCycleListener;
@@ -80,7 +81,7 @@ public class SpringBusFactory extends BusFactory {
     }
 
     public Bus createBus() {
-        return createBus((String)null);
+        return createBus((@RUntainted String)null);
     }
 
     private boolean defaultBusNotExists() {
@@ -90,11 +91,11 @@ public class SpringBusFactory extends BusFactory {
         return true;
     }
 
-    public Bus createBus(String cfgFile) {
+    public Bus createBus(@RUntainted String cfgFile) {
         return createBus(cfgFile, defaultBusNotExists());
     }
 
-    public Bus createBus(String[] cfgFiles) {
+    public Bus createBus(@RUntainted String[] cfgFiles) {
         return createBus(cfgFiles, defaultBusNotExists());
     }
 
@@ -117,14 +118,14 @@ public class SpringBusFactory extends BusFactory {
         return bus;
     }
 
-    public Bus createBus(String cfgFile, boolean includeDefaults) {
+    public Bus createBus(@RUntainted String cfgFile, boolean includeDefaults) {
         if (cfgFile == null) {
-            return createBus((String[])null, includeDefaults);
+            return createBus((@RUntainted String[])null, includeDefaults);
         }
         return createBus(new String[] {cfgFile}, includeDefaults);
     }
 
-    public Bus createBus(String[] cfgFiles, boolean includeDefaults) {
+    public Bus createBus(@RUntainted String[] cfgFiles, boolean includeDefaults) {
         try {
             String userCfgFile
                 = SystemPropertyAction.getPropertyOrNull(Configurer.USER_CFG_FILE_PROPERTY_NAME);
@@ -152,7 +153,7 @@ public class SpringBusFactory extends BusFactory {
         }
     }
 
-    protected ConfigurableApplicationContext createApplicationContext(String[] cfgFiles, boolean includeDefaults) {
+    protected ConfigurableApplicationContext createApplicationContext(@RUntainted String[] cfgFiles, boolean includeDefaults) {
         try {
             return new BusApplicationContext(cfgFiles, includeDefaults, context, resolver);
         } catch (BeansException ex) {

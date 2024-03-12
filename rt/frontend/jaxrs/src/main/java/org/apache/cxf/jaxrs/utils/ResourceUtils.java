@@ -49,6 +49,8 @@ import java.util.logging.Logger;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -559,7 +561,7 @@ public final class ResourceUtils {
     }
 
 
-    public static List<UserResource> getUserResources(String loc, Bus bus) {
+    public static List<UserResource> getUserResources(@RUntainted String loc, Bus bus) {
         try (InputStream is = ResourceUtils.getResourceStream(loc, bus)) {
             if (is == null) {
                 return null;
@@ -572,12 +574,12 @@ public final class ResourceUtils {
         return null;
     }
 
-    public static InputStream getResourceStream(String loc, Bus bus) throws IOException {
+    public static InputStream getResourceStream(@RUntainted String loc, Bus bus) throws IOException {
         URL url = getResourceURL(loc, bus);
         return url == null ? null : url.openStream();
     }
 
-    public static URL getResourceURL(String loc, Bus bus) throws IOException {
+    public static @RPolyTainted URL getResourceURL(@RPolyTainted String loc, Bus bus) throws IOException {
         URL url;
         if (loc.startsWith(CLASSPATH_PREFIX)) {
             String path = loc.substring(CLASSPATH_PREFIX.length());
@@ -630,7 +632,7 @@ public final class ResourceUtils {
         return props;
     }
 
-    public static List<UserResource> getUserResources(String loc) {
+    public static List<UserResource> getUserResources(@RUntainted String loc) {
         return getUserResources(loc, BusFactory.getThreadDefaultBus());
     }
 
