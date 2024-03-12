@@ -28,6 +28,7 @@ import java.util.Map;
 
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.xml.sax.InputSource;
 
 
@@ -38,7 +39,7 @@ import org.apache.cxf.tools.util.PropertyUtil;
 public class ToolContext {
 
     protected JavaModel javaModel;
-    private Map<String, Object> paramMap;
+    private Map<String, @RUntainted Object> paramMap;
     private String packageName;
     private boolean packageNameChanged;
     private ToolErrorListener errors;
@@ -96,7 +97,7 @@ public class ToolContext {
         return (paramMap != null) && paramMap.containsKey(key);
     }
 
-    public Object get(String key) {
+    public @RUntainted Object get(String key) {
         return (paramMap == null) ? null : paramMap.get(key);
     }
     public String[] getArray(String key) {
@@ -141,7 +142,7 @@ public class ToolContext {
         return Boolean.parseBoolean((String)get(key, defaultValue));
     }
 
-    public void put(String key, Object value) {
+    public void put(String key, @RUntainted Object value) {
         if (paramMap == null) {
             paramMap = new HashMap<>();
         }

@@ -52,6 +52,7 @@ import javax.wsdl.factory.WSDLFactory;
 import javax.wsdl.xml.WSDLWriter;
 import javax.xml.namespace.QName;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Element;
 
 import org.apache.cxf.Bus;
@@ -776,7 +777,7 @@ public class WSDLToJavaContainer extends AbstractCXFToolContainer {
 
             //get imported wsdls
             int wsdlImportCount = 0;
-            List<Definition> defs = (List<Definition>)context.get(ToolConstants.IMPORTED_DEFINITION);
+            List<@RUntainted Definition> defs = (List<@RUntainted Definition>)context.get(ToolConstants.IMPORTED_DEFINITION);
             Map<String, String> importWSDLMap = new HashMap<>();
             for (Definition importDef : defs) {
                 File importedWsdlFile;

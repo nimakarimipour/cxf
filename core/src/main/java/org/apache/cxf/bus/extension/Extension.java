@@ -38,7 +38,7 @@ public class Extension {
     
     private static final String PROBLEM_CREATING_EXTENSION_CLASS = "PROBLEM_CREATING_EXTENSION_CLASS";
 
-    protected String className;
+    protected @RUntainted String className;
     protected ClassLoader classloader;
     protected volatile Class<?> clazz;
     protected volatile Class<?> intf;
@@ -130,7 +130,7 @@ public class Extension {
         return className;
     }
 
-    public void setClassname(String i) {
+    public void setClassname(@RUntainted String i) {
         clazz = null;
         notFound = false;
         className = i;
@@ -140,7 +140,7 @@ public class Extension {
         return interfaceName;
     }
 
-    public void setInterfaceName(String i) {
+    public void setInterfaceName(@RUntainted String i) {
         interfaceName = i;
         notFound = false;
     }

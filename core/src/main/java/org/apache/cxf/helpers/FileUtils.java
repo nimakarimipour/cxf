@@ -48,7 +48,7 @@ public final class FileUtils {
 
     }
 
-    public static boolean isValidFileName(String name) {
+    public static boolean isValidFileName(@RUntainted String name) {
         for (int i = name.length(); i > 0; i--) {
             char c = name.charAt(i - 1);
             for (char c2 : ILLEGAL_CHARACTERS) {

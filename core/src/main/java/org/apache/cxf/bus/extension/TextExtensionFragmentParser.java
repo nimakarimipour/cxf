@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.logging.LogUtils;
 
 public class TextExtensionFragmentParser {
@@ -72,13 +73,13 @@ public class TextExtensionFragmentParser {
         return extensions;
     }
 
-    private Extension getExtensionFromTextLine(String line) {
+    private Extension getExtensionFromTextLine(@RUntainted String line) {
         line = line.trim();
         if (line.isEmpty() || line.charAt(0) == '#') {
             return null;
         }
         final Extension ext = new Extension(loader);
-        final String[] parts = line.split(":");
+        final @RUntainted String[] parts = line.split(":");
         ext.setClassname(parts[0]);
         if (ext.getClassname() == null) {
             return null;
