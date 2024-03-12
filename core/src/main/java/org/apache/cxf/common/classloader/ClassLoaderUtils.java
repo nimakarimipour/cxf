@@ -19,6 +19,8 @@
 
 package org.apache.cxf.common.classloader;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -108,7 +110,7 @@ public final class ClassLoaderUtils {
      * @param resourceName The name of the resource to load
      * @param callingClass The Class object of the calling object
      */
-    public static URL getResource(String resourceName, Class<?> callingClass) {
+    public static @RUntainted URL getResource(@RUntainted String resourceName, Class<?> callingClass) {
         ClassLoader contextClassLoader = getContextClassLoader();
         URL url = contextClassLoader.getResource(resourceName);
         if (url == null && resourceName.startsWith("/")) {

@@ -359,7 +359,7 @@ public class URIResolver implements AutoCloseable {
         }
     }
 
-    private void tryClasspath(String uriStr) throws IOException {
+    private void tryClasspath(@RUntainted String uriStr) throws IOException {
         boolean isClasspathURL = false;
         if (uriStr.startsWith("classpath:")) {
             uriStr = uriStr.substring(10);
@@ -407,7 +407,7 @@ public class URIResolver implements AutoCloseable {
         }
     }
 
-    private void tryRemote(String uriStr) throws IOException {
+    private void tryRemote(@RUntainted String uriStr) throws IOException {
         try {
             LoadingByteArrayOutputStream bout = cache.get(uriStr);
             url = new URL(uriStr);
