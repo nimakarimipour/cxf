@@ -34,7 +34,7 @@ import org.apache.cxf.common.logging.LogUtils;
 public final class SystemPropertyAction implements PrivilegedAction<@RUntainted String> {
     private static final Logger LOG = LogUtils.getL7dLogger(SystemPropertyAction.class);
     private final @RUntainted String property;
-    private final String def;
+    private final @RUntainted String def;
     private @RUntainted SystemPropertyAction(@RUntainted String name) {
         property = name;
         def = null;
@@ -47,7 +47,7 @@ public final class SystemPropertyAction implements PrivilegedAction<@RUntainted 
     /* (non-Javadoc)
      * @see java.security.PrivilegedAction#run()
      */
-    public String run() {
+    public @RUntainted String run() {
         if (def != null) {
             return System.getProperty(property, def);
         }

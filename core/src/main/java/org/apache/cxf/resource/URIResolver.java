@@ -143,7 +143,7 @@ public class URIResolver implements AutoCloseable {
 
             File uriFile = new File(AccessController.doPrivileged(new PrivilegedAction<@RUntainted String>() {
                 @Override
-                public String run() {
+                public @RUntainted String run() {
                     return uriFileTemp.getAbsolutePath();
                 }
             }));
@@ -288,7 +288,7 @@ public class URIResolver implements AutoCloseable {
     /**
      * Assumption: URI scheme is "file"
      */
-    private @RPolyTainted String getFilePathFromUri(@RPolyTainted String uriString) {
+    private @RUntainted String getFilePathFromUri(@RUntainted String uriString) {
         String path = null;
 
         try {
