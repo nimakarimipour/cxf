@@ -28,6 +28,7 @@ import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Document;
 
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
@@ -45,7 +46,7 @@ public abstract class AbstractXSLTInterceptor extends AbstractPhaseInterceptor<M
     private String contextPropertyName;
     private final Templates xsltTemplate;
 
-    public AbstractXSLTInterceptor(String phase, Class<?> before, Class<?> after, String xsltPath) {
+    public AbstractXSLTInterceptor(String phase, Class<?> before, Class<?> after, @RUntainted String xsltPath) {
         super(phase);
         if (before != null) {
             addBefore(before.getName());

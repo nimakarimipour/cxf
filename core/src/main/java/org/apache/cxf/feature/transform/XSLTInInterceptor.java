@@ -28,6 +28,7 @@ import java.util.logging.Logger;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.interceptor.Fault;
 import org.apache.cxf.interceptor.StaxInInterceptor;
@@ -43,11 +44,11 @@ import org.apache.cxf.staxutils.StaxUtils;
 public class XSLTInInterceptor extends AbstractXSLTInterceptor {
     private static final Logger LOG = LogUtils.getL7dLogger(XSLTInInterceptor.class);
 
-    public XSLTInInterceptor(String xsltPath) {
+    public XSLTInInterceptor(@RUntainted String xsltPath) {
         super(Phase.POST_STREAM, StaxInInterceptor.class, null, xsltPath);
     }
 
-    public XSLTInInterceptor(String phase, Class<?> before, Class<?> after, String xsltPath) {
+    public XSLTInInterceptor(String phase, Class<?> before, Class<?> after, @RUntainted String xsltPath) {
         super(phase, before, after, xsltPath);
     }
 

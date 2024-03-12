@@ -110,7 +110,7 @@ public final class ClassLoaderUtils {
      * @param resourceName The name of the resource to load
      * @param callingClass The Class object of the calling object
      */
-    public static @RUntainted URL getResource(@RUntainted String resourceName, Class<?> callingClass) {
+    public static @RUntainted URL getResource(@RUntainted String resourceName, @RUntainted Class<?> callingClass) {
         ClassLoader contextClassLoader = getContextClassLoader();
         URL url = contextClassLoader.getResource(resourceName);
         if (url == null && resourceName.startsWith("/")) {
@@ -243,7 +243,7 @@ public final class ClassLoaderUtils {
      * @param resourceName The name of the resource to load
      * @param callingClass The Class object of the calling object
      */
-    public static InputStream getResourceAsStream(String resourceName, Class<?> callingClass) {
+    public static InputStream getResourceAsStream(@RUntainted String resourceName, @RUntainted Class<?> callingClass) {
         URL url = getResource(resourceName, callingClass);
 
         try {
@@ -326,11 +326,11 @@ public final class ClassLoaderUtils {
         }
     }
 
-    static ClassLoader getContextClassLoader() {
+    static @RUntainted ClassLoader getContextClassLoader() {
         final SecurityManager sm = System.getSecurityManager();
         if (sm != null) {
-            return AccessController.doPrivileged(new PrivilegedAction<ClassLoader>() {
-                public ClassLoader run() {
+            return AccessController.doPrivileged(new PrivilegedAction<@RUntainted ClassLoader>() {
+                public @RUntainted ClassLoader run() {
                     ClassLoader loader = Thread.currentThread().getContextClassLoader();
                     return loader != null ? loader : ClassLoader.getSystemClassLoader();
                 }

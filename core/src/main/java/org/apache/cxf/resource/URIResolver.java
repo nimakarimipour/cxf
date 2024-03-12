@@ -64,7 +64,7 @@ public class URIResolver implements AutoCloseable {
     private @RUntainted URI uri;
     private @RUntainted URL url;
     private InputStream is;
-    private Class<?> calling;
+    private @RUntainted Class<?> calling;
 
     public URIResolver() {
     }
@@ -77,7 +77,7 @@ public class URIResolver implements AutoCloseable {
         this(baseUriStr, uriStr, null);
     }
 
-    public URIResolver(@RUntainted String baseUriStr, @RUntainted String uriStr, Class<?> calling) throws IOException {
+    public URIResolver(@RUntainted String baseUriStr, @RUntainted String uriStr, @RUntainted Class<?> calling) throws IOException {
         this.calling = (calling != null) ? calling : getClass();
         if (uriStr.startsWith("classpath:")) {
             tryClasspath(uriStr);

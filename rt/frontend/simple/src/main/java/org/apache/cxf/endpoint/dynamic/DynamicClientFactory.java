@@ -51,6 +51,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.util.StreamReaderDelegate;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Attr;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
@@ -190,7 +191,7 @@ public class DynamicClientFactory {
         return createClient(wsdlUrl, (QName)null, (QName)null);
     }
 
-    public Client createClient(String wsdlUrl, List<String> bindingFiles) {
+    public Client createClient(String wsdlUrl, List<@RUntainted String> bindingFiles) {
         return createClient(wsdlUrl, (QName)null, (QName)null, bindingFiles);
     }
 
@@ -205,7 +206,7 @@ public class DynamicClientFactory {
     public Client createClient(URL wsdlUrl) {
         return createClient(wsdlUrl, (QName)null, (QName)null);
     }
-    public Client createClient(URL wsdlUrl, List<String> bindingFiles) {
+    public Client createClient(URL wsdlUrl, List<@RUntainted String> bindingFiles) {
         return createClient(wsdlUrl, (QName)null, (QName)null, bindingFiles);
     }
 
@@ -221,21 +222,21 @@ public class DynamicClientFactory {
     public Client createClient(String wsdlUrl, ClassLoader classLoader) {
         return createClient(wsdlUrl, null, classLoader, null);
     }
-    public Client createClient(String wsdlUrl, ClassLoader classLoader, List<String> bindingFiles) {
+    public Client createClient(String wsdlUrl, ClassLoader classLoader, List<@RUntainted String> bindingFiles) {
         return createClient(wsdlUrl, null, classLoader, null, bindingFiles);
     }
 
     public Client createClient(String wsdlUrl, QName service) {
         return createClient(wsdlUrl, service, (QName)null);
     }
-    public Client createClient(String wsdlUrl, QName service, List<String> bindingFiles) {
+    public Client createClient(String wsdlUrl, QName service, List<@RUntainted String> bindingFiles) {
         return createClient(wsdlUrl, service, null, bindingFiles);
     }
 
     public Client createClient(String wsdlUrl, QName service, QName port) {
         return createClient(wsdlUrl, service, null, port);
     }
-    public Client createClient(String wsdlUrl, QName service, QName port, List<String> bindingFiles) {
+    public Client createClient(String wsdlUrl, QName service, QName port, List<@RUntainted String> bindingFiles) {
         return createClient(wsdlUrl, service, null, port, bindingFiles);
     }
 
@@ -256,21 +257,21 @@ public class DynamicClientFactory {
     public Client createClient(URL wsdlUrl, ClassLoader classLoader) {
         return createClient(wsdlUrl, null, classLoader, null);
     }
-    public Client createClient(URL wsdlUrl, ClassLoader classLoader, List<String> bindingFiles) {
+    public Client createClient(URL wsdlUrl, ClassLoader classLoader, List<@RUntainted String> bindingFiles) {
         return createClient(wsdlUrl.toString(), null, classLoader, null, bindingFiles);
     }
 
     public Client createClient(URL wsdlUrl, QName service) {
         return createClient(wsdlUrl, service, (QName)null);
     }
-    public Client createClient(URL wsdlUrl, QName service, List<String> bindingFiles) {
+    public Client createClient(URL wsdlUrl, QName service, List<@RUntainted String> bindingFiles) {
         return createClient(wsdlUrl, service, null, bindingFiles);
     }
 
     public Client createClient(URL wsdlUrl, QName service, QName port) {
         return createClient(wsdlUrl, service, null, port);
     }
-    public Client createClient(URL wsdlUrl, QName service, QName port, List<String> bindingFiles) {
+    public Client createClient(URL wsdlUrl, QName service, QName port, List<@RUntainted String> bindingFiles) {
         return createClient(wsdlUrl.toString(), service, null, port, bindingFiles);
     }
 
@@ -282,7 +283,7 @@ public class DynamicClientFactory {
                                QName service,
                                ClassLoader classLoader,
                                QName port,
-                               List<String> bindingFiles) {
+                               List<@RUntainted String> bindingFiles) {
         return createClient(wsdlUrl.toString(), service, classLoader, port, bindingFiles);
     }
 
@@ -307,7 +308,7 @@ public class DynamicClientFactory {
 
     public Client createClient(String wsdlUrl, QName service,
                                ClassLoader classLoader, QName port,
-                               List<String> bindingFiles) {
+                               List<@RUntainted String> bindingFiles) {
 
         if (classLoader == null) {
             classLoader = Thread.currentThread().getContextClassLoader();
@@ -451,7 +452,7 @@ public class DynamicClientFactory {
         }
     }
 
-    private void addBindingFiles(List<String> bindingFiles, SchemaCompiler compiler) {
+    private void addBindingFiles(List<@RUntainted String> bindingFiles, SchemaCompiler compiler) {
         if (bindingFiles != null) {
             for (String s : bindingFiles) {
                 URL url = composeUrl(s);
@@ -725,7 +726,7 @@ public class DynamicClientFactory {
         } while(!tcl.equals(scl.getParent()));
     }
 
-    private URL composeUrl(String s) {
+    private URL composeUrl(@RUntainted String s) {
         try (URIResolver resolver = new URIResolver(null, s, getClass())) {
             if (resolver.isResolved()) {
                 return resolver.getURI().toURL();

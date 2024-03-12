@@ -604,7 +604,7 @@ public final class ResourceUtils {
         return url;
     }
 
-    public static InputStream getClasspathResourceStream(String path, Class<?> callingClass, Bus bus) {
+    public static InputStream getClasspathResourceStream(@RUntainted String path, @RUntainted Class<?> callingClass, Bus bus) {
         InputStream is = ClassLoaderUtils.getResourceAsStream(path, callingClass);
         return is == null ? getResource(path, InputStream.class, bus) : is;
     }

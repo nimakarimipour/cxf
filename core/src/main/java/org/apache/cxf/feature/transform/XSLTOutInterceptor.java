@@ -31,6 +31,7 @@ import javax.xml.stream.XMLStreamWriter;
 import javax.xml.transform.Templates;
 import javax.xml.transform.stream.StreamSource;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.helpers.IOUtils;
 import org.apache.cxf.interceptor.AbstractOutDatabindingInterceptor;
@@ -50,11 +51,11 @@ import org.apache.cxf.staxutils.StaxUtils;
 public class XSLTOutInterceptor extends AbstractXSLTInterceptor {
     private static final Logger LOG = LogUtils.getL7dLogger(XSLTOutInterceptor.class);
 
-    public XSLTOutInterceptor(String xsltPath) {
+    public XSLTOutInterceptor(@RUntainted String xsltPath) {
         super(Phase.PRE_STREAM, StaxOutInterceptor.class, null, xsltPath);
     }
 
-    public XSLTOutInterceptor(String phase, Class<?> before, Class<?> after, String xsltPath) {
+    public XSLTOutInterceptor(String phase, Class<?> before, Class<?> after, @RUntainted String xsltPath) {
         super(phase, before, after, xsltPath);
     }
 
