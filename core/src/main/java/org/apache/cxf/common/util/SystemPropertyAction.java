@@ -35,11 +35,11 @@ public final class SystemPropertyAction implements PrivilegedAction<String> {
     private static final Logger LOG = LogUtils.getL7dLogger(SystemPropertyAction.class);
     private final @RUntainted String property;
     private final String def;
-    private SystemPropertyAction(@RUntainted String name) {
+    private @RUntainted SystemPropertyAction(@RUntainted String name) {
         property = name;
         def = null;
     }
-    private SystemPropertyAction(@RUntainted String name, String d) {
+    private @RUntainted SystemPropertyAction(@RUntainted String name, @RUntainted String d) {
         property = name;
         def = d;
     }
@@ -54,11 +54,11 @@ public final class SystemPropertyAction implements PrivilegedAction<String> {
         return System.getProperty(property);
     }
 
-    public static @RPolyTainted String getProperty(@RPolyTainted String name) {
+    public static @RUntainted String getProperty(@RUntainted String name) {
         return AccessController.doPrivileged(new SystemPropertyAction(name));
     }
 
-    public static String getProperty(@RPolyTainted String name, String def) {
+    public static @RUntainted String getProperty(@RUntainted String name, @RUntainted String def) {
         try {
             return AccessController.doPrivileged(new SystemPropertyAction(name, def));
         } catch (SecurityException ex) {
@@ -72,7 +72,7 @@ public final class SystemPropertyAction implements PrivilegedAction<String> {
      * raised, just return null;
      * @param name
      */
-    public static @RPolyTainted String getPropertyOrNull(@RPolyTainted String name) {
+    public static @RUntainted String getPropertyOrNull(@RUntainted String name) {
         try {
             return AccessController.doPrivileged(new SystemPropertyAction(name));
         } catch (SecurityException ex) {

@@ -58,7 +58,7 @@ public class OASISCatalogManager {
         = SystemPropertyAction.getPropertyOrNull(CATALOG_DEBUG_KEY);
 
 
-    private EntityResolver resolver;
+    private @RUntainted EntityResolver resolver;
     private @RUntainted Object catalog;
     private Set<String> loadedCatalogs = new CopyOnWriteArraySet<>();
     private Bus bus;
@@ -87,7 +87,7 @@ public class OASISCatalogManager {
         }
         return null;
     }
-    private static EntityResolver getResolver() {
+    private static @RUntainted EntityResolver getResolver() {
         try {
             CatalogManager catalogManager = new CatalogManager();
             catalogManager.setVerbosity(0);

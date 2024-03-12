@@ -125,7 +125,7 @@ public class ControlledValidationXmlBeanDefinitionReader extends XmlBeanDefiniti
     }
 
     @Override
-    public int loadBeanDefinitions(final EncodedResource encodedResource) {
+    public int loadBeanDefinitions(final @RUntainted EncodedResource encodedResource) {
         if (!noFastinfoset) {
             try {
                 return fastInfosetLoadBeanDefinitions(encodedResource);
@@ -150,7 +150,7 @@ public class ControlledValidationXmlBeanDefinitionReader extends XmlBeanDefiniti
         }
     }
 
-    private int internalLoadBeanDefinitions(EncodedResource encodedResource) {
+    private int internalLoadBeanDefinitions(@RUntainted EncodedResource encodedResource) {
         return super.loadBeanDefinitions(encodedResource);
     }
 
