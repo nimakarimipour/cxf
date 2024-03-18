@@ -46,6 +46,8 @@ import org.apache.cxf.common.util.SystemPropertyAction;
 import org.apache.cxf.helpers.FileUtils;
 import org.apache.cxf.helpers.IOUtils;
 import org.apache.cxf.helpers.LoadingByteArrayOutputStream;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public class CachedOutputStream extends OutputStream {
 
@@ -130,7 +132,7 @@ public class CachedOutputStream extends OutputStream {
         }
     }
 
-    private static String getBusProperty(Bus b, String key, String dflt) {
+    private static @RPolyTainted String getBusProperty(Bus b, String key, @RPolyTainted String dflt) {
         String v = (String)b.getProperty(key);
         return v != null ? v : dflt;
     }

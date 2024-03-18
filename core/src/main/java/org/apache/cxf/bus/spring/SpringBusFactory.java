@@ -38,6 +38,7 @@ import org.springframework.beans.factory.xml.NamespaceHandlerResolver;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.io.Resource;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class SpringBusFactory extends BusFactory {
 

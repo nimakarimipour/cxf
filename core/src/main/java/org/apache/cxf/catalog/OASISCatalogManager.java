@@ -45,6 +45,8 @@ import org.apache.cxf.resource.URIResolver;
 import org.apache.xml.resolver.Catalog;
 import org.apache.xml.resolver.CatalogManager;
 import org.apache.xml.resolver.tools.CatalogResolver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 @NoJSR250Annotations(unlessNull = "bus")
 public class OASISCatalogManager {
@@ -57,8 +59,8 @@ public class OASISCatalogManager {
         = SystemPropertyAction.getPropertyOrNull(CATALOG_DEBUG_KEY);
 
 
-    private EntityResolver resolver;
-    private Object catalog;
+    private @RUntainted EntityResolver resolver;
+    private @RUntainted Object catalog;
     private Set<String> loadedCatalogs = new CopyOnWriteArraySet<>();
     private Bus bus;
 
@@ -78,7 +80,7 @@ public class OASISCatalogManager {
         return !loadedCatalogs.isEmpty();
     }
 
-    private static Object getCatalog(EntityResolver resolver) {
+    private static @RPolyTainted Object getCatalog(@RPolyTainted EntityResolver resolver) {
         try {
             return ((CatalogResolver)resolver).getCatalog();
         } catch (Throwable t) {
@@ -86,7 +88,7 @@ public class OASISCatalogManager {
         }
         return null;
     }
-    private static EntityResolver getResolver() {
+    private static @RUntainted EntityResolver getResolver() {
         try {
             CatalogManager catalogManager = new CatalogManager();
             catalogManager.setVerbosity(0);
@@ -97,7 +99,7 @@ public class OASISCatalogManager {
             catalogManager.setUseStaticCatalog(false);
             
             return new CatalogResolver(catalogManager) {
-                public String getResolvedEntity(String publicId, String systemId) {
+                public String getResolvedEntity(@RUntainted String publicId, @RUntainted String systemId) {
                     String s = super.getResolvedEntity(publicId, systemId);
                     if (s != null && s.startsWith("classpath:")) {
                         try (URIResolver r = new URIResolver(s)) {
@@ -174,7 +176,7 @@ public class OASISCatalogManager {
         }
     }
 
-    public final void loadCatalog(URL catalogURL) throws IOException {
+    public final void loadCatalog(@RUntainted URL catalogURL) throws IOException {
         if (!loadedCatalogs.contains(catalogURL.toString())) {
             if ("file".equals(catalogURL.getProtocol())) {
                 try {
@@ -223,20 +225,20 @@ public class OASISCatalogManager {
 
     }
 
-    public String resolveSystem(String sys) throws MalformedURLException, IOException {
+    public @RPolyTainted String resolveSystem(@RPolyTainted String sys) throws MalformedURLException, IOException {
         if (catalog == null) {
             return null;
         }
         return ((Catalog)catalog).resolveSystem(sys);
     }
 
-    public String resolveURI(String uri) throws MalformedURLException, IOException {
+    public @RPolyTainted String resolveURI(@RPolyTainted String uri) throws MalformedURLException, IOException {
         if (catalog == null) {
             return null;
         }
         return ((Catalog)catalog).resolveURI(uri);
     }
-    public String resolvePublic(String uri, String parent) throws MalformedURLException, IOException {
+    public @RPolyTainted String resolvePublic(@RPolyTainted String uri, @RPolyTainted String parent) throws MalformedURLException, IOException {
         if (resolver == null) {
             return null;
         }

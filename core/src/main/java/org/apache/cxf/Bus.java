@@ -24,6 +24,7 @@ import java.util.Map;
 
 import org.apache.cxf.feature.Feature;
 import org.apache.cxf.interceptor.InterceptorProvider;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * The Bus is the central place in CXF. Its primary responsibility is
@@ -49,10 +50,10 @@ public interface Bus extends InterceptorProvider {
 
     void shutdown(boolean wait);
 
-    void setProperty(String s, Object o);
-    Object getProperty(String s);
-    void setProperties(Map<String, Object> properties);
-    Map<String, Object> getProperties();
+    void setProperty(String s, @RUntainted Object o);
+    @RUntainted Object getProperty(String s);
+    void setProperties(Map<String, @RUntainted Object> properties);
+    Map<String, @RUntainted Object> getProperties();
 
     Collection<Feature> getFeatures();
     void setFeatures(Collection<? extends Feature> features);

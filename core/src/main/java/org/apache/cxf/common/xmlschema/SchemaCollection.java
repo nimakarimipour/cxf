@@ -54,6 +54,8 @@ import org.apache.ws.commons.schema.resolver.URIResolver;
 import org.apache.ws.commons.schema.utils.NamespaceMap;
 import org.apache.ws.commons.schema.utils.NamespacePrefixList;
 import org.apache.ws.commons.schema.utils.XmlSchemaObjectBase;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 /**
  * Wrapper class for XmlSchemaCollection that deals with various quirks and bugs.

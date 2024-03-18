@@ -40,6 +40,8 @@ import org.apache.cxf.service.model.BindingOperationInfo;
 import org.apache.cxf.service.model.FaultInfo;
 import org.apache.cxf.service.model.MessagePartInfo;
 import org.apache.cxf.staxutils.W3CDOMStreamWriter;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public class FaultOutInterceptor extends AbstractPhaseInterceptor<Message> {
     private static final Logger LOG = LogUtils.getL7dLogger(FaultOutInterceptor.class);

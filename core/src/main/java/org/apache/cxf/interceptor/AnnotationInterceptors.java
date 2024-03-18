@@ -29,6 +29,7 @@ import org.apache.cxf.common.i18n.BundleUtils;
 import org.apache.cxf.feature.Feature;
 import org.apache.cxf.feature.Features;
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class AnnotationInterceptors {
 

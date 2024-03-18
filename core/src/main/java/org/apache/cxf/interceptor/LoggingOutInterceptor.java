@@ -35,6 +35,7 @@ import org.apache.cxf.io.CachedOutputStream;
 import org.apache.cxf.io.CachedOutputStreamCallback;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.Phase;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * @deprecated use the logging module rt/features/logging instead
@@ -153,21 +154,21 @@ public class LoggingOutInterceptor extends AbstractLoggingInterceptor {
             }
             lim = limit == -1 ? Integer.MAX_VALUE : limit;
         }
-        public void write(int c) throws IOException {
+        public void write(@RUntainted int c) throws IOException {
             super.write(c);
             if (out2 != null && count < lim) {
                 out2.write(c);
             }
             count++;
         }
-        public void write(char[] cbuf, int off, int len) throws IOException {
+        public void write(@RUntainted char[] cbuf, int off, int len) throws IOException {
             super.write(cbuf, off, len);
             if (out2 != null && count < lim) {
                 out2.write(cbuf, off, len);
             }
             count += len;
         }
-        public void write(String str, int off, int len) throws IOException {
+        public void write(@RUntainted String str, int off, int len) throws IOException {
             super.write(str, off, len);
             if (out2 != null && count < lim) {
                 out2.write(str, off, len);

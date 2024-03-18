@@ -57,6 +57,7 @@ import org.xml.sax.SAXException;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.ReflectionUtil;
 import org.apache.cxf.common.util.StringUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Few simple utils to read DOM. This is originally from the Jakarta Commons Modeler.
