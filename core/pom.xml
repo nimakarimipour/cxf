@@ -373,7 +373,7 @@
                                 <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
                                 <!-- <arg>-Awarns</arg> -->
                                 <arg>-nowarn</arg>
-                                <arg>-AannotatedPackages=org.apache.cxf</arg>
+                                <arg>-AannotatedPackages=org.apache.cxf.annotations,org.apache.cxf.attachment,org.apache.cxf.binding,org.apache.cxf.bus,org.apache.cxf.buslifecycle,org.apache.cxf.catalog,org.apache.cxf.common,org.apache.cxf.configuration,org.apache.cxf.continuations,org.apache.cxf.databinding,org.apache.cxf.endpoint,org.apache.cxf.extension,org.apache.cxf.feature,org.apache.cxf.headers,org.apache.cxf.helpers,org.apache.cxf.interceptor,org.apache.cxf.io,org.apache.cxf.logging,org.apache.cxf.management,org.apache.cxf.message,org.apache.cxf.phase,org.apache.cxf.policy,org.apache.cxf.resource,org.apache.cxf.security,org.apache.cxf.service,org.apache.cxf.staxutils,org.apache.cxf.transport,org.apache.cxf.validation,org.apache.cxf.version,org.apache.cxf.workqueue,org.apache.cxf.ws.addressing</arg>
                                 <arg>-AenableLibraryCheck=${env.ANNOTATOR_LIBRARY}</arg>
                                 <arg>-AenablePolyTaintInference=${env.ANNOTATOR_POLY}</arg>
                                 <arg>-AenableTypeArgumentInference=${env.ANNOTATOR_TYPE_ARG}</arg>
