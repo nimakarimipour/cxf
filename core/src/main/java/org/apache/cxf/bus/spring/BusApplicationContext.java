@@ -58,6 +58,7 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class BusApplicationContext extends ClassPathXmlApplicationContext {
 
@@ -241,7 +242,7 @@ public class BusApplicationContext extends ClassPathXmlApplicationContext {
         return res;
     }
 
-    public static Resource findResource(final String cfgFile) {
+    public static Resource findResource(final @RUntainted String cfgFile) {
         try {
             return AccessController.doPrivileged(new PrivilegedAction<Resource>() {
                 public Resource run() {

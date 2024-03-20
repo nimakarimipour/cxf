@@ -33,6 +33,7 @@ import org.apache.cxf.message.Message;
 import org.apache.cxf.message.MessageUtils;
 import org.apache.cxf.phase.AbstractPhaseInterceptor;
 import org.apache.cxf.phase.Phase;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class AttachmentOutInterceptor extends AbstractPhaseInterceptor<Message> {
 
@@ -106,7 +107,7 @@ public class AttachmentOutInterceptor extends AbstractPhaseInterceptor<Message> 
         return writeOptionalTypeParameters;
     }
 
-    protected Map<String, List<String>> getRootHeaders() {
+    protected Map<@RUntainted String, List<String>> getRootHeaders() {
         return Collections.emptyMap();
     }
 
