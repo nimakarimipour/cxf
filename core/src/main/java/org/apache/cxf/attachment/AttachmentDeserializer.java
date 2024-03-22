@@ -45,6 +45,7 @@ import org.apache.cxf.io.CachedOutputStream;
 import org.apache.cxf.message.Attachment;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.message.MessageUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class AttachmentDeserializer {
     public static final String ATTACHMENT_PART_HEADERS = AttachmentDeserializer.class.getName() + ".headers";
@@ -165,7 +166,7 @@ public class AttachmentDeserializer {
                 throw new IOException("Couldn't find MIME boundary: " + boundaryString);
             }
 
-            Map<String, List<String>> ih = loadPartHeaders(stream);
+            Map<@RUntainted String, List<String>> ih = loadPartHeaders(stream);
             message.put(ATTACHMENT_PART_HEADERS, ih);
             String val = AttachmentUtil.getHeader(ih, "Content-Type", "; ");
             if (!StringUtils.isEmpty(val)) {
@@ -230,7 +231,7 @@ public class AttachmentDeserializer {
         }
         stream.unread(v);
 
-        Map<String, List<String>> headers = loadPartHeaders(stream);
+        Map<@RUntainted String, List<String>> headers = loadPartHeaders(stream);
         return (AttachmentImpl)createAttachment(headers);
     }
 
@@ -319,7 +320,7 @@ public class AttachmentDeserializer {
      *
      * @throws IOException
      */
-    private Attachment createAttachment(Map<String, List<String>> headers) throws IOException {
+    private Attachment createAttachment(Map<@RUntainted String, List<String>> headers) throws IOException {
         InputStream partStream =
             new DelegatingInputStream(new MimeBodyPartInputStream(stream, boundary, PUSHBACK_AMOUNT),
                                       this);
@@ -369,10 +370,10 @@ public class AttachmentDeserializer {
 
 
 
-    private Map<String, List<String>> loadPartHeaders(InputStream in) throws IOException {
+    private Map<@RUntainted String, List<String>> loadPartHeaders(InputStream in) throws IOException {
         StringBuilder buffer = new StringBuilder(128);
         StringBuilder b = new StringBuilder(128);
-        Map<String, List<String>> heads = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        Map<@RUntainted String, List<String>> heads = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
         // loop until we hit the end or a null line
         while (readLine(in, b)) {
@@ -431,7 +432,7 @@ public class AttachmentDeserializer {
         return buffer.length() != 0;
     }
 
-    private void addHeaderLine(Map<String, List<String>> heads, StringBuilder line) {
+    private void addHeaderLine(Map<@RUntainted String, List<String>> heads, @RUntainted StringBuilder line) {
         // null lines are a nop
         final int size = line.length();
         if (size == 0) {

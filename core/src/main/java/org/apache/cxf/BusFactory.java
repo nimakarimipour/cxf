@@ -32,6 +32,7 @@ import java.util.logging.Logger;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.SystemPropertyAction;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Factory to create CXF Bus objects.
@@ -335,7 +336,7 @@ public abstract class BusFactory {
     protected void initializeBus(Bus bus) {
     }
 
-    private static String getBusFactoryClass(ClassLoader classLoader) {
+    private static String getBusFactoryClass(@RUntainted ClassLoader classLoader) {
 
         // next check system properties
         String busFactoryClass = SystemPropertyAction.getPropertyOrNull(BusFactory.BUS_FACTORY_PROPERTY_NAME);

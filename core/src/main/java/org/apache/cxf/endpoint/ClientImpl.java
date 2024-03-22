@@ -73,6 +73,7 @@ import org.apache.cxf.service.model.ServiceInfo;
 import org.apache.cxf.transport.Conduit;
 import org.apache.cxf.transport.MessageObserver;
 import org.apache.cxf.workqueue.SynchronousExecutor;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class ClientImpl
     extends AbstractBasicInterceptorProvider

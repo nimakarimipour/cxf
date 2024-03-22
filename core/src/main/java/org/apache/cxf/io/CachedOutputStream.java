@@ -46,10 +46,11 @@ import org.apache.cxf.common.util.SystemPropertyAction;
 import org.apache.cxf.helpers.FileUtils;
 import org.apache.cxf.helpers.IOUtils;
 import org.apache.cxf.helpers.LoadingByteArrayOutputStream;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class CachedOutputStream extends OutputStream {
 
-    private static final File DEFAULT_TEMP_DIR;
+    private static final @RUntainted File DEFAULT_TEMP_DIR;
     private static int defaultThreshold;
     private static long defaultMaxSize;
     private static String defaultCipherTransformation;
@@ -78,7 +79,7 @@ public class CachedOutputStream extends OutputStream {
 
     private long threshold = defaultThreshold;
     private long maxSize = defaultMaxSize;
-    private File outputDir = DEFAULT_TEMP_DIR;
+    private @RUntainted File outputDir = DEFAULT_TEMP_DIR;
     private String cipherTransformation = defaultCipherTransformation;
 
     private long totalLength;
@@ -130,7 +131,7 @@ public class CachedOutputStream extends OutputStream {
         }
     }
 
-    private static String getBusProperty(Bus b, String key, String dflt) {
+    private static @RUntainted String getBusProperty(@RUntainted Bus b, @RUntainted String key, @RUntainted String dflt) {
         String v = (String)b.getProperty(key);
         return v != null ? v : dflt;
     }
@@ -557,7 +558,7 @@ public class CachedOutputStream extends OutputStream {
         return postClosedInvoked;
     }
 
-    public void setOutputDir(File outputDir) throws IOException {
+    public void setOutputDir(@RUntainted File outputDir) throws IOException {
         this.outputDir = outputDir;
     }
 

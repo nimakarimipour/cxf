@@ -37,6 +37,7 @@ import org.springframework.core.type.classreading.CachingMetadataReaderFactory;
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
 import org.springframework.util.ClassUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 class SpringClasspathScanner extends ClasspathScanner {
 

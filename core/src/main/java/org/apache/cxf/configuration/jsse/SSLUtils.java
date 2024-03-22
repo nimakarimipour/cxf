@@ -51,6 +51,7 @@ import org.apache.cxf.common.util.SystemPropertyAction;
 import org.apache.cxf.configuration.security.FiltersType;
 import org.apache.cxf.helpers.FileUtils;
 import org.apache.cxf.resource.ResourceManager;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 
 /**
@@ -156,7 +157,7 @@ public final class SSLUtils {
         return null;
     }
 
-    private static InputStream getResourceAsStream(String resource) {
+    private static InputStream getResourceAsStream(@RUntainted String resource) {
         InputStream is = ClassLoaderUtils.getResourceAsStream(resource, SSLUtils.class);
         if (is == null) {
             Bus bus = BusFactory.getThreadDefaultBus(true);
@@ -200,7 +201,7 @@ public final class SSLUtils {
         return Files.readAllBytes(path);
     }
 
-    public static String getKeystore(String keyStoreLocation, Logger log) {
+    public static @RUntainted String getKeystore(@RUntainted String keyStoreLocation, Logger log) {
         final String logMsg;
         if (keyStoreLocation != null) {
             logMsg = "KEY_STORE_SET";
@@ -478,7 +479,7 @@ public final class SSLUtils {
         return cipherSuites;
     }
 
-    public static String getTruststore(String trustStoreLocation, Logger log) {
+    public static @RUntainted String getTruststore(@RUntainted String trustStoreLocation, Logger log) {
         final String logMsg;
         if (trustStoreLocation != null) {
             logMsg = "TRUST_STORE_SET";

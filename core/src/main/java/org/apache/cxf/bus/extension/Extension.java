@@ -31,17 +31,18 @@ import org.apache.cxf.Bus;
 import org.apache.cxf.common.i18n.Message;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.StringUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class Extension {
     protected static final Logger LOG = LogUtils.getL7dLogger(Extension.class);
     
     private static final String PROBLEM_CREATING_EXTENSION_CLASS = "PROBLEM_CREATING_EXTENSION_CLASS";
 
-    protected String className;
+    protected @RUntainted String className;
     protected ClassLoader classloader;
     protected volatile Class<?> clazz;
     protected volatile Class<?> intf;
-    protected String interfaceName;
+    protected @RUntainted String interfaceName;
     protected boolean deferred;
     protected Collection<String> namespaces = new ArrayList<>();
     protected Object[] args;
@@ -129,7 +130,7 @@ public class Extension {
         return className;
     }
 
-    public void setClassname(String i) {
+    public void setClassname(@RUntainted String i) {
         clazz = null;
         notFound = false;
         className = i;
@@ -139,7 +140,7 @@ public class Extension {
         return interfaceName;
     }
 
-    public void setInterfaceName(String i) {
+    public void setInterfaceName(@RUntainted String i) {
         interfaceName = i;
         notFound = false;
     }
@@ -160,7 +161,7 @@ public class Extension {
         args = a;
     }
 
-    protected Class<?> tryClass(String name, ClassLoader cl) {
+    protected Class<?> tryClass(@RUntainted String name, ClassLoader cl) {
         Throwable origEx = null;
         if (classloader != null) {
             try {

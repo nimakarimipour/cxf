@@ -27,6 +27,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 import org.apache.cxf.common.util.PackageUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 
 /**
@@ -52,7 +53,7 @@ public final class BundleUtils {
      * @param cls the Class requiring the bundle
      * @return an appropriate ResourceBundle name
      */
-    public static String getBundleName(Class<?> cls) {
+    public static @RUntainted String getBundleName(Class<?> cls) {
         // Class.getPackage() can return null, so change to another way to get Package Name
         return PackageUtils.getPackageName(cls) + MESSAGE_BUNDLE;
 
@@ -65,7 +66,7 @@ public final class BundleUtils {
      * @param cls the Class requiring the bundle
      * @return an appropriate ResourceBundle name
      */
-    public static String getBundleName(Class<?> cls, String name) {
+    public static @RUntainted String getBundleName(Class<?> cls, @RUntainted String name) {
         return PackageUtils.getPackageName(cls) + "." + name;
     }
 
@@ -106,7 +107,7 @@ public final class BundleUtils {
      * @param name the name of the resource
      * @return an appropriate ResourceBundle
      */
-    public static ResourceBundle getBundle(Class<?> cls, String name) {
+    public static ResourceBundle getBundle(Class<?> cls, @RUntainted String name) {
         try {
             ClassLoader loader = getClassLoader(cls);
             if (loader == null) {

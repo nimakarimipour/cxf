@@ -43,6 +43,7 @@ import org.apache.cxf.phase.PhaseChainCache;
 import org.apache.cxf.phase.PhaseManager;
 import org.apache.cxf.service.Service;
 import org.apache.cxf.service.model.EndpointInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class ChainInitiationObserver implements MessageObserver {
     protected Endpoint endpoint;

@@ -23,6 +23,7 @@ import javax.xml.namespace.QName;
 
 import org.apache.cxf.ws.addressing.AttributedURIType;
 import org.apache.cxf.ws.addressing.EndpointReferenceType;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * The EndpointInfo contains the information for a web service 'port' inside of a service.
@@ -31,7 +32,7 @@ public class EndpointInfo extends AbstractDescriptionElement implements NamedIte
     String transportId;
     ServiceInfo service;
     BindingInfo binding;
-    QName name;
+    @RUntainted QName name;
     EndpointReferenceType address;
 
     public EndpointInfo() {
@@ -72,11 +73,11 @@ public class EndpointInfo extends AbstractDescriptionElement implements NamedIte
         return service;
     }
 
-    public QName getName() {
+    public @RUntainted QName getName() {
         return name;
     }
 
-    public void setName(QName n) {
+    public void setName(@RUntainted QName n) {
         name = n;
     }
 

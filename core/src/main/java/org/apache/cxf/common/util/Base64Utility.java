@@ -35,6 +35,7 @@ import java.util.logging.Logger;
 
 import org.apache.cxf.common.i18n.Message;
 import org.apache.cxf.common.logging.LogUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 
 /**
@@ -257,13 +258,13 @@ public final class Base64Utility {
 
     // Returns base64 representation of specified byte array.
     //
-    public static char[] encodeChunk(byte[] id,
+    public static @RUntainted char[] encodeChunk(byte[] id,
                                      int o,
                                      int l) {
         return encodeChunk(id, o, l, false);
     }
 
-    public static char[] encodeChunk(byte[] id,
+    public static @RUntainted char[] encodeChunk(byte[] id,
                                      int o,
                                      int l,
                                      boolean urlSafe) {
@@ -273,7 +274,7 @@ public final class Base64Utility {
             return null;
         }
 
-        char[] out;
+        @RUntainted char[] out;
 
         // If not a multiple of 3 octets then a final padded 4 char
         // slot is needed.
@@ -289,7 +290,7 @@ public final class Base64Utility {
         int windex = 0;
         int rest = l;
 
-        final char[] base64Table = urlSafe ? BCS_URL_SAFE : BCS;
+        final @RUntainted char[] base64Table = urlSafe ? BCS_URL_SAFE : BCS;
         while (rest >= 3) {
             int i = ((id[rindex] & 0xff) << 16)
                     + ((id[rindex + 1] & 0xff) << 8)
