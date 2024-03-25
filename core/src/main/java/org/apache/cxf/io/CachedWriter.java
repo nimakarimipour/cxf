@@ -60,7 +60,7 @@ public class CachedWriter extends Writer {
 
     static {
 
-        String s = SystemPropertyAction.getPropertyOrNull(CachedConstants.OUTPUT_DIRECTORY_SYS_PROP);
+        @RUntainted String s = SystemPropertyAction.getPropertyOrNull(CachedConstants.OUTPUT_DIRECTORY_SYS_PROP);
         if (s == null) {
             // lookup the deprecated property
             s = SystemPropertyAction.getPropertyOrNull("org.apache.cxf.io.CachedWriter.OutputDirectory");

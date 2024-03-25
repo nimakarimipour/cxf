@@ -22,6 +22,7 @@ package org.apache.cxf.endpoint;
 import org.apache.cxf.Bus;
 import org.apache.cxf.service.Service;
 import org.apache.cxf.service.model.EndpointInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Create ordinary EndpointImpl objects.

@@ -54,7 +54,7 @@ public final class BundleUtils {
      * @param cls the Class requiring the bundle
      * @return an appropriate ResourceBundle name
      */
-    public static String getBundleName(Class<?> cls) {
+    public static @RUntainted String getBundleName(Class<?> cls) {
         // Class.getPackage() can return null, so change to another way to get Package Name
         return PackageUtils.getPackageName(cls) + MESSAGE_BUNDLE;
 
@@ -67,7 +67,7 @@ public final class BundleUtils {
      * @param cls the Class requiring the bundle
      * @return an appropriate ResourceBundle name
      */
-    public static String getBundleName(Class<?> cls, String name) {
+    public static @RPolyTainted String getBundleName(Class<?> cls, @RPolyTainted String name) {
         return PackageUtils.getPackageName(cls) + "." + name;
     }
 

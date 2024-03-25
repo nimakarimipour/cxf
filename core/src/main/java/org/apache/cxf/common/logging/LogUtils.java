@@ -58,7 +58,7 @@ public final class LogUtils {
     private static final Object[] NO_PARAMETERS = new Object[0];
 
 
-    private static Class<?> loggerClass;
+    private static @RUntainted Class<@RUntainted ?> loggerClass;
 
     /**
      * Prevents instantiation.
@@ -71,7 +71,7 @@ public final class LogUtils {
 
         try {
 
-            String cname = null;
+            @RUntainted String cname = null;
             try {
                 cname = AccessController.doPrivileged(new PrivilegedAction<String>() {
                     public String run() {
@@ -143,7 +143,7 @@ public final class LogUtils {
      * Specify a logger class that inherits from {@link AbstractDelegatingLogger}.
      * Enable users to use their own logger implementation.
      */
-    public static void setLoggerClass(Class<? extends AbstractDelegatingLogger> cls) {
+    public static void setLoggerClass(@RUntainted Class<? extends @RUntainted AbstractDelegatingLogger> cls) {
         loggerClass = cls;
     }
 
@@ -165,7 +165,7 @@ public final class LogUtils {
      * @param resourcename the resource name
      * @return an appropriate Logger
      */
-    public static Logger getLogger(Class<?> cls, String resourcename) {
+    public static Logger getLogger(Class<?> cls, @RUntainted String resourcename) {
         return createLogger(cls, resourcename, cls.getName());
     }
 
@@ -178,8 +178,8 @@ public final class LogUtils {
      * @return an appropriate Logger
      */
     public static Logger getLogger(Class<?> cls,
-                                     String resourcename,
-                                     String loggerName) {
+                                     @RUntainted String resourcename,
+                                     @RUntainted String loggerName) {
         return createLogger(cls, resourcename, loggerName);
     }
 
@@ -200,7 +200,7 @@ public final class LogUtils {
      * @param resourcename the resource name
      * @return an appropriate Logger
      */
-    public static Logger getL7dLogger(Class<?> cls, String resourcename) {
+    public static Logger getL7dLogger(Class<?> cls, @RUntainted String resourcename) {
         return createLogger(cls, resourcename, cls.getName());
     }
 
@@ -213,23 +213,23 @@ public final class LogUtils {
      * @return an appropriate Logger
      */
     public static Logger getL7dLogger(Class<?> cls,
-                                      String resourcename,
-                                      String loggerName) {
+                                      @RUntainted String resourcename,
+                                      @RUntainted String loggerName) {
         return createLogger(cls, resourcename, loggerName);
     }
 
     /**
      * Create a logger
      */
-    protected static Logger createLogger(Class<?> cls,
-                                         String name,
-                                         String loggerName) {
+    protected static @RPolyTainted Logger createLogger(Class<?> cls,
+                                         @RUntainted String name,
+                                         @RPolyTainted String loggerName) {
         ClassLoader orig = getContextClassLoader();
         ClassLoader n = getClassLoader(cls);
         if (n != null) {
             setContextClassLoader(n);
         }
-        String bundleName = name;
+        @RUntainted String bundleName = name;
         try {
             ResourceBundle b = null;
             if (bundleName == null) {
@@ -255,7 +255,7 @@ public final class LogUtils {
 
             if (loggerClass != null) {
                 try {
-                    Constructor<?> cns = loggerClass.getConstructor(String.class, String.class);
+                    @RUntainted Constructor<?> cns = loggerClass.getConstructor(String.class, String.class);
                     if (name == null) {
                         try {
                             return (Logger) cns.newInstance(loggerName, bundleName);

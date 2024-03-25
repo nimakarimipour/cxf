@@ -411,7 +411,7 @@ public final class AttachmentUtil {
     public static Attachment createAttachment(InputStream stream, Map<@RUntainted String, List<String>> headers, Message message)
             throws IOException {
 
-        String id = cleanContentId(getHeader(headers, "Content-ID"));
+        @RUntainted String id = cleanContentId(getHeader(headers, "Content-ID"));
 
         AttachmentImpl att = new AttachmentImpl(id);
 

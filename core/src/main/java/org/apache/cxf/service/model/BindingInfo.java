@@ -30,6 +30,7 @@ import javax.xml.namespace.QName;
 import org.apache.cxf.common.i18n.Message;
 import org.apache.cxf.common.logging.LogUtils;
 import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public class BindingInfo extends AbstractDescriptionElement implements NamedItem {
 

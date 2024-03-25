@@ -57,6 +57,7 @@ import org.apache.cxf.service.model.FaultInfo;
 import org.apache.cxf.service.model.MessagePartInfo;
 import org.apache.cxf.staxutils.W3CDOMStreamReader;
 import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 /**
  * Takes a Fault and converts it to a local exception type if possible.

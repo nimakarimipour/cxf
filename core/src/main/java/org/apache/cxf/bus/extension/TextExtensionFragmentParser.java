@@ -61,8 +61,8 @@ public class TextExtensionFragmentParser {
      */
     public List<Extension> getExtensions(InputStream is) throws IOException {
         List<Extension> extensions = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-        String line = reader.readLine();
+        @RUntainted BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+        @RUntainted String line = reader.readLine();
         while (line != null) {
             final Extension extension = getExtensionFromTextLine(line);
             if (extension != null) {

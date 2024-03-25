@@ -60,7 +60,7 @@ public final class Base64Utility {
 
     // base 64 character set
     //
-    private static final char[] BCS = {
+    private static final @RUntainted char[] BCS = {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
         'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
         'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd',
@@ -70,7 +70,7 @@ public final class Base64Utility {
         '8', '9', '+', '/'
     };
 
-    private static final char[] BCS_URL_SAFE = Arrays.copyOf(BCS, BCS.length);
+    private static final @RUntainted char[] BCS_URL_SAFE = Arrays.copyOf(BCS, BCS.length);
 
     // base 64 padding
     private static final char PAD = '=';

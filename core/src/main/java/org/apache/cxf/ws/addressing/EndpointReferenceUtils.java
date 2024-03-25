@@ -514,7 +514,7 @@ public final class EndpointReferenceUtils {
                 }
 
 
-                for (XmlSchema sch : serviceInfo.getXmlSchemaCollection().getXmlSchemas()) {
+                for (@RUntainted XmlSchema sch : serviceInfo.getXmlSchemaCollection().getXmlSchemas()) {
                     if (sch.getSourceURI() != null
                         && !schemaSourcesMap.containsKey(sch.getSourceURI() + ':'
                                                          + sch.getTargetNamespace())) {

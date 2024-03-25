@@ -100,11 +100,11 @@ public abstract class AbstractLoggingInterceptor extends AbstractPhaseIntercepto
         }
         Logger logger = endpoint.getProperty("MessageLogger", Logger.class);
         if (logger == null) {
-            String serviceName = endpoint.getService().getName().getLocalPart();
+            @RUntainted String serviceName = endpoint.getService().getName().getLocalPart();
             InterfaceInfo iface = endpoint.getService().getInterface();
-            String portName = endpoint.getName().getLocalPart();
-            String portTypeName = iface.getName().getLocalPart();
-            String logName = "org.apache.cxf.services." + serviceName + "."
+            @RUntainted String portName = endpoint.getName().getLocalPart();
+            @RUntainted String portTypeName = iface.getName().getLocalPart();
+            @RUntainted String logName = "org.apache.cxf.services." + serviceName + "."
                 + portName + "." + portTypeName;
             logger = LogUtils.getL7dLogger(this.getClass(), null, logName);
             endpoint.setProperty("MessageLogger", logger);

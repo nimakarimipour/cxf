@@ -165,7 +165,7 @@ public final class TLSParameterJaxBUtils {
         } else if (kst.isSetUrl()) {
             keyStore.load(new URL(kst.getUrl()).openStream(), password);
         } else {
-            final String loc;
+            final @RUntainted String loc;
             if (trustStore) {
                 loc = SSLUtils.getTruststore(null, LOG);
             } else {

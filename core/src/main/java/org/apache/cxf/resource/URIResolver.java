@@ -77,7 +77,7 @@ public class URIResolver implements AutoCloseable {
         this(baseUriStr, uriStr, null);
     }
 
-    public URIResolver(@RUntainted String baseUriStr, @RUntainted String uriStr, Class<?> calling) throws IOException {
+    public URIResolver(@RUntainted String baseUriStr, @RUntainted String uriStr, @RUntainted Class<?> calling) throws IOException {
         this.calling = (calling != null) ? calling : getClass();
         if (uriStr.startsWith("classpath:")) {
             tryClasspath(uriStr);
@@ -102,7 +102,7 @@ public class URIResolver implements AutoCloseable {
         this.is = null;
     }
 
-    public void resolve(@RUntainted String baseUriStr, @RUntainted String uriStr, Class<?> callingCls) throws IOException {
+    public void resolve(@RUntainted String baseUriStr, @RUntainted String uriStr, @RUntainted Class<?> callingCls) throws IOException {
         this.calling = (callingCls != null) ? callingCls : getClass();
         this.file = null;
         this.uri = null;
@@ -141,7 +141,7 @@ public class URIResolver implements AutoCloseable {
         try {
             final File uriFileTemp = new File(fileStr);
 
-            File uriFile = new File(AccessController.doPrivileged(new PrivilegedAction<String>() {
+            @RUntainted File uriFile = new File(AccessController.doPrivileged(new PrivilegedAction<String>() {
                 @Override
                 public String run() {
                     return uriFileTemp.getAbsolutePath();
@@ -160,7 +160,7 @@ public class URIResolver implements AutoCloseable {
                     //ignore
                 }
             }
-            final URI relative;
+            final @RUntainted URI relative;
             if (!SecurityActions.fileExists(uriFile, CXFPermissions.RESOLVE_URI)) {
                 relative = new URI(uriStr.replace(" ", "%20"));
             } else {
@@ -184,7 +184,7 @@ public class URIResolver implements AutoCloseable {
                     is = url.openStream();
                 }
             } else if (!StringUtils.isEmpty(baseUriStr)) {
-                URI base;
+                @RUntainted URI base;
                 File baseFile = new File(baseUriStr);
 
                 if (!baseFile.exists() && baseUriStr.startsWith("file:")) {
@@ -260,7 +260,7 @@ public class URIResolver implements AutoCloseable {
     }
 
     private @RUntainted HttpURLConnection createInputStream() throws IOException {
-        HttpURLConnection huc = (HttpURLConnection)url.openConnection();
+        @RUntainted HttpURLConnection huc = (HttpURLConnection)url.openConnection();
 
         String host = SystemPropertyAction.getPropertyOrNull("http.proxyHost");
         if (host != null) {

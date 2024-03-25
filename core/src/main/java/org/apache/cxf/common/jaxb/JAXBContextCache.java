@@ -43,6 +43,7 @@ import org.apache.cxf.common.util.CacheMap;
 import org.apache.cxf.common.util.CachedClass;
 import org.apache.cxf.common.util.StringUtils;
 import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 /**
  *

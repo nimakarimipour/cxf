@@ -58,7 +58,7 @@ public class CachedOutputStream extends OutputStream {
     private static boolean thresholdSysPropSet;
 
     static {
-        String s = SystemPropertyAction.getPropertyOrNull(CachedConstants.OUTPUT_DIRECTORY_SYS_PROP);
+        @RUntainted String s = SystemPropertyAction.getPropertyOrNull(CachedConstants.OUTPUT_DIRECTORY_SYS_PROP);
         if (s != null) {
             File f = new File(s);
             if (f.exists() && f.isDirectory()) {

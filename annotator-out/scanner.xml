@@ -2,7 +2,7 @@
 <scanner>
     <serialization active="true" />
     <uuid>123ef4ea-5c7e-4cf9-ba72-ba332c998478</uuid>
-    <path>/home/kdas006/annotation_dataset/cxf/annotator-out/0</path>
+    <path>/home/nima/Developer/taint-benchmarks/cxf/annotator-out/0</path>
     <processor>
         <LOMBOK active="true" />
     </processor>

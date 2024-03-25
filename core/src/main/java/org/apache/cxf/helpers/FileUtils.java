@@ -78,10 +78,10 @@ public final class FileUtils {
             return defaultTempDir;
         }
 
-        String s = SystemPropertyAction.getPropertyOrNull(FileUtils.class.getName() + ".TempDirectory");
+        @RUntainted String s = SystemPropertyAction.getPropertyOrNull(FileUtils.class.getName() + ".TempDirectory");
         if (s != null) {
             //assume someone outside of us will manage the directory
-            File f = new File(s);
+            @RUntainted File f = new File(s);
             if (f.mkdirs()) {
                 defaultTempDir = f;
             }
@@ -136,8 +136,8 @@ public final class FileUtils {
         return createTmpDir(true);
     }
     public static @RUntainted File createTmpDir(boolean addHook) {
-        String s = SystemPropertyAction.getProperty("java.io.tmpdir");
-        File checkExists = new File(s);
+        @RUntainted String s = SystemPropertyAction.getProperty("java.io.tmpdir");
+        @RUntainted File checkExists = new File(s);
         if (!exists(checkExists) || !checkExists.isDirectory()) {
             throw new RuntimeException("The directory "
                                    + checkExists.getAbsolutePath()
@@ -156,7 +156,7 @@ public final class FileUtils {
                                                            + " requiring temporary files may fail.");
         }
 
-        File newTmpDir;
+        @RUntainted File newTmpDir;
         try {
             Path path = Files.createTempDirectory(checkExists.toPath(), "cxf-tmp-");
             File f = path.toFile();
@@ -176,7 +176,7 @@ public final class FileUtils {
             newTmpDir = f;
         }
         if (addHook) {
-            final File f2 = newTmpDir;
+            final @RUntainted File f2 = newTmpDir;
             Thread hook = new Thread() {
                 @Override
                 public void run() {

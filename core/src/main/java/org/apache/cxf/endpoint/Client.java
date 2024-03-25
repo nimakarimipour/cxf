@@ -30,6 +30,7 @@ import org.apache.cxf.message.Exchange;
 import org.apache.cxf.service.model.BindingOperationInfo;
 import org.apache.cxf.transport.Conduit;
 import org.apache.cxf.transport.MessageObserver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public interface Client extends InterceptorProvider, MessageObserver, ConduitSelectorHolder, AutoCloseable {
     String REQUEST_CONTEXT = "RequestContext";
