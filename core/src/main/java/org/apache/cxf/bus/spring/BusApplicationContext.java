@@ -69,13 +69,13 @@ public class BusApplicationContext extends ClassPathXmlApplicationContext {
 
     private NamespaceHandlerResolver nsHandlerResolver;
     private boolean includeDefaults;
-    private String[] cfgFiles;
+    private @RUntainted String[] cfgFiles;
     private URL[] cfgFileURLs;
 
-    public BusApplicationContext(String cf, boolean include) {
+    public BusApplicationContext(@RUntainted String cf, boolean include) {
         this(cf, include, null);
     }
-    public BusApplicationContext(String[] cfs, boolean include) {
+    public BusApplicationContext(@RUntainted String[] cfs, boolean include) {
         this(cfs, include, null);
     }
 
@@ -86,17 +86,17 @@ public class BusApplicationContext extends ClassPathXmlApplicationContext {
         this(urls, include, null);
     }
 
-    public BusApplicationContext(String cf, boolean include, ApplicationContext parent) {
+    public BusApplicationContext(@RUntainted String cf, boolean include, ApplicationContext parent) {
         this(new String[] {cf}, include, parent);
     }
 
     public BusApplicationContext(URL url, boolean include, ApplicationContext parent) {
         this(new URL[] {url}, include, parent, null);
     }
-    public BusApplicationContext(String[] cf, boolean include, ApplicationContext parent) {
+    public BusApplicationContext(@RUntainted String[] cf, boolean include, ApplicationContext parent) {
         this(cf, include, parent, null);
     }
-    public BusApplicationContext(String[] cf, boolean include,
+    public BusApplicationContext(@RUntainted String[] cf, boolean include,
                                  ApplicationContext parent, NamespaceHandlerResolver res) {
         super(new String[0], false, parent);
         cfgFiles = cf;

@@ -223,7 +223,7 @@ public final class LogUtils {
      */
     protected static @RPolyTainted Logger createLogger(Class<?> cls,
                                          @RUntainted String name,
-                                         @RPolyTainted String loggerName) {
+                                         @RPolyTainted @RUntainted String loggerName) {
         ClassLoader orig = getContextClassLoader();
         ClassLoader n = getClassLoader(cls);
         if (n != null) {

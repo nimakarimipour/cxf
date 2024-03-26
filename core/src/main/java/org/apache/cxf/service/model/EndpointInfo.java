@@ -32,7 +32,7 @@ public class EndpointInfo extends AbstractDescriptionElement implements NamedIte
     String transportId;
     ServiceInfo service;
     BindingInfo binding;
-    QName name;
+    @RUntainted QName name;
     EndpointReferenceType address;
 
     public EndpointInfo() {
@@ -73,11 +73,11 @@ public class EndpointInfo extends AbstractDescriptionElement implements NamedIte
         return service;
     }
 
-    public QName getName() {
+    public @RUntainted QName getName() {
         return name;
     }
 
-    public void setName(QName n) {
+    public void setName(@RUntainted QName n) {
         name = n;
     }
 
