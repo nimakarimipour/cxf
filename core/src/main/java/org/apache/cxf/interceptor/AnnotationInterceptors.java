@@ -65,7 +65,7 @@ public class AnnotationInterceptors {
     }
 
     @SuppressWarnings("unchecked")
-    private <T> Class<? extends T>[] getAnnotationObjectClasses(Annotation ann, Class<T> type) { //NOPMD
+    private <T> @RUntainted Class<? extends T>[] getAnnotationObjectClasses(Annotation ann, Class<T> type) { //NOPMD
         if (ann instanceof InFaultInterceptors) {
             return (Class<? extends T>[])((InFaultInterceptors)ann).classes();
         } else if (ann instanceof InInterceptors) {
@@ -96,7 +96,7 @@ public class AnnotationInterceptors {
         throw new UnsupportedOperationException("Doesn't support the annotation: " + ann);
     }
 
-    private <T> T initializeAnnotationObject(String annObjectName, Class<T> type) {
+    private <T> T initializeAnnotationObject(@RUntainted String annObjectName, Class<T> type) {
         try {
             final Object object = ClassLoaderUtils.loadClass(annObjectName, this.getClass())
                 .getDeclaredConstructor().newInstance();

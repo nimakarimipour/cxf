@@ -231,7 +231,7 @@ public class AttachmentDeserializer {
         }
         stream.unread(v);
 
-        Map<@RUntainted String, List<String>> headers = loadPartHeaders(stream);
+        Map<@RUntainted String, List<@RUntainted String>> headers = loadPartHeaders(stream);
         return (AttachmentImpl)createAttachment(headers);
     }
 
@@ -320,7 +320,7 @@ public class AttachmentDeserializer {
      *
      * @throws IOException
      */
-    private Attachment createAttachment(Map<@RUntainted String, List<String>> headers) throws IOException {
+    private Attachment createAttachment(Map<@RUntainted String, List<@RUntainted String>> headers) throws IOException {
         InputStream partStream =
             new DelegatingInputStream(new MimeBodyPartInputStream(stream, boundary, PUSHBACK_AMOUNT),
                                       this);

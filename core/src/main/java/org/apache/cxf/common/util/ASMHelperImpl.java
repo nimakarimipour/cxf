@@ -38,7 +38,7 @@ public class ASMHelperImpl implements ASMHelper {
     protected static final Map<Class<?>, Integer> PRIMITIVE_ZERO_MAP = new HashMap<>();
 
     protected boolean badASM;
-    private Class<?> cwClass;
+    private @RUntainted Class<?> cwClass;
 
     public ASMHelperImpl() {
 
@@ -64,7 +64,7 @@ public class ASMHelperImpl implements ASMHelper {
         NONPRIMITIVE_MAP.put(Double.TYPE, Double.class.getName().replaceAll("\\.", "/"));
     }
 
-    private void tryClass(String s) {
+    private void tryClass(@RUntainted String s) {
         if (cwClass == null) {
             try {
                 Class<?> c2 = ClassLoaderUtils.loadClass(s, ASMHelperImpl.class);
@@ -79,12 +79,12 @@ public class ASMHelperImpl implements ASMHelper {
             }
         }
     }
-    private Class<?> getASMClassWriterClass() {
+    private @RUntainted Class<?> getASMClassWriterClass() {
         //force this to make sure the proper OSGi import is generated
         return org.objectweb.asm.ClassWriter.class;
     }
 
-    public synchronized Class<?> getASMClass() throws ClassNotFoundException {
+    public synchronized @RUntainted Class<?> getASMClass() throws ClassNotFoundException {
         if (cwClass == null) {
             //try the "real" asm first, then the others
             tryClass("org.objectweb.asm.ClassWriter");

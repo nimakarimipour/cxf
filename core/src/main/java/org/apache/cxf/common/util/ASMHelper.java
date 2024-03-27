@@ -34,7 +34,7 @@ public interface ASMHelper {
     ASMType getType(String type);
     Label createLabel();
     OpcodesProxy getOpCodes();
-    Class<?> getASMClass() throws ClassNotFoundException;
+    @RUntainted Class<?> getASMClass() throws ClassNotFoundException;
     String getMethodSignature(Method m);
     String getNonPrimitive(Class<?> tp);
     String getPrimitive(Class<?> tp);

@@ -267,7 +267,7 @@ public final class ClassLoaderUtils {
      * @param callingClass The Class object of the calling object
      * @throws ClassNotFoundException If the class cannot be found anywhere.
      */
-    public static Class<?> loadClass(String className, Class<?> callingClass)
+    public static @RUntainted Class<?> loadClass(@RUntainted String className, Class<?> callingClass)
         throws ClassNotFoundException {
         try {
             ClassLoader cl = getContextClassLoader();
@@ -304,7 +304,7 @@ public final class ClassLoaderUtils {
         return getContextClassLoader().loadClass(className);
     }
 
-    private static Class<?> loadClass2(@RUntainted String className, Class<?> callingClass)
+    private static @RUntainted Class<?> loadClass2(@RUntainted String className, Class<?> callingClass)
         throws ClassNotFoundException {
         try {
             return Class.forName(className);

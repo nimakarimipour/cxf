@@ -62,7 +62,7 @@ import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
  */
 public class SchemaCollection {
 
-    private final XmlSchemaCollection xmlSchemaCollection;
+    private final @RUntainted XmlSchemaCollection xmlSchemaCollection;
     private final Map<XmlSchema, Set<XmlSchemaType>> xmlTypesCheckedForCrossImportsPerSchema
         = new HashMap<>();
 
@@ -70,7 +70,7 @@ public class SchemaCollection {
         this(new XmlSchemaCollection());
     }
 
-    public SchemaCollection(XmlSchemaCollection col) {
+    public SchemaCollection(@RUntainted XmlSchemaCollection col) {
         xmlSchemaCollection = col;
         if (xmlSchemaCollection.getNamespaceContext() == null) {
             // an empty prefix map avoids extra checks for null.
@@ -115,7 +115,7 @@ public class SchemaCollection {
         return xmlSchemaCollection.getXmlSchema(systemId);
     }
 
-    public XmlSchema[] getXmlSchemas() {
+    public @RUntainted XmlSchema[] getXmlSchemas() {
         return xmlSchemaCollection.getXmlSchemas();
     }
 

@@ -54,7 +54,7 @@ public class AttachmentSerializer {
     private String encoding;
 
     private String multipartType;
-    private Map<@RUntainted String, List<String>> rootHeaders = Collections.emptyMap();
+    private Map<@RUntainted String, List<@RUntainted String>> rootHeaders = Collections.emptyMap();
     private boolean xop = true;
     private boolean writeOptionalTypeParameters = true;
 
@@ -66,7 +66,7 @@ public class AttachmentSerializer {
     public AttachmentSerializer(Message messageParam,
                                 String multipartType,
                                 boolean writeOptionalTypeParameters,
-                                Map<@RUntainted String, List<String>> headers) {
+                                Map<@RUntainted String, List<@RUntainted String>> headers) {
         message = messageParam;
         this.multipartType = multipartType;
         this.writeOptionalTypeParameters = writeOptionalTypeParameters;
@@ -192,7 +192,7 @@ public class AttachmentSerializer {
     }
 
     private @RPolyTainted String getHeaderValue(String name, @RPolyTainted String defaultValue) {
-        List<String> value = rootHeaders.get(name);
+        List<@RUntainted String> value = rootHeaders.get(name);
         if (value == null || value.isEmpty()) {
             return defaultValue;
         }
@@ -207,7 +207,7 @@ public class AttachmentSerializer {
     }
 
     private void writeHeaders(@RUntainted String contentType, @RUntainted String attachmentId,
-                                     Map<@RUntainted String, List<String>> headers, Writer writer) throws IOException {
+                                     Map<@RUntainted String, List<@RUntainted String>> headers, Writer writer) throws IOException {
         writer.write("\r\nContent-Type: ");
         writer.write(contentType);
         writer.write("\r\nContent-Transfer-Encoding: " + contentTransferEncoding + "\r\n");
@@ -254,7 +254,7 @@ public class AttachmentSerializer {
             writer.write(">\r\n");
         }
         // headers like Content-Disposition need to be serialized
-        for (Map.Entry<@RUntainted String, List<String>> entry : headers.entrySet()) {
+        for (Map.Entry<@RUntainted String, List<@RUntainted String>> entry : headers.entrySet()) {
             String name = entry.getKey();
             if ("Content-Type".equalsIgnoreCase(name) || "Content-ID".equalsIgnoreCase(name)
                 || "Content-Transfer-Encoding".equalsIgnoreCase(name)) {
@@ -293,7 +293,7 @@ public class AttachmentSerializer {
                 writer.write("\r\n--");
                 writer.write(bodyBoundary);
 
-                final Map<@RUntainted String, List<String>> headers;
+                final Map<@RUntainted String, List<@RUntainted String>> headers;
                 Iterator<@RUntainted String> it = a.getHeaderNames();
                 if (it.hasNext()) {
                     headers = new LinkedHashMap<>();
@@ -379,7 +379,7 @@ public class AttachmentSerializer {
 
     // URL decoder would also decode '+' but according to  RFC-2392 we need to convert
     // only the % encoded character to their equivalent US-ASCII characters. 
-    private static @RPolyTainted String decode(String s, @RPolyTainted @RUntainted Charset charset) {
+    private static @RPolyTainted String decode(@RPolyTainted String s, @RPolyTainted Charset charset) {
         return URLDecoder.decode(s.replaceAll("([^%])[+]", "$1%2B"), charset);
     }
 

@@ -310,7 +310,7 @@ public abstract class BusFactory {
      * @param className The class of the BusFactory to create. If null, uses the default search algorithm.
      * @return a new BusFactory to be used to create Bus objects
      */
-    public static BusFactory newInstance(String className) {
+    public static BusFactory newInstance(@RUntainted String className) {
         if (className == null) {
             ClassLoader loader = Thread.currentThread().getContextClassLoader();
             className = getBusFactoryClass(loader);

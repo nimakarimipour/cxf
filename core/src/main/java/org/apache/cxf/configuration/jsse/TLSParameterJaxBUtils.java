@@ -345,7 +345,7 @@ public final class TLSParameterJaxBUtils {
         }
     }
 
-    private static char[] getKeyPassword(KeyManagersType kmc) {
+    private static char[] getKeyPassword(@RUntainted KeyManagersType kmc) {
         char[] keyPass = kmc.isSetKeyPassword()
             ? deobfuscate(kmc.getKeyPassword())
             : null;

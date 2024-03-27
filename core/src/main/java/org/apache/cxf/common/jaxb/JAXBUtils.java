@@ -1151,7 +1151,7 @@ public final class JAXBUtils {
         return createEscapeHandler(cls, "NoEscapeHandler");
     }
 
-    private static Object createEscapeHandler(Class<?> cls, String simpleClassName) {
+    private static Object createEscapeHandler(Class<?> cls, @RUntainted String simpleClassName) {
         try {
             String postFix = getPostfix(cls);
             if (postFix == null) {

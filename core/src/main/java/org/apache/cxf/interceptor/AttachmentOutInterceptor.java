@@ -107,7 +107,7 @@ public class AttachmentOutInterceptor extends AbstractPhaseInterceptor<Message> 
         return writeOptionalTypeParameters;
     }
 
-    protected Map<@RUntainted String, List<String>> getRootHeaders() {
+    protected Map<@RUntainted String, List<@RUntainted String>> getRootHeaders() {
         return Collections.emptyMap();
     }
 

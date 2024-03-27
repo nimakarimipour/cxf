@@ -32,7 +32,7 @@ public interface Attachment {
      */
     @RUntainted String getId();
 
-    String getHeader(String name);
+    @RUntainted String getHeader(String name);
 
     Iterator<@RUntainted String> getHeaderNames();
 

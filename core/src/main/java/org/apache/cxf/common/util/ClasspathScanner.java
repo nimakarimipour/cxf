@@ -94,7 +94,7 @@ public class ClasspathScanner {
      */
     @SafeVarargs
     public static Map< Class< ? extends Annotation >, Collection< Class< ? > > > findClasses(
-        Collection< String > basePackages, Class< ? extends Annotation > ... annotations)
+        @RUntainted Collection< String > basePackages, Class< ? extends Annotation > ... annotations)
         throws IOException, ClassNotFoundException {
         List<Class<? extends Annotation>> annotationList = new ArrayList<>(annotations.length);
         for (Class< ? extends Annotation > c : annotations) {
@@ -112,23 +112,23 @@ public class ClasspathScanner {
      * @throws ClassNotFoundException class not found
      */
     public static Map< Class< ? extends Annotation >, Collection< Class< ? > > > findClasses(
-        Collection< String > basePackages, List<Class< ? extends Annotation > > annotations)
+        @RUntainted Collection< String > basePackages, List<Class< ? extends Annotation > > annotations)
         throws IOException, ClassNotFoundException {
         return findClasses(basePackages, annotations, null);
 
     }
 
     public static Map< Class< ? extends Annotation >, Collection< Class< ? > > > findClasses(
-        Collection< String > basePackages,
+        @RUntainted Collection< String > basePackages,
         List<Class< ? extends Annotation > > annotations,
-        ClassLoader loader) throws IOException, ClassNotFoundException {
+        @RUntainted ClassLoader loader) throws IOException, ClassNotFoundException {
         return HELPER.findClassesInternal(basePackages, annotations, loader);
     }
 
     protected Map< Class< ? extends Annotation >, Collection< Class< ? > > > findClassesInternal(
-        Collection< String > basePackages,
+        @RUntainted Collection< String > basePackages,
         List<Class< ? extends Annotation > > annotations,
-        ClassLoader loader)
+        @RUntainted ClassLoader loader)
         throws IOException, ClassNotFoundException {
         return Collections.emptyMap();
     }
@@ -175,7 +175,7 @@ public class ClasspathScanner {
         return HELPER.findResourcesInternal(basePackages, extension, loader);
     }
 
-    public static Set<String> parsePackages(final String packagesAsCsv) {
+    public static @RUntainted Set<String> parsePackages(final String packagesAsCsv) {
         final String[] values = packagesAsCsv.split(",");
         final Set<String> basePackages = new HashSet<>(values.length);
         for (final String value : values) {

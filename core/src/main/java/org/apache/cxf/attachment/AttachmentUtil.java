@@ -356,7 +356,7 @@ public final class AttachmentUtil {
         }
     }
 
-    public static String cleanContentId(String id) {
+    public static @RPolyTainted String cleanContentId(@RPolyTainted String id) {
         if (id != null) {
             if (id.startsWith("<")) {
                 // strip <>
@@ -381,7 +381,7 @@ public final class AttachmentUtil {
         return id;
     }
 
-    static String getHeaderValue(List<String> v) {
+    static @RPolyTainted String getHeaderValue(List<@RPolyTainted String> v) {
         if (v != null && !v.isEmpty()) {
             return v.get(0);
         }
@@ -393,7 +393,7 @@ public final class AttachmentUtil {
         }
         return null;
     }
-    static String getHeader(Map<@RUntainted String, List<String>> headers, String h) {
+    static @RPolyTainted String getHeader(Map<@RUntainted String, List<@RPolyTainted String>> headers, String h) {
         return getHeaderValue(headers.get(h));
     }
     static String getHeader(Map<@RUntainted String, List<String>> headers, String h, String delim) {
@@ -403,12 +403,12 @@ public final class AttachmentUtil {
     /**
      * @deprecated use createAttachment(InputStream stream, Map<String, List<String>> headers, Message message)
      */
-    public static Attachment createAttachment(InputStream stream, Map<@RUntainted String, List<String>> headers) 
+    public static Attachment createAttachment(InputStream stream, Map<@RUntainted String, List<@RUntainted String>> headers) 
             throws IOException {
         return createAttachment(stream, headers, null /* no Message */);
     }
 
-    public static Attachment createAttachment(InputStream stream, Map<@RUntainted String, List<String>> headers, Message message)
+    public static Attachment createAttachment(InputStream stream, Map<@RUntainted String, List<@RUntainted String>> headers, Message message)
             throws IOException {
 
         @RUntainted String id = cleanContentId(getHeader(headers, "Content-ID"));
@@ -425,7 +425,7 @@ public final class AttachmentUtil {
 
         String encoding = null;
 
-        for (Map.Entry<@RUntainted String, List<String>> e : headers.entrySet()) {
+        for (Map.Entry<@RUntainted String, List<@RUntainted String>> e : headers.entrySet()) {
             String name = e.getKey();
             if ("Content-Transfer-Encoding".equalsIgnoreCase(name)) {
                 encoding = getHeader(headers, name);

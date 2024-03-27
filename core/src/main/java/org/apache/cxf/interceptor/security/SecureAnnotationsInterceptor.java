@@ -51,7 +51,7 @@ public class SecureAnnotationsInterceptor extends SimpleAuthorizingInterceptor {
         super(uniqueId);
     }
 
-    public void setAnnotationClassName(String name) {
+    public void setAnnotationClassName(@RUntainted String name) {
         try {
             ClassLoaderUtils.loadClass(name, SecureAnnotationsInterceptor.class);
             annotationClassName = name;
