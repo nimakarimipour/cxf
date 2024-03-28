@@ -25,6 +25,7 @@ import javax.xml.validation.Schema;
 
 import org.apache.cxf.message.Attachment;
 import org.apache.cxf.service.model.MessagePartInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * The 'write' side of the data binding abstraction of CXF. A DataWriter&lt;T&gt; serializes

@@ -20,6 +20,7 @@ package org.apache.cxf.feature.validation;
 
 import org.apache.cxf.annotations.SchemaValidation.SchemaValidationType;
 import org.apache.cxf.service.model.OperationInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Returning null from the getSchemaValidationType will be ignored.  This generally

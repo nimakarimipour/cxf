@@ -26,6 +26,7 @@ import javax.xml.validation.Schema;
 
 import org.apache.cxf.message.Attachment;
 import org.apache.cxf.service.model.MessagePartInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * The 'read' side of the data binding abstraction of CXF. A DataReader&lt;T&gt; reads objects

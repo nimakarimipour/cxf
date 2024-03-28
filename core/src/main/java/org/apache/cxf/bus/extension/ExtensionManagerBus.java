@@ -48,6 +48,7 @@ import org.apache.cxf.resource.ResourceResolver;
 import org.apache.cxf.resource.SinglePropertyResolver;
 import org.apache.cxf.transport.ConduitInitiatorManager;
 import org.apache.cxf.transport.DestinationFactoryManager;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * This bus uses CXF's built in extension manager to load components
@@ -65,12 +66,12 @@ public class ExtensionManagerBus extends AbstractBasicInterceptorProvider implem
     protected String id;
     private BusState state;
     private final Collection<Feature> features = new CopyOnWriteArrayList<>();
-    private final Map<String, Object> properties = new ConcurrentHashMap<>(16, 0.75f, 4);
+    private final Map<String, @RUntainted Object> properties = new ConcurrentHashMap<>(16, 0.75f, 4);
 
 
     private final ExtensionManagerImpl extensionManager;
 
-    public ExtensionManagerBus(Map<Class<?>, Object> extensions, Map<String, Object> props,
+    public ExtensionManagerBus(Map<Class<?>, Object> extensions, Map<String, @RUntainted Object> props,
           ClassLoader extensionClassLoader) {
         this.extensions = extensions == null ? new ConcurrentHashMap<>(16, 0.75f, 4)
                 : new ConcurrentHashMap<>(extensions);
@@ -147,7 +148,7 @@ public class ExtensionManagerBus extends AbstractBasicInterceptorProvider implem
         this.extensions.put(ExtensionManager.class, extensionManager);
     }
 
-    public ExtensionManagerBus(Map<Class<?>, Object> e, Map<String, Object> properties) {
+    public ExtensionManagerBus(Map<Class<?>, Object> e, Map<String, @RUntainted Object> properties) {
         this(e, properties, Thread.currentThread().getContextClassLoader());
     }
     public ExtensionManagerBus(Map<Class<?>, Object> e) {
@@ -326,20 +327,20 @@ public class ExtensionManagerBus extends AbstractBasicInterceptorProvider implem
         <T> T findExtension(Class<T> cls);
     }
 
-    public Map<String, Object> getProperties() {
+    public Map<String, @RUntainted Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(Map<String, Object> map) {
+    public void setProperties(Map<String, @RUntainted Object> map) {
         properties.clear();
         properties.putAll(map);
     }
 
-    public Object getProperty(String s) {
+    public @RUntainted Object getProperty(String s) {
         return properties.get(s);
     }
 
-    public void setProperty(String s, Object o) {
+    public void setProperty(String s, @RUntainted Object o) {
         if (o == null) {
             properties.remove(s);
         } else {
@@ -349,7 +350,7 @@ public class ExtensionManagerBus extends AbstractBasicInterceptorProvider implem
 
 
 
-    private static String getBusId(Map<String, Object> properties) {
+    private static String getBusId(Map<String, @RUntainted Object> properties) {
 
         String busId;
 

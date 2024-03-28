@@ -24,6 +24,7 @@ import java.util.Map;
 
 import org.apache.cxf.annotations.SchemaValidation.SchemaValidationType;
 import org.apache.cxf.service.model.OperationInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Default provider which accepts a map of operation names to schema validation types.  The
