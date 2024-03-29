@@ -25,6 +25,7 @@ import java.util.Map;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.bus.extension.ExtensionManagerBus;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class CXFBusFactory extends BusFactory {
 
@@ -36,7 +37,7 @@ public class CXFBusFactory extends BusFactory {
         return createBus(e, new HashMap<>());
     }
 
-    public Bus createBus(Map<Class<?>, Object> e, Map<String, Object> properties) {
+    public Bus createBus(Map<Class<?>, Object> e, Map<String, @RUntainted Object> properties) {
         ExtensionManagerBus bus = new ExtensionManagerBus(e, properties);
         possiblySetDefaultBus(bus);
         initializeBus(bus);

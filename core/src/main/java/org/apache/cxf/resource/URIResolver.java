@@ -45,6 +45,8 @@ import org.apache.cxf.common.util.StringUtils;
 import org.apache.cxf.common.util.SystemPropertyAction;
 import org.apache.cxf.helpers.IOUtils;
 import org.apache.cxf.helpers.LoadingByteArrayOutputStream;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 /**
  * Resolves a File, classpath resource, or URL according to the follow rules:
@@ -58,24 +60,24 @@ public class URIResolver implements AutoCloseable {
     private static final Logger LOG = LogUtils.getLogger(URIResolver.class);
 
     private Map<String, LoadingByteArrayOutputStream> cache = new HashMap<>();
-    private File file;
-    private URI uri;
-    private URL url;
+    private @RUntainted File file;
+    private @RUntainted URI uri;
+    private @RUntainted URL url;
     private InputStream is;
-    private Class<?> calling;
+    private @RUntainted Class<?> calling;
 
     public URIResolver() {
     }
 
-    public URIResolver(String path) throws IOException {
+    public URIResolver(@RUntainted String path) throws IOException {
         this("", path);
     }
 
-    public URIResolver(String baseUriStr, String uriStr) throws IOException {
+    public URIResolver(@RUntainted String baseUriStr, @RUntainted String uriStr) throws IOException {
         this(baseUriStr, uriStr, null);
     }
 
-    public URIResolver(String baseUriStr, String uriStr, Class<?> calling) throws IOException {
+    public URIResolver(@RUntainted String baseUriStr, @RUntainted String uriStr, @RUntainted Class<?> calling) throws IOException {
         this.calling = (calling != null) ? calling : getClass();
         if (uriStr.startsWith("classpath:")) {
             tryClasspath(uriStr);
@@ -100,7 +102,7 @@ public class URIResolver implements AutoCloseable {
         this.is = null;
     }
 
-    public void resolve(String baseUriStr, String uriStr, Class<?> callingCls) throws IOException {
+    public void resolve(@RUntainted String baseUriStr, @RUntainted String uriStr, @RUntainted Class<?> callingCls) throws IOException {
         this.calling = (callingCls != null) ? callingCls : getClass();
         this.file = null;
         this.uri = null;
@@ -132,16 +134,16 @@ public class URIResolver implements AutoCloseable {
         }
     }
 
-    private void tryFileSystem(String baseUriStr, String uriStr) throws IOException, MalformedURLException {
+    private void tryFileSystem(@RUntainted String baseUriStr, @RUntainted String uriStr) throws IOException, MalformedURLException {
         // It is possible that spaces have been encoded.  We should decode them first.
         String fileStr = uriStr.replace("%20", " ");
 
         try {
             final File uriFileTemp = new File(fileStr);
 
-            File uriFile = new File(AccessController.doPrivileged(new PrivilegedAction<String>() {
+            File uriFile = new File(AccessController.doPrivileged(new PrivilegedAction<@RUntainted String>() {
                 @Override
-                public String run() {
+                public @RUntainted String run() {
                     return uriFileTemp.getAbsolutePath();
                 }
             }));
@@ -257,7 +259,7 @@ public class URIResolver implements AutoCloseable {
               && Boolean.parseBoolean(SystemPropertyAction.getPropertyOrNull("http.autoredirect"));
     }
 
-    private HttpURLConnection createInputStream() throws IOException {
+    private @RUntainted HttpURLConnection createInputStream() throws IOException {
         HttpURLConnection huc = (HttpURLConnection)url.openConnection();
 
         String host = SystemPropertyAction.getPropertyOrNull("http.proxyHost");
@@ -286,7 +288,7 @@ public class URIResolver implements AutoCloseable {
     /**
      * Assumption: URI scheme is "file"
      */
-    private String getFilePathFromUri(String uriString) {
+    private @RPolyTainted String getFilePathFromUri(@RPolyTainted @RUntainted String uriString) {
         String path = null;
 
         try {
@@ -311,7 +313,7 @@ public class URIResolver implements AutoCloseable {
         return null;
     }
 
-    private void tryArchive(String baseStr, String uriStr) throws IOException {
+    private void tryArchive(@RUntainted String baseStr, @RUntainted String uriStr) throws IOException {
         int i = baseStr.indexOf('!');
         if (i == -1) {
             tryFileSystem(baseStr, uriStr);
@@ -337,7 +339,7 @@ public class URIResolver implements AutoCloseable {
         tryFileSystem("", uriStr);
     }
 
-    private void tryArchive(String uriStr) throws IOException {
+    private void tryArchive(@RUntainted String uriStr) throws IOException {
         int i = uriStr.indexOf('!');
         if (i == -1) {
             return;
@@ -357,7 +359,7 @@ public class URIResolver implements AutoCloseable {
         }
     }
 
-    private void tryClasspath(String uriStr) throws IOException {
+    private void tryClasspath(@RUntainted String uriStr) throws IOException {
         boolean isClasspathURL = false;
         if (uriStr.startsWith("classpath:")) {
             uriStr = uriStr.substring(10);
@@ -405,7 +407,7 @@ public class URIResolver implements AutoCloseable {
         }
     }
 
-    private void tryRemote(String uriStr) throws IOException {
+    private void tryRemote(@RUntainted String uriStr) throws IOException {
         try {
             LoadingByteArrayOutputStream bout = cache.get(uriStr);
             url = new URL(uriStr);
@@ -424,7 +426,7 @@ public class URIResolver implements AutoCloseable {
         }
     }
 
-    public URI getURI() {
+    public @RUntainted URI getURI() {
         return uri;
     }
 
@@ -443,7 +445,7 @@ public class URIResolver implements AutoCloseable {
         return false;
     }
 
-    public File getFile() {
+    public @RUntainted File getFile() {
         return file;
     }
 

@@ -54,13 +54,15 @@ import org.apache.ws.commons.schema.resolver.URIResolver;
 import org.apache.ws.commons.schema.utils.NamespaceMap;
 import org.apache.ws.commons.schema.utils.NamespacePrefixList;
 import org.apache.ws.commons.schema.utils.XmlSchemaObjectBase;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 /**
  * Wrapper class for XmlSchemaCollection that deals with various quirks and bugs.
  */
 public class SchemaCollection {
 
-    private final XmlSchemaCollection xmlSchemaCollection;
+    private final @RUntainted XmlSchemaCollection xmlSchemaCollection;
     private final Map<XmlSchema, Set<XmlSchemaType>> xmlTypesCheckedForCrossImportsPerSchema
         = new HashMap<>();
 
@@ -68,7 +70,7 @@ public class SchemaCollection {
         this(new XmlSchemaCollection());
     }
 
-    public SchemaCollection(XmlSchemaCollection col) {
+    public SchemaCollection(@RUntainted XmlSchemaCollection col) {
         xmlSchemaCollection = col;
         if (xmlSchemaCollection.getNamespaceContext() == null) {
             // an empty prefix map avoids extra checks for null.
@@ -113,7 +115,7 @@ public class SchemaCollection {
         return xmlSchemaCollection.getXmlSchema(systemId);
     }
 
-    public XmlSchema[] getXmlSchemas() {
+    public @RUntainted XmlSchema[] getXmlSchemas() {
         return xmlSchemaCollection.getXmlSchemas();
     }
 

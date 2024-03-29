@@ -25,6 +25,7 @@ import java.util.Set;
 
 import org.apache.cxf.interceptor.InterceptorChain;
 import org.apache.cxf.transport.Destination;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * A base class to build your own message implementations on.
@@ -161,7 +162,7 @@ public abstract class AbstractWrappedMessage implements Message {
         return message.remove(key);
     }
 
-    public Object getContextualProperty(String key) {
+    public @RUntainted Object getContextualProperty(String key) {
         return message.getContextualProperty(key);
     }
     void setContextualProperty(String key, Object v) {

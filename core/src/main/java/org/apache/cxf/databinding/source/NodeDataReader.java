@@ -42,6 +42,8 @@ import org.apache.cxf.message.Attachment;
 import org.apache.cxf.service.model.MessagePartInfo;
 import org.apache.cxf.staxutils.StaxSource;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public class NodeDataReader implements DataReader<Node> {
     private static final Logger LOG = LogUtils.getL7dLogger(NodeDataReader.class);

@@ -24,6 +24,7 @@ import java.lang.reflect.Method;
 import org.apache.cxf.common.util.ReflectionInvokationHandler.Optional;
 import org.apache.cxf.common.util.ReflectionInvokationHandler.UnwrapParam;
 import org.apache.cxf.common.util.ReflectionInvokationHandler.WrapReturn;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 
 public interface ASMHelper {

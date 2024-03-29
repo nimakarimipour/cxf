@@ -19,10 +19,11 @@
 package org.apache.cxf.catalog;
 
 import java.io.IOException;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public class OASISCatalogManagerHelper {
-    public String resolve(OASISCatalogManager catalogResolver,
-                          String target, String base) throws IOException {
+    public @RPolyTainted String resolve(OASISCatalogManager catalogResolver,
+                          @RPolyTainted String target, @RPolyTainted String base) throws IOException {
         String resolvedLocation = null;
         if (catalogResolver != null) {
             resolvedLocation = catalogResolver.resolveSystem(target);

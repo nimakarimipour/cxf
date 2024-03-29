@@ -22,6 +22,7 @@ package org.apache.cxf.service.invoker;
 import org.apache.cxf.interceptor.Fault;
 import org.apache.cxf.message.Exchange;
 import org.apache.cxf.service.Service;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Creates a new instance for each session.

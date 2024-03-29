@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.cxf.helpers.IOUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class DelegatingInputStream extends FilterInputStream {
     protected boolean cached;
