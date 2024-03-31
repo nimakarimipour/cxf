@@ -43,6 +43,7 @@ import org.apache.cxf.interceptor.AnnotationInterceptors;
 import org.apache.cxf.service.model.BindingInfo;
 import org.apache.cxf.transport.DestinationFactory;
 import org.apache.cxf.ws.addressing.EndpointReferenceType;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public abstract class AbstractEndpointFactory extends AbstractBasicInterceptorProvider {
     private static final Logger LOG = LogUtils.getL7dLogger(AbstractEndpointFactory.class);

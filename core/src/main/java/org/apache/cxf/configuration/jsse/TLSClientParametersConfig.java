@@ -39,6 +39,7 @@ import org.apache.cxf.common.jaxb.JAXBUtils;
 import org.apache.cxf.common.util.PackageUtils;
 import org.apache.cxf.configuration.security.TLSClientParametersType;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * This class provides the TLSClientParameters that programmatically
@@ -49,13 +50,13 @@ import org.apache.cxf.staxutils.StaxUtils;
 @NoJSR250Annotations
 public final class TLSClientParametersConfig {
     private static Set<Class<?>> classes;
-    private static JAXBContext context;
+    private static @RUntainted JAXBContext context;
 
     private TLSClientParametersConfig() {
         //not constructed
     }
 
-    private static synchronized JAXBContext getContext() throws JAXBException {
+    private static synchronized @RUntainted JAXBContext getContext() throws JAXBException {
         if (context == null || classes == null) {
             Set<Class<?>> c2 = new HashSet<>();
             JAXBContextCache.addPackage(c2,
@@ -69,7 +70,7 @@ public final class TLSClientParametersConfig {
         return context;
     }
 
-    public static TLSClientParameters createTLSClientParametersFromType(TLSClientParametersType params)
+    public static TLSClientParameters createTLSClientParametersFromType(@RUntainted TLSClientParametersType params)
         throws GeneralSecurityException,
                IOException {
 
@@ -142,12 +143,12 @@ public final class TLSClientParametersConfig {
 
 
 
-    public static Object createTLSClientParameters(String s) {
+    public static Object createTLSClientParameters(@RUntainted String s) {
 
         StringReader reader = new StringReader(s);
         XMLStreamReader data = StaxUtils.createXMLStreamReader(reader);
         try {
-            JAXBElement<TLSClientParametersType> type = JAXBUtils.unmarshall(getContext(),
+            JAXBElement<@RUntainted TLSClientParametersType> type = JAXBUtils.unmarshall(getContext(),
                                                                              data,
                                                                              TLSClientParametersType.class);
             TLSClientParametersType cpt = type.getValue();

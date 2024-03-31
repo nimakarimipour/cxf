@@ -93,6 +93,8 @@ import org.apache.cxf.common.util.SystemPropertyAction;
 import org.apache.cxf.helpers.CastUtils;
 import org.apache.cxf.helpers.DOMUtils;
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public final class StaxUtils {
     // System properties for defaults, but also contextual properties usable
@@ -126,8 +128,8 @@ public final class StaxUtils {
 
     private static final Logger LOG = LogUtils.getL7dLogger(StaxUtils.class);
 
-    private static final Queue<XMLInputFactory> NS_AWARE_INPUT_FACTORY_POOL;
-    private static final XMLInputFactory SAFE_INPUT_FACTORY;
+    private static final Queue<@RUntainted XMLInputFactory> NS_AWARE_INPUT_FACTORY_POOL;
+    private static final @RUntainted XMLInputFactory SAFE_INPUT_FACTORY;
     private static final Queue<XMLOutputFactory> OUTPUT_FACTORY_POOL;
     private static final XMLOutputFactory SAFE_OUTPUT_FACTORY;
 
@@ -220,7 +222,7 @@ public final class StaxUtils {
 
     private StaxUtils() {
     }
-    private static int getInteger(String prop, int def) {
+    private static int getInteger(@RUntainted String prop, int def) {
         try {
             String s = SystemPropertyAction.getPropertyOrNull(prop);
             if (StringUtils.isEmpty(s)) {
@@ -236,7 +238,7 @@ public final class StaxUtils {
         }
         return def;
     }
-    private static long getLong(String prop, long def) {
+    private static long getLong(@RUntainted String prop, long def) {
         try {
             String s = SystemPropertyAction.getPropertyOrNull(prop);
             if (StringUtils.isEmpty(s)) {
@@ -256,7 +258,7 @@ public final class StaxUtils {
     /**
      * Return a cached, namespace-aware, factory.
      */
-    private static XMLInputFactory getXMLInputFactory() {
+    private static @RUntainted XMLInputFactory getXMLInputFactory() {
         if (SAFE_INPUT_FACTORY != null) {
             return SAFE_INPUT_FACTORY;
         }
@@ -295,7 +297,7 @@ public final class StaxUtils {
      * @param nsAware
      * @throws XMLStreamException
      */
-    public static XMLInputFactory createXMLInputFactory(boolean nsAware) {
+    public static @RUntainted XMLInputFactory createXMLInputFactory(boolean nsAware) {
         XMLInputFactory factory = null;
         try {
             factory = XMLInputFactory.newInstance();
@@ -1813,7 +1815,7 @@ public final class StaxUtils {
     /**
      * @param reader
      */
-    public static XMLStreamReader createXMLStreamReader(Reader reader) {
+    public static @RPolyTainted XMLStreamReader createXMLStreamReader(@RPolyTainted Reader reader) {
         XMLInputFactory factory = getXMLInputFactory();
         try {
             return factory.createXMLStreamReader(reader);

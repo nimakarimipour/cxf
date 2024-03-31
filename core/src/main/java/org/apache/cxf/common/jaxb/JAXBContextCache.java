@@ -42,6 +42,8 @@ import org.apache.cxf.common.classloader.ClassLoaderUtils;
 import org.apache.cxf.common.util.CacheMap;
 import org.apache.cxf.common.util.CachedClass;
 import org.apache.cxf.common.util.StringUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 /**
  *
@@ -58,7 +60,7 @@ public final class JAXBContextCache {
      * needed.
      */
     public static final class CachedContextAndSchemas {
-        private final JAXBContext context;
+        private final @RUntainted JAXBContext context;
         private final Set<Class<?>> classes;
         private final WeakReference<CachedContextAndSchemasInternal> ccas;
         private CachedContextAndSchemas(JAXBContext context, Set<Class<?>> classes, CachedContextAndSchemasInternal i) {
@@ -66,7 +68,7 @@ public final class JAXBContextCache {
             this.classes = classes;
             ccas = new WeakReference<>(i);
         }
-        public JAXBContext getContext() {
+        public @RUntainted JAXBContext getContext() {
             return context;
         }
         public Set<Class<?>> getClasses() {

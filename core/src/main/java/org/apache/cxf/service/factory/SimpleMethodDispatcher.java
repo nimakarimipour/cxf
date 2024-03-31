@@ -26,6 +26,7 @@ import org.apache.cxf.endpoint.Endpoint;
 import org.apache.cxf.service.model.BindingInfo;
 import org.apache.cxf.service.model.BindingOperationInfo;
 import org.apache.cxf.service.model.OperationInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class SimpleMethodDispatcher
     implements org.apache.cxf.service.invoker.MethodDispatcher  {

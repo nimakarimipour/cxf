@@ -45,6 +45,7 @@ import org.apache.cxf.io.CachedOutputStream;
 import org.apache.cxf.message.Attachment;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.message.MessageUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class AttachmentDeserializer {
     public static final String ATTACHMENT_PART_HEADERS = AttachmentDeserializer.class.getName() + ".headers";
@@ -230,7 +231,7 @@ public class AttachmentDeserializer {
         }
         stream.unread(v);
 
-        Map<String, List<String>> headers = loadPartHeaders(stream);
+        Map<String, List<@RUntainted String>> headers = loadPartHeaders(stream);
         return (AttachmentImpl)createAttachment(headers);
     }
 
@@ -319,7 +320,7 @@ public class AttachmentDeserializer {
      *
      * @throws IOException
      */
-    private Attachment createAttachment(Map<String, List<String>> headers) throws IOException {
+    private Attachment createAttachment(Map<String, List<@RUntainted String>> headers) throws IOException {
         InputStream partStream =
             new DelegatingInputStream(new MimeBodyPartInputStream(stream, boundary, PUSHBACK_AMOUNT),
                                       this);

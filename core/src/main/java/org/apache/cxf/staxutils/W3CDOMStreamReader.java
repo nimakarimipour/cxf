@@ -37,6 +37,7 @@ import org.w3c.dom.Text;
 import org.w3c.dom.TypeInfo;
 
 import org.apache.cxf.helpers.DOMUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class W3CDOMStreamReader extends AbstractDOMStreamReader<Node, Node> {
     private Node content;
