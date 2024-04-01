@@ -47,6 +47,7 @@ import org.apache.cxf.service.model.EndpointInfo;
 import org.apache.cxf.service.model.InterfaceInfo;
 import org.apache.cxf.staxutils.PrettyPrintXMLStreamWriter;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * A simple logging handler which outputs the bytes of the message to the
@@ -111,7 +112,7 @@ public abstract class AbstractLoggingInterceptor extends AbstractPhaseIntercepto
         return logger;
     }
 
-    public void setOutputLocation(String s) {
+    public void setOutputLocation(@RUntainted String s) {
         if (s == null || "<logger>".equals(s)) {
             writer = null;
         } else if ("<stdout>".equals(s)) {
@@ -120,8 +121,8 @@ public abstract class AbstractLoggingInterceptor extends AbstractPhaseIntercepto
             writer = new PrintWriter(System.err, true);
         } else {
             try {
-                URI uri = new URI(s);
-                File file = new File(uri);
+                @RUntainted URI uri = new URI(s);
+                @RUntainted File file = new File(uri);
                 writer = new PrintWriter(new FileWriter(file, true), true);
             } catch (Exception ex) {
                 getLogger().log(Level.WARNING, "Error configuring log location " + s, ex);

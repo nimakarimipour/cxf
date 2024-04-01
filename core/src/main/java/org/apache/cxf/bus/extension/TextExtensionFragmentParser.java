@@ -31,6 +31,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.apache.cxf.common.logging.LogUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class TextExtensionFragmentParser {
     private static final Logger LOG = LogUtils.getL7dLogger(TextExtensionFragmentParser.class);
@@ -41,7 +42,7 @@ public class TextExtensionFragmentParser {
     }
 
     public List<Extension> getExtensions(final URL url) {
-        try (InputStream is = url.openStream()) {
+        try (@RUntainted InputStream is = url.openStream()) {
             return getExtensions(is);
         } catch (Exception e) {
             LOG.log(Level.WARNING, e.getMessage(), e);
@@ -58,10 +59,10 @@ public class TextExtensionFragmentParser {
      * @return list of Extensions
      * @throws IOException
      */
-    public List<Extension> getExtensions(InputStream is) throws IOException {
+    public List<Extension> getExtensions(@RUntainted InputStream is) throws IOException {
         List<Extension> extensions = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-        String line = reader.readLine();
+        @RUntainted BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+        @RUntainted String line = reader.readLine();
         while (line != null) {
             final Extension extension = getExtensionFromTextLine(line);
             if (extension != null) {
@@ -72,19 +73,19 @@ public class TextExtensionFragmentParser {
         return extensions;
     }
 
-    private Extension getExtensionFromTextLine(String line) {
+    private Extension getExtensionFromTextLine(@RUntainted String line) {
         line = line.trim();
         if (line.isEmpty() || line.charAt(0) == '#') {
             return null;
         }
         final Extension ext = new Extension(loader);
-        final String[] parts = line.split(":");
+        final @RUntainted String[] parts = line.split(":");
         ext.setClassname(parts[0]);
         if (ext.getClassname() == null) {
             return null;
         }
         if (parts.length >= 2) {
-            String interfaceName = parts[1];
+            @RUntainted String interfaceName = parts[1];
             if (interfaceName != null && interfaceName.isEmpty()) {
                 interfaceName = null;
             }

@@ -41,6 +41,7 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.core.io.support.EncodedResource;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * CXF reads a series of Spring XML files as part of initialization.
@@ -124,7 +125,7 @@ public class ControlledValidationXmlBeanDefinitionReader extends XmlBeanDefiniti
     }
 
     @Override
-    public int loadBeanDefinitions(final EncodedResource encodedResource) {
+    public int loadBeanDefinitions(final @RUntainted EncodedResource encodedResource) {
         if (!noFastinfoset) {
             try {
                 return fastInfosetLoadBeanDefinitions(encodedResource);
@@ -153,24 +154,24 @@ public class ControlledValidationXmlBeanDefinitionReader extends XmlBeanDefiniti
         return super.loadBeanDefinitions(encodedResource);
     }
 
-    private int fastInfosetLoadBeanDefinitions(EncodedResource encodedResource)
+    private int fastInfosetLoadBeanDefinitions(@RUntainted EncodedResource encodedResource)
         throws IOException, StaleFastinfosetException,
         ParserConfigurationException, XMLStreamException {
 
-        URL resUrl = encodedResource.getResource().getURL();
+        @RUntainted URL resUrl = encodedResource.getResource().getURL();
         // There are XML files scampering around that don't end in .xml.
         // We don't apply the optimization to them.
         if (!resUrl.getPath().endsWith(".xml")) {
             throw new StaleFastinfosetException();
         }
-        String fixmlPath = resUrl.getPath().replaceFirst("\\.xml$", ".fixml");
+        @RUntainted String fixmlPath = resUrl.getPath().replaceFirst("\\.xml$", ".fixml");
         String protocol = resUrl.getProtocol();
         // beware of the relative URL rules for jar:, which are surprising.
         if ("jar".equals(protocol)) {
             fixmlPath = fixmlPath.replaceFirst("^.*!", "");
         }
 
-        URL fixmlUrl = new URL(resUrl, fixmlPath);
+        @RUntainted URL fixmlUrl = new URL(resUrl, fixmlPath);
 
         // if we are in unpacked files, we take some extra time
         // to ensure that we aren't using a stale Fastinfoset file.

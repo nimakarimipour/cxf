@@ -28,6 +28,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.StringTokenizer;
 
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public final class URIParserUtil {
     private static final String EXCLUDED_CHARS = "<>\"{}|\\^`";
@@ -40,8 +41,8 @@ public final class URIParserUtil {
         return ch <= 0x20 || ch >= 0x7F || EXCLUDED_CHARS.indexOf(ch) != -1;
     }
 
-    public static URL[] pathToURLs(String path) {
-        StringTokenizer st = new StringTokenizer(path, File.pathSeparator);
+    public static URL[] pathToURLs(@RUntainted String path) {
+        @RUntainted StringTokenizer st = new StringTokenizer(path, File.pathSeparator);
         URL[] urls = new URL[st.countTokens()];
         int count = 0;
         while (st.hasMoreTokens()) {
@@ -81,7 +82,7 @@ public final class URIParserUtil {
         }
         return sb.toString();
     }
-    public static String normalize(final String uri) {
+    public static String normalize(final @RUntainted String uri) {
         URL url = null;
         String result;
         try {
@@ -97,7 +98,7 @@ public final class URIParserUtil {
                 if (file.exists()) {
                     return file.toURI().normalize().toString();
                 }
-                final String f;
+                final @RUntainted String f;
                 if (uri.indexOf(':') != -1 && !uri.startsWith("/")) {
                     f = "file:/" + uri;
                 } else {
@@ -114,7 +115,7 @@ public final class URIParserUtil {
         return result;
     }
 
-    public static String getAbsoluteURI(final String arg) {
+    public static String getAbsoluteURI(final @RUntainted String arg) {
         if (arg == null) {
             return null;
         }

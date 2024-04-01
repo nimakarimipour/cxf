@@ -57,6 +57,7 @@ import org.apache.cxf.configuration.security.KeyStoreType;
 import org.apache.cxf.configuration.security.SecureRandomParameters;
 import org.apache.cxf.configuration.security.TrustManagersType;
 import org.apache.cxf.resource.ResourceManager;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * This class provides some functionality to convert the JAXB
@@ -101,14 +102,14 @@ public final class TLSParameterJaxBUtils {
         return secureRandom;
     }
 
-    public static KeyStore getKeyStore(KeyStoreType kst) throws GeneralSecurityException, IOException {
+    public static KeyStore getKeyStore(@RUntainted KeyStoreType kst) throws GeneralSecurityException, IOException {
         return getKeyStore(kst, false);
     }
 
     /**
      * This method converts a JAXB generated KeyStoreType into a KeyStore.
      */
-    public static KeyStore getKeyStore(KeyStoreType kst, boolean trustStore)
+    public static KeyStore getKeyStore(@RUntainted KeyStoreType kst, boolean trustStore)
         throws GeneralSecurityException,
                IOException {
 
@@ -164,7 +165,7 @@ public final class TLSParameterJaxBUtils {
         } else if (kst.isSetUrl()) {
             keyStore.load(new URL(kst.getUrl()).openStream(), password);
         } else {
-            final String loc;
+            final @RUntainted String loc;
             if (trustStore) {
                 loc = SSLUtils.getTruststore(null, LOG);
             } else {
@@ -187,7 +188,7 @@ public final class TLSParameterJaxBUtils {
     /**
      * This method converts a JAXB generated CertStoreType into a KeyStore.
      */
-    public static KeyStore getKeyStore(final CertStoreType pst)
+    public static KeyStore getKeyStore(final @RUntainted CertStoreType pst)
         throws IOException, CertificateException, KeyStoreException, NoSuchAlgorithmException {
 
         if (pst == null) {
@@ -286,7 +287,7 @@ public final class TLSParameterJaxBUtils {
      * This method converts the JAXB KeyManagersType into a list of
      * JSSE KeyManagers.
      */
-    public static KeyManager[] getKeyManagers(KeyManagersType kmc)
+    public static KeyManager[] getKeyManagers(@RUntainted KeyManagersType kmc)
         throws GeneralSecurityException,
                IOException {
 
@@ -312,7 +313,7 @@ public final class TLSParameterJaxBUtils {
      * This method converts the JAXB KeyManagersType into a list of
      * JSSE KeyManagers.
      */
-    public static KeyManager[] getKeyManagers(KeyManagersType kmc, String alias)
+    public static KeyManager[] getKeyManagers(@RUntainted KeyManagersType kmc, String alias)
         throws GeneralSecurityException,
                IOException {
 
@@ -380,13 +381,13 @@ public final class TLSParameterJaxBUtils {
      * JSSE TrustManagers.
      */
     @Deprecated
-    public static TrustManager[] getTrustManagers(TrustManagersType tmc)
+    public static TrustManager[] getTrustManagers(@RUntainted TrustManagersType tmc)
         throws GeneralSecurityException,
                IOException {
         return getTrustManagers(tmc, false);
     }
 
-    public static TrustManager[] getTrustManagers(TrustManagersType tmc, boolean enableRevocation)
+    public static TrustManager[] getTrustManagers(@RUntainted TrustManagersType tmc, boolean enableRevocation)
         throws GeneralSecurityException,
                IOException {
 

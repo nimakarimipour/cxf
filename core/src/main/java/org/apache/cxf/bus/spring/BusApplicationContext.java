@@ -58,6 +58,7 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class BusApplicationContext extends ClassPathXmlApplicationContext {
 
@@ -68,13 +69,13 @@ public class BusApplicationContext extends ClassPathXmlApplicationContext {
 
     private NamespaceHandlerResolver nsHandlerResolver;
     private boolean includeDefaults;
-    private String[] cfgFiles;
+    private @RUntainted String[] cfgFiles;
     private URL[] cfgFileURLs;
 
-    public BusApplicationContext(String cf, boolean include) {
+    public BusApplicationContext(@RUntainted String cf, boolean include) {
         this(cf, include, null);
     }
-    public BusApplicationContext(String[] cfs, boolean include) {
+    public BusApplicationContext(@RUntainted String[] cfs, boolean include) {
         this(cfs, include, null);
     }
 
@@ -85,17 +86,17 @@ public class BusApplicationContext extends ClassPathXmlApplicationContext {
         this(urls, include, null);
     }
 
-    public BusApplicationContext(String cf, boolean include, ApplicationContext parent) {
+    public BusApplicationContext(@RUntainted String cf, boolean include, ApplicationContext parent) {
         this(new String[] {cf}, include, parent);
     }
 
     public BusApplicationContext(URL url, boolean include, ApplicationContext parent) {
         this(new URL[] {url}, include, parent, null);
     }
-    public BusApplicationContext(String[] cf, boolean include, ApplicationContext parent) {
+    public BusApplicationContext(@RUntainted String[] cf, boolean include, ApplicationContext parent) {
         this(cf, include, parent, null);
     }
-    public BusApplicationContext(String[] cf, boolean include,
+    public BusApplicationContext(@RUntainted String[] cf, boolean include,
                                  ApplicationContext parent, NamespaceHandlerResolver res) {
         super(new String[0], false, parent);
         cfgFiles = cf;
@@ -184,7 +185,7 @@ public class BusApplicationContext extends ClassPathXmlApplicationContext {
             cfgFiles = new String[] {Configurer.DEFAULT_USER_CFG_FILE};
             usingDefault = true;
         }
-        for (String cfgFile : cfgFiles) {
+        for (@RUntainted String cfgFile : cfgFiles) {
             final Resource cpr = findResource(cfgFile);
             boolean exists = AccessController.doPrivileged(new PrivilegedAction<Boolean>() {
                 public Boolean run() {
@@ -241,7 +242,7 @@ public class BusApplicationContext extends ClassPathXmlApplicationContext {
         return res;
     }
 
-    public static Resource findResource(final String cfgFile) {
+    public static Resource findResource(final @RUntainted String cfgFile) {
         try {
             return AccessController.doPrivileged(new PrivilegedAction<Resource>() {
                 public Resource run() {

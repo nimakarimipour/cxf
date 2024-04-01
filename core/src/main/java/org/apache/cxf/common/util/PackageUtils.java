@@ -27,6 +27,8 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import org.apache.cxf.helpers.JavaUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 
 public final class PackageUtils {

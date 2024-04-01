@@ -32,6 +32,7 @@ import org.apache.cxf.resource.ExtendedURIResolver;
 import org.apache.cxf.transport.TransportURIResolver;
 import org.apache.ws.commons.schema.XmlSchemaException;
 import org.apache.ws.commons.schema.resolver.URIResolver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Resolves URIs using Apache Commons Resolver API.
@@ -51,8 +52,8 @@ public class CatalogXmlSchemaURIResolver implements URIResolver {
         return resolved;
     }
 
-    public InputSource resolveEntity(String targetNamespace, String schemaLocation, String baseUri) {
-        final String resolvedSchemaLocation;
+    public InputSource resolveEntity(String targetNamespace, @RUntainted String schemaLocation, @RUntainted String baseUri) {
+        final @RUntainted String resolvedSchemaLocation;
         OASISCatalogManager catalogResolver = OASISCatalogManager.getCatalogManager(bus);
         try {
             resolvedSchemaLocation = new OASISCatalogManagerHelper().resolve(catalogResolver,

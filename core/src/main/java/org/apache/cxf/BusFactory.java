@@ -32,6 +32,7 @@ import java.util.logging.Logger;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.SystemPropertyAction;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Factory to create CXF Bus objects.
@@ -335,7 +336,7 @@ public abstract class BusFactory {
     protected void initializeBus(Bus bus) {
     }
 
-    private static String getBusFactoryClass(ClassLoader classLoader) {
+    private static String getBusFactoryClass(@RUntainted ClassLoader classLoader) {
 
         // next check system properties
         String busFactoryClass = SystemPropertyAction.getPropertyOrNull(BusFactory.BUS_FACTORY_PROPERTY_NAME);
@@ -346,7 +347,7 @@ public abstract class BusFactory {
         try {
             // next, check for the services stuff in the jar file
             String serviceId = "META-INF/services/" + BusFactory.BUS_FACTORY_PROPERTY_NAME;
-            InputStream is;
+            @RUntainted InputStream is;
 
             if (classLoader == null) {
                 classLoader = Thread.currentThread().getContextClassLoader();
@@ -371,10 +372,10 @@ public abstract class BusFactory {
                 }
             }
 
-            String busFactoryCondition = null;
+            @RUntainted String busFactoryCondition = null;
 
             if (is != null) {
-                try (BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+                try (@RUntainted BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
                     busFactoryClass = rd.readLine();
                     busFactoryCondition = rd.readLine();
                 }
@@ -387,7 +388,7 @@ public abstract class BusFactory {
                     if (busFactoryCondition.startsWith("#")) {
                         busFactoryCondition = busFactoryCondition.substring(1);
                     }
-                    int idx = busFactoryCondition.indexOf(',');
+                    @RUntainted int idx = busFactoryCondition.indexOf(',');
                     while (idx != -1) {
                         cls.getClassLoader().loadClass(busFactoryCondition.substring(0, idx));
                         busFactoryCondition = busFactoryCondition.substring(idx + 1);

@@ -49,6 +49,8 @@ import org.apache.cxf.helpers.FileUtils;
 import org.apache.cxf.helpers.IOUtils;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public class CachedWriter extends Writer {
     private static final File DEFAULT_TEMP_DIR;
@@ -58,7 +60,7 @@ public class CachedWriter extends Writer {
 
     static {
 
-        String s = SystemPropertyAction.getPropertyOrNull(CachedConstants.OUTPUT_DIRECTORY_SYS_PROP);
+        @RUntainted String s = SystemPropertyAction.getPropertyOrNull(CachedConstants.OUTPUT_DIRECTORY_SYS_PROP);
         if (s == null) {
             // lookup the deprecated property
             s = SystemPropertyAction.getPropertyOrNull("org.apache.cxf.io.CachedWriter.OutputDirectory");
@@ -128,7 +130,7 @@ public class CachedWriter extends Writer {
     private void readBusProperties() {
         Bus b = BusFactory.getThreadDefaultBus(false);
         if (b != null) {
-            String v = getBusProperty(b, CachedConstants.THRESHOLD_BUS_PROP, null);
+            @RUntainted String v = getBusProperty(b, CachedConstants.THRESHOLD_BUS_PROP, null);
             if (v != null && threshold == defaultThreshold) {
                 threshold = Integer.parseInt(v);
             }
@@ -150,7 +152,7 @@ public class CachedWriter extends Writer {
         }
     }
 
-    private static String getBusProperty(Bus b, String key, String dflt) {
+    private static @RPolyTainted String getBusProperty(Bus b, String key, @RPolyTainted String dflt) {
         String v = (String)b.getProperty(key);
         return v != null ? v : dflt;
     }
@@ -325,7 +327,7 @@ public class CachedWriter extends Writer {
         // read the file
         try (Reader fin = createInputStreamReader(tempFile)) {
             CharArrayWriter out = new CharArrayWriter((int)tempFile.length());
-            char[] bytes = new char[1024];
+            @RUntainted char[] bytes = new char[1024];
             int x = fin.read(bytes);
             while (x != -1) {
                 out.write(bytes, 0, x);
@@ -346,7 +348,7 @@ public class CachedWriter extends Writer {
         } else {
             // read the file
             try (Reader fin = createInputStreamReader(tempFile)) {
-                char[] bytes = new char[1024];
+                @RUntainted char[] bytes = new char[1024];
                 int x = fin.read(bytes);
                 while (x != -1) {
                     out.write(bytes, 0, x);
@@ -454,7 +456,7 @@ public class CachedWriter extends Writer {
     }
 
 
-    public void write(char[] cbuf, int off, int len) throws IOException {
+    public void write(@RUntainted char[] cbuf, int off, int len) throws IOException {
         if (!outputLocked) {
             onWrite();
             this.totalLength += len;

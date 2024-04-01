@@ -42,6 +42,8 @@ import org.apache.cxf.common.classloader.ClassLoaderUtils;
 import org.apache.cxf.common.util.CacheMap;
 import org.apache.cxf.common.util.CachedClass;
 import org.apache.cxf.common.util.StringUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 /**
  *
@@ -339,7 +341,7 @@ public final class JAXBContextCache {
                                           + "@XmlElementDecl\\sfor\\sthe\\selement\\s\\{)\\S*(?=\\})");
         java.util.regex.Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
-            String pkgName = JAXBUtils.namespaceURIToPackage(matcher.group());
+            @RUntainted String pkgName = JAXBUtils.namespaceURIToPackage(matcher.group());
             try {
                 Class<?> clz = JAXBContextCache.class.getClassLoader()
                     .loadClass(pkgName + "." + "ObjectFactory");

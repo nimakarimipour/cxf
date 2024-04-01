@@ -77,6 +77,7 @@ import org.apache.cxf.transport.MultiplexDestination;
 import org.apache.cxf.ws.addressing.wsdl.AttributedQNameType;
 import org.apache.cxf.ws.addressing.wsdl.ServiceNameType;
 import org.apache.ws.commons.schema.XmlSchema;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Provides utility methods for obtaining endpoint references, wsdl definitions, etc.
@@ -104,8 +105,8 @@ public final class EndpointReferenceUtils {
             this.bus = b;
         }
 
-        public LSInput resolveResource(String type, String namespaceURI, String publicId,
-                                       String systemId, String baseURI) {
+        public LSInput resolveResource(String type, String namespaceURI, @RUntainted String publicId,
+                                       @RUntainted String systemId, @RUntainted String baseURI) {
 
             String newId = systemId;
             if (baseURI != null && systemId != null) {  //add additional systemId null check
@@ -513,7 +514,7 @@ public final class EndpointReferenceUtils {
                 }
 
 
-                for (XmlSchema sch : serviceInfo.getXmlSchemaCollection().getXmlSchemas()) {
+                for (@RUntainted XmlSchema sch : serviceInfo.getXmlSchemaCollection().getXmlSchemas()) {
                     if (sch.getSourceURI() != null
                         && !schemaSourcesMap.containsKey(sch.getSourceURI() + ':'
                                                          + sch.getTargetNamespace())) {

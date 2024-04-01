@@ -27,6 +27,7 @@ import java.util.Set;
 
 import org.apache.cxf.helpers.CastUtils;
 import org.apache.cxf.service.model.MessagePartInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class MessageContentsList extends ArrayList<Object> {
 

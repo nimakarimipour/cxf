@@ -39,6 +39,7 @@ import org.apache.cxf.common.jaxb.JAXBUtils;
 import org.apache.cxf.common.util.PackageUtils;
 import org.apache.cxf.configuration.security.TLSClientParametersType;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * This class provides the TLSClientParameters that programmatically
@@ -69,7 +70,7 @@ public final class TLSClientParametersConfig {
         return context;
     }
 
-    public static TLSClientParameters createTLSClientParametersFromType(TLSClientParametersType params)
+    public static TLSClientParameters createTLSClientParametersFromType(@RUntainted TLSClientParametersType params)
         throws GeneralSecurityException,
                IOException {
 
@@ -147,10 +148,10 @@ public final class TLSClientParametersConfig {
         StringReader reader = new StringReader(s);
         XMLStreamReader data = StaxUtils.createXMLStreamReader(reader);
         try {
-            JAXBElement<TLSClientParametersType> type = JAXBUtils.unmarshall(getContext(),
+            JAXBElement<@RUntainted TLSClientParametersType> type = JAXBUtils.unmarshall(getContext(),
                                                                              data,
                                                                              TLSClientParametersType.class);
-            TLSClientParametersType cpt = type.getValue();
+            @RUntainted TLSClientParametersType cpt = type.getValue();
             return createTLSClientParametersFromType(cpt);
         } catch (RuntimeException e) {
             throw e;

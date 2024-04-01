@@ -23,6 +23,7 @@ import org.apache.cxf.message.Exchange;
 import org.apache.cxf.service.invoker.Factory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Factory that will query the Spring ApplicationContext for the

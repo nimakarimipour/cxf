@@ -19,11 +19,12 @@
 package org.apache.cxf.catalog;
 
 import java.io.IOException;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class OASISCatalogManagerHelper {
-    public String resolve(OASISCatalogManager catalogResolver,
-                          String target, String base) throws IOException {
-        String resolvedLocation = null;
+    public @RUntainted String resolve(OASISCatalogManager catalogResolver,
+                          @RUntainted String target, @RUntainted String base) throws IOException {
+        @RUntainted String resolvedLocation = null;
         if (catalogResolver != null) {
             resolvedLocation = catalogResolver.resolveSystem(target);
 

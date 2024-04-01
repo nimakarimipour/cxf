@@ -63,6 +63,8 @@ import org.apache.cxf.io.CachedOutputStream;
 import org.apache.cxf.message.Attachment;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.message.MessageUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public final class AttachmentUtil {
     // The default values for {@link AttachmentDataSource} content type in case when
@@ -176,7 +178,7 @@ public final class AttachmentUtil {
 
     public static void setStreamedAttachmentProperties(Message message, CachedOutputStream bos)
         throws IOException {
-        Object directory = message.getContextualProperty(AttachmentDeserializer.ATTACHMENT_DIRECTORY);
+        @RUntainted Object directory = message.getContextualProperty(AttachmentDeserializer.ATTACHMENT_DIRECTORY);
         if (directory != null) {
             if (directory instanceof File) {
                 bos.setOutputDir((File) directory);
@@ -235,7 +237,7 @@ public final class AttachmentUtil {
         }
     }
 
-    public static String createContentID(String ns) throws UnsupportedEncodingException {
+    public static @RUntainted String createContentID(String ns) throws UnsupportedEncodingException {
         // tend to change
         String cid = "cxf.apache.org";
         if (ns != null && !ns.isEmpty()) {
@@ -255,7 +257,7 @@ public final class AttachmentUtil {
             + URLEncoder.encode(cid, StandardCharsets.UTF_8.name());
     }
 
-    public static String getUniqueBoundaryValue() {
+    public static @RUntainted String getUniqueBoundaryValue() {
         //generate a random UUID.
         //we don't need the cryptographically secure random uuid that
         //UUID.randomUUID() will produce.  Thus, use a faster
@@ -338,7 +340,7 @@ public final class AttachmentUtil {
         }
         
         @Override
-        public DataHandler put(String key, DataHandler value) {
+        public DataHandler put(@RUntainted String key, DataHandler value) {
             Iterator<Attachment> i = list.iterator();
             DataHandler ret = null;
             while (i.hasNext()) {
@@ -354,7 +356,7 @@ public final class AttachmentUtil {
         }
     }
 
-    public static String cleanContentId(String id) {
+    public static @RPolyTainted String cleanContentId(@RPolyTainted String id) {
         if (id != null) {
             if (id.startsWith("<")) {
                 // strip <>
@@ -379,7 +381,7 @@ public final class AttachmentUtil {
         return id;
     }
 
-    static String getHeaderValue(List<String> v) {
+    static @RPolyTainted String getHeaderValue(List<@RPolyTainted String> v) {
         if (v != null && !v.isEmpty()) {
             return v.get(0);
         }
@@ -391,7 +393,7 @@ public final class AttachmentUtil {
         }
         return null;
     }
-    static String getHeader(Map<String, List<String>> headers, String h) {
+    static @RPolyTainted String getHeader(Map<String, List<@RPolyTainted String>> headers, String h) {
         return getHeaderValue(headers.get(h));
     }
     static String getHeader(Map<String, List<String>> headers, String h, String delim) {
@@ -401,15 +403,15 @@ public final class AttachmentUtil {
     /**
      * @deprecated use createAttachment(InputStream stream, Map<String, List<String>> headers, Message message)
      */
-    public static Attachment createAttachment(InputStream stream, Map<String, List<String>> headers) 
+    public static Attachment createAttachment(InputStream stream, Map<String, List<@RUntainted String>> headers) 
             throws IOException {
         return createAttachment(stream, headers, null /* no Message */);
     }
 
-    public static Attachment createAttachment(InputStream stream, Map<String, List<String>> headers, Message message)
+    public static Attachment createAttachment(InputStream stream, Map<String, List<@RUntainted String>> headers, Message message)
             throws IOException {
 
-        String id = cleanContentId(getHeader(headers, "Content-ID"));
+        @RUntainted String id = cleanContentId(getHeader(headers, "Content-ID"));
 
         AttachmentImpl att = new AttachmentImpl(id);
 
@@ -423,7 +425,7 @@ public final class AttachmentUtil {
 
         String encoding = null;
 
-        for (Map.Entry<String, List<String>> e : headers.entrySet()) {
+        for (Map.Entry<String, List<@RUntainted String>> e : headers.entrySet()) {
             String name = e.getKey();
             if ("Content-Transfer-Encoding".equalsIgnoreCase(name)) {
                 encoding = getHeader(headers, name);
@@ -505,7 +507,7 @@ public final class AttachmentUtil {
         source.setContentType(mimeType);
         DataHandler handler = new DataHandler(source);
 
-        String id;
+        @RUntainted String id;
         try {
             id = AttachmentUtil.createContentID(elementNS);
         } catch (UnsupportedEncodingException e) {
@@ -517,7 +519,7 @@ public final class AttachmentUtil {
     }
 
     public static Attachment createMtomAttachmentFromDH(
-        boolean isXop, DataHandler handler, String elementNS, int threshold) {
+        boolean isXop, @RUntainted DataHandler handler, String elementNS, int threshold) {
         if (!isXop) {
             return null;
         }
@@ -545,7 +547,7 @@ public final class AttachmentUtil {
         //      ignore, just do the normal attachment thing
         }
 
-        String id;
+        @RUntainted String id;
         try {
             id = AttachmentUtil.createContentID(elementNS);
         } catch (UnsupportedEncodingException e) {
@@ -554,7 +556,7 @@ public final class AttachmentUtil {
         AttachmentImpl att = new AttachmentImpl(id, handler);
         if (!StringUtils.isEmpty(handler.getName())) {
             //set Content-Disposition attachment header if filename isn't null
-            String file = handler.getName();
+            @RUntainted String file = handler.getName();
             File f = new File(file);
             if (f.exists() && f.isFile()) {
                 file = f.getName();
@@ -565,7 +567,7 @@ public final class AttachmentUtil {
         return att;
     }
 
-    public static DataSource getAttachmentDataSource(String contentId, Collection<Attachment> atts) {
+    public static DataSource getAttachmentDataSource(@RUntainted String contentId, Collection<Attachment> atts) {
         //
         // RFC-2392 (https://datatracker.ietf.org/doc/html/rfc2392) says:
         //

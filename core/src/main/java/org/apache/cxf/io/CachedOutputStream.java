@@ -46,6 +46,8 @@ import org.apache.cxf.common.util.SystemPropertyAction;
 import org.apache.cxf.helpers.FileUtils;
 import org.apache.cxf.helpers.IOUtils;
 import org.apache.cxf.helpers.LoadingByteArrayOutputStream;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public class CachedOutputStream extends OutputStream {
 
@@ -56,7 +58,7 @@ public class CachedOutputStream extends OutputStream {
     private static boolean thresholdSysPropSet;
 
     static {
-        String s = SystemPropertyAction.getPropertyOrNull(CachedConstants.OUTPUT_DIRECTORY_SYS_PROP);
+        @RUntainted String s = SystemPropertyAction.getPropertyOrNull(CachedConstants.OUTPUT_DIRECTORY_SYS_PROP);
         if (s != null) {
             File f = new File(s);
             if (f.exists() && f.isDirectory()) {
@@ -108,7 +110,7 @@ public class CachedOutputStream extends OutputStream {
     private void readBusProperties() {
         Bus b = BusFactory.getThreadDefaultBus(false);
         if (b != null) {
-            String v = getBusProperty(b, CachedConstants.THRESHOLD_BUS_PROP, null);
+            @RUntainted String v = getBusProperty(b, CachedConstants.THRESHOLD_BUS_PROP, null);
             if (v != null && threshold == defaultThreshold) {
                 threshold = Integer.parseInt(v);
             }
@@ -130,7 +132,7 @@ public class CachedOutputStream extends OutputStream {
         }
     }
 
-    private static String getBusProperty(Bus b, String key, String dflt) {
+    private static @RPolyTainted String getBusProperty(Bus b, String key, @RPolyTainted String dflt) {
         String v = (String)b.getProperty(key);
         return v != null ? v : dflt;
     }

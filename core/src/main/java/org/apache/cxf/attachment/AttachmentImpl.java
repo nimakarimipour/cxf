@@ -25,29 +25,30 @@ import java.util.Map;
 
 import jakarta.activation.DataHandler;
 import org.apache.cxf.message.Attachment;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class AttachmentImpl implements Attachment {
 
     private DataHandler dataHandler;
-    private String id;
+    private @RUntainted String id;
     private Map<String, String> headers = new HashMap<>();
     private boolean xop;
 
-    public AttachmentImpl(String idParam) {
+    public AttachmentImpl(@RUntainted String idParam) {
         this.id = idParam;
     }
 
-    public AttachmentImpl(String idParam, DataHandler handlerParam) {
+    public AttachmentImpl(@RUntainted String idParam, DataHandler handlerParam) {
         this.id = idParam;
         this.dataHandler = handlerParam;
         this.dataHandler.setCommandMap(AttachmentUtil.getCommandMap());
     }
 
-    public String getId() {
+    public @RUntainted String getId() {
         return id;
     }
 
-    public DataHandler getDataHandler() {
+    public @RUntainted DataHandler getDataHandler() {
         return dataHandler;
     }
 

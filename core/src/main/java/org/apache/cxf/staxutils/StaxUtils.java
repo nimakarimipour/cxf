@@ -93,6 +93,8 @@ import org.apache.cxf.common.util.SystemPropertyAction;
 import org.apache.cxf.helpers.CastUtils;
 import org.apache.cxf.helpers.DOMUtils;
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public final class StaxUtils {
     // System properties for defaults, but also contextual properties usable
@@ -220,7 +222,7 @@ public final class StaxUtils {
 
     private StaxUtils() {
     }
-    private static int getInteger(String prop, int def) {
+    private static int getInteger(@RUntainted String prop, int def) {
         try {
             String s = SystemPropertyAction.getPropertyOrNull(prop);
             if (StringUtils.isEmpty(s)) {
@@ -236,7 +238,7 @@ public final class StaxUtils {
         }
         return def;
     }
-    private static long getLong(String prop, long def) {
+    private static long getLong(@RUntainted String prop, long def) {
         try {
             String s = SystemPropertyAction.getPropertyOrNull(prop);
             if (StringUtils.isEmpty(s)) {
@@ -1662,7 +1664,7 @@ public final class StaxUtils {
         node.setAttributeNodeNS(attr);
     }
     public static XMLStreamReader createXMLStreamReader(InputSource src) {
-        String sysId = src.getSystemId() == null ? null : src.getSystemId();
+        @RUntainted String sysId = src.getSystemId() == null ? null : src.getSystemId();
         String pubId = src.getPublicId() == null ? null : src.getPublicId();
         if (src.getByteStream() != null) {
             final InputStream is = src.getByteStream();

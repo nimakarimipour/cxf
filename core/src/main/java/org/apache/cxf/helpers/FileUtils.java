@@ -34,10 +34,12 @@ import java.util.regex.Pattern;
 
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.SystemPropertyAction;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public final class FileUtils {
     private static final long RETRY_SLEEP_MILLIS = 10L;
-    private static File defaultTempDir;
+    private static @RUntainted File defaultTempDir;
     private static Thread shutdownHook;
     private static final char[] ILLEGAL_CHARACTERS
         = {'/', '\n', '\r', '\t', '\0', '\f', '`', '?', '*', '\\', '<', '>', '|', '\"', ':'};
@@ -46,7 +48,7 @@ public final class FileUtils {
 
     }
 
-    public static boolean isValidFileName(String name) {
+    public static boolean isValidFileName(@RUntainted String name) {
         for (int i = name.length(); i > 0; i--) {
             char c = name.charAt(i - 1);
             for (char c2 : ILLEGAL_CHARACTERS) {
@@ -70,13 +72,13 @@ public final class FileUtils {
         return isValid;
     }
 
-    public static synchronized File getDefaultTempDir() {
+    public static synchronized @RUntainted File getDefaultTempDir() {
         if (defaultTempDir != null
             && exists(defaultTempDir)) {
             return defaultTempDir;
         }
 
-        String s = SystemPropertyAction.getPropertyOrNull(FileUtils.class.getName() + ".TempDirectory");
+        @RUntainted String s = SystemPropertyAction.getPropertyOrNull(FileUtils.class.getName() + ".TempDirectory");
         if (s != null) {
             //assume someone outside of us will manage the directory
             File f = new File(s);
@@ -133,9 +135,9 @@ public final class FileUtils {
     public static File createTmpDir() {
         return createTmpDir(true);
     }
-    public static File createTmpDir(boolean addHook) {
-        String s = SystemPropertyAction.getProperty("java.io.tmpdir");
-        File checkExists = new File(s);
+    public static @RUntainted File createTmpDir(boolean addHook) {
+        @RUntainted String s = SystemPropertyAction.getProperty("java.io.tmpdir");
+        @RUntainted File checkExists = new File(s);
         if (!exists(checkExists) || !checkExists.isDirectory()) {
             throw new RuntimeException("The directory "
                                    + checkExists.getAbsolutePath()
@@ -223,16 +225,16 @@ public final class FileUtils {
         return true;
     }
 
-    public static void removeDir(File d) {
+    public static void removeDir(@RUntainted File d) {
         removeDir(d, false);
     }
-    private static void removeDir(File d, boolean inShutdown) {
-        String[] list = d.list();
+    private static void removeDir(@RUntainted File d, boolean inShutdown) {
+        @RUntainted String[] list = d.list();
         if (list == null) {
             list = new String[0];
         }
         for (int i = 0; i < list.length; i++) {
-            String s = list[i];
+            @RUntainted String s = list[i];
             File f = new File(d, s);
             if (f.isDirectory()) {
                 removeDir(f, inShutdown);
@@ -259,11 +261,11 @@ public final class FileUtils {
         }
     }
 
-    public static File createTempFile(String prefix, String suffix) throws IOException {
+    public static @RPolyTainted File createTempFile(@RPolyTainted String prefix, @RPolyTainted String suffix) throws IOException {
         return createTempFile(prefix, suffix, null, false);
     }
 
-    public static File createTempFile(String prefix, String suffix, File parentDir,
+    public static @RPolyTainted File createTempFile(@RPolyTainted String prefix, @RPolyTainted String suffix, @RPolyTainted File parentDir,
                                boolean deleteOnExit) throws IOException {
         File parent = (parentDir == null)
             ? getDefaultTempDir()
