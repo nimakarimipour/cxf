@@ -38,6 +38,7 @@ import org.apache.cxf.phase.PhaseInterceptorChain;
 import org.apache.cxf.staxutils.transform.TransformUtils;
 
 import static org.apache.cxf.interceptor.AbstractOutDatabindingInterceptor.DISABLE_OUTPUTSTREAM_OPTIMIZATION;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Creates an XMLStreamReader from the InputStream on the Message.

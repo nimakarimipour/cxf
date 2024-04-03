@@ -43,6 +43,7 @@ import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.ParserContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class BusDefinitionParser extends AbstractBeanDefinitionParser {
     private static AtomicInteger counter = new AtomicInteger(0);
@@ -161,7 +162,7 @@ public class BusDefinitionParser extends AbstractBeanDefinitionParser {
         String busName;
         String id;
         Collection<Feature> features;
-        Map<String, Object> properties;
+        Map<String, @RUntainted Object> properties;
 
         public BusConfig(String busName) {
             this.busName = busName;
@@ -287,13 +288,13 @@ public class BusDefinitionParser extends AbstractBeanDefinitionParser {
 
         }
 
-        public Map<String, Object> getProperties() {
+        public Map<String, @RUntainted Object> getProperties() {
             if (bus != null) {
                 return bus.getProperties();
             }
             return properties;
         }
-        public void setProperties(Map<String, Object> s) {
+        public void setProperties(Map<String, @RUntainted Object> s) {
             if (bus != null) {
                 bus.setProperties(s);
             } else {

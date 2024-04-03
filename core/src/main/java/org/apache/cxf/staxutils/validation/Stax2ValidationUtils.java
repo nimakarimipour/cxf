@@ -54,6 +54,7 @@ import org.codehaus.stax2.validation.ValidationProblemHandler;
 import org.codehaus.stax2.validation.XMLValidationException;
 import org.codehaus.stax2.validation.XMLValidationProblem;
 import org.codehaus.stax2.validation.XMLValidationSchema;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * This class touches stax2 API, so it is kept separate to allow graceful fallback.

@@ -21,6 +21,7 @@ package org.apache.cxf.configuration;
 
 import java.util.Collection;
 import java.util.List;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  *
