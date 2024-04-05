@@ -32,6 +32,7 @@ import java.util.logging.Logger;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.SystemPropertyAction;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Factory to create CXF Bus objects.
@@ -309,7 +310,7 @@ public abstract class BusFactory {
      * @param className The class of the BusFactory to create. If null, uses the default search algorithm.
      * @return a new BusFactory to be used to create Bus objects
      */
-    public static BusFactory newInstance(String className) {
+    public static BusFactory newInstance(@RUntainted String className) {
         if (className == null) {
             ClassLoader loader = Thread.currentThread().getContextClassLoader();
             className = getBusFactoryClass(loader);
@@ -335,7 +336,7 @@ public abstract class BusFactory {
     protected void initializeBus(Bus bus) {
     }
 
-    private static String getBusFactoryClass(ClassLoader classLoader) {
+    private static String getBusFactoryClass(@RUntainted ClassLoader classLoader) {
 
         // next check system properties
         String busFactoryClass = SystemPropertyAction.getPropertyOrNull(BusFactory.BUS_FACTORY_PROPERTY_NAME);

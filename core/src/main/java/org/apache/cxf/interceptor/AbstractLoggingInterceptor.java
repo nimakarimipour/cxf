@@ -47,6 +47,7 @@ import org.apache.cxf.service.model.EndpointInfo;
 import org.apache.cxf.service.model.InterfaceInfo;
 import org.apache.cxf.staxutils.PrettyPrintXMLStreamWriter;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * A simple logging handler which outputs the bytes of the message to the
@@ -111,7 +112,7 @@ public abstract class AbstractLoggingInterceptor extends AbstractPhaseIntercepto
         return logger;
     }
 
-    public void setOutputLocation(String s) {
+    public void setOutputLocation(@RUntainted String s) {
         if (s == null || "<logger>".equals(s)) {
             writer = null;
         } else if ("<stdout>".equals(s)) {

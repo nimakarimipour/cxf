@@ -19,6 +19,7 @@
 package org.apache.cxf.security;
 
 import java.security.Principal;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Provides basic security information about the current message exchange

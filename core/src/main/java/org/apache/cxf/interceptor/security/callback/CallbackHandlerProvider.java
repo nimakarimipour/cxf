@@ -21,6 +21,7 @@ package org.apache.cxf.interceptor.security.callback;
 import javax.security.auth.callback.CallbackHandler;
 
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Create a suitable CallbackHandler for the given message.

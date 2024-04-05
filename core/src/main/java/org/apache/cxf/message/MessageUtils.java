@@ -35,6 +35,7 @@ import org.apache.cxf.common.util.PropertyUtils;
 import org.apache.cxf.common.util.StringUtils;
 import org.apache.cxf.service.invoker.MethodDispatcher;
 import org.apache.cxf.service.model.BindingOperationInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 
 /**
@@ -211,7 +212,7 @@ public final class MessageUtils {
         return defaultValue;
     }
 
-    public static String getContextualString(Message m, String key, String defaultValue) {
+    public static @RPolyTainted String getContextualString(Message m, String key, @RPolyTainted String defaultValue) {
         if (m != null) {
             final Object o = m.getContextualProperty(key);
             if (o instanceof String) {

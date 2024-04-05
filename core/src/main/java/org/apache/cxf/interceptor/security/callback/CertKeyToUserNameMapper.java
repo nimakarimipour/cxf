@@ -24,6 +24,7 @@ import java.security.cert.X509Certificate;
 import javax.naming.InvalidNameException;
 import javax.naming.ldap.LdapName;
 import javax.naming.ldap.Rdn;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class CertKeyToUserNameMapper implements CertificateToNameMapper {
     private String key;

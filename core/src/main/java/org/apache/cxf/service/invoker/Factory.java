@@ -19,6 +19,7 @@
 package org.apache.cxf.service.invoker;
 
 import org.apache.cxf.message.Exchange;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Represents an object factory.

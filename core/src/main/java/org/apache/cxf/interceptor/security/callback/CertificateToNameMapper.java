@@ -19,6 +19,7 @@
 package org.apache.cxf.interceptor.security.callback;
 
 import java.security.cert.Certificate;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Map a certificate to a user name for the jaas login
