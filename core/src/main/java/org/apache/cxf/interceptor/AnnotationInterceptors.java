@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
 import org.apache.cxf.common.i18n.BundleUtils;
 import org.apache.cxf.feature.Feature;
@@ -34,9 +35,9 @@ public class AnnotationInterceptors {
 
     private static final ResourceBundle BUNDLE = BundleUtils.getBundle(AnnotationInterceptors.class);
 
-    private Class<?>[] clazzes;
+    private @RUntainted Class<?>[] clazzes;
 
-    public AnnotationInterceptors(Class<?> ... clz) {
+    public AnnotationInterceptors(@RUntainted Class<?> ... clz) {
         clazzes = clz;
     }
 
@@ -79,7 +80,7 @@ public class AnnotationInterceptors {
         throw new UnsupportedOperationException("Doesn't support the annotation: " + ann);
     }
 
-    private String[] getAnnotationObjectNames(Annotation ann) {
+    private @RUntainted String[] getAnnotationObjectNames(Annotation ann) {
         if (ann instanceof InFaultInterceptors) {
             return ((InFaultInterceptors)ann).interceptors();
         } else if (ann instanceof InInterceptors) {
@@ -95,7 +96,7 @@ public class AnnotationInterceptors {
         throw new UnsupportedOperationException("Doesn't support the annotation: " + ann);
     }
 
-    private <T> T initializeAnnotationObject(String annObjectName, Class<T> type) {
+    private <T> T initializeAnnotationObject(@RUntainted String annObjectName, Class<T> type) {
         try {
             final Object object = ClassLoaderUtils.loadClass(annObjectName, this.getClass())
                 .getDeclaredConstructor().newInstance();

@@ -24,6 +24,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.message.Message;
 /**
  * Specifies a list of classes that are added to the inbound fault
@@ -34,7 +35,7 @@ import org.apache.cxf.message.Message;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface InFaultInterceptors {
 
-    String[] interceptors() default { };
+    @RUntainted String[] interceptors() default { };
 
     Class<? extends Interceptor<? extends Message>>[] classes() default { };
 }
