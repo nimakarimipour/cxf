@@ -23,6 +23,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.interceptor.InterceptorChain;
 import org.apache.cxf.transport.Destination;
 
@@ -161,7 +162,7 @@ public abstract class AbstractWrappedMessage implements Message {
         return message.remove(key);
     }
 
-    public Object getContextualProperty(String key) {
+    public @RUntainted Object getContextualProperty(String key) {
         return message.getContextualProperty(key);
     }
     void setContextualProperty(String key, Object v) {

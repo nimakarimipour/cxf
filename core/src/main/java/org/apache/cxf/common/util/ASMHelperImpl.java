@@ -28,6 +28,7 @@ import java.lang.reflect.WildcardType;
 import java.util.HashMap;
 import java.util.Map;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
 
 
@@ -78,12 +79,12 @@ public class ASMHelperImpl implements ASMHelper {
             }
         }
     }
-    private Class<?> getASMClassWriterClass() {
+    private @RUntainted Class<?> getASMClassWriterClass() {
         //force this to make sure the proper OSGi import is generated
         return org.objectweb.asm.ClassWriter.class;
     }
 
-    public synchronized Class<?> getASMClass() throws ClassNotFoundException {
+    public synchronized @RUntainted Class<?> getASMClass() throws ClassNotFoundException {
         if (cwClass == null) {
             //try the "real" asm first, then the others
             tryClass("org.objectweb.asm.ClassWriter");

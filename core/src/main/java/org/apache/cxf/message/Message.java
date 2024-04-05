@@ -22,6 +22,7 @@ package org.apache.cxf.message;
 import java.util.Collection;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.xml.ws.handler.MessageContext;
 import org.apache.cxf.interceptor.InterceptorChain;
 import org.apache.cxf.transport.Destination;
@@ -274,7 +275,7 @@ public interface Message extends StringMap {
      * correlates to the desired property
      * @return the property's value
      */
-    Object getContextualProperty(String key);
+    @RUntainted Object getContextualProperty(String key);
 
     /**
      * Resets the cache of contextual properties that messages may contain.  Subsequent

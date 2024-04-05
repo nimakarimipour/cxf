@@ -28,6 +28,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.ClassHelper;
@@ -50,7 +51,7 @@ public class SecureAnnotationsInterceptor extends SimpleAuthorizingInterceptor {
         super(uniqueId);
     }
 
-    public void setAnnotationClassName(String name) {
+    public void setAnnotationClassName(@RUntainted String name) {
         try {
             ClassLoaderUtils.loadClass(name, SecureAnnotationsInterceptor.class);
             annotationClassName = name;

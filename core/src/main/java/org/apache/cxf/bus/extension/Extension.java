@@ -38,11 +38,11 @@ public class Extension {
     
     private static final String PROBLEM_CREATING_EXTENSION_CLASS = "PROBLEM_CREATING_EXTENSION_CLASS";
 
-    protected String className;
+    protected @RUntainted String className;
     protected ClassLoader classloader;
     protected volatile Class<?> clazz;
     protected volatile Class<?> intf;
-    protected String interfaceName;
+    protected @RUntainted String interfaceName;
     protected boolean deferred;
     protected Collection<String> namespaces = new ArrayList<>();
     protected Object[] args;
@@ -54,14 +54,14 @@ public class Extension {
     public Extension() {
     }
 
-    public Extension(Class<?> cls, Class<?> inf) {
+    public Extension(@RUntainted Class<?> cls, @RUntainted Class<?> inf) {
         clazz = cls;
         intf = inf;
         interfaceName = inf.getName();
         className = cls.getName();
         classloader = cls.getClassLoader();
     }
-    public Extension(Class<?> cls) {
+    public Extension(@RUntainted Class<?> cls) {
         clazz = cls;
         className = cls.getName();
         classloader = cls.getClassLoader();
@@ -130,7 +130,7 @@ public class Extension {
         return className;
     }
 
-    public void setClassname(String i) {
+    public void setClassname(@RUntainted String i) {
         clazz = null;
         notFound = false;
         className = i;
@@ -140,7 +140,7 @@ public class Extension {
         return interfaceName;
     }
 
-    public void setInterfaceName(String i) {
+    public void setInterfaceName(@RUntainted String i) {
         interfaceName = i;
         notFound = false;
     }
@@ -161,7 +161,7 @@ public class Extension {
         args = a;
     }
 
-    protected Class<?> tryClass(String name, ClassLoader cl) {
+    protected Class<?> tryClass(@RUntainted String name, ClassLoader cl) {
         Throwable origEx = null;
         if (classloader != null) {
             try {

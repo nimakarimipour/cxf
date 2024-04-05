@@ -25,6 +25,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.Bus;
 import org.apache.cxf.endpoint.Endpoint;
 import org.apache.cxf.helpers.CastUtils;
@@ -45,7 +46,7 @@ public class MessageImpl extends StringMapImpl implements Message {
     private Object[] contents = new Object[20];
     private int index;
 
-    private Map<String, Object> contextCache;
+    private Map<String, @RUntainted Object> contextCache;
 
 
     public MessageImpl() {
@@ -174,7 +175,7 @@ public class MessageImpl extends StringMapImpl implements Message {
         }
         return super.put(key, value);
     }
-    public Object getContextualProperty(String key) {
+    public @RUntainted Object getContextualProperty(String key) {
         if (contextCache == null) {
             calcContextCache();
         }
