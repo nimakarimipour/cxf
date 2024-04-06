@@ -38,7 +38,7 @@ public class ASMHelperImpl implements ASMHelper {
     protected static final Map<Class<?>, Integer> PRIMITIVE_ZERO_MAP = new HashMap<>();
 
     protected boolean badASM;
-    private Class<?> cwClass;
+    private @RUntainted Class<?> cwClass;
 
     public ASMHelperImpl() {
 
@@ -64,7 +64,7 @@ public class ASMHelperImpl implements ASMHelper {
         NONPRIMITIVE_MAP.put(Double.TYPE, Double.class.getName().replaceAll("\\.", "/"));
     }
 
-    private void tryClass(String s) {
+    private void tryClass(@RUntainted String s) {
         if (cwClass == null) {
             try {
                 Class<?> c2 = ClassLoaderUtils.loadClass(s, ASMHelperImpl.class);
