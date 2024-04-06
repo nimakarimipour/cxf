@@ -34,6 +34,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.activation.DataHandler;
 import org.apache.cxf.common.util.Base64Utility;
@@ -45,7 +46,7 @@ public class AttachmentSerializer {
     // http://tools.ietf.org/html/rfc2387
     private static final String DEFAULT_MULTIPART_TYPE = "multipart/related";
 
-    private String contentTransferEncoding = AttachmentUtil.BINARY;
+    private @RUntainted String contentTransferEncoding = AttachmentUtil.BINARY;
 
     private Message message;
     private @RUntainted String bodyBoundary;
@@ -53,7 +54,7 @@ public class AttachmentSerializer {
     private String encoding;
 
     private String multipartType;
-    private Map<String, List<String>> rootHeaders = Collections.emptyMap();
+    private Map<@RUntainted String, List<@RUntainted String>> rootHeaders = Collections.emptyMap();
     private boolean xop = true;
     private boolean writeOptionalTypeParameters = true;
 
@@ -65,7 +66,7 @@ public class AttachmentSerializer {
     public AttachmentSerializer(Message messageParam,
                                 String multipartType,
                                 boolean writeOptionalTypeParameters,
-                                Map<String, List<String>> headers) {
+                                Map<@RUntainted String, List<@RUntainted String>> headers) {
         message = messageParam;
         this.multipartType = multipartType;
         this.writeOptionalTypeParameters = writeOptionalTypeParameters;
@@ -186,12 +187,12 @@ public class AttachmentSerializer {
         return s.indexOf('"') != 0 ? s.replace("\"", "\\\"") : s;
     }
 
-    public void setContentTransferEncoding(String cte) {
+    public void setContentTransferEncoding(@RUntainted String cte) {
         contentTransferEncoding = cte;
     }
 
-    private String getHeaderValue(String name, String defaultValue) {
-        List<String> value = rootHeaders.get(name);
+    private @RUntainted String getHeaderValue(String name, @RUntainted String defaultValue) {
+        List<@RUntainted String> value = rootHeaders.get(name);
         if (value == null || value.isEmpty()) {
             return defaultValue;
         }
@@ -205,8 +206,8 @@ public class AttachmentSerializer {
         return sb.toString();
     }
 
-    private void writeHeaders(String contentType, String attachmentId,
-                                     Map<String, List<String>> headers, Writer writer) throws IOException {
+    private void writeHeaders(@RUntainted String contentType, @RUntainted String attachmentId,
+                                     Map<@RUntainted String, List<@RUntainted String>> headers, Writer writer) throws IOException {
         writer.write("\r\nContent-Type: ");
         writer.write(contentType);
         writer.write("\r\nContent-Transfer-Encoding: " + contentTransferEncoding + "\r\n");
@@ -236,7 +237,7 @@ public class AttachmentSerializer {
                 //  
                 //   addr-spec = local-part "@" domain ; global address
                 //
-                String[] address = attachmentId.split("@", 2);
+                @RUntainted String[] address = attachmentId.split("@", 2);
                 if (address.length == 2) {
                     // See please AttachmentUtil::createContentID, the domain part is URL encoded
                     final String decoded = tryDecode(address[1], StandardCharsets.UTF_8);
@@ -253,7 +254,7 @@ public class AttachmentSerializer {
             writer.write(">\r\n");
         }
         // headers like Content-Disposition need to be serialized
-        for (Map.Entry<String, List<String>> entry : headers.entrySet()) {
+        for (Map.Entry<@RUntainted String, List<@RUntainted String>> entry : headers.entrySet()) {
             String name = entry.getKey();
             if ("Content-Type".equalsIgnoreCase(name) || "Content-ID".equalsIgnoreCase(name)
                 || "Content-Transfer-Encoding".equalsIgnoreCase(name)) {
@@ -261,7 +262,7 @@ public class AttachmentSerializer {
             }
             writer.write(name);
             writer.write(": ");
-            List<String> values = entry.getValue();
+            List<@RUntainted String> values = entry.getValue();
             for (int i = 0; i < values.size(); i++) {
                 writer.write(values.get(i));
                 if (i + 1 < values.size()) {
@@ -274,7 +275,7 @@ public class AttachmentSerializer {
         writer.write("\r\n");
     }
 
-    private static String checkAngleBrackets(String value) {
+    private static @RPolyTainted String checkAngleBrackets(@RPolyTainted String value) {
         if (value.charAt(0) == '<' && value.charAt(value.length() - 1) == '>') {
             return value.substring(1, value.length() - 1);
         }
@@ -292,8 +293,8 @@ public class AttachmentSerializer {
                 writer.write("\r\n--");
                 writer.write(bodyBoundary);
 
-                final Map<String, List<String>> headers;
-                Iterator<String> it = a.getHeaderNames();
+                final Map<@RUntainted String, List<@RUntainted String>> headers;
+                Iterator<@RUntainted String> it = a.getHeaderNames();
                 if (it.hasNext()) {
                     headers = new LinkedHashMap<>();
                     while (it.hasNext()) {
@@ -378,13 +379,13 @@ public class AttachmentSerializer {
 
     // URL decoder would also decode '+' but according to  RFC-2392 we need to convert
     // only the % encoded character to their equivalent US-ASCII characters. 
-    private static String decode(String s, Charset charset) {
+    private static @RUntainted String decode(@RUntainted String s, @RUntainted Charset charset) {
         return URLDecoder.decode(s.replaceAll("([^%])[+]", "$1%2B"), charset);
     }
 
     // Try to decode the string assuming the decoding may fail, the original string is going to
     // be returned in this case.
-    private static String tryDecode(String s, Charset charset) {
+    private static @RUntainted String tryDecode(@RUntainted String s, @RUntainted Charset charset) {
         try { 
             return decode(s, charset);
         } catch (IllegalArgumentException ex) {

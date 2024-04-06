@@ -28,6 +28,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Node;
 
 import org.apache.cxf.common.logging.LogUtils;
@@ -211,7 +212,7 @@ public final class MessageUtils {
         return defaultValue;
     }
 
-    public static String getContextualString(Message m, String key, String defaultValue) {
+    public static @RUntainted String getContextualString(Message m, String key, @RUntainted String defaultValue) {
         if (m != null) {
             final Object o = m.getContextualProperty(key);
             if (o instanceof String) {

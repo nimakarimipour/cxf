@@ -46,6 +46,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.activation.CommandInfo;
 import jakarta.activation.CommandMap;
@@ -339,7 +340,7 @@ public final class AttachmentUtil {
         }
         
         @Override
-        public DataHandler put(String key, DataHandler value) {
+        public DataHandler put(String key, @RUntainted DataHandler value) {
             Iterator<Attachment> i = list.iterator();
             DataHandler ret = null;
             while (i.hasNext()) {
@@ -355,7 +356,7 @@ public final class AttachmentUtil {
         }
     }
 
-    public static String cleanContentId(String id) {
+    public static @RPolyTainted String cleanContentId(@RPolyTainted String id) {
         if (id != null) {
             if (id.startsWith("<")) {
                 // strip <>
@@ -380,7 +381,7 @@ public final class AttachmentUtil {
         return id;
     }
 
-    static String getHeaderValue(List<String> v) {
+    static @RPolyTainted String getHeaderValue(List<@RPolyTainted String> v) {
         if (v != null && !v.isEmpty()) {
             return v.get(0);
         }
@@ -392,7 +393,7 @@ public final class AttachmentUtil {
         }
         return null;
     }
-    static String getHeader(Map<String, List<String>> headers, String h) {
+    static @RPolyTainted String getHeader(Map<String, List<@RPolyTainted String>> headers, String h) {
         return getHeaderValue(headers.get(h));
     }
     static String getHeader(Map<String, List<String>> headers, String h, String delim) {
@@ -402,18 +403,17 @@ public final class AttachmentUtil {
     /**
      * @deprecated use createAttachment(InputStream stream, Map<String, List<String>> headers, Message message)
      */
-    public static Attachment createAttachment(InputStream stream, Map<String, List<String>> headers) 
+    public static Attachment createAttachment(@RUntainted InputStream stream, Map<String, List<@RUntainted String>> headers)
             throws IOException {
         return createAttachment(stream, headers, null /* no Message */);
     }
 
-    public static Attachment createAttachment(InputStream stream, Map<String, List<String>> headers, Message message)
+    public static Attachment createAttachment(@RUntainted InputStream stream, Map<String, List<@RUntainted String>> headers, Message message)
             throws IOException {
 
         String id = cleanContentId(getHeader(headers, "Content-ID"));
 
         AttachmentImpl att = new AttachmentImpl(id);
-
         String ct = getHeader(headers, "Content-Type");
         if (StringUtils.isEmpty(ct)) {
             ct = MessageUtils.getContextualString(message, ATTACHMENT_CONTENT_TYPE, "application/octet-stream");
@@ -424,7 +424,7 @@ public final class AttachmentUtil {
 
         String encoding = null;
 
-        for (Map.Entry<String, List<String>> e : headers.entrySet()) {
+        for (Map.Entry<String, List<@RUntainted String>> e : headers.entrySet()) {
             String name = e.getKey();
             if ("Content-Transfer-Encoding".equalsIgnoreCase(name)) {
                 encoding = getHeader(headers, name);
@@ -461,7 +461,7 @@ public final class AttachmentUtil {
         return s;
     }
 
-    public static InputStream decode(InputStream in, String encoding) throws IOException {
+    public static @RPolyTainted InputStream decode(@RPolyTainted InputStream in, String encoding) throws IOException {
         if (encoding == null) {
             return in;
         }
@@ -494,7 +494,7 @@ public final class AttachmentUtil {
     }
 
     public static Attachment createMtomAttachment(boolean isXop, String mimeType, String elementNS,
-                                                 byte[] data, int offset, int length, int threshold) {
+                                                 @RUntainted byte[] data, @RUntainted int offset, @RUntainted int length, int threshold) {
         if (!isXop || length <= threshold) {
             return null;
         }

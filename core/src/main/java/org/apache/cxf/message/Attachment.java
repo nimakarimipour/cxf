@@ -21,19 +21,20 @@ package org.apache.cxf.message;
 
 import java.util.Iterator;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.activation.DataHandler;
 
 public interface Attachment {
-    DataHandler getDataHandler();
+    @RUntainted DataHandler getDataHandler();
 
     /**
      * @return The attachment id.
      */
-    String getId();
+    @RUntainted String getId();
 
-    String getHeader(String name);
+    @RUntainted String getHeader(@RUntainted String name);
 
-    Iterator<String> getHeaderNames();
+    Iterator<@RUntainted String> getHeaderNames();
 
     /**
      * Whether or not this is an XOP package. This will affect the

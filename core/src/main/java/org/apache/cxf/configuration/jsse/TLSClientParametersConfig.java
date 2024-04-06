@@ -70,7 +70,7 @@ public final class TLSClientParametersConfig {
         return context;
     }
 
-    public static TLSClientParameters createTLSClientParametersFromType(TLSClientParametersType params)
+    public static TLSClientParameters createTLSClientParametersFromType(@RUntainted TLSClientParametersType params)
         throws GeneralSecurityException,
                IOException {
 

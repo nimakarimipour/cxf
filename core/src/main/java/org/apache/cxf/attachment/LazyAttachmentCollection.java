@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import jakarta.activation.DataHandler;
 import org.apache.cxf.message.Attachment;
 
@@ -252,14 +253,14 @@ public class LazyAttachmentCollection
             }
             return null;
         }
-        public DataHandler put(String key, DataHandler value) {
+        public DataHandler put(String key, @RUntainted DataHandler value) {
             Attachment at = new AttachmentImpl(key, value);
             collection.add(at);
             return value;
         }
 
-        public void putAll(Map<? extends String, ? extends DataHandler> t) {
-            for (Map.Entry<? extends String, ? extends DataHandler> ent : t.entrySet()) {
+        public void putAll(Map<? extends String, ? extends @RUntainted DataHandler> t) {
+            for (Map.Entry<? extends String, ? extends @RUntainted DataHandler> ent : t.entrySet()) {
                 put(ent.getKey(), ent.getValue());
             }
         }
@@ -282,7 +283,7 @@ public class LazyAttachmentCollection
                                 public DataHandler getValue() {
                                     return at.getDataHandler();
                                 }
-                                public DataHandler setValue(DataHandler value) {
+                                public DataHandler setValue(@RUntainted DataHandler value) {
                                     if (at instanceof AttachmentImpl) {
                                         DataHandler h = at.getDataHandler();
                                         ((AttachmentImpl)at).setDataHandler(value);
