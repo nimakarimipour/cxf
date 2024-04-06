@@ -304,7 +304,7 @@ public final class ClassLoaderUtils {
         return getContextClassLoader().loadClass(className);
     }
 
-    private static Class<?> loadClass2(@RUntainted String className, Class<?> callingClass)
+    private static @RUntainted Class<?> loadClass2(@RUntainted String className, Class<?> callingClass)
         throws ClassNotFoundException {
         try {
             return Class.forName(className);
