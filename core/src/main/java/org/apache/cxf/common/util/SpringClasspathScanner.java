@@ -140,7 +140,7 @@ class SpringClasspathScanner extends ClasspathScanner {
     }
 
     @Override
-    protected List<URL> findResourcesInternal(Collection<@RUntainted String> basePackages,
+    protected List<URL> findResourcesInternal(Collection<String> basePackages,
                                               String extension,
                                               @RUntainted ClassLoader loader)
         throws IOException {

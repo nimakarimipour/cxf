@@ -63,6 +63,7 @@ import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.stream.StreamResult;
 
 import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -1150,7 +1151,7 @@ public final class JAXBUtils {
         return createEscapeHandler(cls, "NoEscapeHandler");
     }
 
-    private static Object createEscapeHandler(Class<?> cls, String simpleClassName) {
+    private static Object createEscapeHandler(Class<?> cls, @RUntainted String simpleClassName) {
         try {
             String postFix = getPostfix(cls);
             if (postFix == null) {

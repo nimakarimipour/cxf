@@ -24,6 +24,7 @@ import java.security.GeneralSecurityException;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.TrustManager;
 
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 import org.apache.cxf.common.injection.NoJSR250Annotations;
 import org.apache.cxf.configuration.security.TLSServerParametersType;
 
@@ -36,7 +37,7 @@ import org.apache.cxf.configuration.security.TLSServerParametersType;
 public class TLSServerParametersConfig
     extends TLSServerParameters {
 
-    public TLSServerParametersConfig(TLSServerParametersType params)
+    public TLSServerParametersConfig(@RUntainted TLSServerParametersType params)
         throws GeneralSecurityException,
                IOException {
 

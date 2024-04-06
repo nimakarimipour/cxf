@@ -153,7 +153,7 @@ public class ClasspathScanner {
      * @return list of all discovered resource URLs
      * @throws IOException resource is not accessible
      */
-    public static List<URL> findResources(@RUntainted String basePackage, String extension, @RUntainted ClassLoader loader)
+    public static List<URL> findResources(String basePackage, String extension, @RUntainted ClassLoader loader)
         throws IOException {
         return findResources(Collections.singletonList(basePackage), extension, loader);
     }
@@ -165,12 +165,12 @@ public class ClasspathScanner {
      * @return list of all discovered resource URLs
      * @throws IOException resource is not accessible
      */
-    public static List<URL> findResources(Collection<@RUntainted String> basePackages, String extension)
+    public static List<URL> findResources(Collection<String> basePackages, String extension)
         throws IOException {
         return findResources(basePackages, extension, null);
     }
 
-    public static List<URL> findResources(Collection<@RUntainted String> basePackages, String extension,
+    public static List<URL> findResources(Collection<String> basePackages, String extension,
                                           @RUntainted ClassLoader loader)
         throws IOException {
         return HELPER.findResourcesInternal(basePackages, extension, loader);
@@ -193,7 +193,7 @@ public class ClasspathScanner {
         return basePackages;
     }
 
-    protected List<URL> findResourcesInternal(Collection<@RUntainted String> basePackages,
+    protected List<URL> findResourcesInternal(Collection<String> basePackages,
                                               String extension,
                                               @RUntainted ClassLoader loader)
         throws IOException {

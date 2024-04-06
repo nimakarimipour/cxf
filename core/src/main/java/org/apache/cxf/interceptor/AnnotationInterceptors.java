@@ -35,9 +35,9 @@ public class AnnotationInterceptors {
 
     private static final ResourceBundle BUNDLE = BundleUtils.getBundle(AnnotationInterceptors.class);
 
-    private @RUntainted Class<?>[] clazzes;
+    private Class<?>[] clazzes;
 
-    public AnnotationInterceptors(@RUntainted Class<?> ... clz) {
+    public AnnotationInterceptors(Class<?> ... clz) {
         clazzes = clz;
     }
 

@@ -46,7 +46,7 @@ public class MessageImpl extends StringMapImpl implements Message {
     private Object[] contents = new Object[20];
     private int index;
 
-    private Map<String, @RUntainted Object> contextCache;
+    private Map<String, Object> contextCache;
 
 
     public MessageImpl() {
