@@ -22,6 +22,7 @@ package org.apache.cxf.databinding;
 import java.util.List;
 
 import org.apache.cxf.interceptor.Fault;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  *  This wrapper helper will help to create a wrapper object with part elements or

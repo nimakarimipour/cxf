@@ -23,6 +23,7 @@ import java.util.List;
 
 import jakarta.validation.ValidationException;
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public abstract class AbstractBeanValidationInterceptor extends AbstractValidationInterceptor {
     protected AbstractBeanValidationInterceptor(String phase) {

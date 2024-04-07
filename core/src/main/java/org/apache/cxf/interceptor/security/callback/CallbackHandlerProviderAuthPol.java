@@ -23,6 +23,7 @@ import javax.security.auth.callback.CallbackHandler;
 import org.apache.cxf.configuration.security.AuthorizationPolicy;
 import org.apache.cxf.interceptor.security.NamePasswordCallbackHandler;
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class CallbackHandlerProviderAuthPol implements CallbackHandlerProvider {
 

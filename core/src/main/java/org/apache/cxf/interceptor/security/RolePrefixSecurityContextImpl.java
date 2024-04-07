@@ -27,6 +27,7 @@ import java.util.Set;
 import javax.security.auth.Subject;
 
 import org.apache.cxf.security.LoginSecurityContext;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class RolePrefixSecurityContextImpl implements LoginSecurityContext {
     private Principal p;

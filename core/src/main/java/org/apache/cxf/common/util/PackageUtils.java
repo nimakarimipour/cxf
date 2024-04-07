@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import org.apache.cxf.helpers.JavaUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 
 public final class PackageUtils {
@@ -35,7 +36,7 @@ public final class PackageUtils {
 
     }
 
-    static String getPackageName(String className) {
+    static @RUntainted String getPackageName(@RUntainted String className) {
         int pos = className.lastIndexOf('.');
         if (pos != -1) {
             return className.substring(0, pos);
@@ -43,7 +44,7 @@ public final class PackageUtils {
         return "";
     }
 
-    public static String getPackageName(Class<?> clazz) {
+    public static @RUntainted String getPackageName(Class<?> clazz) {
         String className = clazz.getName();
         if (className.startsWith("[L")) {
             className = className.substring(2);

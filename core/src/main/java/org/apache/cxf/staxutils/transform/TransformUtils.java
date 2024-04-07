@@ -32,6 +32,7 @@ import javax.xml.stream.XMLStreamWriter;
 
 import org.apache.cxf.helpers.DOMUtils;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public final class TransformUtils {
     private TransformUtils() {

@@ -28,6 +28,7 @@ import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * This class is extremely useful for loading resources and classes in a fault
@@ -108,7 +109,7 @@ public final class ClassLoaderUtils {
      * @param resourceName The name of the resource to load
      * @param callingClass The Class object of the calling object
      */
-    public static URL getResource(String resourceName, Class<?> callingClass) {
+    public static @RUntainted URL getResource(@RUntainted String resourceName, @RUntainted Class<?> callingClass) {
         ClassLoader contextClassLoader = getContextClassLoader();
         URL url = contextClassLoader.getResource(resourceName);
         if (url == null && resourceName.startsWith("/")) {
@@ -241,7 +242,7 @@ public final class ClassLoaderUtils {
      * @param resourceName The name of the resource to load
      * @param callingClass The Class object of the calling object
      */
-    public static InputStream getResourceAsStream(String resourceName, Class<?> callingClass) {
+    public static InputStream getResourceAsStream(@RUntainted String resourceName, @RUntainted Class<?> callingClass) {
         URL url = getResource(resourceName, callingClass);
 
         try {
@@ -265,7 +266,7 @@ public final class ClassLoaderUtils {
      * @param callingClass The Class object of the calling object
      * @throws ClassNotFoundException If the class cannot be found anywhere.
      */
-    public static Class<?> loadClass(String className, Class<?> callingClass)
+    public static @RUntainted Class<?> loadClass(@RUntainted String className, Class<?> callingClass)
         throws ClassNotFoundException {
         try {
             ClassLoader cl = getContextClassLoader();
@@ -279,7 +280,7 @@ public final class ClassLoaderUtils {
         return loadClass2(className, callingClass);
     }
 
-    public static <T> Class<? extends T> loadClass(String className, Class<?> callingClass, Class<T> type)
+    public static <T> Class<? extends T> loadClass(@RUntainted String className, Class<?> callingClass, Class<T> type)
         throws ClassNotFoundException {
         try {
             ClassLoader cl = getContextClassLoader();
@@ -298,11 +299,11 @@ public final class ClassLoaderUtils {
         return loader == null ? "null" : loader.toString();
     }
 
-    public static Class<?> loadClassFromContextLoader(String className) throws ClassNotFoundException {
+    public static Class<?> loadClassFromContextLoader(@RUntainted String className) throws ClassNotFoundException {
         return getContextClassLoader().loadClass(className);
     }
 
-    private static Class<?> loadClass2(String className, Class<?> callingClass)
+    private static @RUntainted Class<?> loadClass2(@RUntainted String className, Class<?> callingClass)
         throws ClassNotFoundException {
         try {
             return Class.forName(className);
@@ -324,11 +325,11 @@ public final class ClassLoaderUtils {
         }
     }
 
-    static ClassLoader getContextClassLoader() {
+    static @RUntainted ClassLoader getContextClassLoader() {
         final SecurityManager sm = System.getSecurityManager();
         if (sm != null) {
-            return AccessController.doPrivileged(new PrivilegedAction<ClassLoader>() {
-                public ClassLoader run() {
+            return AccessController.doPrivileged(new PrivilegedAction<@RUntainted ClassLoader>() {
+                public @RUntainted ClassLoader run() {
                     ClassLoader loader = Thread.currentThread().getContextClassLoader();
                     return loader != null ? loader : ClassLoader.getSystemClassLoader();
                 }

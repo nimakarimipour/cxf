@@ -27,6 +27,7 @@ import javax.xml.stream.XMLStreamReader;
 import org.apache.cxf.common.util.SortedArraySet;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.message.MessageUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Provides a starting point implementation for a interceptors that

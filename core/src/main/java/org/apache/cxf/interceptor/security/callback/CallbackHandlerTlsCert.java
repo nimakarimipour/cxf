@@ -26,6 +26,7 @@ import javax.security.auth.callback.CallbackHandler;
 import org.apache.cxf.interceptor.security.NamePasswordCallbackHandler;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.security.transport.TLSSessionInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class CallbackHandlerTlsCert implements CallbackHandlerProvider {
     private CertificateToNameMapper certMapper;

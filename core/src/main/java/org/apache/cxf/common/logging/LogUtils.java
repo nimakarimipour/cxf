@@ -35,6 +35,7 @@ import java.util.logging.Logger;
 
 import org.apache.cxf.common.i18n.BundleUtils;
 import org.apache.cxf.common.util.StringUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 
 /**
@@ -56,7 +57,7 @@ public final class LogUtils {
     private static final Object[] NO_PARAMETERS = new Object[0];
 
 
-    private static Class<?> loggerClass;
+    private static @RUntainted Class<?> loggerClass;
 
     /**
      * Prevents instantiation.
@@ -71,8 +72,8 @@ public final class LogUtils {
 
             String cname = null;
             try {
-                cname = AccessController.doPrivileged(new PrivilegedAction<String>() {
-                    public String run() {
+                cname = AccessController.doPrivileged(new PrivilegedAction<@RUntainted String>() {
+                    public @RUntainted String run() {
                         return System.getProperty(KEY);
                     }
                 });
@@ -141,7 +142,7 @@ public final class LogUtils {
      * Specify a logger class that inherits from {@link AbstractDelegatingLogger}.
      * Enable users to use their own logger implementation.
      */
-    public static void setLoggerClass(Class<? extends AbstractDelegatingLogger> cls) {
+    public static void setLoggerClass(@RUntainted Class<? extends AbstractDelegatingLogger> cls) {
         loggerClass = cls;
     }
 
@@ -163,7 +164,7 @@ public final class LogUtils {
      * @param resourcename the resource name
      * @return an appropriate Logger
      */
-    public static Logger getLogger(Class<?> cls, String resourcename) {
+    public static Logger getLogger(Class<?> cls, @RUntainted String resourcename) {
         return createLogger(cls, resourcename, cls.getName());
     }
 
@@ -176,8 +177,8 @@ public final class LogUtils {
      * @return an appropriate Logger
      */
     public static Logger getLogger(Class<?> cls,
-                                     String resourcename,
-                                     String loggerName) {
+                                     @RUntainted String resourcename,
+                                     @RUntainted String loggerName) {
         return createLogger(cls, resourcename, loggerName);
     }
 
@@ -187,7 +188,7 @@ public final class LogUtils {
      * @param cls the Class to contain the Logger
      * @return an appropriate Logger
      */
-    public static Logger getL7dLogger(Class<?> cls) {
+    public static @RUntainted Logger getL7dLogger(Class<?> cls) {
         return createLogger(cls, null, cls.getName());
     }
 
@@ -198,7 +199,7 @@ public final class LogUtils {
      * @param resourcename the resource name
      * @return an appropriate Logger
      */
-    public static Logger getL7dLogger(Class<?> cls, String resourcename) {
+    public static Logger getL7dLogger(Class<?> cls, @RUntainted String resourcename) {
         return createLogger(cls, resourcename, cls.getName());
     }
 
@@ -211,17 +212,17 @@ public final class LogUtils {
      * @return an appropriate Logger
      */
     public static Logger getL7dLogger(Class<?> cls,
-                                      String resourcename,
-                                      String loggerName) {
+                                      @RUntainted String resourcename,
+                                      @RUntainted String loggerName) {
         return createLogger(cls, resourcename, loggerName);
     }
 
     /**
      * Create a logger
      */
-    protected static Logger createLogger(Class<?> cls,
-                                         String name,
-                                         String loggerName) {
+    protected static @RUntainted Logger createLogger(Class<?> cls,
+                                         @RUntainted String name,
+                                         @RUntainted String loggerName) {
         ClassLoader orig = getContextClassLoader();
         ClassLoader n = getClassLoader(cls);
         if (n != null) {
@@ -253,7 +254,7 @@ public final class LogUtils {
 
             if (loggerClass != null) {
                 try {
-                    Constructor<?> cns = loggerClass.getConstructor(String.class, String.class);
+                    Constructor<@RUntainted ?> cns = loggerClass.getConstructor(String.class, String.class);
                     if (name == null) {
                         try {
                             return (Logger) cns.newInstance(loggerName, bundleName);
