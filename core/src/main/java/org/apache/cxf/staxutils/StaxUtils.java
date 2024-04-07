@@ -93,6 +93,8 @@ import org.apache.cxf.common.util.SystemPropertyAction;
 import org.apache.cxf.helpers.CastUtils;
 import org.apache.cxf.helpers.DOMUtils;
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public final class StaxUtils {
     // System properties for defaults, but also contextual properties usable

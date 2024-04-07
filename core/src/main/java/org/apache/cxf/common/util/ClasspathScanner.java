@@ -28,6 +28,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class ClasspathScanner {
     public static final String ALL_FILES = "/**/*";
@@ -120,14 +121,14 @@ public class ClasspathScanner {
     public static Map< Class< ? extends Annotation >, Collection< Class< ? > > > findClasses(
         Collection< String > basePackages,
         List<Class< ? extends Annotation > > annotations,
-        ClassLoader loader) throws IOException, ClassNotFoundException {
+        @RUntainted ClassLoader loader) throws IOException, ClassNotFoundException {
         return HELPER.findClassesInternal(basePackages, annotations, loader);
     }
 
     protected Map< Class< ? extends Annotation >, Collection< Class< ? > > > findClassesInternal(
         Collection< String > basePackages,
         List<Class< ? extends Annotation > > annotations,
-        ClassLoader loader)
+        @RUntainted ClassLoader loader)
         throws IOException, ClassNotFoundException {
         return Collections.emptyMap();
     }
@@ -151,7 +152,7 @@ public class ClasspathScanner {
      * @return list of all discovered resource URLs
      * @throws IOException resource is not accessible
      */
-    public static List<URL> findResources(String basePackage, String extension, ClassLoader loader)
+    public static List<URL> findResources(String basePackage, String extension, @RUntainted ClassLoader loader)
         throws IOException {
         return findResources(Collections.singletonList(basePackage), extension, loader);
     }
@@ -169,7 +170,7 @@ public class ClasspathScanner {
     }
 
     public static List<URL> findResources(Collection<String> basePackages, String extension,
-                                          ClassLoader loader)
+                                          @RUntainted ClassLoader loader)
         throws IOException {
         return HELPER.findResourcesInternal(basePackages, extension, loader);
     }
@@ -193,7 +194,7 @@ public class ClasspathScanner {
 
     protected List<URL> findResourcesInternal(Collection<String> basePackages,
                                               String extension,
-                                              ClassLoader loader)
+                                              @RUntainted ClassLoader loader)
         throws IOException {
         return Collections.emptyList();
     }

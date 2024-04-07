@@ -39,15 +39,17 @@ import org.apache.cxf.common.util.Base64Utility;
 import org.apache.cxf.helpers.IOUtils;
 import org.apache.cxf.message.Attachment;
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public class AttachmentSerializer {
     // http://tools.ietf.org/html/rfc2387
     private static final String DEFAULT_MULTIPART_TYPE = "multipart/related";
 
-    private String contentTransferEncoding = AttachmentUtil.BINARY;
+    private @RUntainted String contentTransferEncoding = AttachmentUtil.BINARY;
 
     private Message message;
-    private String bodyBoundary;
+    private @RUntainted String bodyBoundary;
     private OutputStream out;
     private String encoding;
 
@@ -185,11 +187,11 @@ public class AttachmentSerializer {
         return s.indexOf('"') != 0 ? s.replace("\"", "\\\"") : s;
     }
 
-    public void setContentTransferEncoding(String cte) {
+    public void setContentTransferEncoding(@RUntainted String cte) {
         contentTransferEncoding = cte;
     }
 
-    private String getHeaderValue(String name, String defaultValue) {
+    private @RUntainted String getHeaderValue(String name, @RUntainted String defaultValue) {
         List<String> value = rootHeaders.get(name);
         if (value == null || value.isEmpty()) {
             return defaultValue;
@@ -204,7 +206,7 @@ public class AttachmentSerializer {
         return sb.toString();
     }
 
-    private void writeHeaders(String contentType, String attachmentId,
+    private void writeHeaders(@RUntainted String contentType, @RUntainted String attachmentId,
                                      Map<String, List<String>> headers, Writer writer) throws IOException {
         writer.write("\r\nContent-Type: ");
         writer.write(contentType);
@@ -235,7 +237,7 @@ public class AttachmentSerializer {
                 //  
                 //   addr-spec = local-part "@" domain ; global address
                 //
-                String[] address = attachmentId.split("@", 2);
+                @RUntainted String[] address = attachmentId.split("@", 2);
                 if (address.length == 2) {
                     // See please AttachmentUtil::createContentID, the domain part is URL encoded
                     final String decoded = tryDecode(address[1], StandardCharsets.UTF_8);
@@ -273,7 +275,7 @@ public class AttachmentSerializer {
         writer.write("\r\n");
     }
 
-    private static String checkAngleBrackets(String value) {
+    private static @RPolyTainted String checkAngleBrackets(@RPolyTainted String value) {
         if (value.charAt(0) == '<' && value.charAt(value.length() - 1) == '>') {
             return value.substring(1, value.length() - 1);
         }
@@ -377,13 +379,13 @@ public class AttachmentSerializer {
 
     // URL decoder would also decode '+' but according to  RFC-2392 we need to convert
     // only the % encoded character to their equivalent US-ASCII characters. 
-    private static String decode(String s, Charset charset) {
+    private static @RPolyTainted String decode(String s, @RPolyTainted Charset charset) {
         return URLDecoder.decode(s.replaceAll("([^%])[+]", "$1%2B"), charset);
     }
 
     // Try to decode the string assuming the decoding may fail, the original string is going to
     // be returned in this case.
-    private static String tryDecode(String s, Charset charset) {
+    private static @RPolyTainted String tryDecode(@RPolyTainted String s, @RPolyTainted Charset charset) {
         try { 
             return decode(s, charset);
         } catch (IllegalArgumentException ex) {
