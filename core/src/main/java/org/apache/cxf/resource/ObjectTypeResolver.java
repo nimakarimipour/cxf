@@ -20,12 +20,13 @@
 package org.apache.cxf.resource;
 
 import java.io.InputStream;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class ObjectTypeResolver implements ResourceResolver {
 
-    private final Object value;
+    private final @RUntainted Object value;
 
-    public ObjectTypeResolver(Object v) {
+    public ObjectTypeResolver(@RUntainted Object v) {
         value = v;
     }
 

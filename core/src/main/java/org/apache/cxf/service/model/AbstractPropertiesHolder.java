@@ -28,13 +28,14 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicReference;
 
 import javax.xml.namespace.QName;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public abstract class AbstractPropertiesHolder implements Extensible {
     private AbstractPropertiesHolder delegate;
     private boolean delegateProperties;
 
     private AtomicReference<Map<String, Object>> propertyMap = new AtomicReference<>();
-    private AtomicReference<Object[]> extensors = new AtomicReference<>();
+    private AtomicReference<@RUntainted Object[]> extensors = new AtomicReference<>();
     private Map<QName, Object> extensionAttributes;
     private String documentation;
 
@@ -86,7 +87,7 @@ public abstract class AbstractPropertiesHolder implements Extensible {
         }
         return propertyMap.get();
     }
-    public Object getProperty(String name) {
+    public @RUntainted Object getProperty(String name) {
         if (delegate != null && delegateProperties) {
             return delegate.getProperty(name);
         }
@@ -149,13 +150,13 @@ public abstract class AbstractPropertiesHolder implements Extensible {
         }
         return false;
     }
-    public void addExtensor(Object el) {
+    public void addExtensor(@RUntainted Object el) {
         if (delegate != null) {
             delegate.addExtensor(el);
             return;
         }
-        Object[] exts = extensors.get();
-        Object[] exts2;
+        @RUntainted Object[] exts = extensors.get();
+        @RUntainted Object[] exts2;
         if (exts == null) {
             exts2 = new Object[1];
         } else {
@@ -173,7 +174,7 @@ public abstract class AbstractPropertiesHolder implements Extensible {
         if (delegate != null) {
             return delegate.getExtensor(cls);
         }
-        Object[] exts = extensors.get();
+        @RUntainted Object[] exts = extensors.get();
         if (exts == null) {
             return null;
         }
@@ -202,7 +203,7 @@ public abstract class AbstractPropertiesHolder implements Extensible {
         return list;
     }
 
-    public AtomicReference<Object[]> getExtensors() {
+    public AtomicReference<@RUntainted Object[]> getExtensors() {
         if (delegate != null) {
             return delegate.getExtensors();
         }

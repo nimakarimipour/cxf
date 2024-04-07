@@ -30,16 +30,17 @@ import org.apache.cxf.resource.DefaultResourceManager;
 import org.apache.cxf.resource.ObjectTypeResolver;
 import org.apache.cxf.resource.ResourceManager;
 import org.apache.cxf.resource.ResourceResolver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 @NoJSR250Annotations(unlessNull = "bus")
 public class ResourceManagerImpl extends DefaultResourceManager implements BusExtension {
 
-    private Bus bus;
+    private @RUntainted Bus bus;
 
     public ResourceManagerImpl() {
     }
 
-    public ResourceManagerImpl(Bus b) {
+    public ResourceManagerImpl(@RUntainted Bus b) {
         super();
         setBus(b);
     }
@@ -65,7 +66,7 @@ public class ResourceManagerImpl extends DefaultResourceManager implements BusEx
     }
 
     @Resource
-    public final void setBus(Bus b) {
+    public final void setBus(@RUntainted Bus b) {
         if (bus != b) {
             bus = b;
             firstCalled = false;

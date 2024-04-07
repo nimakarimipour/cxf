@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 import org.apache.cxf.common.injection.NoJSR250Annotations;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Resolve resources from the system class path.

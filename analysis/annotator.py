@@ -43,7 +43,7 @@ def run_annotator():
     # Uncomment to see build output
     # commands += ['-rboserr']
     # Comment to inject root at a time
-    # commands += ['-ch']
+    commands += ['-ch']
     # Uncomment to disable cache
     # commands += ['-dc']
     # Uncomment to disable outer loop

@@ -23,6 +23,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 import org.apache.cxf.common.injection.NoJSR250Annotations;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 @NoJSR250Annotations
 public class ClassLoaderResolver implements ResourceResolver {

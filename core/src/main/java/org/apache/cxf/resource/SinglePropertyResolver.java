@@ -20,13 +20,14 @@
 package org.apache.cxf.resource;
 
 import java.io.InputStream;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class SinglePropertyResolver implements ResourceResolver {
 
     private final String key;
-    private final Object value;
+    private final @RUntainted Object value;
 
-    public SinglePropertyResolver(String k, Object v) {
+    public SinglePropertyResolver(String k, @RUntainted Object v) {
         key = k;
         value = v;
     }

@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.xml.namespace.QName;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  *
@@ -33,7 +34,7 @@ public interface Extensible {
 
     <T> List<T> getExtensors(Class<T> cls);
 
-    void addExtensor(Object el);
+    void addExtensor(@RUntainted Object el);
 
     Object getExtensionAttribute(QName name);
 
