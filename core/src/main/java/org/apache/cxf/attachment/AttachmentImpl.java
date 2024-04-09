@@ -38,7 +38,7 @@ public class AttachmentImpl implements Attachment {
         this.id = idParam;
     }
 
-    public AttachmentImpl(String idParam, @RUntainted DataHandler handlerParam) {
+    public AttachmentImpl(@RUntainted String idParam, @RUntainted DataHandler handlerParam) {
         this.id = idParam;
         this.dataHandler = handlerParam;
         this.dataHandler.setCommandMap(AttachmentUtil.getCommandMap());

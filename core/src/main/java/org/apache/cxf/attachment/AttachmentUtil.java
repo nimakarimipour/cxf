@@ -237,7 +237,7 @@ public final class AttachmentUtil {
         }
     }
 
-    public static String createContentID(String ns) throws UnsupportedEncodingException {
+    public static @RPolyTainted String createContentID(@RPolyTainted String ns) throws UnsupportedEncodingException {
         // tend to change
         String cid = "cxf.apache.org";
         if (ns != null && !ns.isEmpty()) {
@@ -340,7 +340,7 @@ public final class AttachmentUtil {
         }
         
         @Override
-        public DataHandler put(String key, @RUntainted DataHandler value) {
+        public DataHandler put(@RUntainted String key, @RUntainted DataHandler value) {
             Iterator<Attachment> i = list.iterator();
             DataHandler ret = null;
             while (i.hasNext()) {
@@ -493,7 +493,7 @@ public final class AttachmentUtil {
         return false;
     }
 
-    public static Attachment createMtomAttachment(boolean isXop, String mimeType, String elementNS,
+    public static Attachment createMtomAttachment(boolean isXop, String mimeType, @RUntainted String elementNS,
                                                  @RUntainted byte[] data, @RUntainted int offset, @RUntainted int length, int threshold) {
         if (!isXop || length <= threshold) {
             return null;
@@ -518,7 +518,7 @@ public final class AttachmentUtil {
     }
 
     public static Attachment createMtomAttachmentFromDH(
-        boolean isXop, @RUntainted DataHandler handler, String elementNS, int threshold) {
+        boolean isXop, @RUntainted DataHandler handler, @RUntainted String elementNS, int threshold) {
         if (!isXop) {
             return null;
         }

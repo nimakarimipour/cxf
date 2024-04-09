@@ -253,14 +253,14 @@ public class LazyAttachmentCollection
             }
             return null;
         }
-        public DataHandler put(String key, @RUntainted DataHandler value) {
+        public DataHandler put(@RUntainted String key, @RUntainted DataHandler value) {
             Attachment at = new AttachmentImpl(key, value);
             collection.add(at);
             return value;
         }
 
-        public void putAll(Map<? extends String, ? extends @RUntainted DataHandler> t) {
-            for (Map.Entry<? extends String, ? extends @RUntainted DataHandler> ent : t.entrySet()) {
+        public void putAll(Map<? extends @RUntainted String, ? extends @RUntainted DataHandler> t) {
+            for (Map.Entry<? extends @RUntainted String, ? extends @RUntainted DataHandler> ent : t.entrySet()) {
                 put(ent.getKey(), ent.getValue());
             }
         }
