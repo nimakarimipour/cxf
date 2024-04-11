@@ -36,8 +36,8 @@ def run_annotator():
     commands += ['-bc', 'cd {} && ./build.sh'.format(REPO)]
     commands += ['-cp', '{}/paths.tsv'.format(OUT_DIR)]
     commands += ['-i', 'edu.Initializer']
-    commands += ['-n', 'com.example.x.ucrtainting.qual.RUntainted']
-    commands += ['-cn', 'UCRTaint']
+    commands += ['-n', 'com.taint.tainting.qual.RUntainted']
+    commands += ['-cn', 'Taint']
     commands += ["--depth", "25"]
     # Uncomment to see build output
     # commands += ['-rboserr']
