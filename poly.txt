@@ -1,0 +1,22 @@
+core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:194:    private @RPolyTainted String getHeaderValue(String name, @RPolyTainted String defaultValue) {
+core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:278:    private static @RPolyTainted String checkAngleBrackets(@RPolyTainted String value) {
+core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:382:    private static @RPolyTainted String decode(String s, @RPolyTainted Charset charset) {
+core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:388:    private static @RPolyTainted String tryDecode(@RPolyTainted String s, @RPolyTainted Charset charset) {
+core/src/main/java/org/apache/cxf/attachment/AttachmentUtil.java:359:    public static @RPolyTainted String cleanContentId(@RPolyTainted String id) {
+core/src/main/java/org/apache/cxf/attachment/AttachmentUtil.java:384:    static @RPolyTainted String getHeaderValue(List<@RPolyTainted String> v) {
+core/src/main/java/org/apache/cxf/attachment/AttachmentUtil.java:396:    static @RPolyTainted String getHeader(Map<String, List<@RPolyTainted String>> headers, String h) {
+core/src/main/java/org/apache/cxf/catalog/OASISCatalogManager.java:83:    private static @RPolyTainted Object getCatalog(@RPolyTainted EntityResolver resolver) {
+core/src/main/java/org/apache/cxf/catalog/OASISCatalogManager.java:228:    public @RPolyTainted String resolveSystem(@RPolyTainted String sys) throws MalformedURLException, IOException {
+core/src/main/java/org/apache/cxf/catalog/OASISCatalogManager.java:235:    public @RPolyTainted String resolveURI(@RPolyTainted String uri) throws MalformedURLException, IOException {
+core/src/main/java/org/apache/cxf/catalog/OASISCatalogManager.java:241:    public @RPolyTainted String resolvePublic(@RPolyTainted String uri, @RPolyTainted String parent) throws MalformedURLException, IOException {
+core/src/main/java/org/apache/cxf/catalog/OASISCatalogManagerHelper.java:25:    public @RPolyTainted String resolve(OASISCatalogManager catalogResolver,
+core/src/main/java/org/apache/cxf/catalog/OASISCatalogManagerHelper.java:26:                          @RPolyTainted String target, @RPolyTainted String base) throws IOException {
+core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:113:    public static @RPolyTainted URL getResource(@RPolyTainted String resourceName, @RPolyTainted Class<?> callingClass) {
+core/src/main/java/org/apache/cxf/common/util/SpringClasspathScanner.java:175:    private @RPolyTainted ResourcePatternResolver getResolver(@RPolyTainted ClassLoader loader) {
+core/src/main/java/org/apache/cxf/configuration/jsse/SSLUtils.java:205:    public static @RPolyTainted String getKeystore(@RPolyTainted String keyStoreLocation, Logger log) {
+core/src/main/java/org/apache/cxf/configuration/jsse/SSLUtils.java:483:    public static @RPolyTainted String getTruststore(@RPolyTainted String trustStoreLocation, Logger log) {
+core/src/main/java/org/apache/cxf/helpers/FileUtils.java:264:    public static @RPolyTainted File createTempFile(@RPolyTainted String prefix, @RPolyTainted String suffix) throws IOException {
+core/src/main/java/org/apache/cxf/helpers/FileUtils.java:268:    public static @RPolyTainted File createTempFile(@RPolyTainted String prefix, @RPolyTainted String suffix, @RPolyTainted File parentDir,
+core/src/main/java/org/apache/cxf/io/CachedOutputStream.java:135:    private static @RPolyTainted String getBusProperty(Bus b, String key, @RPolyTainted String dflt) {
+core/src/main/java/org/apache/cxf/io/CachedWriter.java:155:    private static @RPolyTainted String getBusProperty(Bus b, String key, @RPolyTainted String dflt) {
+core/src/main/java/org/apache/cxf/resource/URIResolver.java:291:    private @RPolyTainted String getFilePathFromUri(@RPolyTainted @RUntainted String uriString) {
