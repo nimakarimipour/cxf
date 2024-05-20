@@ -30,6 +30,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import javax.xml.namespace.QName;
 
 import org.apache.cxf.common.xmlschema.SchemaCollection;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class ServiceInfo extends AbstractDescriptionElement implements NamedItem {
     QName name;

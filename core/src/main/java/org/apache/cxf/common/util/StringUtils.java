@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public final class StringUtils {
 
@@ -85,11 +86,11 @@ public final class StringUtils {
         return null;
     }
 
-    public static String addDefaultPortIfMissing(String urlString) {
+    public static String addDefaultPortIfMissing(@RUntainted String urlString) {
         return addDefaultPortIfMissing(urlString, "80");
     }
 
-    public static String addDefaultPortIfMissing(String urlString, String defaultPort) {
+    public static String addDefaultPortIfMissing(@RUntainted String urlString, String defaultPort) {
         try {
             if (new URL(urlString).getPort() != -1) {
                 return urlString;

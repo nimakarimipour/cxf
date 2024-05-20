@@ -17,6 +17,7 @@
  * under the License.
  */
 package org.apache.cxf.interceptor.security.callback;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Supply a password for a userName to get roles from LoginModule

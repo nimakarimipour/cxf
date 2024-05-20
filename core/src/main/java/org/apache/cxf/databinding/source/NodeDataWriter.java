@@ -37,6 +37,7 @@ import org.apache.cxf.message.Attachment;
 import org.apache.cxf.service.model.MessagePartInfo;
 import org.apache.cxf.staxutils.StaxUtils;
 import org.apache.cxf.staxutils.W3CDOMStreamWriter;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class NodeDataWriter implements DataWriter<Node> {
     private static final Logger LOG = LogUtils.getL7dLogger(NodeDataWriter.class);

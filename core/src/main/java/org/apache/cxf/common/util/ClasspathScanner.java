@@ -28,6 +28,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class ClasspathScanner {
     public static final String ALL_FILES = "/**/*";
@@ -93,7 +94,7 @@ public class ClasspathScanner {
      */
     @SafeVarargs
     public static Map< Class< ? extends Annotation >, Collection< Class< ? > > > findClasses(
-        Collection< String > basePackages, Class< ? extends Annotation > ... annotations)
+        @RUntainted Collection< String > basePackages, Class< ? extends Annotation > ... annotations)
         throws IOException, ClassNotFoundException {
         List<Class<? extends Annotation>> annotationList = new ArrayList<>(annotations.length);
         for (Class< ? extends Annotation > c : annotations) {
@@ -111,23 +112,23 @@ public class ClasspathScanner {
      * @throws ClassNotFoundException class not found
      */
     public static Map< Class< ? extends Annotation >, Collection< Class< ? > > > findClasses(
-        Collection< String > basePackages, List<Class< ? extends Annotation > > annotations)
+        @RUntainted Collection< String > basePackages, List<Class< ? extends Annotation > > annotations)
         throws IOException, ClassNotFoundException {
         return findClasses(basePackages, annotations, null);
 
     }
 
     public static Map< Class< ? extends Annotation >, Collection< Class< ? > > > findClasses(
-        Collection< String > basePackages,
+        @RUntainted Collection< String > basePackages,
         List<Class< ? extends Annotation > > annotations,
-        ClassLoader loader) throws IOException, ClassNotFoundException {
+        @RUntainted ClassLoader loader) throws IOException, ClassNotFoundException {
         return HELPER.findClassesInternal(basePackages, annotations, loader);
     }
 
     protected Map< Class< ? extends Annotation >, Collection< Class< ? > > > findClassesInternal(
-        Collection< String > basePackages,
+        @RUntainted Collection< String > basePackages,
         List<Class< ? extends Annotation > > annotations,
-        ClassLoader loader)
+        @RUntainted ClassLoader loader)
         throws IOException, ClassNotFoundException {
         return Collections.emptyMap();
     }
@@ -151,7 +152,7 @@ public class ClasspathScanner {
      * @return list of all discovered resource URLs
      * @throws IOException resource is not accessible
      */
-    public static List<URL> findResources(String basePackage, String extension, ClassLoader loader)
+    public static List<URL> findResources(String basePackage, String extension, @RUntainted ClassLoader loader)
         throws IOException {
         return findResources(Collections.singletonList(basePackage), extension, loader);
     }
@@ -169,12 +170,12 @@ public class ClasspathScanner {
     }
 
     public static List<URL> findResources(Collection<String> basePackages, String extension,
-                                          ClassLoader loader)
+                                          @RUntainted ClassLoader loader)
         throws IOException {
         return HELPER.findResourcesInternal(basePackages, extension, loader);
     }
 
-    public static Set<String> parsePackages(final String packagesAsCsv) {
+    public static @RUntainted Set<String> parsePackages(final String packagesAsCsv) {
         final String[] values = packagesAsCsv.split(",");
         final Set<String> basePackages = new HashSet<>(values.length);
         for (final String value : values) {
@@ -193,7 +194,7 @@ public class ClasspathScanner {
 
     protected List<URL> findResourcesInternal(Collection<String> basePackages,
                                               String extension,
-                                              ClassLoader loader)
+                                              @RUntainted ClassLoader loader)
         throws IOException {
         return Collections.emptyList();
     }

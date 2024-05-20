@@ -20,6 +20,7 @@
 package org.apache.cxf.service.invoker;
 
 import org.apache.cxf.message.Exchange;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Invokers control how a particular service is invoked. It may maintain

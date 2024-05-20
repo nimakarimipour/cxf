@@ -38,6 +38,7 @@ import org.apache.cxf.transport.DestinationFactory;
 import org.apache.cxf.transport.DestinationFactoryManager;
 import org.apache.cxf.transport.MessageObserver;
 import org.apache.cxf.transport.MultipleEndpointObserver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class ServerImpl implements Server {
     private static final Logger LOG = LogUtils.getL7dLogger(ServerImpl.class);

@@ -51,6 +51,8 @@ import org.apache.cxf.common.util.SystemPropertyAction;
 import org.apache.cxf.configuration.security.FiltersType;
 import org.apache.cxf.helpers.FileUtils;
 import org.apache.cxf.resource.ResourceManager;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 
 /**
@@ -200,7 +202,7 @@ public final class SSLUtils {
         return Files.readAllBytes(path);
     }
 
-    public static String getKeystore(String keyStoreLocation, Logger log) {
+    public static @RPolyTainted String getKeystore(@RPolyTainted String keyStoreLocation, Logger log) {
         final String logMsg;
         if (keyStoreLocation != null) {
             logMsg = "KEY_STORE_SET";
@@ -478,7 +480,7 @@ public final class SSLUtils {
         return cipherSuites;
     }
 
-    public static String getTruststore(String trustStoreLocation, Logger log) {
+    public static @RPolyTainted String getTruststore(@RPolyTainted String trustStoreLocation, Logger log) {
         final String logMsg;
         if (trustStoreLocation != null) {
             logMsg = "TRUST_STORE_SET";
