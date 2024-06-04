@@ -30,9 +30,10 @@ import java.util.Set;
 
 import jakarta.activation.DataHandler;
 import org.apache.cxf.message.Attachment;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class LazyAttachmentCollection
-    implements Collection<Attachment> {
+    implements @RUntainted Collection<Attachment> {
 
     private AttachmentDeserializer deserializer;
     private final List<Attachment> attachments = new ArrayList<>();
@@ -252,14 +253,14 @@ public class LazyAttachmentCollection
             }
             return null;
         }
-        public DataHandler put(String key, DataHandler value) {
+        public DataHandler put(@RUntainted String key, DataHandler value) {
             Attachment at = new AttachmentImpl(key, value);
             collection.add(at);
             return value;
         }
 
-        public void putAll(Map<? extends String, ? extends DataHandler> t) {
-            for (Map.Entry<? extends String, ? extends DataHandler> ent : t.entrySet()) {
+        public void putAll(Map<? extends @RUntainted String, ? extends DataHandler> t) {
+            for (Map.Entry<? extends @RUntainted String, ? extends DataHandler> ent : t.entrySet()) {
                 put(ent.getKey(), ent.getValue());
             }
         }

@@ -21,6 +21,7 @@ package org.apache.cxf.common.security;
 import java.security.Principal;
 
 import org.apache.cxf.security.SecurityContext;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class SimpleSecurityContext implements SecurityContext {
     private Principal principal;

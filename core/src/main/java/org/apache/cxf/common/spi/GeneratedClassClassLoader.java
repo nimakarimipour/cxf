@@ -25,6 +25,7 @@ import org.apache.cxf.Bus;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.StringUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /** Class loader used to find class generated during build time to avoid class generation during runtime.
  *  inherited class implement same interface than generator class but find class in TypeHelperClassLoader
@@ -38,7 +39,7 @@ public class GeneratedClassClassLoader {
     public GeneratedClassClassLoader(Bus bus) {
         this.bus = bus;
     }
-    protected Class<?> findClass(String className, Class<?> callingClass) {
+    protected Class<?> findClass(@RUntainted String className, Class<?> callingClass) {
         ClassLoader cl = getClassLoader();
         try {
             return cl.loadClass(className);
@@ -79,7 +80,7 @@ public class GeneratedClassClassLoader {
         }
 
         @Override
-        protected Class<?> findClass(String name) throws ClassNotFoundException {
+        protected Class<?> findClass(@RUntainted String name) throws ClassNotFoundException {
             if (name.endsWith("package-info")) {
                 return getParent().loadClass(name);
             }

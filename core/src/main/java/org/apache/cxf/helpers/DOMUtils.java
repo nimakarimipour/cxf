@@ -57,13 +57,15 @@ import org.xml.sax.SAXException;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.ReflectionUtil;
 import org.apache.cxf.common.util.StringUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Few simple utils to read DOM. This is originally from the Jakarta Commons Modeler.
  */
 public final class DOMUtils {
     private static boolean isJre9SAAJ;
-    private static final Map<ClassLoader, DocumentBuilder> DOCUMENT_BUILDERS
+    private static final Map<ClassLoader, @RUntainted DocumentBuilder> DOCUMENT_BUILDERS
         = Collections.synchronizedMap(new WeakHashMap<ClassLoader, DocumentBuilder>());
     private static final String XMLNAMESPACE = "xmlns";
     private static volatile Document emptyDocument;
@@ -125,7 +127,7 @@ public final class DOMUtils {
     private DOMUtils() {
     }
 
-    private static DocumentBuilder getDocumentBuilder() throws ParserConfigurationException {
+    private static @RUntainted DocumentBuilder getDocumentBuilder() throws ParserConfigurationException {
         ClassLoader loader = getContextClassLoader();
         if (loader == null) {
             loader = getClassLoader(DOMUtils.class);
@@ -141,7 +143,7 @@ public final class DOMUtils {
         return factory;
     }
 
-    private static DocumentBuilder createDocumentBuilder() throws ParserConfigurationException {
+    private static @RUntainted DocumentBuilder createDocumentBuilder() throws ParserConfigurationException {
         DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
         f.setNamespaceAware(true);
         f.setFeature(javax.xml.XMLConstants.FEATURE_SECURE_PROCESSING, true);
@@ -180,7 +182,7 @@ public final class DOMUtils {
     public static Document newDocument() {
         return createDocument();
     }
-    public static Document createDocument() {
+    public static @RUntainted Document createDocument() {
         try {
             return getDocumentBuilder().newDocument();
         } catch (ParserConfigurationException e) {
@@ -785,7 +787,7 @@ public final class DOMUtils {
      * @param fragment The original documentFragment we need to check
      * @return The DOM DocumentFragment
      */
-    public static DocumentFragment getDomDocumentFragment(DocumentFragment fragment) {
+    public static @RPolyTainted DocumentFragment getDomDocumentFragment(@RPolyTainted DocumentFragment fragment) {
         if (fragment != null && isJava9SAAJ()) {
             //java9 plus hack
             Field f = GET_DOCUMENT_FRAGMENT_FIELDS.get(fragment.getClass());

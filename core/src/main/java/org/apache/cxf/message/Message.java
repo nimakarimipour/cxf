@@ -25,12 +25,13 @@ import java.util.Set;
 import jakarta.xml.ws.handler.MessageContext;
 import org.apache.cxf.interceptor.InterceptorChain;
 import org.apache.cxf.transport.Destination;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * The base interface for all all message implementations.
  * All message objects passed to interceptors use this interface.
  */
-public interface Message extends StringMap {
+public interface Message extends @RUntainted StringMap {
 
     String TRANSPORT = "org.apache.cxf.transport";
 
@@ -233,7 +234,7 @@ public interface Message extends StringMap {
      */
     Collection<Attachment> getAttachments();
 
-    void setAttachments(Collection<Attachment> attachments);
+    void setAttachments(@RUntainted Collection<Attachment> attachments);
 
     /**
      * Retrieve the encapsulated content as a particular type. The content is
@@ -274,7 +275,7 @@ public interface Message extends StringMap {
      * correlates to the desired property
      * @return the property's value
      */
-    Object getContextualProperty(String key);
+    @RUntainted Object getContextualProperty(String key);
 
     /**
      * Resets the cache of contextual properties that messages may contain.  Subsequent

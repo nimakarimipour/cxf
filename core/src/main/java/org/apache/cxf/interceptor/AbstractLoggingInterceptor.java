@@ -47,6 +47,7 @@ import org.apache.cxf.service.model.EndpointInfo;
 import org.apache.cxf.service.model.InterfaceInfo;
 import org.apache.cxf.staxutils.PrettyPrintXMLStreamWriter;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * A simple logging handler which outputs the bytes of the message to the
@@ -111,7 +112,7 @@ public abstract class AbstractLoggingInterceptor extends AbstractPhaseIntercepto
         return logger;
     }
 
-    public void setOutputLocation(String s) {
+    public void setOutputLocation(@RUntainted String s) {
         if (s == null || "<logger>".equals(s)) {
             writer = null;
         } else if ("<stdout>".equals(s)) {
@@ -162,7 +163,7 @@ public abstract class AbstractLoggingInterceptor extends AbstractPhaseIntercepto
     }
 
     protected void writePayload(StringBuilder builder, CachedOutputStream cos,
-                                String encoding, String contentType, boolean truncated)
+                                @RUntainted String encoding, String contentType, boolean truncated)
         throws Exception {
         // Just transform the XML message when the cos has content
         if (!truncated && isPrettyLogging() && contentType != null && contentType.contains("xml")
@@ -202,7 +203,7 @@ public abstract class AbstractLoggingInterceptor extends AbstractPhaseIntercepto
         }
     }
     protected void writePayload(StringBuilder builder,
-                                StringWriter stringWriter,
+                                @RUntainted StringWriter stringWriter,
                                 String contentType)
         throws Exception {
         if (isPrettyLogging()
@@ -224,7 +225,7 @@ public abstract class AbstractLoggingInterceptor extends AbstractPhaseIntercepto
         }
     }
     protected void writePrettyPayload(StringBuilder builder,
-                                StringWriter stringWriter,
+                                @RUntainted StringWriter stringWriter,
                                 String contentType)
         throws Exception {
         // Just transform the XML message when the cos has content

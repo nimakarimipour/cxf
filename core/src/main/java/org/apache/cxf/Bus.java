@@ -24,6 +24,7 @@ import java.util.Map;
 
 import org.apache.cxf.feature.Feature;
 import org.apache.cxf.interceptor.InterceptorProvider;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * The Bus is the central place in CXF. Its primary responsibility is

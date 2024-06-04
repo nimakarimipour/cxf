@@ -93,6 +93,7 @@ import org.apache.cxf.common.util.SystemPropertyAction;
 import org.apache.cxf.helpers.CastUtils;
 import org.apache.cxf.helpers.DOMUtils;
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public final class StaxUtils {
     // System properties for defaults, but also contextual properties usable
@@ -220,7 +221,7 @@ public final class StaxUtils {
 
     private StaxUtils() {
     }
-    private static int getInteger(String prop, int def) {
+    private static int getInteger(@RUntainted String prop, int def) {
         try {
             String s = SystemPropertyAction.getPropertyOrNull(prop);
             if (StringUtils.isEmpty(s)) {
@@ -236,7 +237,7 @@ public final class StaxUtils {
         }
         return def;
     }
-    private static long getLong(String prop, long def) {
+    private static long getLong(@RUntainted String prop, long def) {
         try {
             String s = SystemPropertyAction.getPropertyOrNull(prop);
             if (StringUtils.isEmpty(s)) {
@@ -565,7 +566,7 @@ public final class StaxUtils {
         }
         return false;
     }
-    public static void copy(Source source, OutputStream os) throws XMLStreamException {
+    public static void copy(@RUntainted Source source, OutputStream os) throws XMLStreamException {
         XMLStreamWriter writer = createXMLStreamWriter(os);
         try {
             copy(source, writer);
@@ -578,7 +579,7 @@ public final class StaxUtils {
             StaxUtils.close(writer);
         }
     }
-    public static void copy(Source source, XMLStreamWriter writer) throws XMLStreamException {
+    public static void copy(@RUntainted Source source, XMLStreamWriter writer) throws XMLStreamException {
         if (source instanceof StaxSource) {
             StaxSource ss = (StaxSource)source;
             if (ss.getXMLStreamReader() == null) {
@@ -664,10 +665,10 @@ public final class StaxUtils {
         xsw.close();
     }
 
-    public static void writeTo(Node node, OutputStream os) throws XMLStreamException {
+    public static void writeTo(@RUntainted Node node, OutputStream os) throws XMLStreamException {
         copy(new DOMSource(node), os);
     }
-    public static void writeTo(Node node, OutputStream os, int indent) throws XMLStreamException {
+    public static void writeTo(@RUntainted Node node, OutputStream os, int indent) throws XMLStreamException {
         if (indent > 0) {
             XMLStreamWriter writer = new PrettyPrintXMLStreamWriter(createXMLStreamWriter(os), indent);
             try {
@@ -679,10 +680,10 @@ public final class StaxUtils {
             copy(new DOMSource(node), os);
         }
     }
-    public static void writeTo(Node node, Writer os) throws XMLStreamException {
+    public static void writeTo(@RUntainted Node node, Writer os) throws XMLStreamException {
         writeTo(node, os, 0);
     }
-    public static void writeTo(Node node, Writer os, int indent) throws XMLStreamException {
+    public static void writeTo(@RUntainted Node node, Writer os, int indent) throws XMLStreamException {
         XMLStreamWriter writer = createXMLStreamWriter(os);
         if (indent > 0) {
             writer = new PrettyPrintXMLStreamWriter(writer, indent);
@@ -1104,7 +1105,7 @@ public final class StaxUtils {
         }
     }
 
-    public static Document read(Source s) throws XMLStreamException {
+    public static @RUntainted Document read(Source s) throws XMLStreamException {
         XMLStreamReader reader = createXMLStreamReader(s);
         try {
             return read(reader);
@@ -1116,7 +1117,7 @@ public final class StaxUtils {
             }
         }
     }
-    public static Document read(InputStream s) throws XMLStreamException {
+    public static @RUntainted Document read(InputStream s) throws XMLStreamException {
         XMLStreamReader reader = createXMLStreamReader(s);
         try {
             return read(reader);
@@ -1154,10 +1155,10 @@ public final class StaxUtils {
             StaxUtils.close(reader);
         }
     }
-    public static Document read(XMLStreamReader reader) throws XMLStreamException {
+    public static @RUntainted Document read(XMLStreamReader reader) throws XMLStreamException {
         return read(reader, false);
     }
-    public static Document read(XMLStreamReader reader, boolean recordLoc) throws XMLStreamException {
+    public static @RUntainted Document read(XMLStreamReader reader, boolean recordLoc) throws XMLStreamException {
         Document doc = DOMUtils.createDocument();
         if (reader.getLocation().getSystemId() != null) {
             try {
@@ -2032,7 +2033,7 @@ public final class StaxUtils {
             //shouldn't get here
         }
     }
-    public static void print(Node node) {
+    public static void print(@RUntainted Node node) {
         XMLStreamWriter writer = null;
         try {
             writer = createXMLStreamWriter(System.out);
@@ -2045,7 +2046,7 @@ public final class StaxUtils {
         }
     }
 
-    public static String toString(Source src) {
+    public static String toString(@RUntainted Source src) {
         StringWriter sw = new StringWriter(1024);
         XMLStreamWriter writer = null;
         try {
@@ -2059,7 +2060,7 @@ public final class StaxUtils {
         }
         return sw.toString();
     }
-    public static String toString(Node src) {
+    public static String toString(@RUntainted Node src) {
         return toString(new DOMSource(src));
     }
     public static String toString(Document doc) {

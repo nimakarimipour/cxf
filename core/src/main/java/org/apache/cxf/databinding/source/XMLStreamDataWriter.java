@@ -51,6 +51,7 @@ import org.apache.cxf.message.Attachment;
 import org.apache.cxf.service.model.MessagePartInfo;
 import org.apache.cxf.staxutils.StaxUtils;
 import org.apache.cxf.staxutils.W3CDOMStreamWriter;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class XMLStreamDataWriter implements DataWriter<XMLStreamWriter> {
     
@@ -63,12 +64,12 @@ public class XMLStreamDataWriter implements DataWriter<XMLStreamWriter> {
         
     }
     
-    public void write(Object obj, MessagePartInfo part, XMLStreamWriter output) {
+    public void write(@RUntainted Object obj, MessagePartInfo part, XMLStreamWriter output) {
         write(obj, output);
     }
 
     @SuppressWarnings("PMD.UseTryWithResources")
-    public void write(Object obj, XMLStreamWriter writer) {
+    public void write(@RUntainted Object obj, XMLStreamWriter writer) {
         Closeable toClose = null;
         try {            
             if (obj instanceof DataSource) {
