@@ -25,6 +25,7 @@ import java.util.Map;
 
 import jakarta.activation.DataHandler;
 import org.apache.cxf.message.Attachment;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class AttachmentImpl implements Attachment {
 

@@ -25,11 +25,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.apache.cxf.common.logging.LogUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  *
  */
-public final class SystemPropertyAction implements PrivilegedAction<String> {
+public final class SystemPropertyAction implements PrivilegedAction<@RUntainted String> {
     private static final Logger LOG = LogUtils.getL7dLogger(SystemPropertyAction.class);
     private final String property;
     private final String def;
@@ -52,7 +53,7 @@ public final class SystemPropertyAction implements PrivilegedAction<String> {
         return System.getProperty(property);
     }
 
-    public static String getProperty(String name) {
+    public static @RUntainted String getProperty(String name) {
         return AccessController.doPrivileged(new SystemPropertyAction(name));
     }
 
@@ -70,7 +71,7 @@ public final class SystemPropertyAction implements PrivilegedAction<String> {
      * raised, just return null;
      * @param name
      */
-    public static String getPropertyOrNull(String name) {
+    public static @RUntainted String getPropertyOrNull(String name) {
         try {
             return AccessController.doPrivileged(new SystemPropertyAction(name));
         } catch (SecurityException ex) {

@@ -45,6 +45,7 @@ import org.apache.cxf.resource.ResourceManager;
 import org.apache.cxf.resource.URIResolver;
 import org.apache.cxf.service.Service;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public abstract class AbstractServiceFactoryBean {
     private static final Logger LOG = LogUtils.getL7dLogger(AbstractServiceFactoryBean.class);

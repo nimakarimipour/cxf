@@ -63,6 +63,8 @@ import org.apache.cxf.io.CachedOutputStream;
 import org.apache.cxf.message.Attachment;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.message.MessageUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public final class AttachmentUtil {
     // The default values for {@link AttachmentDataSource} content type in case when
@@ -255,7 +257,7 @@ public final class AttachmentUtil {
             + URLEncoder.encode(cid, StandardCharsets.UTF_8.name());
     }
 
-    public static String getUniqueBoundaryValue() {
+    public static @RUntainted String getUniqueBoundaryValue() {
         //generate a random UUID.
         //we don't need the cryptographically secure random uuid that
         //UUID.randomUUID() will produce.  Thus, use a faster
@@ -565,7 +567,7 @@ public final class AttachmentUtil {
         return att;
     }
 
-    public static DataSource getAttachmentDataSource(String contentId, Collection<Attachment> atts) {
+    public static DataSource getAttachmentDataSource(@RUntainted String contentId, Collection<Attachment> atts) {
         //
         // RFC-2392 (https://datatracker.ietf.org/doc/html/rfc2392) says:
         //

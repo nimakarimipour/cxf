@@ -31,6 +31,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.apache.cxf.common.logging.LogUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class TextExtensionFragmentParser {
     private static final Logger LOG = LogUtils.getL7dLogger(TextExtensionFragmentParser.class);
@@ -78,7 +79,7 @@ public class TextExtensionFragmentParser {
             return null;
         }
         final Extension ext = new Extension(loader);
-        final String[] parts = line.split(":");
+        final @RUntainted String[] parts = line.split(":");
         ext.setClassname(parts[0]);
         if (ext.getClassname() == null) {
             return null;
