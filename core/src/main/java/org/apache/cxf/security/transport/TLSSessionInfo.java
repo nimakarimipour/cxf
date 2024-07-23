@@ -22,6 +22,7 @@ package org.apache.cxf.security.transport;
 import java.security.cert.Certificate;
 
 import javax.net.ssl.SSLSession;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * An immutable struct that contains information about a negotiated

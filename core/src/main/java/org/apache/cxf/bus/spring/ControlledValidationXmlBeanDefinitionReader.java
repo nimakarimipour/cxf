@@ -41,6 +41,7 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.core.io.support.EncodedResource;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * CXF reads a series of Spring XML files as part of initialization.
@@ -124,7 +125,7 @@ public class ControlledValidationXmlBeanDefinitionReader extends XmlBeanDefiniti
     }
 
     @Override
-    public int loadBeanDefinitions(final EncodedResource encodedResource) {
+    public int loadBeanDefinitions(final @RUntainted EncodedResource encodedResource) {
         if (!noFastinfoset) {
             try {
                 return fastInfosetLoadBeanDefinitions(encodedResource);
@@ -153,7 +154,7 @@ public class ControlledValidationXmlBeanDefinitionReader extends XmlBeanDefiniti
         return super.loadBeanDefinitions(encodedResource);
     }
 
-    private int fastInfosetLoadBeanDefinitions(EncodedResource encodedResource)
+    private int fastInfosetLoadBeanDefinitions(@RUntainted EncodedResource encodedResource)
         throws IOException, StaleFastinfosetException,
         ParserConfigurationException, XMLStreamException {
 

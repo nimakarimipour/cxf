@@ -17,6 +17,7 @@
  * under the License.
  */
 package org.apache.cxf.common.security;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class UsernameToken implements SecurityToken {
 

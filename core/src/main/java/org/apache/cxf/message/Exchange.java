@@ -27,6 +27,7 @@ import org.apache.cxf.service.model.BindingOperationInfo;
 import org.apache.cxf.transport.Conduit;
 import org.apache.cxf.transport.Destination;
 import org.apache.cxf.transport.Session;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public interface Exchange extends StringMap {
 

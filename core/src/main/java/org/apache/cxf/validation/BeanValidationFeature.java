@@ -25,6 +25,7 @@ import org.apache.cxf.annotations.Provider.Type;
 import org.apache.cxf.feature.AbstractPortableFeature;
 import org.apache.cxf.feature.DelegatingFeature;
 import org.apache.cxf.interceptor.InterceptorProvider;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 @Provider(value = Type.Feature, scope = Scope.Server)
 public class BeanValidationFeature extends DelegatingFeature<BeanValidationFeature.Portable> {

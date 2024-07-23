@@ -36,6 +36,7 @@ import org.w3c.dom.Node;
 
 import org.apache.cxf.helpers.DOMUtils;
 import org.apache.cxf.helpers.MapNamespaceContext;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class W3CDOMStreamWriter implements XMLStreamWriter {
     static final String XML_NS = "http://www.w3.org/2000/xmlns/";
