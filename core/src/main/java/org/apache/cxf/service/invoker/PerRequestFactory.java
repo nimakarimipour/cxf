@@ -29,6 +29,7 @@ import org.apache.cxf.common.injection.ResourceInjector;
 import org.apache.cxf.interceptor.Fault;
 import org.apache.cxf.message.Exchange;
 import org.apache.cxf.resource.ResourceManager;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Creates a new instance of the service object for each call to create().

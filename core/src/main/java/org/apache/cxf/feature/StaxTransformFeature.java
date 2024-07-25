@@ -26,6 +26,7 @@ import org.apache.cxf.common.injection.NoJSR250Annotations;
 import org.apache.cxf.interceptor.InterceptorProvider;
 import org.apache.cxf.interceptor.transform.TransformInInterceptor;
 import org.apache.cxf.interceptor.transform.TransformOutInterceptor;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * <pre>

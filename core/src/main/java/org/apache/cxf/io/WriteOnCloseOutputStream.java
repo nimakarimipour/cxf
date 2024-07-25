@@ -21,6 +21,7 @@ package org.apache.cxf.io;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * This outputstream implementation will cache the message until close()

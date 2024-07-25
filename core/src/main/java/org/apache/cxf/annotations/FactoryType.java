@@ -28,6 +28,7 @@ import java.lang.annotation.Target;
 
 import org.apache.cxf.message.Exchange;
 import org.apache.cxf.service.invoker.Factory;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 /**
  * Defines the factory used for the service.
  *

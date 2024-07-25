@@ -43,6 +43,7 @@ import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.Phase;
 import org.apache.cxf.staxutils.DelegatingXMLStreamWriter;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /** Class provides XSLT transformation of outgoing message.
  * Actually it breaks streaming (can be fixed in further versions when XSLT engine supports XML stream)

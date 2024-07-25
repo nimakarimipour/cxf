@@ -22,3 +22,525 @@
 
 2024-03-27T08:37:09.499675:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
 
+2024-07-25T05:12:40.310426:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:13:35.525875:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:14:25.679209:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:15:15.129332:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:16:03.689260:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:16:52.061874:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:17:40.519617:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:18:29.602949:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:19:18.703160:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:20:07.534321:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:20:57.349336:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:21:45.654075:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:22:35.365243:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:23:24.293177:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:24:13.739303:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:25:02.719992:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:25:52.433466:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:26:40.841611:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:27:30.066254:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:28:19.441813:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:29:07.920797:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:29:57.273188:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:30:45.391621:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:31:34.670366:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:32:23.390031:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:33:11.882168:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:34:01.185401:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:34:50.566459:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:35:39.574001:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:36:28.549540:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:37:18.140909:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:38:06.620880:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:38:55.058224:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:39:43.320359:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:40:33.148634:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:41:21.360844:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:42:11.132191:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:43:00.951627:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:43:50.400075:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:44:38.516220:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:45:28.134452:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:46:17.496181:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:47:06.978290:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:47:56.260804:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:48:44.922556:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:49:34.870781:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:50:25.048410:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:51:12.914760:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:52:02.478957:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:52:52.538395:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:53:42.517640:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:54:31.485948:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:55:21.522509:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:56:12.078321:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:57:02.311617:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:57:52.057778:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:58:42.838075:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T05:59:33.892675:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:00:24.113480:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:01:13.611175:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:02:03.760195:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:02:54.598952:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:03:45.123313:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:04:36.011777:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:05:25.725995:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:06:15.675627:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:07:06.514358:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:07:57.418648:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:08:48.297174:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:09:39.565811:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:10:30.702396:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:11:20.551730:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:12:11.644813:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:13:01.329206:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:13:51.447794:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:14:41.535453:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:15:32.187152:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:16:22.710858:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:17:11.360426:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:17:58.955801:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:18:46.967335:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:19:36.274820:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:20:24.679087:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:21:14.211977:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:22:03.012500:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:22:51.900522:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:23:40.574749:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:24:29.912273:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:25:19.015519:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:26:09.475919:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:26:58.299573:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:27:46.457751:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:28:36.181404:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:29:26.428768:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:30:15.378552:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:31:26.346983:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:32:17.178361:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:33:06.869745:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:33:57.671856:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:34:48.558697:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:35:39.305392:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:36:28.983819:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:37:18.508184:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:38:09.554881:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:39:00.673521:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:39:51.769698:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:40:42.621380:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:41:32.121244:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:42:21.303056:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:43:09.431462:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:43:58.496208:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:44:47.224696:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:45:36.221347:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:46:25.213077:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:47:14.600530:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:48:02.497036:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:48:52.002605:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:49:40.758788:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:50:29.476583:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:51:18.444728:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:52:07.678991:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:52:56.733075:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:53:44.457658:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:54:33.511871:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:55:21.802528:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:56:10.775489:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:56:59.504217:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:57:48.617526:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:58:37.251285:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T06:59:26.352300:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:00:16.019911:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:01:05.758904:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:01:54.880070:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:02:45.003727:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:03:34.780344:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:04:24.120843:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:05:14.128203:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:06:04.515247:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:06:54.820200:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:07:45.266610:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:08:35.319919:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:09:24.851917:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:10:14.028081:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:11:04.717561:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:11:54.458864:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:12:44.812223:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:13:35.762735:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:14:25.197205:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:15:13.214474:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:16:01.964839:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:16:51.312221:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:17:40.270076:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:18:29.654842:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:19:18.122756:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:20:07.761546:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:20:57.529346:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:21:46.397173:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:22:35.325820:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:23:23.425464:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:24:12.284550:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:25:01.304108:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:25:50.443408:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:26:39.644616:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:27:28.878702:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:28:18.832522:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:29:08.001054:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:29:57.836022:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:30:47.316992:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:31:35.939512:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:32:25.258253:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:33:14.230979:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:34:03.808524:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:34:53.286788:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:35:42.464160:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:36:31.436632:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:37:20.314900:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:38:09.641:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:38:59.481958:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:39:47.641976:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:40:36.698249:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:41:26.343169:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:42:15.517813:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:43:05.023554:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:43:55.031743:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:44:44.657881:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:45:32.939906:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:46:22.130450:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:47:12.045368:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:48:01.931627:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:48:51.148499:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:49:40.018331:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:50:30.321991:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:51:19.967387:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:52:10.069735:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:52:59.066883:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:53:48.053745:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:54:37.879175:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:55:27.234614:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:56:17.511102:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:57:07.430782:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:57:57.928656:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:58:47.745916:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T07:59:37.660702:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:00:26.267340:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:01:16.617098:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:02:06.787088:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:02:56.285565:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:03:46.227206:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:04:35.483118:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:05:25.473046:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:06:15.676922:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:07:06.069623:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:07:54.948157:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:08:45.467735:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:09:36.342097:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:10:25.658766:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:11:15.356227:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:12:05.955501:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:12:56.466879:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:13:46.033211:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:14:36.674623:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:15:26.493690:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:16:16.166587:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:17:06.956668:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:17:56.922909:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:18:46.107812:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:19:36.816490:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:20:27.192719:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:21:17.410074:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:22:07.921615:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:22:58.652151:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:23:50.379498:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:24:40.922646:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:25:30.775929:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:26:21.998919:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:27:11.162244:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:28:01.986701:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:28:51.563695:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:29:41.536830:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:30:32.214735:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:31:21.183919:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:32:10.582750:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:33:01.236113:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:33:51.401711:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:34:41.532164:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:35:31.125992:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:36:22.248723:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:37:11.518059:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:38:01.245285:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:38:51.703828:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:39:41.267346:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:40:30.417409:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:41:19.982981:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:42:10.041475:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:43:01.415354:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:43:50.541437:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:44:38.756279:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:45:28.044027:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:46:17.307033:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:47:05.758169:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
+2024-07-25T08:47:54.111483:cd /home/kdas006/annotation_dataset/cxf && ./annotator-command.sh
+
