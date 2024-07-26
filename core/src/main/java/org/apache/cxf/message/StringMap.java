@@ -20,6 +20,7 @@
 package org.apache.cxf.message;
 
 import java.util.Map;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public interface StringMap extends Map<String, Object> {
 

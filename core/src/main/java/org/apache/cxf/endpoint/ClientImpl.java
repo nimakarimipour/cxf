@@ -73,6 +73,7 @@ import org.apache.cxf.service.model.ServiceInfo;
 import org.apache.cxf.transport.Conduit;
 import org.apache.cxf.transport.MessageObserver;
 import org.apache.cxf.workqueue.SynchronousExecutor;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class ClientImpl
     extends AbstractBasicInterceptorProvider
@@ -724,7 +725,7 @@ public class ClientImpl
         message.setContent(List.class, contents);
     }
 
-    public void onMessage(Message message) {
+    public void onMessage(@RUntainted Message message) {
         if (bus == null) {
             throw new IllegalStateException("Message received on a Client that has been closed or destroyed.");
         }
@@ -912,7 +913,7 @@ public class ClientImpl
         } else {
             exchange.put(Executor.class, executor);
             exchange.put(MessageObserver.class, new MessageObserver() {
-                public void onMessage(final Message message) {
+                public void onMessage(final @RUntainted Message message) {
                     if (!message.getExchange()
                         .containsKey(Executor.class.getName() + ".USING_SPECIFIED")) {
 

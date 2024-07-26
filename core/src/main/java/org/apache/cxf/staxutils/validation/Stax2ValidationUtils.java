@@ -54,6 +54,7 @@ import org.codehaus.stax2.validation.ValidationProblemHandler;
 import org.codehaus.stax2.validation.XMLValidationException;
 import org.codehaus.stax2.validation.XMLValidationProblem;
 import org.codehaus.stax2.validation.XMLValidationSchema;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * This class touches stax2 API, so it is kept separate to allow graceful fallback.
@@ -65,7 +66,7 @@ class Stax2ValidationUtils {
     private static final boolean HAS_WOODSTOX_5;
     private static final boolean HAS_WOODSTOX_6_2;
 
-    private final Class<?> multiSchemaFactory;
+    private final @RUntainted Class<?> multiSchemaFactory;
 
     static {
         boolean hasWoodstox5 = false;

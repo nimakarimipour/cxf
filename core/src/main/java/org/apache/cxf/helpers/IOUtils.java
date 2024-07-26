@@ -36,6 +36,8 @@ import java.util.Objects;
 
 import org.apache.cxf.io.CopyingOutputStream;
 import org.apache.cxf.io.Transferable;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public final class IOUtils {
     public static final Charset UTF8_CHARSET = java.nio.charset.StandardCharsets.UTF_8;
@@ -146,7 +148,7 @@ public final class IOUtils {
      * @param start
      * @param length
      */
-    public static String newStringFromBytes(byte[] bytes, String charsetName, int start, int length) {
+    public static @RPolyTainted String newStringFromBytes(@RPolyTainted byte[] bytes, @RPolyTainted String charsetName, @RPolyTainted int start, @RPolyTainted int length) {
         try {
             return new String(bytes, start, length, charsetName);
         } catch (UnsupportedEncodingException e) {
@@ -164,7 +166,7 @@ public final class IOUtils {
      * @param start
      * @param length
      */
-    public static String newStringFromBytes(byte[] bytes, int start, int length) {
+    public static @RPolyTainted String newStringFromBytes(@RPolyTainted byte[] bytes, @RPolyTainted int start, @RPolyTainted int length) {
         return newStringFromBytes(bytes, UTF8_CHARSET.name(), start, length);
     }
 
@@ -267,7 +269,7 @@ public final class IOUtils {
                                    int atLeast) throws IOException {
         Objects.requireNonNull(input, "The reader is required but null value was provided");
         Objects.requireNonNull(output, "The writer is required but null value was provided");
-        final char[] buffer = new char[4096];
+        final @RUntainted char[] buffer = new char[4096];
         int n = atLeast > buffer.length ? buffer.length : atLeast;
         n = input.read(buffer, 0, n);
         while (-1 != n) {
@@ -289,7 +291,7 @@ public final class IOUtils {
             final int bufferSize) throws IOException {
         Objects.requireNonNull(input, "The reader is required but null value was provided");
         Objects.requireNonNull(output, "The writer is required but null value was provided");
-        final char[] buffer = new char[bufferSize];
+        final @RUntainted char[] buffer = new char[bufferSize];
         int n = input.read(buffer);
         while (-1 != n) {
             output.write(buffer, 0, n);

@@ -20,6 +20,7 @@
 package org.apache.cxf.endpoint;
 
 import org.apache.cxf.transport.Destination;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public interface Server  {
 

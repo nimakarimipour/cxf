@@ -51,6 +51,7 @@ import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.BeanDefinitionParserDelegate;
 import org.springframework.beans.factory.xml.ParserContext;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public abstract class AbstractBeanDefinitionParser
     extends org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser {
@@ -266,14 +267,14 @@ public abstract class AbstractBeanDefinitionParser
         }
     }
 
-    protected void mapElementToJaxbProperty(Element parent,
+    protected void mapElementToJaxbProperty(@RUntainted Element parent,
                                             BeanDefinitionBuilder bean,
                                             QName name,
                                             String propertyName) {
         mapElementToJaxbProperty(parent, bean, name, propertyName, null);
     }
 
-    protected void mapElementToJaxbProperty(Element parent,
+    protected void mapElementToJaxbProperty(@RUntainted Element parent,
                                             BeanDefinitionBuilder bean,
                                             QName name,
                                             String propertyName,
@@ -331,7 +332,7 @@ public abstract class AbstractBeanDefinitionParser
         return context;
     }
 
-    protected void mapElementToJaxbProperty(Element data,
+    protected void mapElementToJaxbProperty(@RUntainted Element data,
                                             BeanDefinitionBuilder bean,
                                             String propertyName,
                                             Class<?> c) {
@@ -373,7 +374,7 @@ public abstract class AbstractBeanDefinitionParser
     }
 
 
-    public void mapElementToJaxbPropertyFactory(Element data,
+    public void mapElementToJaxbPropertyFactory(@RUntainted Element data,
                                                 BeanDefinitionBuilder bean,
                                                 String propertyName,
                                                 Class<?> type,
@@ -384,7 +385,7 @@ public abstract class AbstractBeanDefinitionParser
                                                                  factory,
                                                                  null, type, method, args));
     }
-    public AbstractBeanDefinition mapElementToJaxbBean(Element data,
+    public AbstractBeanDefinition mapElementToJaxbBean(@RUntainted Element data,
                                                        Class<?> cls,
                                                       Class<?> factory,
                                                       String method,
@@ -392,7 +393,7 @@ public abstract class AbstractBeanDefinitionParser
         return mapElementToJaxbBean(data, cls, factory, cls, method, args);
     }
 
-    public AbstractBeanDefinition mapElementToJaxbBean(Element data,
+    public AbstractBeanDefinition mapElementToJaxbBean(@RUntainted Element data,
                                                        Class<?> cls,
                                                       Class<?> factory,
                                                       Class<?> jaxbClass,

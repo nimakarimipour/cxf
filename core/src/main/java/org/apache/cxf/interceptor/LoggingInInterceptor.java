@@ -33,6 +33,7 @@ import org.apache.cxf.io.CachedWriter;
 import org.apache.cxf.io.DelegatingInputStream;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.Phase;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 
 
@@ -76,14 +77,14 @@ public class LoggingInInterceptor extends AbstractLoggingInterceptor {
         this.writer = w;
     }
 
-    public void handleMessage(Message message) {
+    public void handleMessage(@RUntainted Message message) {
         Logger logger = getMessageLogger(message);
         if (logger != null && (writer != null || logger.isLoggable(Level.INFO))) {
             logging(logger, message);
         }
     }
 
-    protected void logging(Logger logger, Message message) {
+    protected void logging(Logger logger, @RUntainted Message message) {
         if (message.containsKey(LoggingMessage.ID_KEY)) {
             return;
         }
@@ -189,7 +190,7 @@ public class LoggingInInterceptor extends AbstractLoggingInterceptor {
         }
     }
     protected void logInputStream(Message message, InputStream is, LoggingMessage buffer,
-                                  String encoding, String ct) {
+                                  @RUntainted String encoding, String ct) {
         CachedOutputStream bos = new CachedOutputStream();
         if (threshold > 0) {
             bos.setThreshold(threshold);

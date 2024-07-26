@@ -30,6 +30,7 @@ import java.nio.channels.WritableByteChannel;
 import java.nio.file.Files;
 
 import org.apache.cxf.io.Transferable;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Subclass of ByteArrayOutputStream that allows creation of a
@@ -73,7 +74,7 @@ public class LoadingByteArrayOutputStream extends ByteArrayOutputStream {
 
     }
 
-    public ByteArrayInputStream createInputStream() {
+    public @RUntainted ByteArrayInputStream createInputStream() {
         return new LoadedByteArrayInputStream(buf, count);
     }
 

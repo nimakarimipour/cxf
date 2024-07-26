@@ -31,6 +31,7 @@ import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.AbstractPhaseInterceptor;
 import org.apache.cxf.phase.Phase;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class AttachmentInInterceptor extends AbstractPhaseInterceptor<Message> {
 
@@ -42,7 +43,7 @@ public class AttachmentInInterceptor extends AbstractPhaseInterceptor<Message> {
         super(Phase.RECEIVE);
     }
 
-    public void handleMessage(Message message) {
+    public void handleMessage(@RUntainted Message message) {
         if (isGET(message)) {
             LOG.fine("AttachmentInInterceptor skipped in HTTP GET method");
             return;

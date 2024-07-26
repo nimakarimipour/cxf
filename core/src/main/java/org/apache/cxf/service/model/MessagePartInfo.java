@@ -23,6 +23,7 @@ import javax.xml.namespace.QName;
 
 import org.apache.ws.commons.schema.XmlSchemaAnnotated;
 import org.apache.ws.commons.schema.XmlSchemaElement;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public final class MessagePartInfo extends AbstractPropertiesHolder implements NamedItem {
 

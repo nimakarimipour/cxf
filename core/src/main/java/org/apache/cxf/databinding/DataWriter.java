@@ -25,6 +25,7 @@ import javax.xml.validation.Schema;
 
 import org.apache.cxf.message.Attachment;
 import org.apache.cxf.service.model.MessagePartInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * The 'write' side of the data binding abstraction of CXF. A DataWriter&lt;T&gt; serializes
@@ -57,7 +58,7 @@ public interface DataWriter<T> {
      * @param obj the object to write.
      * @param output the output sink.
      */
-    void write(Object obj, T output);
+    void write(@RUntainted Object obj, T output);
     /**
      * Write an object to an output sink, including extra processing based on the WSDL
      * service model for a particular message part.
@@ -65,5 +66,5 @@ public interface DataWriter<T> {
      * @param part the message part.
      * @param output the output sink.
      */
-    void write(Object obj, MessagePartInfo part, T output);
+    void write(@RUntainted Object obj, MessagePartInfo part, T output);
 }

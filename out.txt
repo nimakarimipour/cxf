@@ -1,0 +1,1003 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< org.apache.cxf:cxf-core >-----------------------
+[INFO] Building Apache CXF Core 4.0.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven) @ cxf-core ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 2: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] --- checkstyle:3.2.2:checkstyle (validate) @ cxf-core ---
+[WARNING] Parameter 'localRepository' is deprecated core expression; Avoid use of ArtifactRepository type. If you need access to local repository, switch to '${repositorySystemSession}' expression and get LRM from it instead.
+[INFO] 
+[INFO] >>> pmd:3.20.0:check (validate) > :pmd @ cxf-core >>>
+[INFO] 
+[INFO] --- pmd:3.20.0:pmd (pmd) @ cxf-core ---
+[WARNING] Parameter 'localRepository' is deprecated core expression; Avoid use of ArtifactRepository type. If you need access to local repository, switch to '${repositorySystemSession}' expression and get LRM from it instead.
+[INFO] PMD version: 6.55.0
+[INFO] Analysis cache created
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] 
+[INFO] <<< pmd:3.20.0:check (validate) < :pmd @ cxf-core <<<
+[INFO] 
+[INFO] 
+[INFO] --- pmd:3.20.0:check (validate) @ cxf-core ---
+[INFO] PMD version: 6.55.0
+[INFO] 
+[INFO] 
+[INFO] --- bundle:5.1.9:cleanVersions (versions) @ cxf-core ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create-timestamp (create-noncanonicalrev) @ cxf-core ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (create-buildnumber) @ cxf-core ---
+[INFO] Executing: /bin/sh -c cd '/home/nima/Developer/taint-benchmarks/cxf/core' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/nima/Developer/taint-benchmarks/cxf/core
+[INFO] Storing buildNumber: 69934ae8b94c5ef73cb08d869f07c946f5a24e02 at timestamp: 1722026142207
+[INFO] Executing: /bin/sh -c cd '/home/nima/Developer/taint-benchmarks/cxf/core' && 'git' 'symbolic-ref' 'HEAD'
+[INFO] Working directory: /home/nima/Developer/taint-benchmarks/cxf/core
+[INFO] Storing scmBranch: nimak/annotator
+[INFO] 
+[INFO] --- cxf-xjc:4.0.0:xsdtojava (generate-sources) @ cxf-core ---
+[INFO] Building jar: /tmp/cxf-xjc-plugin9296531877324879465.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin1985208547916683163.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin6114086152551720428.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin11503712115830404014.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin14928861185129456604.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin8758176374306057554.jar
+[INFO] 
+[INFO] --- cxf-xml2fastinfoset:4.0.1:xml2fastinfoset (xml2fastinfoset) @ cxf-core ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (default) @ cxf-core ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ cxf-core ---
+[INFO] Copying 26 resources from src/main/java to target/classes
+[INFO] Copying 32 resources from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources-filtered to target/classes
+[INFO] Copying 1 resource from target/generated/src/main/resources to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] The encoding used to copy filtered properties files have not been set. This means that the same encoding will be used to copy filtered properties files as when copying other filtered resources. This might not be what you want! Run your build with --debug to see which files might be affected. Read more at https://maven.apache.org/plugins/maven-resources-plugin/examples/filtering-properties-files.html
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ cxf-core ---
+[WARNING] Parameter 'compilerArguments' is deprecated: use compilerArgs instead.
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 593 source files with javac [forked debug deprecation release 11] to target/classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/injection/ResourceInjector.java:[320,34] [deprecation] isAccessible() in AccessibleObject has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/ReflectionUtil.java:[52,29] [deprecation] isAccessible() in AccessibleObject has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/ReflectionUtil.java:[71,29] [deprecation] isAccessible() in AccessibleObject has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/spi/ClassGeneratorClassLoader.java:[135,33] [deprecation] getPackage(String) in ClassLoader has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/spi/GeneratedClassClassLoader.java:[97,33] [deprecation] getPackage(String) in ClassLoader has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/SpringClassUnwrapper.java:[39,22] [deprecation] isCglibProxyClass(Class<?>) in ClassUtils has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/SpringClassUnwrapper.java:[94,29] [deprecation] isCglibProxyClass(Class<?>) in ClassUtils has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/ServiceInvokerInterceptor.java:[79,62] [cast.unsafe] cast from "@RTainted Object" to "@RTainted Object @RUntainted []" cannot be statically verified
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/catalog/OASISCatalogManager.java:[85,20] [cast.unsafe] cast from "@RPolyTainted EntityResolver" to "@RUntainted CatalogResolver" cannot be statically verified
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/security/SecureAnnotationsInterceptor.java:[114,37] [cast.unsafe] cast from "@RTainted Object" to "@RTainted String @RUntainted []" cannot be statically verified
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/ImageDataContentHandler.java:[97,21] [cast.unsafe] cast from "@RTainted Object" to "@RTainted byte @RUntainted []" cannot be statically verified
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/SortedArraySet.java:[179,23] [cast.unsafe] cast from "@RTainted Object" to "X[ extends @RTainted Object super @RUntainted Void] @RUntainted []" cannot be statically verified
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/SortedArraySet.java:[186,16] [cast.unsafe] cast from "@RTainted Object" to "X[ extends @RTainted Object super @RUntainted Void] @RUntainted []" cannot be statically verified
+[INFO] 13 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR]  Unannotated Code Handling: true, Poly: true, Type Argument: true, Validation: false, Side Effect: false
+Local Variable Optimization: true
+/home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/service/model/AbstractPropertiesHolder.java:[88,30] error: [return] incompatible types in return.
+  type of expression: @RTainted Map<@RTainted String, @RTainted Object>
+  method return type: @RTainted Map<@RTainted String, @RUntainted Object>, index: 1
+[ERROR] error: inconsistent sizes (2, 1):
+[ERROR]   ; The Checker Framework crashed.  Please report the crash.  Version: Checker Framework 3.42.0. 
+  Compilation unit: /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/DOMUtils.java
+  Last visited tree at line 66 column 1:
+  public final class DOMUtils {
+  Exception: java.lang.Throwable; java.lang.Throwable
+  	at org.checkerframework.javacutil.BugInCF.<init>(BugInCF.java:34)
+  	at org.checkerframework.framework.type.QualifierHierarchy.assertSameSize(QualifierHierarchy.java:617)
+  	at org.checkerframework.framework.type.QualifierHierarchy.leastUpperBoundsShallow(QualifierHierarchy.java:365)
+  	at org.checkerframework.framework.type.treeannotator.PropagationTreeAnnotator.visitBinary(PropagationTreeAnnotator.java:236)
+  	at org.checkerframework.framework.type.treeannotator.PropagationTreeAnnotator.visitBinary(PropagationTreeAnnotator.java:45)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBinary.accept(JCTree.java:2166)
+  	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visit(SimpleTreeVisitor.java:81)
+  	at org.checkerframework.framework.type.treeannotator.ListTreeAnnotator.defaultAction(ListTreeAnnotator.java:52)
+  	at org.checkerframework.framework.type.treeannotator.ListTreeAnnotator.defaultAction(ListTreeAnnotator.java:20)
+  	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visitBinary(SimpleTreeVisitor.java:600)
+  	at org.checkerframework.framework.type.treeannotator.TreeAnnotator.visitBinary(TreeAnnotator.java:83)
+  	at org.checkerframework.framework.type.treeannotator.TreeAnnotator.visitBinary(TreeAnnotator.java:23)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBinary.accept(JCTree.java:2166)
+  	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visit(SimpleTreeVisitor.java:81)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.addComputedTypeAnnotations(GenericAnnotatedTypeFactory.java:1924)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.addComputedTypeAnnotations(GenericAnnotatedTypeFactory.java:1851)
+  	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:1383)
+  	at org.checkerframework.framework.flow.CFAbstractTransfer.getValueFromFactory(CFAbstractTransfer.java:211)
+  	at org.checkerframework.framework.flow.CFAbstractTransfer.visitNode(CFAbstractTransfer.java:533)
+  	at org.checkerframework.framework.flow.CFAbstractTransfer.visitNode(CFAbstractTransfer.java:98)
+  	at org.checkerframework.dataflow.cfg.node.AbstractNodeVisitor.visitNotEqual(AbstractNodeVisitor.java:189)
+  	at org.checkerframework.framework.flow.CFAbstractTransfer.visitNotEqual(CFAbstractTransfer.java:724)
+  	at org.checkerframework.framework.flow.CFAbstractTransfer.visitNotEqual(CFAbstractTransfer.java:98)
+  	at org.checkerframework.dataflow.cfg.node.NotEqualNode.accept(NotEqualNode.java:31)
+  	at org.checkerframework.dataflow.analysis.AbstractAnalysis.callTransferFunction(AbstractAnalysis.java:349)
+  	at org.checkerframework.dataflow.analysis.ForwardAnalysisImpl.callTransferFunction(ForwardAnalysisImpl.java:377)
+  	at org.checkerframework.dataflow.analysis.ForwardAnalysisImpl.performAnalysisBlock(ForwardAnalysisImpl.java:128)
+  	at org.checkerframework.dataflow.analysis.ForwardAnalysisImpl.performAnalysis(ForwardAnalysisImpl.java:105)
+  	at org.checkerframework.framework.flow.CFAbstractAnalysis.performAnalysis(CFAbstractAnalysis.java:147)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.analyze(GenericAnnotatedTypeFactory.java:1592)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.performFlowAnalysis(GenericAnnotatedTypeFactory.java:1486)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.checkAndPerformFlowAnalysis(GenericAnnotatedTypeFactory.java:1991)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.preProcessClassTree(GenericAnnotatedTypeFactory.java:426)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:553)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+  	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+  	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+  	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+  	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1344)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:933)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+/home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/extension/ExtensionManagerImpl.java:[168,45] error: [return] incompatible types in return.
+  type of expression: @RTainted InputStream
+  method return type: @RUntainted InputStream, index: 2
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[270,53] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted Class<? extends @RTainted Object>"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[270,96] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[276,36] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[281,26] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[307,86] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[310,33] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[315,44] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[321,60] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Base64Utility.java:[293,55] error: [assignment] incompatible types in assignment.
+  found   : @RTainted char @RUntainted []
+  required: @RUntainted char @RUntainted [], index: 3
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/staxutils/validation/Stax2ValidationUtils.java:[195,38] error: [argument] incompatible argument for parameter arg1 of Map.put.
+  found   : @RTainted XMLValidationSchema
+  required: @RUntainted Object, index: 4
+[ERROR] Error in computing required fixes: JAXBUtils.unmarshall(getContext(), data, TLSClientParametersType.class) assignment, exception:org.checkerframework.javacutil.BugInCF: Error in AnnotatedTypeMirror.fromExpression(UCRTaintingAnnotatedTypeFactory, u.unmarshal(reader, cls)): Cannot invoke "com.sun.source.util.TreePath.getParentPath()" because "treePath" is null
+At path: /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSClientParametersConfig.java
+Last visited tree: JAXBElement<@RUntainted TLSClientParametersType> type = JAXBUtils.unmarshall(getContext(), data, TLSClientParametersType.class)
+org.checkerframework.javacutil.BugInCF: Error in AnnotatedTypeMirror.fromExpression(UCRTaintingAnnotatedTypeFactory, u.unmarshal(reader, cls)): Cannot invoke "com.sun.source.util.TreePath.getParentPath()" because "treePath" is null
+	at org.checkerframework.framework.type.TypeFromTree.fromExpression(TypeFromTree.java:47)
+	at org.checkerframework.framework.type.AnnotatedTypeFactory.fromExpression(AnnotatedTypeFactory.java:1700)
+	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:1370)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.TypeArgumentFixVisitor.translateToReceiverRequiredPair(TypeArgumentFixVisitor.java:137)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.TypeArgumentFixVisitor.visitMethodInvocation(TypeArgumentFixVisitor.java:119)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.TypeArgumentFixVisitor.visitMethodInvocation(TypeArgumentFixVisitor.java:52)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:168)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:56)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.scanners.ReturnStatementScanner.visitReturn(ReturnStatementScanner.java:42)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.scanners.ReturnStatementScanner.visitReturn(ReturnStatementScanner.java:34)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCReturn.accept(JCTree.java:1717)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:92)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitBlock(TreeScanner.java:272)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:92)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitTry(TreeScanner.java:435)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCTry.accept(JCTree.java:1460)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:92)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitBlock(TreeScanner.java:272)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:92)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitMethod(TreeScanner.java:224)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodDecl.accept(JCTree.java:953)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.MethodReturnVisitor.visitMethod(MethodReturnVisitor.java:110)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.MethodReturnVisitor.visitMethod(MethodReturnVisitor.java:55)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodDecl.accept(JCTree.java:953)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.DefaultTypeChangeVisitor.visitMethodInvocation(DefaultTypeChangeVisitor.java:233)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.DefaultTypeChangeVisitor.visitMethodInvocation(DefaultTypeChangeVisitor.java:51)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.defaultAction(FixComputer.java:84)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:181)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:56)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.SerializationService.generateFixesForError(SerializationService.java:167)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.SerializationService.serializeError(SerializationService.java:118)
+	at edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingChecker.detailedReportError(UCRTaintingChecker.java:111)
+	at edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingVisitor.commonAssignmentCheck(UCRTaintingVisitor.java:76)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.commonAssignmentCheck(BaseTypeVisitor.java:3037)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.commonAssignmentCheck(BaseTypeVisitor.java:2956)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitVariable(BaseTypeVisitor.java:1571)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitVariable(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1045)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitBlock(TreeScanner.java:272)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitTry(TreeScanner.java:435)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCTry.accept(JCTree.java:1460)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitBlock(TreeScanner.java:272)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitMethod(TreeScanner.java:224)
+	at org.checkerframework.framework.source.SourceVisitor.visitMethod(SourceVisitor.java:110)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitMethod(BaseTypeVisitor.java:1048)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitMethod(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodDecl.accept(JCTree.java:953)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:119)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitClass(TreeScanner.java:203)
+	at org.checkerframework.framework.source.SourceVisitor.visitClass(SourceVisitor.java:98)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.processClassTree(BaseTypeVisitor.java:617)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:563)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1344)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:933)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+Caused by: java.lang.NullPointerException: Cannot invoke "com.sun.source.util.TreePath.getParentPath()" because "treePath" is null
+	at org.checkerframework.javacutil.TreePathUtil.getAssignmentContext(TreePathUtil.java:275)
+	at org.checkerframework.framework.util.typeinference.TypeArgInferenceUtil.assignedTo(TypeArgInferenceUtil.java:147)
+	at org.checkerframework.framework.util.typeinference.DefaultTypeArgumentInference.inferTypeArgs(DefaultTypeArgumentInference.java:124)
+	at org.checkerframework.framework.util.AnnotatedTypes.findTypeArguments(AnnotatedTypes.java:752)
+	at org.checkerframework.framework.type.AnnotatedTypeFactory.methodFromUse(AnnotatedTypeFactory.java:2392)
+	at org.checkerframework.framework.type.AnnotatedTypeFactory.methodFromUse(AnnotatedTypeFactory.java:2338)
+	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.methodFromUse(GenericAnnotatedTypeFactory.java:2187)
+	at org.checkerframework.framework.type.TypeFromExpressionVisitor.visitMethodInvocation(TypeFromExpressionVisitor.java:390)
+	at org.checkerframework.framework.type.TypeFromExpressionVisitor.visitMethodInvocation(TypeFromExpressionVisitor.java:77)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visit(SimpleTreeVisitor.java:81)
+	at org.checkerframework.framework.type.TypeFromTree.fromExpression(TypeFromTree.java:40)
+	... 108 more
+/home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSClientParametersConfig.java:[151,88] error: [assignment] incompatible types in assignment.
+  found   : @RTainted JAXBElement<@RTainted TLSClientParametersType>
+  required: @RTainted JAXBElement<@RUntainted TLSClientParametersType>, index: 5
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/LoadingByteArrayOutputStream.java:[78,15] error: [return] incompatible types in return.
+  type of expression: @RTainted LoadedByteArrayInputStream
+  method return type: @RUntainted ByteArrayInputStream, index: 6
+[ERROR] Error in computing required fixes: heads.computeIfAbsent(name, (k)->new ArrayList<>(1)) assignment, exception:java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+At path: /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentDeserializer.java
+Last visited tree: List<String> v = heads.computeIfAbsent(name, (k)->new ArrayList<>(1))
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.addAll(AbstractCollection.java:335)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.UnannotatedCodeFixVisitor.visitMethodInvocation(UnannotatedCodeFixVisitor.java:111)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.UnannotatedCodeFixVisitor.visitMethodInvocation(UnannotatedCodeFixVisitor.java:46)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:176)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:56)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.SerializationService.generateFixesForError(SerializationService.java:167)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.SerializationService.serializeError(SerializationService.java:118)
+	at edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingChecker.detailedReportError(UCRTaintingChecker.java:111)
+	at edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingVisitor.commonAssignmentCheck(UCRTaintingVisitor.java:76)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.commonAssignmentCheck(BaseTypeVisitor.java:3037)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.commonAssignmentCheck(BaseTypeVisitor.java:2956)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitVariable(BaseTypeVisitor.java:1571)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitVariable(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1045)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitBlock(TreeScanner.java:272)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitMethod(TreeScanner.java:224)
+	at org.checkerframework.framework.source.SourceVisitor.visitMethod(SourceVisitor.java:110)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitMethod(BaseTypeVisitor.java:1048)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitMethod(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodDecl.accept(JCTree.java:953)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:119)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitClass(TreeScanner.java:203)
+	at org.checkerframework.framework.source.SourceVisitor.visitClass(SourceVisitor.java:98)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.processClassTree(BaseTypeVisitor.java:617)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:563)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1344)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:933)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+/home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentDeserializer.java:[139,31] error: [argument] incompatible argument for parameter attachments of Message.setAttachments.
+  found   : @RTainted LazyAttachmentCollection
+  required: @RUntainted Collection<@RTainted Attachment>, index: 7
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentDeserializer.java:[329,47] error: [argument] incompatible argument for parameter stream of AttachmentUtil.createAttachment.
+  found   : @RTainted InputStream
+  required: @RUntainted InputStream, index: 8
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentDeserializer.java:[460,46] error: [assignment] incompatible types in assignment.
+  found   : @RTainted List<@RUntainted String>
+  required: @RTainted List<@RTainted String>, index: 9
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentDeserializer.java:[460,58] error: [return] incompatible types in return.
+  type of expression: @RUntainted ArrayList<@RTainted String>
+  method return type: @RTainted List<@RUntainted String>, index: 10
+[ERROR] Error in computing required fixes: super.get(key.getIndex()) return, exception:java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+At path: /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/message/MessageContentsList.java
+Last visited tree: return super.get(key.getIndex());
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.TypeArgumentFixVisitor.translateToReceiverRequiredPair(TypeArgumentFixVisitor.java:225)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.TypeArgumentFixVisitor.visitMethodInvocation(TypeArgumentFixVisitor.java:119)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.TypeArgumentFixVisitor.visitMethodInvocation(TypeArgumentFixVisitor.java:52)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:168)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:56)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.SerializationService.generateFixesForError(SerializationService.java:167)
+	at edu.ucr.cs.riple.taint.ucrtainting.serialization.SerializationService.serializeError(SerializationService.java:118)
+	at edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingChecker.detailedReportError(UCRTaintingChecker.java:111)
+	at edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingVisitor.commonAssignmentCheck(UCRTaintingVisitor.java:76)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.commonAssignmentCheck(BaseTypeVisitor.java:3037)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitReturn(BaseTypeVisitor.java:2217)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitReturn(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCReturn.accept(JCTree.java:1717)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitBlock(TreeScanner.java:272)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitMethod(TreeScanner.java:224)
+	at org.checkerframework.framework.source.SourceVisitor.visitMethod(SourceVisitor.java:110)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitMethod(BaseTypeVisitor.java:1048)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitMethod(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodDecl.accept(JCTree.java:953)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:119)
+	at jdk.compiler/com.sun.source.util.TreeScanner.visitClass(TreeScanner.java:203)
+	at org.checkerframework.framework.source.SourceVisitor.visitClass(SourceVisitor.java:98)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.processClassTree(BaseTypeVisitor.java:617)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:563)
+	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1344)
+	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:933)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+/home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/message/MessageContentsList.java:[109,24] error: [return] incompatible types in return.
+  type of expression: @RTainted Object
+  method return type: @RUntainted Object, index: 11
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/message/MessageImpl.java:[114,79] error: [override.param] Incompatible parameter type for content.
+  found   : @RUntainted Object
+  required: @RTainted Object
+  Consequence: method in @RTainted MessageImpl
+    <T extends @RTainted Object> void setContent(@RTainted MessageImpl this, @RUntainted Class<T extends @RTainted Object> p0, @RUntainted Object p1)
+  cannot override method in @RTainted Message
+    <T extends @RTainted Object> void setContent(@RTainted Message this, @RUntainted Class<T extends @RTainted Object> p0, @RTainted Object p1), index: 12
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/message/MessageImpl.java:[215,21] error: [argument] incompatible argument for parameter arg0 of Map.putAll.
+  found   : @RTainted Exchange
+  required: @RTainted Map<?[ extends @RTainted String super @RUntainted Void], ?[ extends @RUntainted Object super @RUntainted Void]>, index: 13
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[284,15] error: [return] incompatible types in return.
+  type of expression: @RTainted HttpURLConnection
+  method return type: @RUntainted HttpURLConnection, index: 14
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/staxutils/StaxUtils.java:[1697,40] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 15
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[189,50] error: [argument] incompatible argument for parameter stringWriter of AbstractLoggingInterceptor.writePayload.
+  found   : @RTainted StringWriter
+  required: @RUntainted StringWriter, index: 16
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/message/ExchangeImpl.java:[136,18] error: [assignment] incompatible types in assignment.
+  found   : @RTainted Bus
+  required: @RUntainted Bus, index: 17
+[ERROR] error: inconsistent sizes (2, 1):
+[ERROR]   ; The Checker Framework crashed.  Please report the crash.  Version: Checker Framework 3.42.0. 
+  Compilation unit: /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/logging/LogUtils.java
+  Last visited tree at line 55 column 1:
+  public final class LogUtils {
+  Exception: java.lang.Throwable; java.lang.Throwable
+  	at org.checkerframework.javacutil.BugInCF.<init>(BugInCF.java:34)
+  	at org.checkerframework.framework.type.QualifierHierarchy.assertSameSize(QualifierHierarchy.java:617)
+  	at org.checkerframework.framework.type.QualifierHierarchy.leastUpperBoundsShallow(QualifierHierarchy.java:365)
+  	at org.checkerframework.framework.type.treeannotator.PropagationTreeAnnotator.visitBinary(PropagationTreeAnnotator.java:236)
+  	at org.checkerframework.framework.type.treeannotator.PropagationTreeAnnotator.visitBinary(PropagationTreeAnnotator.java:45)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBinary.accept(JCTree.java:2166)
+  	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visit(SimpleTreeVisitor.java:81)
+  	at org.checkerframework.framework.type.treeannotator.ListTreeAnnotator.defaultAction(ListTreeAnnotator.java:52)
+  	at org.checkerframework.framework.type.treeannotator.ListTreeAnnotator.defaultAction(ListTreeAnnotator.java:20)
+  	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visitBinary(SimpleTreeVisitor.java:600)
+  	at org.checkerframework.framework.type.treeannotator.TreeAnnotator.visitBinary(TreeAnnotator.java:83)
+  	at org.checkerframework.framework.type.treeannotator.TreeAnnotator.visitBinary(TreeAnnotator.java:23)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBinary.accept(JCTree.java:2166)
+  	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visit(SimpleTreeVisitor.java:81)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.addComputedTypeAnnotations(GenericAnnotatedTypeFactory.java:1924)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.addComputedTypeAnnotations(GenericAnnotatedTypeFactory.java:1851)
+  	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:1383)
+  	at org.checkerframework.framework.flow.CFAbstractTransfer.getValueFromFactory(CFAbstractTransfer.java:211)
+  	at org.checkerframework.framework.flow.CFAbstractTransfer.visitNode(CFAbstractTransfer.java:533)
+  	at org.checkerframework.framework.flow.CFAbstractTransfer.visitNode(CFAbstractTransfer.java:98)
+  	at org.checkerframework.dataflow.cfg.node.AbstractNodeVisitor.visitEqualTo(AbstractNodeVisitor.java:184)
+  	at org.checkerframework.framework.flow.CFAbstractTransfer.visitEqualTo(CFAbstractTransfer.java:700)
+  	at org.checkerframework.framework.flow.CFAbstractTransfer.visitEqualTo(CFAbstractTransfer.java:98)
+  	at org.checkerframework.dataflow.cfg.node.EqualToNode.accept(EqualToNode.java:31)
+  	at org.checkerframework.dataflow.analysis.AbstractAnalysis.callTransferFunction(AbstractAnalysis.java:349)
+  	at org.checkerframework.dataflow.analysis.ForwardAnalysisImpl.callTransferFunction(ForwardAnalysisImpl.java:377)
+  	at org.checkerframework.dataflow.analysis.ForwardAnalysisImpl.performAnalysisBlock(ForwardAnalysisImpl.java:128)
+  	at org.checkerframework.dataflow.analysis.ForwardAnalysisImpl.performAnalysis(ForwardAnalysisImpl.java:105)
+  	at org.checkerframework.framework.flow.CFAbstractAnalysis.performAnalysis(CFAbstractAnalysis.java:147)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.analyze(GenericAnnotatedTypeFactory.java:1592)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.performFlowAnalysis(GenericAnnotatedTypeFactory.java:1486)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.checkAndPerformFlowAnalysis(GenericAnnotatedTypeFactory.java:1991)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.preProcessClassTree(GenericAnnotatedTypeFactory.java:426)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:553)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+  	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+  	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+  	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+  	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1344)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:933)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+/home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/spring/TunedDocumentLoader.java:[80,31] error: [assignment] incompatible types in assignment.
+  found   : @RTainted SAXParserFactory
+  required: @RUntainted SAXParserFactory, index: 18
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/spring/TunedDocumentLoader.java:[81,34] error: [assignment] incompatible types in assignment.
+  found   : @RTainted SAXParserFactory
+  required: @RUntainted SAXParserFactory, index: 19
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/extension/TextExtensionFragmentParser.java:[46,33] error: [argument] incompatible argument for parameter is of TextExtensionFragmentParser.getExtensions.
+  found   : @RTainted InputStream
+  required: @RUntainted InputStream, index: 20
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedWriter.java:[112,24] error: [return] incompatible types in return.
+  type of expression: @RTainted char @RUntainted []
+  method return type: @RUntainted char @RUntainted [], index: 21
+[INFO] 31 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  25.125 s
+[INFO] Finished at: 2024-07-26T13:36:04-07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project cxf-core: Compilation failure: Compilation failure: 
+[ERROR]  Unannotated Code Handling: true, Poly: true, Type Argument: true, Validation: false, Side Effect: false
+[ERROR] Local Variable Optimization: true
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/service/model/AbstractPropertiesHolder.java:[88,30] error: [return] incompatible types in return.
+[ERROR]   type of expression: @RTainted Map<@RTainted String, @RTainted Object>
+[ERROR]   method return type: @RTainted Map<@RTainted String, @RUntainted Object>, index: 1
+[ERROR] error: inconsistent sizes (2, 1):
+[ERROR]   ; The Checker Framework crashed.  Please report the crash.  Version: Checker Framework 3.42.0. 
+[ERROR]   Compilation unit: /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/DOMUtils.java
+[ERROR]   Last visited tree at line 66 column 1:
+[ERROR]   public final class DOMUtils {
+[ERROR]   Exception: java.lang.Throwable; java.lang.Throwable
+[ERROR]   	at org.checkerframework.javacutil.BugInCF.<init>(BugInCF.java:34)
+[ERROR]   	at org.checkerframework.framework.type.QualifierHierarchy.assertSameSize(QualifierHierarchy.java:617)
+[ERROR]   	at org.checkerframework.framework.type.QualifierHierarchy.leastUpperBoundsShallow(QualifierHierarchy.java:365)
+[ERROR]   	at org.checkerframework.framework.type.treeannotator.PropagationTreeAnnotator.visitBinary(PropagationTreeAnnotator.java:236)
+[ERROR]   	at org.checkerframework.framework.type.treeannotator.PropagationTreeAnnotator.visitBinary(PropagationTreeAnnotator.java:45)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBinary.accept(JCTree.java:2166)
+[ERROR]   	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visit(SimpleTreeVisitor.java:81)
+[ERROR]   	at org.checkerframework.framework.type.treeannotator.ListTreeAnnotator.defaultAction(ListTreeAnnotator.java:52)
+[ERROR]   	at org.checkerframework.framework.type.treeannotator.ListTreeAnnotator.defaultAction(ListTreeAnnotator.java:20)
+[ERROR]   	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visitBinary(SimpleTreeVisitor.java:600)
+[ERROR]   	at org.checkerframework.framework.type.treeannotator.TreeAnnotator.visitBinary(TreeAnnotator.java:83)
+[ERROR]   	at org.checkerframework.framework.type.treeannotator.TreeAnnotator.visitBinary(TreeAnnotator.java:23)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBinary.accept(JCTree.java:2166)
+[ERROR]   	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visit(SimpleTreeVisitor.java:81)
+[ERROR]   	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.addComputedTypeAnnotations(GenericAnnotatedTypeFactory.java:1924)
+[ERROR]   	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.addComputedTypeAnnotations(GenericAnnotatedTypeFactory.java:1851)
+[ERROR]   	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:1383)
+[ERROR]   	at org.checkerframework.framework.flow.CFAbstractTransfer.getValueFromFactory(CFAbstractTransfer.java:211)
+[ERROR]   	at org.checkerframework.framework.flow.CFAbstractTransfer.visitNode(CFAbstractTransfer.java:533)
+[ERROR]   	at org.checkerframework.framework.flow.CFAbstractTransfer.visitNode(CFAbstractTransfer.java:98)
+[ERROR]   	at org.checkerframework.dataflow.cfg.node.AbstractNodeVisitor.visitNotEqual(AbstractNodeVisitor.java:189)
+[ERROR]   	at org.checkerframework.framework.flow.CFAbstractTransfer.visitNotEqual(CFAbstractTransfer.java:724)
+[ERROR]   	at org.checkerframework.framework.flow.CFAbstractTransfer.visitNotEqual(CFAbstractTransfer.java:98)
+[ERROR]   	at org.checkerframework.dataflow.cfg.node.NotEqualNode.accept(NotEqualNode.java:31)
+[ERROR]   	at org.checkerframework.dataflow.analysis.AbstractAnalysis.callTransferFunction(AbstractAnalysis.java:349)
+[ERROR]   	at org.checkerframework.dataflow.analysis.ForwardAnalysisImpl.callTransferFunction(ForwardAnalysisImpl.java:377)
+[ERROR]   	at org.checkerframework.dataflow.analysis.ForwardAnalysisImpl.performAnalysisBlock(ForwardAnalysisImpl.java:128)
+[ERROR]   	at org.checkerframework.dataflow.analysis.ForwardAnalysisImpl.performAnalysis(ForwardAnalysisImpl.java:105)
+[ERROR]   	at org.checkerframework.framework.flow.CFAbstractAnalysis.performAnalysis(CFAbstractAnalysis.java:147)
+[ERROR]   	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.analyze(GenericAnnotatedTypeFactory.java:1592)
+[ERROR]   	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.performFlowAnalysis(GenericAnnotatedTypeFactory.java:1486)
+[ERROR]   	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.checkAndPerformFlowAnalysis(GenericAnnotatedTypeFactory.java:1991)
+[ERROR]   	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.preProcessClassTree(GenericAnnotatedTypeFactory.java:426)
+[ERROR]   	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:553)
+[ERROR]   	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+[ERROR]   	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+[ERROR]   	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+[ERROR]   	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+[ERROR]   	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+[ERROR]   	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1344)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:933)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/extension/ExtensionManagerImpl.java:[168,45] error: [return] incompatible types in return.
+[ERROR]   type of expression: @RTainted InputStream
+[ERROR]   method return type: @RUntainted InputStream, index: 2
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[270,53] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted Class<? extends @RTainted Object>"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[270,96] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[276,36] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[281,26] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[307,86] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[310,33] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[315,44] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[321,60] error: [conflicting.annos] invalid type: conflicting annotations [@RPolyTainted, @RUntainted] in type "@RPolyTainted @RUntainted String"
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Base64Utility.java:[293,55] error: [assignment] incompatible types in assignment.
+[ERROR]   found   : @RTainted char @RUntainted []
+[ERROR]   required: @RUntainted char @RUntainted [], index: 3
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/staxutils/validation/Stax2ValidationUtils.java:[195,38] error: [argument] incompatible argument for parameter arg1 of Map.put.
+[ERROR]   found   : @RTainted XMLValidationSchema
+[ERROR]   required: @RUntainted Object, index: 4
+[ERROR] Error in computing required fixes: JAXBUtils.unmarshall(getContext(), data, TLSClientParametersType.class) assignment, exception:org.checkerframework.javacutil.BugInCF: Error in AnnotatedTypeMirror.fromExpression(UCRTaintingAnnotatedTypeFactory, u.unmarshal(reader, cls)): Cannot invoke "com.sun.source.util.TreePath.getParentPath()" because "treePath" is null
+[ERROR] At path: /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSClientParametersConfig.java
+[ERROR] Last visited tree: JAXBElement<@RUntainted TLSClientParametersType> type = JAXBUtils.unmarshall(getContext(), data, TLSClientParametersType.class)
+[ERROR] org.checkerframework.javacutil.BugInCF: Error in AnnotatedTypeMirror.fromExpression(UCRTaintingAnnotatedTypeFactory, u.unmarshal(reader, cls)): Cannot invoke "com.sun.source.util.TreePath.getParentPath()" because "treePath" is null
+[ERROR] 	at org.checkerframework.framework.type.TypeFromTree.fromExpression(TypeFromTree.java:47)
+[ERROR] 	at org.checkerframework.framework.type.AnnotatedTypeFactory.fromExpression(AnnotatedTypeFactory.java:1700)
+[ERROR] 	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:1370)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.TypeArgumentFixVisitor.translateToReceiverRequiredPair(TypeArgumentFixVisitor.java:137)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.TypeArgumentFixVisitor.visitMethodInvocation(TypeArgumentFixVisitor.java:119)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.TypeArgumentFixVisitor.visitMethodInvocation(TypeArgumentFixVisitor.java:52)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:168)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:56)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.scanners.ReturnStatementScanner.visitReturn(ReturnStatementScanner.java:42)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.scanners.ReturnStatementScanner.visitReturn(ReturnStatementScanner.java:34)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCReturn.accept(JCTree.java:1717)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:92)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitBlock(TreeScanner.java:272)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:92)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitTry(TreeScanner.java:435)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCTry.accept(JCTree.java:1460)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:92)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitBlock(TreeScanner.java:272)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:92)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitMethod(TreeScanner.java:224)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodDecl.accept(JCTree.java:953)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.MethodReturnVisitor.visitMethod(MethodReturnVisitor.java:110)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.MethodReturnVisitor.visitMethod(MethodReturnVisitor.java:55)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodDecl.accept(JCTree.java:953)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.DefaultTypeChangeVisitor.visitMethodInvocation(DefaultTypeChangeVisitor.java:233)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.DefaultTypeChangeVisitor.visitMethodInvocation(DefaultTypeChangeVisitor.java:51)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.defaultAction(FixComputer.java:84)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:181)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:56)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.SerializationService.generateFixesForError(SerializationService.java:167)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.SerializationService.serializeError(SerializationService.java:118)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingChecker.detailedReportError(UCRTaintingChecker.java:111)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingVisitor.commonAssignmentCheck(UCRTaintingVisitor.java:76)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.commonAssignmentCheck(BaseTypeVisitor.java:3037)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.commonAssignmentCheck(BaseTypeVisitor.java:2956)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitVariable(BaseTypeVisitor.java:1571)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitVariable(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1045)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitBlock(TreeScanner.java:272)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitTry(TreeScanner.java:435)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCTry.accept(JCTree.java:1460)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitBlock(TreeScanner.java:272)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitMethod(TreeScanner.java:224)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.visitMethod(SourceVisitor.java:110)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitMethod(BaseTypeVisitor.java:1048)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitMethod(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodDecl.accept(JCTree.java:953)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:119)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitClass(TreeScanner.java:203)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.visitClass(SourceVisitor.java:98)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.processClassTree(BaseTypeVisitor.java:617)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:563)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+[ERROR] 	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1344)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:933)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+[ERROR] Caused by: java.lang.NullPointerException: Cannot invoke "com.sun.source.util.TreePath.getParentPath()" because "treePath" is null
+[ERROR] 	at org.checkerframework.javacutil.TreePathUtil.getAssignmentContext(TreePathUtil.java:275)
+[ERROR] 	at org.checkerframework.framework.util.typeinference.TypeArgInferenceUtil.assignedTo(TypeArgInferenceUtil.java:147)
+[ERROR] 	at org.checkerframework.framework.util.typeinference.DefaultTypeArgumentInference.inferTypeArgs(DefaultTypeArgumentInference.java:124)
+[ERROR] 	at org.checkerframework.framework.util.AnnotatedTypes.findTypeArguments(AnnotatedTypes.java:752)
+[ERROR] 	at org.checkerframework.framework.type.AnnotatedTypeFactory.methodFromUse(AnnotatedTypeFactory.java:2392)
+[ERROR] 	at org.checkerframework.framework.type.AnnotatedTypeFactory.methodFromUse(AnnotatedTypeFactory.java:2338)
+[ERROR] 	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.methodFromUse(GenericAnnotatedTypeFactory.java:2187)
+[ERROR] 	at org.checkerframework.framework.type.TypeFromExpressionVisitor.visitMethodInvocation(TypeFromExpressionVisitor.java:390)
+[ERROR] 	at org.checkerframework.framework.type.TypeFromExpressionVisitor.visitMethodInvocation(TypeFromExpressionVisitor.java:77)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+[ERROR] 	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visit(SimpleTreeVisitor.java:81)
+[ERROR] 	at org.checkerframework.framework.type.TypeFromTree.fromExpression(TypeFromTree.java:40)
+[ERROR] 	... 108 more
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSClientParametersConfig.java:[151,88] error: [assignment] incompatible types in assignment.
+[ERROR]   found   : @RTainted JAXBElement<@RTainted TLSClientParametersType>
+[ERROR]   required: @RTainted JAXBElement<@RUntainted TLSClientParametersType>, index: 5
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/LoadingByteArrayOutputStream.java:[78,15] error: [return] incompatible types in return.
+[ERROR]   type of expression: @RTainted LoadedByteArrayInputStream
+[ERROR]   method return type: @RUntainted ByteArrayInputStream, index: 6
+[ERROR] Error in computing required fixes: heads.computeIfAbsent(name, (k)->new ArrayList<>(1)) assignment, exception:java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+[ERROR] At path: /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentDeserializer.java
+[ERROR] Last visited tree: List<String> v = heads.computeIfAbsent(name, (k)->new ArrayList<>(1))
+[ERROR] java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+[ERROR] 	at java.base/java.util.AbstractCollection.addAll(AbstractCollection.java:335)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.UnannotatedCodeFixVisitor.visitMethodInvocation(UnannotatedCodeFixVisitor.java:111)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.UnannotatedCodeFixVisitor.visitMethodInvocation(UnannotatedCodeFixVisitor.java:46)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:176)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:56)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.SerializationService.generateFixesForError(SerializationService.java:167)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.SerializationService.serializeError(SerializationService.java:118)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingChecker.detailedReportError(UCRTaintingChecker.java:111)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingVisitor.commonAssignmentCheck(UCRTaintingVisitor.java:76)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.commonAssignmentCheck(BaseTypeVisitor.java:3037)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.commonAssignmentCheck(BaseTypeVisitor.java:2956)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitVariable(BaseTypeVisitor.java:1571)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitVariable(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCVariableDecl.accept(JCTree.java:1045)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitBlock(TreeScanner.java:272)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitMethod(TreeScanner.java:224)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.visitMethod(SourceVisitor.java:110)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitMethod(BaseTypeVisitor.java:1048)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitMethod(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodDecl.accept(JCTree.java:953)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:119)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitClass(TreeScanner.java:203)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.visitClass(SourceVisitor.java:98)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.processClassTree(BaseTypeVisitor.java:617)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:563)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+[ERROR] 	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1344)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:933)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentDeserializer.java:[139,31] error: [argument] incompatible argument for parameter attachments of Message.setAttachments.
+[ERROR]   found   : @RTainted LazyAttachmentCollection
+[ERROR]   required: @RUntainted Collection<@RTainted Attachment>, index: 7
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentDeserializer.java:[329,47] error: [argument] incompatible argument for parameter stream of AttachmentUtil.createAttachment.
+[ERROR]   found   : @RTainted InputStream
+[ERROR]   required: @RUntainted InputStream, index: 8
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentDeserializer.java:[460,46] error: [assignment] incompatible types in assignment.
+[ERROR]   found   : @RTainted List<@RUntainted String>
+[ERROR]   required: @RTainted List<@RTainted String>, index: 9
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentDeserializer.java:[460,58] error: [return] incompatible types in return.
+[ERROR]   type of expression: @RUntainted ArrayList<@RTainted String>
+[ERROR]   method return type: @RTainted List<@RUntainted String>, index: 10
+[ERROR] Error in computing required fixes: super.get(key.getIndex()) return, exception:java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+[ERROR] At path: /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/message/MessageContentsList.java
+[ERROR] Last visited tree: return super.get(key.getIndex());
+[ERROR] java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+[ERROR] 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+[ERROR] 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+[ERROR] 	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+[ERROR] 	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+[ERROR] 	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.TypeArgumentFixVisitor.translateToReceiverRequiredPair(TypeArgumentFixVisitor.java:225)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.TypeArgumentFixVisitor.visitMethodInvocation(TypeArgumentFixVisitor.java:119)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.TypeArgumentFixVisitor.visitMethodInvocation(TypeArgumentFixVisitor.java:52)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:168)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.visitors.FixComputer.visitMethodInvocation(FixComputer.java:56)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(JCTree.java:1813)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.SerializationService.generateFixesForError(SerializationService.java:167)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.serialization.SerializationService.serializeError(SerializationService.java:118)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingChecker.detailedReportError(UCRTaintingChecker.java:111)
+[ERROR] 	at edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingVisitor.commonAssignmentCheck(UCRTaintingVisitor.java:76)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.commonAssignmentCheck(BaseTypeVisitor.java:3037)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitReturn(BaseTypeVisitor.java:2217)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitReturn(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCReturn.accept(JCTree.java:1717)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitBlock(TreeScanner.java:272)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitMethod(TreeScanner.java:224)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.visitMethod(SourceVisitor.java:110)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitMethod(BaseTypeVisitor.java:1048)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitMethod(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCMethodDecl.accept(JCTree.java:953)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.scan(SourceVisitor.java:92)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:410)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.scan(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:96)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scan(TreeScanner.java:111)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.scanAndReduce(TreeScanner.java:119)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreeScanner.visitClass(TreeScanner.java:203)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.visitClass(SourceVisitor.java:98)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.processClassTree(BaseTypeVisitor.java:617)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:563)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+[ERROR] 	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+[ERROR] 	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+[ERROR] 	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+[ERROR] 	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+[ERROR] 	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1344)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:933)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+[ERROR] 	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/message/MessageContentsList.java:[109,24] error: [return] incompatible types in return.
+[ERROR]   type of expression: @RTainted Object
+[ERROR]   method return type: @RUntainted Object, index: 11
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/message/MessageImpl.java:[114,79] error: [override.param] Incompatible parameter type for content.
+[ERROR]   found   : @RUntainted Object
+[ERROR]   required: @RTainted Object
+[ERROR]   Consequence: method in @RTainted MessageImpl
+[ERROR]     <T extends @RTainted Object> void setContent(@RTainted MessageImpl this, @RUntainted Class<T extends @RTainted Object> p0, @RUntainted Object p1)
+[ERROR]   cannot override method in @RTainted Message
+[ERROR]     <T extends @RTainted Object> void setContent(@RTainted Message this, @RUntainted Class<T extends @RTainted Object> p0, @RTainted Object p1), index: 12
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/message/MessageImpl.java:[215,21] error: [argument] incompatible argument for parameter arg0 of Map.putAll.
+[ERROR]   found   : @RTainted Exchange
+[ERROR]   required: @RTainted Map<?[ extends @RTainted String super @RUntainted Void], ?[ extends @RUntainted Object super @RUntainted Void]>, index: 13
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[284,15] error: [return] incompatible types in return.
+[ERROR]   type of expression: @RTainted HttpURLConnection
+[ERROR]   method return type: @RUntainted HttpURLConnection, index: 14
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/staxutils/StaxUtils.java:[1697,40] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 15
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[189,50] error: [argument] incompatible argument for parameter stringWriter of AbstractLoggingInterceptor.writePayload.
+[ERROR]   found   : @RTainted StringWriter
+[ERROR]   required: @RUntainted StringWriter, index: 16
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/message/ExchangeImpl.java:[136,18] error: [assignment] incompatible types in assignment.
+[ERROR]   found   : @RTainted Bus
+[ERROR]   required: @RUntainted Bus, index: 17
+[ERROR] error: inconsistent sizes (2, 1):
+[ERROR]   ; The Checker Framework crashed.  Please report the crash.  Version: Checker Framework 3.42.0. 
+[ERROR]   Compilation unit: /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/logging/LogUtils.java
+[ERROR]   Last visited tree at line 55 column 1:
+[ERROR]   public final class LogUtils {
+[ERROR]   Exception: java.lang.Throwable; java.lang.Throwable
+[ERROR]   	at org.checkerframework.javacutil.BugInCF.<init>(BugInCF.java:34)
+[ERROR]   	at org.checkerframework.framework.type.QualifierHierarchy.assertSameSize(QualifierHierarchy.java:617)
+[ERROR]   	at org.checkerframework.framework.type.QualifierHierarchy.leastUpperBoundsShallow(QualifierHierarchy.java:365)
+[ERROR]   	at org.checkerframework.framework.type.treeannotator.PropagationTreeAnnotator.visitBinary(PropagationTreeAnnotator.java:236)
+[ERROR]   	at org.checkerframework.framework.type.treeannotator.PropagationTreeAnnotator.visitBinary(PropagationTreeAnnotator.java:45)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBinary.accept(JCTree.java:2166)
+[ERROR]   	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visit(SimpleTreeVisitor.java:81)
+[ERROR]   	at org.checkerframework.framework.type.treeannotator.ListTreeAnnotator.defaultAction(ListTreeAnnotator.java:52)
+[ERROR]   	at org.checkerframework.framework.type.treeannotator.ListTreeAnnotator.defaultAction(ListTreeAnnotator.java:20)
+[ERROR]   	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visitBinary(SimpleTreeVisitor.java:600)
+[ERROR]   	at org.checkerframework.framework.type.treeannotator.TreeAnnotator.visitBinary(TreeAnnotator.java:83)
+[ERROR]   	at org.checkerframework.framework.type.treeannotator.TreeAnnotator.visitBinary(TreeAnnotator.java:23)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBinary.accept(JCTree.java:2166)
+[ERROR]   	at jdk.compiler/com.sun.source.util.SimpleTreeVisitor.visit(SimpleTreeVisitor.java:81)
+[ERROR]   	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.addComputedTypeAnnotations(GenericAnnotatedTypeFactory.java:1924)
+[ERROR]   	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.addComputedTypeAnnotations(GenericAnnotatedTypeFactory.java:1851)
+[ERROR]   	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:1383)
+[ERROR]   	at org.checkerframework.framework.flow.CFAbstractTransfer.getValueFromFactory(CFAbstractTransfer.java:211)
+[ERROR]   	at org.checkerframework.framework.flow.CFAbstractTransfer.visitNode(CFAbstractTransfer.java:533)
+[ERROR]   	at org.checkerframework.framework.flow.CFAbstractTransfer.visitNode(CFAbstractTransfer.java:98)
+[ERROR]   	at org.checkerframework.dataflow.cfg.node.AbstractNodeVisitor.visitEqualTo(AbstractNodeVisitor.java:184)
+[ERROR]   	at org.checkerframework.framework.flow.CFAbstractTransfer.visitEqualTo(CFAbstractTransfer.java:700)
+[ERROR]   	at org.checkerframework.framework.flow.CFAbstractTransfer.visitEqualTo(CFAbstractTransfer.java:98)
+[ERROR]   	at org.checkerframework.dataflow.cfg.node.EqualToNode.accept(EqualToNode.java:31)
+[ERROR]   	at org.checkerframework.dataflow.analysis.AbstractAnalysis.callTransferFunction(AbstractAnalysis.java:349)
+[ERROR]   	at org.checkerframework.dataflow.analysis.ForwardAnalysisImpl.callTransferFunction(ForwardAnalysisImpl.java:377)
+[ERROR]   	at org.checkerframework.dataflow.analysis.ForwardAnalysisImpl.performAnalysisBlock(ForwardAnalysisImpl.java:128)
+[ERROR]   	at org.checkerframework.dataflow.analysis.ForwardAnalysisImpl.performAnalysis(ForwardAnalysisImpl.java:105)
+[ERROR]   	at org.checkerframework.framework.flow.CFAbstractAnalysis.performAnalysis(CFAbstractAnalysis.java:147)
+[ERROR]   	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.analyze(GenericAnnotatedTypeFactory.java:1592)
+[ERROR]   	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.performFlowAnalysis(GenericAnnotatedTypeFactory.java:1486)
+[ERROR]   	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.checkAndPerformFlowAnalysis(GenericAnnotatedTypeFactory.java:1991)
+[ERROR]   	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.preProcessClassTree(GenericAnnotatedTypeFactory.java:426)
+[ERROR]   	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:553)
+[ERROR]   	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+[ERROR]   	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+[ERROR]   	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+[ERROR]   	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+[ERROR]   	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+[ERROR]   	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1344)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:933)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+[ERROR]   	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/spring/TunedDocumentLoader.java:[80,31] error: [assignment] incompatible types in assignment.
+[ERROR]   found   : @RTainted SAXParserFactory
+[ERROR]   required: @RUntainted SAXParserFactory, index: 18
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/spring/TunedDocumentLoader.java:[81,34] error: [assignment] incompatible types in assignment.
+[ERROR]   found   : @RTainted SAXParserFactory
+[ERROR]   required: @RUntainted SAXParserFactory, index: 19
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/extension/TextExtensionFragmentParser.java:[46,33] error: [argument] incompatible argument for parameter is of TextExtensionFragmentParser.getExtensions.
+[ERROR]   found   : @RTainted InputStream
+[ERROR]   required: @RUntainted InputStream, index: 20
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedWriter.java:[112,24] error: [return] incompatible types in return.
+[ERROR]   type of expression: @RTainted char @RUntainted []
+[ERROR]   method return type: @RUntainted char @RUntainted [], index: 21
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -30,12 +30,13 @@ import org.apache.cxf.interceptor.InterceptorProvider;
 import org.apache.cxf.service.Service;
 import org.apache.cxf.service.model.EndpointInfo;
 import org.apache.cxf.transport.MessageObserver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Represents an endpoint that receives messages.
  *
  */
-public interface Endpoint extends Map<String, Object>, InterceptorProvider {
+public interface Endpoint extends Map<String, @RUntainted Object>, InterceptorProvider {
 
     EndpointInfo getEndpointInfo();
 

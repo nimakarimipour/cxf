@@ -32,6 +32,7 @@ import org.apache.cxf.interceptor.InterceptorChain;
 import org.apache.cxf.service.Service;
 import org.apache.cxf.service.model.EndpointInfo;
 import org.apache.cxf.transport.Destination;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class MessageImpl extends StringMapImpl implements Message {
     private static final long serialVersionUID = -3020763696429459865L;
@@ -42,10 +43,10 @@ public class MessageImpl extends StringMapImpl implements Message {
     private InterceptorChain interceptorChain;
 
     // array of Class<T>/T pairs for contents
-    private Object[] contents = new Object[20];
+    private @RUntainted Object[] contents = new Object[20];
     private int index;
 
-    private Map<String, Object> contextCache;
+    private Map<String, @RUntainted Object> contextCache;
 
 
     public MessageImpl() {
@@ -75,7 +76,7 @@ public class MessageImpl extends StringMapImpl implements Message {
         return CastUtils.cast((Collection<?>)get(ATTACHMENTS));
     }
 
-    public void setAttachments(Collection<Attachment> attachments) {
+    public void setAttachments(@RUntainted Collection<Attachment> attachments) {
         put(ATTACHMENTS, attachments);
     }
 
@@ -101,7 +102,7 @@ public class MessageImpl extends StringMapImpl implements Message {
     }
 
     @SuppressWarnings("unchecked")
-    public <T> T getContent(Class<T> format) {
+    public <T> @RUntainted T getContent(Class<T> format) {
         for (int x = 0; x < index; x += 2) {
             if (contents[x] == format) {
                 return (T)contents[x + 1];
@@ -110,7 +111,7 @@ public class MessageImpl extends StringMapImpl implements Message {
         return null;
     }
 
-    public <T> void setContent(Class<T> format, Object content) {
+    public <T> void setContent(@RUntainted Class<T> format, @RUntainted Object content) {
         for (int x = 0; x < index; x += 2) {
             if (contents[x] == format) {
                 contents[x + 1] = content;
@@ -120,7 +121,7 @@ public class MessageImpl extends StringMapImpl implements Message {
         if (index >= contents.length) {
             //very unlikely to happen.   Haven't seen more than about 6,
             //but just in case we'll add a few more
-            Object[] tmp = new Object[contents.length + 10];
+            @RUntainted Object[] tmp = new Object[contents.length + 10];
             System.arraycopy(contents, 0, tmp, 0, contents.length);
             contents = tmp;
         }
@@ -144,9 +145,9 @@ public class MessageImpl extends StringMapImpl implements Message {
         }
     }
 
-    public Set<Class<?>> getContentFormats() {
+    public Set<@RUntainted Class<?>> getContentFormats() {
 
-        Set<Class<?>> c = new HashSet<>();
+        Set<@RUntainted Class<?>> c = new HashSet<>();
         for (int x = 0; x < index; x += 2) {
             c.add((Class<?>)contents[x]);
         }
@@ -168,13 +169,13 @@ public class MessageImpl extends StringMapImpl implements Message {
     public void setInterceptorChain(InterceptorChain ic) {
         this.interceptorChain = ic;
     }
-    public Object put(String key, Object value) {
+    public Object put(String key, @RUntainted Object value) {
         if (contextCache != null) {
             contextCache.put(key, value);
         }
         return super.put(key, value);
     }
-    public Object getContextualProperty(String key) {
+    public @RUntainted Object getContextualProperty(String key) {
         if (contextCache == null) {
             calcContextCache();
         }
@@ -185,7 +186,7 @@ public class MessageImpl extends StringMapImpl implements Message {
     }
 
     private void calcContextCache() {
-        Map<String, Object> o = new HashMap<>();
+        Map<String, @RUntainted Object> o = new HashMap<>();
         Exchange ex = getExchange();
         if (ex != null) {
             Bus b = ex.getBus();
@@ -200,7 +201,7 @@ public class MessageImpl extends StringMapImpl implements Message {
             if (ep != null) {
                 EndpointInfo ei = ep.getEndpointInfo();
                 if (ei != null) {
-                    Map<String, Object> p = ep.getEndpointInfo().getBinding().getProperties();
+                    Map<String, @RUntainted Object> p = ep.getEndpointInfo().getBinding().getProperties();
                     if (p != null) {
                         o.putAll(p);
                     }
@@ -228,7 +229,7 @@ public class MessageImpl extends StringMapImpl implements Message {
         }
     }
 
-    void setContextualProperty(String key, Object v) {
+    void setContextualProperty(String key, @RUntainted Object v) {
         if (contextCache != null && !containsKey(key)) {
             contextCache.put(key, v);
         }

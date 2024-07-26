@@ -31,8 +31,9 @@ import org.apache.cxf.interceptor.InterceptorProvider;
 import org.apache.cxf.service.invoker.Invoker;
 import org.apache.cxf.service.model.EndpointInfo;
 import org.apache.cxf.service.model.ServiceInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
-public interface Service extends Map<String, Object>, InterceptorProvider {
+public interface Service extends Map<String, @RUntainted Object>, InterceptorProvider {
 
     QName getName();
 

@@ -23,6 +23,7 @@ import java.lang.reflect.Method;
 import org.apache.cxf.endpoint.Endpoint;
 import org.apache.cxf.service.model.BindingOperationInfo;
 import org.apache.cxf.service.model.OperationInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Provides functionality to map BindingOperations to Methods and

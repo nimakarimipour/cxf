@@ -36,6 +36,7 @@ import org.apache.cxf.service.model.ServiceInfo;
 import org.apache.cxf.transport.Conduit;
 import org.apache.cxf.transport.Destination;
 import org.apache.cxf.transport.Session;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class ExchangeImpl extends ConcurrentHashMap<String, Object>  implements Exchange {
 
@@ -45,13 +46,13 @@ public class ExchangeImpl extends ConcurrentHashMap<String, Object>  implements 
     private boolean synchronous = true;
 
     private Message inMessage;
-    private Message outMessage;
+    private @RUntainted Message outMessage;
     private Message inFaultMessage;
     private Message outFaultMessage;
 
     private Session session;
 
-    private Bus bus;
+    private @RUntainted Bus bus;
     private Endpoint endpoint;
     private Service service;
     private Binding binding;
@@ -148,7 +149,7 @@ public class ExchangeImpl extends ConcurrentHashMap<String, Object>  implements 
         }
     }
 
-    public Object put(String key, Object value) {
+    public Object put(String key, @RUntainted Object value) {
         setMessageContextProperty(inMessage, key, value);
         setMessageContextProperty(outMessage, key, value);
         setMessageContextProperty(inFaultMessage, key, value);
@@ -163,7 +164,7 @@ public class ExchangeImpl extends ConcurrentHashMap<String, Object>  implements 
         return key.cast(super.remove(key.getName()));
     }
 
-    private void setMessageContextProperty(Message m, String key, Object value) {
+    private void setMessageContextProperty(Message m, String key, @RUntainted Object value) {
         if (m == null) {
             return;
         }
@@ -191,7 +192,7 @@ public class ExchangeImpl extends ConcurrentHashMap<String, Object>  implements 
                : null;
     }
 
-    public Message getOutMessage() {
+    public @RUntainted Message getOutMessage() {
         return outMessage;
     }
 
@@ -233,7 +234,7 @@ public class ExchangeImpl extends ConcurrentHashMap<String, Object>  implements 
             new PreexistingConduitSelector(c, getEndpoint()));
     }
 
-    public void setOutMessage(Message m) {
+    public void setOutMessage(@RUntainted Message m) {
         outMessage = m;
         if (null != m) {
             m.setExchange(this);
@@ -277,7 +278,7 @@ public class ExchangeImpl extends ConcurrentHashMap<String, Object>  implements 
         bus = null;
     }
 
-    public Bus getBus() {
+    public @RUntainted Bus getBus() {
         return bus;
     }
 
