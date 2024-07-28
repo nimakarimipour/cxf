@@ -17,6 +17,7 @@
  * under the License.
  */
 package org.apache.cxf.endpoint;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public interface ConduitSelectorHolder {
     ConduitSelector getConduitSelector();

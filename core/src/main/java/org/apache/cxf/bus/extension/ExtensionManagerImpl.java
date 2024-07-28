@@ -42,6 +42,7 @@ import org.apache.cxf.resource.ObjectTypeResolver;
 import org.apache.cxf.resource.ResourceManager;
 import org.apache.cxf.resource.ResourceResolver;
 import org.apache.cxf.resource.SinglePropertyResolver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class ExtensionManagerImpl implements ExtensionManager, ConfiguredBeanLocator {
     public static final String EXTENSIONMANAGER_PROPERTY_NAME = "extensionManager";
@@ -162,8 +163,8 @@ public class ExtensionManagerImpl implements ExtensionManager, ConfiguredBeanLoc
 
         while (urls.hasMoreElements()) {
             final URL url = urls.nextElement();
-            try (InputStream is = AccessController.doPrivileged(new PrivilegedExceptionAction<InputStream>() {
-                    public InputStream run() throws Exception {
+            try (InputStream is = AccessController.doPrivileged(new PrivilegedExceptionAction<@RUntainted InputStream>() {
+                    public @RUntainted InputStream run() throws Exception {
                         return url.openStream();
                     }
                 })) {

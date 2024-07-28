@@ -20,6 +20,7 @@
 package org.apache.cxf.transport;
 
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Observer for incoming messages.

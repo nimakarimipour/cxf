@@ -32,6 +32,7 @@ import org.apache.cxf.interceptor.InterceptorChain;
 import org.apache.cxf.service.Service;
 import org.apache.cxf.service.model.EndpointInfo;
 import org.apache.cxf.transport.Destination;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class MessageImpl extends StringMapImpl implements Message {
     private static final long serialVersionUID = -3020763696429459865L;
@@ -45,7 +46,7 @@ public class MessageImpl extends StringMapImpl implements Message {
     private Object[] contents = new Object[20];
     private int index;
 
-    private Map<String, Object> contextCache;
+    private Map<String, @RUntainted Object> contextCache;
 
 
     public MessageImpl() {
@@ -75,7 +76,7 @@ public class MessageImpl extends StringMapImpl implements Message {
         return CastUtils.cast((Collection<?>)get(ATTACHMENTS));
     }
 
-    public void setAttachments(Collection<Attachment> attachments) {
+    public void setAttachments(@RUntainted Collection<Attachment> attachments) {
         put(ATTACHMENTS, attachments);
     }
 
@@ -168,13 +169,13 @@ public class MessageImpl extends StringMapImpl implements Message {
     public void setInterceptorChain(InterceptorChain ic) {
         this.interceptorChain = ic;
     }
-    public Object put(String key, Object value) {
+    public Object put(String key, @RUntainted Object value) {
         if (contextCache != null) {
             contextCache.put(key, value);
         }
         return super.put(key, value);
     }
-    public Object getContextualProperty(String key) {
+    public @RUntainted Object getContextualProperty(String key) {
         if (contextCache == null) {
             calcContextCache();
         }
@@ -228,7 +229,7 @@ public class MessageImpl extends StringMapImpl implements Message {
         }
     }
 
-    void setContextualProperty(String key, Object v) {
+    void setContextualProperty(String key, @RUntainted Object v) {
         if (contextCache != null && !containsKey(key)) {
             contextCache.put(key, v);
         }
