@@ -1,0 +1,702 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< org.apache.cxf:cxf-core >-----------------------
+[INFO] Building Apache CXF Core 4.0.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven) @ cxf-core ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 2: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] --- checkstyle:3.2.2:checkstyle (validate) @ cxf-core ---
+[WARNING] Parameter 'localRepository' is deprecated core expression; Avoid use of ArtifactRepository type. If you need access to local repository, switch to '${repositorySystemSession}' expression and get LRM from it instead.
+[INFO] 
+[INFO] >>> pmd:3.20.0:check (validate) > :pmd @ cxf-core >>>
+[INFO] 
+[INFO] --- pmd:3.20.0:pmd (pmd) @ cxf-core ---
+[WARNING] Parameter 'localRepository' is deprecated core expression; Avoid use of ArtifactRepository type. If you need access to local repository, switch to '${repositorySystemSession}' expression and get LRM from it instead.
+[INFO] PMD version: 6.55.0
+[INFO] Analysis cache created
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] 
+[INFO] <<< pmd:3.20.0:check (validate) < :pmd @ cxf-core <<<
+[INFO] 
+[INFO] 
+[INFO] --- pmd:3.20.0:check (validate) @ cxf-core ---
+[INFO] PMD version: 6.55.0
+[INFO] 
+[INFO] 
+[INFO] --- bundle:5.1.9:cleanVersions (versions) @ cxf-core ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create-timestamp (create-noncanonicalrev) @ cxf-core ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (create-buildnumber) @ cxf-core ---
+[INFO] Executing: /bin/sh -c cd '/home/nima/Developer/taint-benchmarks/cxf/core' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/nima/Developer/taint-benchmarks/cxf/core
+[INFO] Storing buildNumber: 8e4abdc34180e202391fa71f62223df1aa47315f at timestamp: 1722281020836
+[INFO] Executing: /bin/sh -c cd '/home/nima/Developer/taint-benchmarks/cxf/core' && 'git' 'symbolic-ref' 'HEAD'
+[INFO] Working directory: /home/nima/Developer/taint-benchmarks/cxf/core
+[INFO] Storing scmBranch: nimak/annotator
+[INFO] 
+[INFO] --- cxf-xjc:4.0.0:xsdtojava (generate-sources) @ cxf-core ---
+[INFO] Building jar: /tmp/cxf-xjc-plugin18016119963203470358.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin13612426146612472775.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin2161331982918862481.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin9706515105354471159.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin14669577752358175787.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin9033017720487173863.jar
+[INFO] 
+[INFO] --- cxf-xml2fastinfoset:4.0.1:xml2fastinfoset (xml2fastinfoset) @ cxf-core ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (default) @ cxf-core ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ cxf-core ---
+[INFO] Copying 26 resources from src/main/java to target/classes
+[INFO] Copying 32 resources from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources-filtered to target/classes
+[INFO] Copying 1 resource from target/generated/src/main/resources to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] The encoding used to copy filtered properties files have not been set. This means that the same encoding will be used to copy filtered properties files as when copying other filtered resources. This might not be what you want! Run your build with --debug to see which files might be affected. Read more at https://maven.apache.org/plugins/maven-resources-plugin/examples/filtering-properties-files.html
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ cxf-core ---
+[WARNING] Parameter 'compilerArguments' is deprecated: use compilerArgs instead.
+Downloading from apache.snapshots: https://repository.apache.org/snapshots/edu/ucr/cs/riple/taint/ucrtainting-checker/0.1-alpha-3-SNAPSHOT/maven-metadata.xml
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 593 source files with javac [forked debug deprecation release 11] to target/classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/injection/ResourceInjector.java:[320,34] [deprecation] isAccessible() in AccessibleObject has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/ReflectionUtil.java:[51,29] [deprecation] isAccessible() in AccessibleObject has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/ReflectionUtil.java:[70,29] [deprecation] isAccessible() in AccessibleObject has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/spi/ClassGeneratorClassLoader.java:[134,33] [deprecation] getPackage(String) in ClassLoader has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/spi/GeneratedClassClassLoader.java:[96,33] [deprecation] getPackage(String) in ClassLoader has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/SpringClassUnwrapper.java:[39,22] [deprecation] isCglibProxyClass(Class<?>) in ClassUtils has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/SpringClassUnwrapper.java:[94,29] [deprecation] isCglibProxyClass(Class<?>) in ClassUtils has been deprecated
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/ServiceInvokerInterceptor.java:[78,62] [cast.unsafe] cast from "@RTainted Object" to "@RTainted Object @RUntainted []" cannot be statically verified
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentUtil.java:[540,51] [cast.unsafe] cast from "@RTainted Object" to "@RTainted byte @RUntainted []" cannot be statically verified
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/security/SecureAnnotationsInterceptor.java:[113,37] [cast.unsafe] cast from "@RTainted Object" to "@RTainted String @RUntainted []" cannot be statically verified
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/ImageDataContentHandler.java:[97,21] [cast.unsafe] cast from "@RTainted Object" to "@RTainted byte @RUntainted []" cannot be statically verified
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/SortedArraySet.java:[179,23] [cast.unsafe] cast from "@RTainted Object" to "X[ extends @RTainted Object super @RUntainted Void] @RUntainted []" cannot be statically verified
+[WARNING] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/SortedArraySet.java:[186,16] [cast.unsafe] cast from "@RTainted Object" to "X[ extends @RTainted Object super @RUntainted Void] @RUntainted []" cannot be statically verified
+[INFO] 13 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR]  Library: true, Poly: true, Type Argument: true, Validation: false, Side Effect: false
+/home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/extension/Extension.java:[167,45] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 1
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/extension/Extension.java:[175,32] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 2
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/extension/Extension.java:[179,66] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 3
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/jaxb/JAXBContextCache.java:[345,41] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 4
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/jaxb/JAXBUtils.java:[602,41] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 5
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/jaxb/JAXBUtils.java:[603,40] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted File
+  required: @RUntainted File, index: 6
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/jaxb/JAXBUtils.java:[605,39] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted File
+  required: @RUntainted File, index: 7
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/IOUtils.java:[277,25] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+  found   : @RTainted char @RUntainted []
+  required: @RUntainted char @RUntainted [], index: 8
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/IOUtils.java:[295,25] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+  found   : @RTainted char @RUntainted []
+  required: @RUntainted char @RUntainted [], index: 9
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Compiler.java:[181,74] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 10
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Compiler.java:[185,28] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 11
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Compiler.java:[190,28] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 12
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Compiler.java:[280,70] error: [argument] incompatible argument for parameter arg0 of FileWriter constructor.
+  found   : @RTainted File
+  required: @RUntainted File, index: 13
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Compiler.java:[318,56] error: [argument] incompatible argument for parameter arg0 of Runtime.exec.
+  found   : @RTainted String @RUntainted []
+  required: @RUntainted String @RUntainted [], index: 14
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Compiler.java:[367,70] error: [argument] incompatible argument for parameter arg0 of FileWriter constructor.
+  found   : @RTainted File
+  required: @RUntainted File, index: 15
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/AbstractLoggingInterceptor.java:[124,37] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted URI
+  required: @RUntainted URI, index: 16
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/AbstractLoggingInterceptor.java:[125,56] error: [argument] incompatible argument for parameter arg0 of FileWriter constructor.
+  found   : @RTainted File
+  required: @RUntainted File, index: 17
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedOutputStream.java:[61,30] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 18
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedOutputStream.java:[125,34] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 19
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentUtil.java:[184,42] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 20
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentUtil.java:[558,30] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 21
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentUtil.java:[598,57] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 22
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[274,36] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 23
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[288,36] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 24
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[302,49] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 25
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[313,44] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 26
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[319,60] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 27
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/catalog/OASISCatalogManager.java:[181,57] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted URI
+  required: @RUntainted URI, index: 28
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Base64Utility.java:[412,36] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+  found   : @RTainted char @RUntainted []
+  required: @RUntainted char @RUntainted [], index: 29
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/spi/ClassGeneratorClassLoader.java:[122,45] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 30
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/ProxyClassLoader.java:[64,40] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 31
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/ProxyClassLoader.java:[71,56] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 32
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/spring/BusApplicationContext.java:[254,42] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 33
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/BusFactory.java:[80,59] error: [assignment] incompatible types in assignment.
+  found   : @RTainted Logger
+  required: @RUntainted Logger, index: 34
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/BusFactory.java:[392,84] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 35
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/BusFactory.java:[396,51] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 36
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/URIParserUtil.java:[48,45] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 37
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/URIParserUtil.java:[88,26] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 38
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/URIParserUtil.java:[96,37] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 39
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/URIParserUtil.java:[106,30] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 40
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[160,21] error: [argument] incompatible argument for parameter arg0 of StringWriter.write.
+  found   : @RTainted String
+  required: @RUntainted String, index: 41
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[210,21] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+  found   : @RTainted String
+  required: @RUntainted String, index: 42
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[211,81] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+  found   : @RTainted String
+  required: @RUntainted String, index: 43
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[225,35] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+  found   : @RTainted String
+  required: @RUntainted String, index: 44
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[244,54] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+  found   : @RTainted String
+  required: @RUntainted String, index: 45
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[246,37] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+  found   : @RTainted String
+  required: @RUntainted String, index: 46
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[261,25] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+  found   : @RTainted String
+  required: @RUntainted String, index: 47
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[265,39] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+  found   : @RTainted String
+  required: @RUntainted String, index: 48
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[292,29] error: [argument] incompatible argument for parameter arg0 of StringWriter.write.
+  found   : @RTainted String
+  required: @RUntainted String, index: 49
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[324,21] error: [argument] incompatible argument for parameter arg0 of StringWriter.write.
+  found   : @RTainted String
+  required: @RUntainted String, index: 50
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/spi/GeneratedClassClassLoader.java:[44,32] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 51
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/spi/GeneratedClassClassLoader.java:[84,45] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 52
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/StringUtils.java:[94,24] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 53
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/ws/addressing/EndpointReferenceUtils.java:[117,42] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 54
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/ws/addressing/EndpointReferenceUtils.java:[118,43] error: [argument] incompatible argument for parameter arg1 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 55
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/ws/addressing/EndpointReferenceUtils.java:[523,62] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 56
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[140,46] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 57
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[142,65] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 58
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[186,41] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 59
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[189,58] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 60
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[202,66] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 61
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[231,32] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted URI
+  required: @RUntainted URI, index: 62
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[233,51] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 63
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[293,27] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 64
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[346,22] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 65
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[378,56] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 66
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[411,26] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 67
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/staxutils/StaxUtils.java:[612,71] error: [argument] incompatible argument for parameter arg0 of XMLReader.parse.
+  found   : @RTainted InputSource
+  required: @RUntainted InputSource, index: 68
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/staxutils/StaxUtils.java:[1695,40] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 69
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[157,24] error: [argument] incompatible argument for parameter arg0 of FilterWriter.write.
+  found   : @RTainted int
+  required: @RUntainted int, index: 70
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[159,27] error: [argument] incompatible argument for parameter arg0 of StringWriter.write.
+  found   : @RTainted int
+  required: @RUntainted int, index: 71
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[164,24] error: [argument] incompatible argument for parameter arg0 of FilterWriter.write.
+  found   : @RTainted char @RUntainted []
+  required: @RUntainted char @RUntainted [], index: 72
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[166,27] error: [argument] incompatible argument for parameter arg0 of StringWriter.write.
+  found   : @RTainted char @RUntainted []
+  required: @RUntainted char @RUntainted [], index: 73
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[171,24] error: [argument] incompatible argument for parameter arg0 of FilterWriter.write.
+  found   : @RTainted String
+  required: @RUntainted String, index: 74
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[173,27] error: [argument] incompatible argument for parameter arg0 of StringWriter.write.
+  found   : @RTainted String
+  required: @RUntainted String, index: 75
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[58,46] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted File
+  required: @RUntainted File, index: 76
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[58,50] error: [argument] incompatible argument for parameter arg1 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 77
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[82,30] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 78
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[138,36] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 79
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[165,30] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted File
+  required: @RUntainted File, index: 80
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[172,29] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted File
+  required: @RUntainted File, index: 81
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[236,30] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted File
+  required: @RUntainted File, index: 82
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[236,33] error: [argument] incompatible argument for parameter arg1 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 83
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSParameterJaxBUtils.java:[152,88] error: [argument] incompatible argument for parameter arg0 of Paths.get.
+  found   : @RTainted String
+  required: @RUntainted String, index: 84
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSParameterJaxBUtils.java:[165,44] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 85
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSParameterJaxBUtils.java:[174,70] error: [argument] incompatible argument for parameter arg0 of Paths.get.
+  found   : @RTainted String
+  required: @RUntainted String, index: 86
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSParameterJaxBUtils.java:[203,71] error: [argument] incompatible argument for parameter arg0 of Paths.get.
+  found   : @RTainted String
+  required: @RUntainted String, index: 87
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSParameterJaxBUtils.java:[217,54] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 88
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/spring/ControlledValidationXmlBeanDefinitionReader.java:[173,39] error: [argument] incompatible argument for parameter arg1 of URL constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 89
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/spring/ControlledValidationXmlBeanDefinitionReader.java:[179,41] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted URI
+  required: @RUntainted URI, index: 90
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/spring/ControlledValidationXmlBeanDefinitionReader.java:[179,85] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted URI
+  required: @RUntainted URI, index: 91
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedWriter.java:[67,30] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 92
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedWriter.java:[145,34] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 93
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedWriter.java:[331,26] error: [argument] incompatible argument for parameter arg0 of CharArrayWriter.write.
+  found   : @RTainted char @RUntainted []
+  required: @RUntainted char @RUntainted [], index: 94
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedWriter.java:[352,30] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+  found   : @RTainted char @RUntainted []
+  required: @RUntainted char @RUntainted [], index: 95
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedWriter.java:[462,32] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+  found   : @RTainted char @RUntainted []
+  required: @RUntainted char @RUntainted [], index: 96
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/SSLUtils.java:[107,33] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 97
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/SSLUtils.java:[138,33] error: [argument] incompatible argument for parameter arg0 of File constructor.
+  found   : @RTainted String
+  required: @RUntainted String, index: 98
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/SpringClasspathScanner.java:[201,32] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+  found   : @RTainted String
+  required: @RUntainted String, index: 99
+[INFO] 99 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  26.230 s
+[INFO] Finished at: 2024-07-29T12:24:04-07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project cxf-core: Compilation failure: Compilation failure: 
+[ERROR]  Library: true, Poly: true, Type Argument: true, Validation: false, Side Effect: false
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/extension/Extension.java:[167,45] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 1
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/extension/Extension.java:[175,32] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 2
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/extension/Extension.java:[179,66] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 3
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/jaxb/JAXBContextCache.java:[345,41] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 4
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/jaxb/JAXBUtils.java:[602,41] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 5
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/jaxb/JAXBUtils.java:[603,40] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted File
+[ERROR]   required: @RUntainted File, index: 6
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/jaxb/JAXBUtils.java:[605,39] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted File
+[ERROR]   required: @RUntainted File, index: 7
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/IOUtils.java:[277,25] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+[ERROR]   found   : @RTainted char @RUntainted []
+[ERROR]   required: @RUntainted char @RUntainted [], index: 8
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/IOUtils.java:[295,25] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+[ERROR]   found   : @RTainted char @RUntainted []
+[ERROR]   required: @RUntainted char @RUntainted [], index: 9
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Compiler.java:[181,74] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 10
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Compiler.java:[185,28] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 11
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Compiler.java:[190,28] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 12
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Compiler.java:[280,70] error: [argument] incompatible argument for parameter arg0 of FileWriter constructor.
+[ERROR]   found   : @RTainted File
+[ERROR]   required: @RUntainted File, index: 13
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Compiler.java:[318,56] error: [argument] incompatible argument for parameter arg0 of Runtime.exec.
+[ERROR]   found   : @RTainted String @RUntainted []
+[ERROR]   required: @RUntainted String @RUntainted [], index: 14
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Compiler.java:[367,70] error: [argument] incompatible argument for parameter arg0 of FileWriter constructor.
+[ERROR]   found   : @RTainted File
+[ERROR]   required: @RUntainted File, index: 15
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/AbstractLoggingInterceptor.java:[124,37] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted URI
+[ERROR]   required: @RUntainted URI, index: 16
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/AbstractLoggingInterceptor.java:[125,56] error: [argument] incompatible argument for parameter arg0 of FileWriter constructor.
+[ERROR]   found   : @RTainted File
+[ERROR]   required: @RUntainted File, index: 17
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedOutputStream.java:[61,30] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 18
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedOutputStream.java:[125,34] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 19
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentUtil.java:[184,42] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 20
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentUtil.java:[558,30] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 21
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentUtil.java:[598,57] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 22
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[274,36] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 23
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[288,36] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 24
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[302,49] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 25
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[313,44] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 26
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/classloader/ClassLoaderUtils.java:[319,60] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 27
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/catalog/OASISCatalogManager.java:[181,57] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted URI
+[ERROR]   required: @RUntainted URI, index: 28
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/Base64Utility.java:[412,36] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+[ERROR]   found   : @RTainted char @RUntainted []
+[ERROR]   required: @RUntainted char @RUntainted [], index: 29
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/spi/ClassGeneratorClassLoader.java:[122,45] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 30
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/ProxyClassLoader.java:[64,40] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 31
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/ProxyClassLoader.java:[71,56] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 32
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/spring/BusApplicationContext.java:[254,42] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 33
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/BusFactory.java:[80,59] error: [assignment] incompatible types in assignment.
+[ERROR]   found   : @RTainted Logger
+[ERROR]   required: @RUntainted Logger, index: 34
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/BusFactory.java:[392,84] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 35
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/BusFactory.java:[396,51] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 36
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/URIParserUtil.java:[48,45] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 37
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/URIParserUtil.java:[88,26] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 38
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/URIParserUtil.java:[96,37] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 39
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/URIParserUtil.java:[106,30] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 40
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[160,21] error: [argument] incompatible argument for parameter arg0 of StringWriter.write.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 41
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[210,21] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 42
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[211,81] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 43
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[225,35] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 44
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[244,54] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 45
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[246,37] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 46
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[261,25] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 47
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[265,39] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 48
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[292,29] error: [argument] incompatible argument for parameter arg0 of StringWriter.write.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 49
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/attachment/AttachmentSerializer.java:[324,21] error: [argument] incompatible argument for parameter arg0 of StringWriter.write.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 50
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/spi/GeneratedClassClassLoader.java:[44,32] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 51
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/spi/GeneratedClassClassLoader.java:[84,45] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 52
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/StringUtils.java:[94,24] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 53
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/ws/addressing/EndpointReferenceUtils.java:[117,42] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 54
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/ws/addressing/EndpointReferenceUtils.java:[118,43] error: [argument] incompatible argument for parameter arg1 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 55
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/ws/addressing/EndpointReferenceUtils.java:[523,62] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 56
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[140,46] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 57
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[142,65] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 58
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[186,41] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 59
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[189,58] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 60
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[202,66] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 61
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[231,32] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted URI
+[ERROR]   required: @RUntainted URI, index: 62
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[233,51] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 63
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[293,27] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 64
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[346,22] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 65
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[378,56] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 66
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/resource/URIResolver.java:[411,26] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 67
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/staxutils/StaxUtils.java:[612,71] error: [argument] incompatible argument for parameter arg0 of XMLReader.parse.
+[ERROR]   found   : @RTainted InputSource
+[ERROR]   required: @RUntainted InputSource, index: 68
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/staxutils/StaxUtils.java:[1695,40] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 69
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[157,24] error: [argument] incompatible argument for parameter arg0 of FilterWriter.write.
+[ERROR]   found   : @RTainted int
+[ERROR]   required: @RUntainted int, index: 70
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[159,27] error: [argument] incompatible argument for parameter arg0 of StringWriter.write.
+[ERROR]   found   : @RTainted int
+[ERROR]   required: @RUntainted int, index: 71
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[164,24] error: [argument] incompatible argument for parameter arg0 of FilterWriter.write.
+[ERROR]   found   : @RTainted char @RUntainted []
+[ERROR]   required: @RUntainted char @RUntainted [], index: 72
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[166,27] error: [argument] incompatible argument for parameter arg0 of StringWriter.write.
+[ERROR]   found   : @RTainted char @RUntainted []
+[ERROR]   required: @RUntainted char @RUntainted [], index: 73
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[171,24] error: [argument] incompatible argument for parameter arg0 of FilterWriter.write.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 74
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/interceptor/LoggingOutInterceptor.java:[173,27] error: [argument] incompatible argument for parameter arg0 of StringWriter.write.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 75
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[58,46] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted File
+[ERROR]   required: @RUntainted File, index: 76
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[58,50] error: [argument] incompatible argument for parameter arg1 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 77
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[82,30] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 78
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[138,36] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 79
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[165,30] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted File
+[ERROR]   required: @RUntainted File, index: 80
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[172,29] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted File
+[ERROR]   required: @RUntainted File, index: 81
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[236,30] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted File
+[ERROR]   required: @RUntainted File, index: 82
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/helpers/FileUtils.java:[236,33] error: [argument] incompatible argument for parameter arg1 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 83
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSParameterJaxBUtils.java:[152,88] error: [argument] incompatible argument for parameter arg0 of Paths.get.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 84
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSParameterJaxBUtils.java:[165,44] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 85
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSParameterJaxBUtils.java:[174,70] error: [argument] incompatible argument for parameter arg0 of Paths.get.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 86
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSParameterJaxBUtils.java:[203,71] error: [argument] incompatible argument for parameter arg0 of Paths.get.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 87
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/TLSParameterJaxBUtils.java:[217,54] error: [argument] incompatible argument for parameter arg0 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 88
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/spring/ControlledValidationXmlBeanDefinitionReader.java:[173,39] error: [argument] incompatible argument for parameter arg1 of URL constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 89
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/spring/ControlledValidationXmlBeanDefinitionReader.java:[179,41] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted URI
+[ERROR]   required: @RUntainted URI, index: 90
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/spring/ControlledValidationXmlBeanDefinitionReader.java:[179,85] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted URI
+[ERROR]   required: @RUntainted URI, index: 91
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedWriter.java:[67,30] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 92
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedWriter.java:[145,34] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 93
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedWriter.java:[331,26] error: [argument] incompatible argument for parameter arg0 of CharArrayWriter.write.
+[ERROR]   found   : @RTainted char @RUntainted []
+[ERROR]   required: @RUntainted char @RUntainted [], index: 94
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedWriter.java:[352,30] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+[ERROR]   found   : @RTainted char @RUntainted []
+[ERROR]   required: @RUntainted char @RUntainted [], index: 95
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/io/CachedWriter.java:[462,32] error: [argument] incompatible argument for parameter arg0 of Writer.write.
+[ERROR]   found   : @RTainted char @RUntainted []
+[ERROR]   required: @RUntainted char @RUntainted [], index: 96
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/SSLUtils.java:[107,33] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 97
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/configuration/jsse/SSLUtils.java:[138,33] error: [argument] incompatible argument for parameter arg0 of File constructor.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 98
+[ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/common/util/SpringClasspathScanner.java:[201,32] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
+[ERROR]   found   : @RTainted String
+[ERROR]   required: @RUntainted String, index: 99
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
