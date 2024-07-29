@@ -21,6 +21,7 @@ package org.apache.cxf.message;
 
 import java.util.HashMap;
 import java.util.Map;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * A variation on HashMap which allows lookup by Class, via the string

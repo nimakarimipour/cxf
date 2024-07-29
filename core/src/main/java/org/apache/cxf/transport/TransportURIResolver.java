@@ -42,6 +42,7 @@ import org.apache.cxf.message.Message;
 import org.apache.cxf.message.MessageImpl;
 import org.apache.cxf.resource.ExtendedURIResolver;
 import org.apache.cxf.service.model.EndpointInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  *
@@ -67,7 +68,7 @@ public class TransportURIResolver extends ExtendedURIResolver {
         bus = b;
     }
 
-    public InputSource resolve(String curUri, String baseUri) {
+    public InputSource resolve(@RUntainted String curUri, @RUntainted String baseUri) {
         // Spaces must be encoded or URI.resolve() will choke
         curUri = curUri.replace(" ", "%20");
 

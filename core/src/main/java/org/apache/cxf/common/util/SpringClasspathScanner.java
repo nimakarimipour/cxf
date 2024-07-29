@@ -37,6 +37,7 @@ import org.springframework.core.type.classreading.CachingMetadataReaderFactory;
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
 import org.springframework.util.ClassUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 class SpringClasspathScanner extends ClasspathScanner {
 
@@ -60,9 +61,9 @@ class SpringClasspathScanner extends ClasspathScanner {
 
     @Override
     protected Map< Class< ? extends Annotation >, Collection< Class< ? > > > findClassesInternal(
-        Collection< String > basePackages,
+        Collection< @RUntainted String > basePackages,
         List<Class< ? extends Annotation > > annotations,
-        ClassLoader loader)
+        @RUntainted ClassLoader loader)
         throws IOException, ClassNotFoundException {
 
         ResourcePatternResolver resolver = getResolver(loader);
@@ -70,9 +71,9 @@ class SpringClasspathScanner extends ClasspathScanner {
 
         final Map< Class< ? extends Annotation >, Collection< Class< ? > > > classes =
             new HashMap<>();
-        final Map< Class< ? extends Annotation >, Collection< String > > matchingInterfaces =
+        final Map< Class< ? extends Annotation >, Collection< @RUntainted String > > matchingInterfaces =
             new HashMap<>();
-        final Map<String, String[]> nonMatchingClasses = new HashMap<>();
+        final Map<@RUntainted String, String[]> nonMatchingClasses = new HashMap<>();
 
         for (Class< ? extends Annotation > annotation: annotations) {
             classes.put(annotation, new HashSet<>());
@@ -89,7 +90,7 @@ class SpringClasspathScanner extends ClasspathScanner {
                 + (scanAllPackages ? "" : ClassUtils.convertClassNameToResourcePath(basePackage))
                 + ALL_CLASS_FILES;
 
-            final Resource[] resources = resolver.getResources(packageSearchPath);
+            final @RUntainted Resource[] resources = resolver.getResources(packageSearchPath);
 
 
             for (final Resource resource: resources) {
@@ -115,8 +116,8 @@ class SpringClasspathScanner extends ClasspathScanner {
             }
         }
         if (!nonMatchingClasses.isEmpty()) {
-            for (Map.Entry<Class<? extends Annotation>, Collection<String>> e1 : matchingInterfaces.entrySet()) {
-                for (Map.Entry<String, String[]> e2 : nonMatchingClasses.entrySet()) {
+            for (Map.Entry<Class<? extends Annotation>, Collection<@RUntainted String>> e1 : matchingInterfaces.entrySet()) {
+                for (Map.Entry<@RUntainted String, String[]> e2 : nonMatchingClasses.entrySet()) {
                     for (String intName : e2.getValue()) {
                         if (e1.getValue().contains(intName)) {
                             classes.get(e1.getKey()).add(loadClass(e2.getKey(), loader));
@@ -127,7 +128,7 @@ class SpringClasspathScanner extends ClasspathScanner {
             }
         }
 
-        for (Map.Entry<Class<? extends Annotation>, Collection<String>> e : matchingInterfaces.entrySet()) {
+        for (Map.Entry<Class<? extends Annotation>, Collection<@RUntainted String>> e : matchingInterfaces.entrySet()) {
             if (classes.get(e.getKey()).isEmpty()) {
                 for (String intName : e.getValue()) {
                     classes.get(e.getKey()).add(loadClass(intName, loader));
@@ -141,7 +142,7 @@ class SpringClasspathScanner extends ClasspathScanner {
     @Override
     protected List<URL> findResourcesInternal(Collection<String> basePackages,
                                               String extension,
-                                              ClassLoader loader)
+                                              @RUntainted ClassLoader loader)
         throws IOException {
         final List<URL> resourceURLs = new ArrayList<>();
         if (basePackages == null || basePackages.isEmpty()) {
@@ -170,7 +171,7 @@ class SpringClasspathScanner extends ClasspathScanner {
         return resourceURLs;
     }
 
-    private ResourcePatternResolver getResolver(ClassLoader loader) {
+    private @RUntainted ResourcePatternResolver getResolver(@RUntainted ClassLoader loader) {
         ResourcePatternResolver resolver = null;
         //TODO: [OSGi+Jakarta] uncoment this when osgi comes back
         /*if (IN_OSGI) {
@@ -193,7 +194,7 @@ class SpringClasspathScanner extends ClasspathScanner {
         return false;
     }
 
-    private Class<?> loadClass(String className, ClassLoader loader)
+    private Class<?> loadClass(@RUntainted String className, ClassLoader loader)
         throws ClassNotFoundException {
         if (loader == null) {
             return ClassLoaderUtils.loadClass(className, getClass());

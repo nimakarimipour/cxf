@@ -27,6 +27,7 @@ import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.common.util.StringUtils;
 import org.apache.cxf.common.util.WeakIdentityHashMap;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /** Class loader used to store and retrieve class generated during runtime to avoid class generation each time.
  *  inherited class use asmHelper to generate bytes and use @see #loadClass(String, Class&lt;?&gt;, byte[])
@@ -117,7 +118,7 @@ public class ClassGeneratorClassLoader {
         }
 
         @Override
-        protected Class<?> findClass(String name) throws ClassNotFoundException {
+        protected Class<?> findClass(@RUntainted String name) throws ClassNotFoundException {
             if (name.endsWith("package-info")) {
                 return getParent().loadClass(name);
             }

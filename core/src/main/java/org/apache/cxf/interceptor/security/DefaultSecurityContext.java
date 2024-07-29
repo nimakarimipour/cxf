@@ -33,6 +33,8 @@ import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.security.GroupPrincipal;
 import org.apache.cxf.common.util.ReflectionUtil;
 import org.apache.cxf.security.LoginSecurityContext;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 /**
  * SecurityContext which implements isUserInRole using the
