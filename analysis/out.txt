@@ -1,6 +1,6 @@
 Traceback (most recent call last):
-  File "/home/nima/Developer/taint-benchmarks/cxf/analysis/annotator.py", line 56, in <module>
+  File "/home/kdas006/annotation_dataset/cxf/analysis/annotator.py", line 56, in <module>
     run_annotator()
-  File "/home/nima/Developer/taint-benchmarks/cxf/analysis/annotator.py", line 37, in run_annotator
+  File "/home/kdas006/annotation_dataset/cxf/analysis/annotator.py", line 37, in run_annotator
     commands += ['-bc', 'cd {} && ./annotator-command.sh'.format(REPO, MODULE)]
 NameError: name 'MODULE' is not defined
