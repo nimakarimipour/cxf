@@ -28,17 +28,18 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.security.auth.DestroyFailedException;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * A class to hold a pair of encryption and decryption ciphers.
  */
 public class CipherPair {
-    private String transformation;
-    private Cipher enccipher;
+    private @RUntainted String transformation;
+    private @RUntainted Cipher enccipher;
     private SecretKey key;
     private byte[] ivp;
 
-    public CipherPair(String transformation) throws GeneralSecurityException {
+    public CipherPair(@RUntainted String transformation) throws GeneralSecurityException {
         this.transformation = transformation;
 
         int d = transformation.indexOf('/');
@@ -65,11 +66,11 @@ public class CipherPair {
         return transformation;
     }
 
-    public Cipher getEncryptor() {
+    public @RUntainted Cipher getEncryptor() {
         return enccipher;
     }
 
-    public Cipher getDecryptor() {
+    public @RUntainted Cipher getDecryptor() {
         Cipher deccipher = null;
         try {
             deccipher = Cipher.getInstance(transformation);

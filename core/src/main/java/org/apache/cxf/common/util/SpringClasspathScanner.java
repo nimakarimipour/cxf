@@ -37,6 +37,7 @@ import org.springframework.core.type.classreading.CachingMetadataReaderFactory;
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
 import org.springframework.util.ClassUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 class SpringClasspathScanner extends ClasspathScanner {
 
@@ -193,7 +194,7 @@ class SpringClasspathScanner extends ClasspathScanner {
         return false;
     }
 
-    private Class<?> loadClass(String className, ClassLoader loader)
+    private Class<?> loadClass(@RUntainted String className, ClassLoader loader)
         throws ClassNotFoundException {
         if (loader == null) {
             return ClassLoaderUtils.loadClass(className, getClass());

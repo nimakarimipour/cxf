@@ -48,6 +48,7 @@ import org.apache.cxf.service.Service;
 import org.apache.cxf.service.model.BindingOperationInfo;
 import org.apache.cxf.service.model.OperationInfo;
 import org.apache.cxf.transport.MessageObserver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * A PhaseInterceptorChain orders Interceptors according to the phase they
@@ -87,7 +88,7 @@ public class PhaseInterceptorChain implements InterceptorChain {
 
 
     private State state;
-    private Message pausedMessage;
+    private @RUntainted Message pausedMessage;
     private MessageObserver faultObserver;
     private PhaseInterceptorIterator iterator;
     private final boolean isFineLogging;
@@ -285,7 +286,7 @@ public class PhaseInterceptorChain implements InterceptorChain {
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
-    public synchronized boolean doIntercept(Message message) {
+    public synchronized boolean doIntercept(@RUntainted Message message) {
         updateIterator();
 
         Message oldMessage = CURRENT_MESSAGE.get();
@@ -342,7 +343,7 @@ public class PhaseInterceptorChain implements InterceptorChain {
         }
     }
 
-    private void wrapExceptionAsFault(Message message, RuntimeException ex) {
+    private void wrapExceptionAsFault(@RUntainted Message message, RuntimeException ex) {
         String description = getServiceInfo(message);
 
         message.setContent(Exception.class, ex);
@@ -442,7 +443,7 @@ public class PhaseInterceptorChain implements InterceptorChain {
      * @param startingAfterInterceptorID the id of the interceptor
      * @throws Exception
      */
-    public synchronized boolean doInterceptStartingAfter(Message message,
+    public synchronized boolean doInterceptStartingAfter(@RUntainted Message message,
                                                          String startingAfterInterceptorID) {
         updateIterator();
         while (state == State.EXECUTING && iterator.hasNext()) {
@@ -463,7 +464,7 @@ public class PhaseInterceptorChain implements InterceptorChain {
      * @param startingAtInterceptorID the id of the interceptor
      * @throws Exception
      */
-    public synchronized boolean doInterceptStartingAt(Message message,
+    public synchronized boolean doInterceptStartingAt(@RUntainted Message message,
                                                          String startingAtInterceptorID) {
         updateIterator();
         while (state == State.EXECUTING && iterator.hasNext()) {

@@ -36,6 +36,7 @@ import org.apache.cxf.service.model.ServiceInfo;
 import org.apache.cxf.transport.Conduit;
 import org.apache.cxf.transport.Destination;
 import org.apache.cxf.transport.Session;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class ExchangeImpl extends ConcurrentHashMap<String, Object>  implements Exchange {
 
@@ -45,7 +46,7 @@ public class ExchangeImpl extends ConcurrentHashMap<String, Object>  implements 
     private boolean synchronous = true;
 
     private Message inMessage;
-    private Message outMessage;
+    private @RUntainted Message outMessage;
     private Message inFaultMessage;
     private Message outFaultMessage;
 
@@ -191,7 +192,7 @@ public class ExchangeImpl extends ConcurrentHashMap<String, Object>  implements 
                : null;
     }
 
-    public Message getOutMessage() {
+    public @RUntainted Message getOutMessage() {
         return outMessage;
     }
 
@@ -233,7 +234,7 @@ public class ExchangeImpl extends ConcurrentHashMap<String, Object>  implements 
             new PreexistingConduitSelector(c, getEndpoint()));
     }
 
-    public void setOutMessage(Message m) {
+    public void setOutMessage(@RUntainted Message m) {
         outMessage = m;
         if (null != m) {
             m.setExchange(this);

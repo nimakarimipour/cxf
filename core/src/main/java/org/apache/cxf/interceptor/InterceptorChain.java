@@ -24,6 +24,7 @@ import java.util.ListIterator;
 
 import org.apache.cxf.message.Message;
 import org.apache.cxf.transport.MessageObserver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Base interface for all interceptor chains.  An interceptor chain is an
@@ -61,11 +62,11 @@ public interface InterceptorChain extends Iterable<Interceptor<? extends Message
 
     void remove(Interceptor<? extends Message> i);
 
-    boolean doIntercept(Message message);
+    boolean doIntercept(@RUntainted Message message);
 
-    boolean doInterceptStartingAfter(Message message, String startingAfterInterceptorID);
+    boolean doInterceptStartingAfter(@RUntainted Message message, String startingAfterInterceptorID);
 
-    boolean doInterceptStartingAt(Message message, String startingAtInterceptorID);
+    boolean doInterceptStartingAt(@RUntainted Message message, String startingAtInterceptorID);
 
     /**
      * Pauses the current chain.   When the stack unwinds, the chain will just

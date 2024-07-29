@@ -312,7 +312,7 @@
                                         <whichresource resource="/cxf-eclipse-pmd" property="pmd.url" />
                                         <whichresource resource="/cxf-pmd-ruleset.xml" property="pmdruleset.url" />
                                         <whichresource resource="/cxf-eclipse-checkstyle" property="eclipse.checkstyle.url" />
-                                        <whichresource resource="/cxf-checkstyle.xml" property="checkstyle.url" />
+                                        <!-- <whichresource resource="/cxf-checkstyle.xml" property="checkstyle.url" /> -->
                                         <whichresource resource="/cxf-checkstyle-corba.xml" property="corba.checkstyle.url" />
                                         <whichresource resource="/cxf-checkstyle-suppressions.xml" property="checkstyle.suppression.url" />
                                         <mkdir dir="${full.eclipse.workspace}/.metadata/.plugins/org.eclipse.core.runtime/.settings" />

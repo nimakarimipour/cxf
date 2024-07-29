@@ -32,6 +32,7 @@ import org.apache.cxf.interceptor.InterceptorChain;
 import org.apache.cxf.service.Service;
 import org.apache.cxf.service.model.EndpointInfo;
 import org.apache.cxf.transport.Destination;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class MessageImpl extends StringMapImpl implements Message {
     private static final long serialVersionUID = -3020763696429459865L;
@@ -42,7 +43,7 @@ public class MessageImpl extends StringMapImpl implements Message {
     private InterceptorChain interceptorChain;
 
     // array of Class<T>/T pairs for contents
-    private Object[] contents = new Object[20];
+    private @RUntainted Object[] contents = new Object[20];
     private int index;
 
     private Map<String, Object> contextCache;
@@ -101,7 +102,7 @@ public class MessageImpl extends StringMapImpl implements Message {
     }
 
     @SuppressWarnings("unchecked")
-    public <T> T getContent(Class<T> format) {
+    public <T> @RUntainted T getContent(Class<T> format) {
         for (int x = 0; x < index; x += 2) {
             if (contents[x] == format) {
                 return (T)contents[x + 1];
@@ -110,7 +111,7 @@ public class MessageImpl extends StringMapImpl implements Message {
         return null;
     }
 
-    public <T> void setContent(Class<T> format, Object content) {
+    public <T> void setContent(@RUntainted Class<T> format, @RUntainted Object content) {
         for (int x = 0; x < index; x += 2) {
             if (contents[x] == format) {
                 contents[x + 1] = content;
@@ -120,7 +121,7 @@ public class MessageImpl extends StringMapImpl implements Message {
         if (index >= contents.length) {
             //very unlikely to happen.   Haven't seen more than about 6,
             //but just in case we'll add a few more
-            Object[] tmp = new Object[contents.length + 10];
+            @RUntainted Object[] tmp = new Object[contents.length + 10];
             System.arraycopy(contents, 0, tmp, 0, contents.length);
             contents = tmp;
         }
@@ -174,7 +175,7 @@ public class MessageImpl extends StringMapImpl implements Message {
         }
         return super.put(key, value);
     }
-    public Object getContextualProperty(String key) {
+    public @RUntainted Object getContextualProperty(String key) {
         if (contextCache == null) {
             calcContextCache();
         }

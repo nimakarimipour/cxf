@@ -43,6 +43,7 @@ import org.apache.cxf.transport.MessageObserver;
 import static org.apache.cxf.ws.addressing.JAXWSAConstants.ADDRESSING_PROPERTIES_INBOUND;
 import static org.apache.cxf.ws.addressing.JAXWSAConstants.ADDRESSING_PROPERTIES_OUTBOUND;
 import static org.apache.cxf.ws.addressing.JAXWSAConstants.CLIENT_ADDRESSING_PROPERTIES;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Holder for utility methods relating to contexts.
@@ -548,7 +549,7 @@ public final class ContextUtils {
      * @param exchange the current exchange
      * @return the Method from the BindingOperationInfo
      */
-    public static Message createMessage(Exchange exchange) {
+    public static @RUntainted Message createMessage(Exchange exchange) {
         Endpoint ep = exchange.getEndpoint();
         Message msg = null;
         if (ep != null) {

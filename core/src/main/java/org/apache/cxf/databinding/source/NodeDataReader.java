@@ -42,6 +42,7 @@ import org.apache.cxf.message.Attachment;
 import org.apache.cxf.service.model.MessagePartInfo;
 import org.apache.cxf.staxutils.StaxSource;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class NodeDataReader implements DataReader<Node> {
     private static final Logger LOG = LogUtils.getL7dLogger(NodeDataReader.class);
@@ -50,7 +51,7 @@ public class NodeDataReader implements DataReader<Node> {
         return read(input);
     }
 
-    public Object read(QName name, Node input, Class<?> type) {
+    public Object read(QName name, @RUntainted Node input, Class<?> type) {
         if (SAXSource.class.isAssignableFrom(type)) {
             XMLStreamReader reader = StaxUtils.createXMLStreamReader((Element)input);
             return new StaxSource(reader);

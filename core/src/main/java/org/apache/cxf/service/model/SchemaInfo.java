@@ -33,6 +33,7 @@ import org.apache.ws.commons.schema.XmlSchemaForm;
 import org.apache.ws.commons.schema.XmlSchemaSerializer.XmlSchemaSerializerException;
 import org.apache.ws.commons.schema.constants.Constants;
 import org.apache.ws.commons.schema.utils.NamespaceMap;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public final class SchemaInfo extends AbstractPropertiesHolder {
 

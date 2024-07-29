@@ -35,6 +35,7 @@ import org.apache.cxf.io.CachedOutputStream;
 import org.apache.cxf.io.CachedOutputStreamCallback;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.Phase;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * @deprecated use the logging module rt/features/logging instead
@@ -63,7 +64,7 @@ public class LoggingOutInterceptor extends AbstractLoggingInterceptor {
     }
 
 
-    public void handleMessage(Message message) {
+    public void handleMessage(@RUntainted Message message) {
         final OutputStream os = message.getContent(OutputStream.class);
         final Writer iowriter = message.getContent(Writer.class);
         if (os == null && iowriter == null) {
@@ -138,7 +139,7 @@ public class LoggingOutInterceptor extends AbstractLoggingInterceptor {
     }
 
     private class LogWriter extends FilterWriter {
-        StringWriter out2;
+        @RUntainted StringWriter out2;
         int count;
         Logger logger; //NOPMD
         Message message;
@@ -153,21 +154,21 @@ public class LoggingOutInterceptor extends AbstractLoggingInterceptor {
             }
             lim = limit == -1 ? Integer.MAX_VALUE : limit;
         }
-        public void write(int c) throws IOException {
+        public void write(@RUntainted int c) throws IOException {
             super.write(c);
             if (out2 != null && count < lim) {
                 out2.write(c);
             }
             count++;
         }
-        public void write(char[] cbuf, int off, int len) throws IOException {
+        public void write(@RUntainted char[] cbuf, int off, int len) throws IOException {
             super.write(cbuf, off, len);
             if (out2 != null && count < lim) {
                 out2.write(cbuf, off, len);
             }
             count += len;
         }
-        public void write(String str, int off, int len) throws IOException {
+        public void write(@RUntainted String str, int off, int len) throws IOException {
             super.write(str, off, len);
             if (out2 != null && count < lim) {
                 out2.write(str, off, len);
@@ -201,12 +202,12 @@ public class LoggingOutInterceptor extends AbstractLoggingInterceptor {
 
     class LoggingCallback implements CachedOutputStreamCallback {
 
-        private final Message message;
+        private final @RUntainted Message message;
         private final OutputStream origStream;
         private final Logger logger; //NOPMD
         private final int lim;
 
-        LoggingCallback(final Logger logger, final Message msg, final OutputStream os) {
+        LoggingCallback(final Logger logger, final @RUntainted Message msg, final OutputStream os) {
             this.logger = logger;
             this.message = msg;
             this.origStream = os;

@@ -36,6 +36,7 @@ import org.apache.cxf.phase.Phase;
 import org.apache.cxf.phase.PhaseInterceptorChain;
 import org.apache.cxf.service.model.BindingFaultInfo;
 import org.apache.cxf.transport.MessageObserver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public abstract class AbstractFaultChainInitiatorObserver implements MessageObserver {
 
@@ -51,7 +52,7 @@ public abstract class AbstractFaultChainInitiatorObserver implements MessageObse
         }
     }
 
-    public void onMessage(Message message) {
+    public void onMessage(@RUntainted Message message) {
 
         assert null != message;
 

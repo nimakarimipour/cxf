@@ -46,13 +46,15 @@ import org.apache.cxf.common.util.SystemPropertyAction;
 import org.apache.cxf.helpers.FileUtils;
 import org.apache.cxf.helpers.IOUtils;
 import org.apache.cxf.helpers.LoadingByteArrayOutputStream;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public class CachedOutputStream extends OutputStream {
 
-    private static final File DEFAULT_TEMP_DIR;
+    private static final @RUntainted File DEFAULT_TEMP_DIR;
     private static int defaultThreshold;
     private static long defaultMaxSize;
-    private static String defaultCipherTransformation;
+    private static @RUntainted String defaultCipherTransformation;
     private static boolean thresholdSysPropSet;
 
     static {
@@ -74,19 +76,19 @@ public class CachedOutputStream extends OutputStream {
     }
 
     protected boolean outputLocked;
-    protected OutputStream currentStream;
+    protected @RUntainted OutputStream currentStream;
 
     private long threshold = defaultThreshold;
     private long maxSize = defaultMaxSize;
-    private File outputDir = DEFAULT_TEMP_DIR;
-    private String cipherTransformation = defaultCipherTransformation;
+    private @RUntainted File outputDir = DEFAULT_TEMP_DIR;
+    private @RUntainted String cipherTransformation = defaultCipherTransformation;
 
     private long totalLength;
 
     private boolean inmem;
 
     private boolean tempFileFailed;
-    private File tempFile;
+    private @RUntainted File tempFile;
     private boolean allowDeleteOfFile = true;
     private CipherPair ciphers;
 
@@ -130,7 +132,7 @@ public class CachedOutputStream extends OutputStream {
         }
     }
 
-    private static String getBusProperty(Bus b, String key, String dflt) {
+    private static @RPolyTainted String getBusProperty(@RPolyTainted Bus b, @RPolyTainted String key, @RPolyTainted String dflt) {
         String v = (String)b.getProperty(key);
         return v != null ? v : dflt;
     }
@@ -250,7 +252,7 @@ public class CachedOutputStream extends OutputStream {
      * @param copyOldContent flag indicating if the old content should be copied
      * @throws IOException
      */
-    public void resetOut(OutputStream out, boolean copyOldContent) throws IOException {
+    public void resetOut(@RUntainted OutputStream out, boolean copyOldContent) throws IOException {
         if (out == null) {
             out = new LoadingByteArrayOutputStream();
         }
@@ -498,7 +500,7 @@ public class CachedOutputStream extends OutputStream {
         return tempFile != null && tempFile.exists() ? tempFile : null;
     }
 
-    public InputStream getInputStream() throws IOException {
+    public @RUntainted InputStream getInputStream() throws IOException {
         flush();
         if (inmem) {
             if (currentStream instanceof LoadingByteArrayOutputStream) {
@@ -557,7 +559,7 @@ public class CachedOutputStream extends OutputStream {
         return postClosedInvoked;
     }
 
-    public void setOutputDir(File outputDir) throws IOException {
+    public void setOutputDir(@RUntainted File outputDir) throws IOException {
         this.outputDir = outputDir;
     }
 
@@ -572,7 +574,7 @@ public class CachedOutputStream extends OutputStream {
         this.maxSize = maxSize;
     }
 
-    public void setCipherTransformation(String cipherTransformation) {
+    public void setCipherTransformation(@RUntainted String cipherTransformation) {
         this.cipherTransformation = cipherTransformation;
     }
 
@@ -603,14 +605,14 @@ public class CachedOutputStream extends OutputStream {
         return thresholdSysPropSet;
     }
 
-    public static void setDefaultCipherTransformation(String n) {
+    public static void setDefaultCipherTransformation(@RUntainted String n) {
         if (n == null) {
             n = SystemPropertyAction.getPropertyOrNull(CachedConstants.CIPHER_TRANSFORMATION_SYS_PROP);
         }
         defaultCipherTransformation = n;
     }
 
-    private OutputStream createOutputStream(File file) throws IOException {
+    private @RUntainted OutputStream createOutputStream(@RUntainted File file) throws IOException {
         OutputStream out = new BufferedOutputStream(Files.newOutputStream(file.toPath()));
         if (cipherTransformation != null) {
             try {

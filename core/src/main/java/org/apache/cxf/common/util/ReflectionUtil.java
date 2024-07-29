@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public final class ReflectionUtil {
 
@@ -45,7 +46,7 @@ public final class ReflectionUtil {
         // intentionally empty
     }
 
-    public static <T> T accessDeclaredField(final Field f, final Object o, final Class<T> responseClass) {
+    public static <T> @RUntainted T accessDeclaredField(final Field f, final Object o, final Class<T> responseClass) {
         return AccessController.doPrivileged(new PrivilegedAction<T>() {
             public T run() {
                 boolean b = f.isAccessible();
