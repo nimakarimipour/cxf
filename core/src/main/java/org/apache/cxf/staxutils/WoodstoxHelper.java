@@ -27,6 +27,7 @@ import com.ctc.wstx.stax.WstxEventFactory;
 import com.ctc.wstx.stax.WstxInputFactory;
 
 import org.codehaus.stax2.XMLStreamReader2;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  *

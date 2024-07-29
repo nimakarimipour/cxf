@@ -31,6 +31,7 @@ import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.AbstractPhaseInterceptor;
 import org.apache.cxf.phase.Phase;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class AttachmentInInterceptor extends AbstractPhaseInterceptor<Message> {
 

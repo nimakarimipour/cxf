@@ -23,6 +23,7 @@ import javax.xml.namespace.QName;
 
 import org.apache.cxf.ws.addressing.AttributedURIType;
 import org.apache.cxf.ws.addressing.EndpointReferenceType;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * The EndpointInfo contains the information for a web service 'port' inside of a service.

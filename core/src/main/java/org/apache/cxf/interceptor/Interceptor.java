@@ -20,6 +20,7 @@
 package org.apache.cxf.interceptor;
 
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Base interface for all interceptors.

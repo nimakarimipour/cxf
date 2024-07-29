@@ -22,6 +22,7 @@ package org.apache.cxf.service.model;
 import java.util.Collection;
 
 import javax.xml.namespace.QName;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class UnwrappedOperationInfo extends OperationInfo {
     OperationInfo wrappedOp;

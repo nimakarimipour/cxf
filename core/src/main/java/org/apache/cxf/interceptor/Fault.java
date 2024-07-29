@@ -30,6 +30,7 @@ import org.w3c.dom.Element;
 import org.apache.cxf.common.i18n.Message;
 import org.apache.cxf.common.i18n.UncheckedException;
 import org.apache.cxf.helpers.DOMUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * A Fault that occurs during invocation processing.

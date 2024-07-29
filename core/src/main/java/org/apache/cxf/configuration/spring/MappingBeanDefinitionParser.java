@@ -30,6 +30,7 @@ import org.apache.cxf.staxutils.W3CDOMStreamWriter;
 import org.apache.cxf.staxutils.transform.OutTransformWriter;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.xml.ParserContext;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class MappingBeanDefinitionParser
     extends org.springframework.beans.factory.xml.AbstractBeanDefinitionParser {

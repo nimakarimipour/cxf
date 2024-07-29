@@ -26,6 +26,7 @@ import javax.net.ssl.TrustManager;
 
 import org.apache.cxf.common.injection.NoJSR250Annotations;
 import org.apache.cxf.configuration.security.TLSServerParametersType;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * This class is used by Spring Config to convert the TLSServerParameters
@@ -36,7 +37,7 @@ import org.apache.cxf.configuration.security.TLSServerParametersType;
 public class TLSServerParametersConfig
     extends TLSServerParameters {
 
-    public TLSServerParametersConfig(TLSServerParametersType params)
+    public TLSServerParametersConfig(@RUntainted TLSServerParametersType params)
         throws GeneralSecurityException,
                IOException {
 

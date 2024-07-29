@@ -35,6 +35,7 @@ import org.apache.ws.commons.schema.XmlSchemaAnnotated;
 import org.apache.ws.commons.schema.XmlSchemaComplexType;
 import org.apache.ws.commons.schema.XmlSchemaElement;
 import org.apache.ws.commons.schema.XmlSchemaSequence;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public final class ServiceModelUtil {
 
