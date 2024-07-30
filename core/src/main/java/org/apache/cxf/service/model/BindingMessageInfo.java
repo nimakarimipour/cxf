@@ -20,6 +20,7 @@
 package org.apache.cxf.service.model;
 
 import java.util.List;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class BindingMessageInfo extends AbstractPropertiesHolder {
 

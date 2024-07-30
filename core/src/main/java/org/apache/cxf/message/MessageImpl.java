@@ -32,6 +32,7 @@ import org.apache.cxf.interceptor.InterceptorChain;
 import org.apache.cxf.service.Service;
 import org.apache.cxf.service.model.EndpointInfo;
 import org.apache.cxf.transport.Destination;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class MessageImpl extends StringMapImpl implements Message {
     private static final long serialVersionUID = -3020763696429459865L;
@@ -174,7 +175,7 @@ public class MessageImpl extends StringMapImpl implements Message {
         }
         return super.put(key, value);
     }
-    public Object getContextualProperty(String key) {
+    public @RUntainted Object getContextualProperty(String key) {
         if (contextCache == null) {
             calcContextCache();
         }

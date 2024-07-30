@@ -36,6 +36,7 @@ import org.apache.cxf.service.invoker.Invoker;
 import org.apache.cxf.service.model.EndpointInfo;
 import org.apache.cxf.service.model.ServiceInfo;
 import org.apache.cxf.workqueue.SynchronousExecutor;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 @NoJSR250Annotations
 public class ServiceImpl extends AbstractAttributedInterceptorProvider implements Service, Configurable {

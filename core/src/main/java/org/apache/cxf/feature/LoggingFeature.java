@@ -27,6 +27,7 @@ import org.apache.cxf.interceptor.AbstractLoggingInterceptor;
 import org.apache.cxf.interceptor.InterceptorProvider;
 import org.apache.cxf.interceptor.LoggingInInterceptor;
 import org.apache.cxf.interceptor.LoggingOutInterceptor;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * This class is used to control message-on-the-wire logging.
@@ -56,18 +57,18 @@ public class LoggingFeature extends DelegatingFeature<LoggingFeature.Portable> {
     public LoggingFeature(int lim) {
         super(new Portable(lim));
     }
-    public LoggingFeature(String in, String out) {
+    public LoggingFeature(@RUntainted String in, @RUntainted String out) {
         super(new Portable(in, out));
     }
-    public LoggingFeature(String in, String out, int lim) {
+    public LoggingFeature(@RUntainted String in, @RUntainted String out, int lim) {
         super(new Portable(in, out, lim));
     }
 
-    public LoggingFeature(String in, String out, int lim, boolean p) {
+    public LoggingFeature(@RUntainted String in, @RUntainted String out, int lim, boolean p) {
         super(new Portable(in, out, lim, p));
     }
 
-    public LoggingFeature(String in, String out, int lim, boolean p, boolean showBinary) {
+    public LoggingFeature(@RUntainted String in, @RUntainted String out, int lim, boolean p, boolean showBinary) {
         super(new Portable(in, out, lim, p, showBinary));
     }
 
@@ -97,8 +98,8 @@ public class LoggingFeature extends DelegatingFeature<LoggingFeature.Portable> {
         private static final LoggingOutInterceptor OUT = new LoggingOutInterceptor(DEFAULT_LIMIT);
 
 
-        String inLocation;
-        String outLocation;
+        @RUntainted String inLocation;
+        @RUntainted String outLocation;
         boolean prettyLogging;
         boolean showBinary;
 
@@ -110,24 +111,24 @@ public class LoggingFeature extends DelegatingFeature<LoggingFeature.Portable> {
         public Portable(int lim) {
             limit = lim;
         }
-        public Portable(String in, String out) {
+        public Portable(@RUntainted String in, @RUntainted String out) {
             inLocation = in;
             outLocation = out;
         }
-        public Portable(String in, String out, int lim) {
+        public Portable(@RUntainted String in, @RUntainted String out, int lim) {
             inLocation = in;
             outLocation = out;
             limit = lim;
         }
 
-        public Portable(String in, String out, int lim, boolean p) {
+        public Portable(@RUntainted String in, @RUntainted String out, int lim, boolean p) {
             inLocation = in;
             outLocation = out;
             limit = lim;
             prettyLogging = p;
         }
 
-        public Portable(String in, String out, int lim, boolean p, boolean showBinary) {
+        public Portable(@RUntainted String in, @RUntainted String out, int lim, boolean p, boolean showBinary) {
             this(in, out, lim, p);
             this.showBinary = showBinary;
         }
