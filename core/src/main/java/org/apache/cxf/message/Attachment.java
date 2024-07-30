@@ -22,6 +22,7 @@ package org.apache.cxf.message;
 import java.util.Iterator;
 
 import jakarta.activation.DataHandler;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public interface Attachment {
     DataHandler getDataHandler();
@@ -31,9 +32,9 @@ public interface Attachment {
      */
     String getId();
 
-    String getHeader(String name);
+    @RUntainted String getHeader(String name);
 
-    Iterator<String> getHeaderNames();
+    Iterator<@RUntainted String> getHeaderNames();
 
     /**
      * Whether or not this is an XOP package. This will affect the

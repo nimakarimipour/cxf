@@ -31,6 +31,7 @@ import java.util.logging.Logger;
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.ClassHelper;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 
 public class SecureAnnotationsInterceptor extends SimpleAuthorizingInterceptor {

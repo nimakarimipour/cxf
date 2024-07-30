@@ -25,12 +25,13 @@ import java.util.Map;
 
 import jakarta.activation.DataHandler;
 import org.apache.cxf.message.Attachment;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class AttachmentImpl implements Attachment {
 
     private DataHandler dataHandler;
     private String id;
-    private Map<String, String> headers = new HashMap<>();
+    private Map<@RUntainted String, @RUntainted String> headers = new HashMap<>();
     private boolean xop;
 
     public AttachmentImpl(String idParam) {
@@ -56,16 +57,16 @@ public class AttachmentImpl implements Attachment {
         this.dataHandler.setCommandMap(AttachmentUtil.getCommandMap());
     }
 
-    public void setHeader(String name, String value) {
+    public void setHeader(@RUntainted String name, String value) {
         headers.put(name, value);
     }
 
-    public String getHeader(String name) {
+    public @RUntainted String getHeader(String name) {
         String value = headers.get(name);
         return value == null ? headers.get(name.toLowerCase()) : value;
     }
 
-    public Iterator<String> getHeaderNames() {
+    public Iterator<@RUntainted String> getHeaderNames() {
         return headers.keySet().iterator();
     }
 

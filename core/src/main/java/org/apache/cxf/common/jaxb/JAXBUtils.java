@@ -92,6 +92,7 @@ import org.apache.cxf.common.util.StringUtils;
 import org.apache.cxf.common.util.SystemPropertyAction;
 import org.apache.cxf.common.xmlschema.SchemaCollection;
 import org.apache.cxf.helpers.JavaUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public final class JAXBUtils {
     public static final String JAXB_URI = "https://jakarta.ee/xml/ns/jaxb";
@@ -260,7 +261,7 @@ public final class JAXBUtils {
      * @param namespaceURI the namespace URI.
      * @return the package name.
      */
-    public static String namespaceURIToPackage(String namespaceURI) {
+    public static @RUntainted String namespaceURIToPackage(String namespaceURI) {
         try {
             return nameSpaceURIToPackage(new URI(namespaceURI));
         } catch (URISyntaxException ex) {
@@ -275,7 +276,7 @@ public final class JAXBUtils {
      * @param uri the namespace URI.
      * @return the package name.
      */
-    public static String nameSpaceURIToPackage(URI uri) {
+    public static @RUntainted String nameSpaceURIToPackage(URI uri) {
 
         StringBuilder packageName = new StringBuilder();
         String authority = uri.getAuthority();

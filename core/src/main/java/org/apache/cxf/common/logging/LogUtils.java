@@ -35,6 +35,7 @@ import java.util.logging.Logger;
 
 import org.apache.cxf.common.i18n.BundleUtils;
 import org.apache.cxf.common.util.StringUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 
 /**
@@ -187,7 +188,7 @@ public final class LogUtils {
      * @param cls the Class to contain the Logger
      * @return an appropriate Logger
      */
-    public static Logger getL7dLogger(Class<?> cls) {
+    public static @RUntainted Logger getL7dLogger(Class<?> cls) {
         return createLogger(cls, null, cls.getName());
     }
 

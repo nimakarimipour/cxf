@@ -63,6 +63,8 @@ import org.apache.cxf.io.CachedOutputStream;
 import org.apache.cxf.message.Attachment;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.message.MessageUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public final class AttachmentUtil {
     // The default values for {@link AttachmentDataSource} content type in case when
@@ -255,7 +257,7 @@ public final class AttachmentUtil {
             + URLEncoder.encode(cid, StandardCharsets.UTF_8.name());
     }
 
-    public static String getUniqueBoundaryValue() {
+    public static @RUntainted String getUniqueBoundaryValue() {
         //generate a random UUID.
         //we don't need the cryptographically secure random uuid that
         //UUID.randomUUID() will produce.  Thus, use a faster
@@ -391,22 +393,22 @@ public final class AttachmentUtil {
         }
         return null;
     }
-    static String getHeader(Map<String, List<String>> headers, String h) {
+    static String getHeader(Map<@RUntainted String, List<String>> headers, String h) {
         return getHeaderValue(headers.get(h));
     }
-    static String getHeader(Map<String, List<String>> headers, String h, String delim) {
+    static String getHeader(Map<@RUntainted String, List<String>> headers, String h, String delim) {
         return getHeaderValue(headers.get(h), delim);
     }
 
     /**
      * @deprecated use createAttachment(InputStream stream, Map<String, List<String>> headers, Message message)
      */
-    public static Attachment createAttachment(InputStream stream, Map<String, List<String>> headers) 
+    public static Attachment createAttachment(InputStream stream, Map<@RUntainted String, List<String>> headers) 
             throws IOException {
         return createAttachment(stream, headers, null /* no Message */);
     }
 
-    public static Attachment createAttachment(InputStream stream, Map<String, List<String>> headers, Message message)
+    public static Attachment createAttachment(InputStream stream, Map<@RUntainted String, List<String>> headers, Message message)
             throws IOException {
 
         String id = cleanContentId(getHeader(headers, "Content-ID"));
@@ -423,7 +425,7 @@ public final class AttachmentUtil {
 
         String encoding = null;
 
-        for (Map.Entry<String, List<String>> e : headers.entrySet()) {
+        for (Map.Entry<@RUntainted String, List<String>> e : headers.entrySet()) {
             String name = e.getKey();
             if ("Content-Transfer-Encoding".equalsIgnoreCase(name)) {
                 encoding = getHeader(headers, name);
@@ -565,7 +567,7 @@ public final class AttachmentUtil {
         return att;
     }
 
-    public static DataSource getAttachmentDataSource(String contentId, Collection<Attachment> atts) {
+    public static DataSource getAttachmentDataSource(@RUntainted String contentId, Collection<Attachment> atts) {
         //
         // RFC-2392 (https://datatracker.ietf.org/doc/html/rfc2392) says:
         //

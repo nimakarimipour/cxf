@@ -34,10 +34,11 @@ import java.util.regex.Pattern;
 
 import org.apache.cxf.common.logging.LogUtils;
 import org.apache.cxf.common.util.SystemPropertyAction;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public final class FileUtils {
     private static final long RETRY_SLEEP_MILLIS = 10L;
-    private static File defaultTempDir;
+    private static @RUntainted File defaultTempDir;
     private static Thread shutdownHook;
     private static final char[] ILLEGAL_CHARACTERS
         = {'/', '\n', '\r', '\t', '\0', '\f', '`', '?', '*', '\\', '<', '>', '|', '\"', ':'};
@@ -46,7 +47,7 @@ public final class FileUtils {
 
     }
 
-    public static boolean isValidFileName(String name) {
+    public static boolean isValidFileName(@RUntainted String name) {
         for (int i = name.length(); i > 0; i--) {
             char c = name.charAt(i - 1);
             for (char c2 : ILLEGAL_CHARACTERS) {
@@ -70,7 +71,7 @@ public final class FileUtils {
         return isValid;
     }
 
-    public static synchronized File getDefaultTempDir() {
+    public static synchronized @RUntainted File getDefaultTempDir() {
         if (defaultTempDir != null
             && exists(defaultTempDir)) {
             return defaultTempDir;
@@ -133,7 +134,7 @@ public final class FileUtils {
     public static File createTmpDir() {
         return createTmpDir(true);
     }
-    public static File createTmpDir(boolean addHook) {
+    public static @RUntainted File createTmpDir(boolean addHook) {
         String s = SystemPropertyAction.getProperty("java.io.tmpdir");
         File checkExists = new File(s);
         if (!exists(checkExists) || !checkExists.isDirectory()) {
@@ -223,11 +224,11 @@ public final class FileUtils {
         return true;
     }
 
-    public static void removeDir(File d) {
+    public static void removeDir(@RUntainted File d) {
         removeDir(d, false);
     }
-    private static void removeDir(File d, boolean inShutdown) {
-        String[] list = d.list();
+    private static void removeDir(@RUntainted File d, boolean inShutdown) {
+        @RUntainted String[] list = d.list();
         if (list == null) {
             list = new String[0];
         }
@@ -259,11 +260,11 @@ public final class FileUtils {
         }
     }
 
-    public static File createTempFile(String prefix, String suffix) throws IOException {
+    public static @RUntainted File createTempFile(String prefix, String suffix) throws IOException {
         return createTempFile(prefix, suffix, null, false);
     }
 
-    public static File createTempFile(String prefix, String suffix, File parentDir,
+    public static @RUntainted File createTempFile(String prefix, String suffix, File parentDir,
                                boolean deleteOnExit) throws IOException {
         File parent = (parentDir == null)
             ? getDefaultTempDir()

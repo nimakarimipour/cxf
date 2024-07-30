@@ -42,6 +42,7 @@ import org.apache.cxf.resource.ObjectTypeResolver;
 import org.apache.cxf.resource.ResourceManager;
 import org.apache.cxf.resource.ResourceResolver;
 import org.apache.cxf.resource.SinglePropertyResolver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class ExtensionManagerImpl implements ExtensionManager, ConfiguredBeanLocator {
     public static final String EXTENSIONMANAGER_PROPERTY_NAME = "extensionManager";

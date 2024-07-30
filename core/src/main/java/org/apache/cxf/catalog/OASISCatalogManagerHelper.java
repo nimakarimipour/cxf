@@ -19,6 +19,7 @@
 package org.apache.cxf.catalog;
 
 import java.io.IOException;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class OASISCatalogManagerHelper {
     public String resolve(OASISCatalogManager catalogResolver,
