@@ -22,6 +22,7 @@ package org.apache.cxf.message;
 import java.util.Iterator;
 
 import jakarta.activation.DataHandler;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public interface Attachment {
     DataHandler getDataHandler();

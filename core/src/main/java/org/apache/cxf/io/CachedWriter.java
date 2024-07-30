@@ -49,6 +49,7 @@ import org.apache.cxf.helpers.FileUtils;
 import org.apache.cxf.helpers.IOUtils;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class CachedWriter extends Writer {
     private static final File DEFAULT_TEMP_DIR;
@@ -325,7 +326,7 @@ public class CachedWriter extends Writer {
         // read the file
         try (Reader fin = createInputStreamReader(tempFile)) {
             CharArrayWriter out = new CharArrayWriter((int)tempFile.length());
-            char[] bytes = new char[1024];
+            @RUntainted char[] bytes = new char[1024];
             int x = fin.read(bytes);
             while (x != -1) {
                 out.write(bytes, 0, x);
@@ -346,7 +347,7 @@ public class CachedWriter extends Writer {
         } else {
             // read the file
             try (Reader fin = createInputStreamReader(tempFile)) {
-                char[] bytes = new char[1024];
+                @RUntainted char[] bytes = new char[1024];
                 int x = fin.read(bytes);
                 while (x != -1) {
                     out.write(bytes, 0, x);
@@ -454,7 +455,7 @@ public class CachedWriter extends Writer {
     }
 
 
-    public void write(char[] cbuf, int off, int len) throws IOException {
+    public void write(@RUntainted char[] cbuf, int off, int len) throws IOException {
         if (!outputLocked) {
             onWrite();
             this.totalLength += len;

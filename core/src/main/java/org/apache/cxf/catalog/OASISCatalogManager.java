@@ -45,6 +45,7 @@ import org.apache.cxf.resource.URIResolver;
 import org.apache.xml.resolver.Catalog;
 import org.apache.xml.resolver.CatalogManager;
 import org.apache.xml.resolver.tools.CatalogResolver;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 @NoJSR250Annotations(unlessNull = "bus")
 public class OASISCatalogManager {

@@ -39,6 +39,8 @@ import org.apache.cxf.common.util.Base64Utility;
 import org.apache.cxf.helpers.IOUtils;
 import org.apache.cxf.message.Attachment;
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RPolyTainted;
 
 public class AttachmentSerializer {
     // http://tools.ietf.org/html/rfc2387
@@ -47,7 +49,7 @@ public class AttachmentSerializer {
     private String contentTransferEncoding = AttachmentUtil.BINARY;
 
     private Message message;
-    private String bodyBoundary;
+    private @RUntainted String bodyBoundary;
     private OutputStream out;
     private String encoding;
 
@@ -252,7 +254,7 @@ public class AttachmentSerializer {
             writer.write(">\r\n");
         }
         // headers like Content-Disposition need to be serialized
-        for (Map.Entry<String, List<String>> entry : headers.entrySet()) {
+        for (Map.Entry<@RUntainted String, List<@RUntainted String>> entry : headers.entrySet()) {
             String name = entry.getKey();
             if ("Content-Type".equalsIgnoreCase(name) || "Content-ID".equalsIgnoreCase(name)
                 || "Content-Transfer-Encoding".equalsIgnoreCase(name)) {
@@ -260,7 +262,7 @@ public class AttachmentSerializer {
             }
             writer.write(name);
             writer.write(": ");
-            List<String> values = entry.getValue();
+            List<@RUntainted String> values = entry.getValue();
             for (int i = 0; i < values.size(); i++) {
                 writer.write(values.get(i));
                 if (i + 1 < values.size()) {
@@ -377,7 +379,7 @@ public class AttachmentSerializer {
 
     // URL decoder would also decode '+' but according to  RFC-2392 we need to convert
     // only the % encoded character to their equivalent US-ASCII characters. 
-    private static String decode(String s, Charset charset) {
+    private static @RUntainted String decode(String s, Charset charset) {
         return URLDecoder.decode(s.replaceAll("([^%])[+]", "$1%2B"), charset);
     }
 
