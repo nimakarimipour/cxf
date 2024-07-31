@@ -22,6 +22,7 @@ package org.apache.cxf.binding;
 import org.apache.cxf.interceptor.InterceptorProvider;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.service.model.BindingInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * A Binding provides interceptors and message creation logic for a
@@ -33,7 +34,7 @@ public interface Binding extends InterceptorProvider {
      * Create a Message for this Binding.
      * @return the Binding message
      */
-    Message createMessage();
+    @RUntainted Message createMessage();
 
     /**
      * Create a Message form the message.
@@ -41,7 +42,7 @@ public interface Binding extends InterceptorProvider {
      * @param m the message used for creating a binding message
      * @return the Binding message
      */
-    Message createMessage(Message m);
+    @RUntainted Message createMessage(Message m);
 
     /**
      * Get the BindingInfo for this binding.

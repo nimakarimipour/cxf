@@ -43,6 +43,7 @@ import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.Phase;
 import org.apache.cxf.staxutils.DelegatingXMLStreamWriter;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /** Class provides XSLT transformation of outgoing message.
  * Actually it breaks streaming (can be fixed in further versions when XSLT engine supports XML stream)
@@ -50,11 +51,11 @@ import org.apache.cxf.staxutils.StaxUtils;
 public class XSLTOutInterceptor extends AbstractXSLTInterceptor {
     private static final Logger LOG = LogUtils.getL7dLogger(XSLTOutInterceptor.class);
 
-    public XSLTOutInterceptor(String xsltPath) {
+    public XSLTOutInterceptor(@RUntainted String xsltPath) {
         super(Phase.PRE_STREAM, StaxOutInterceptor.class, null, xsltPath);
     }
 
-    public XSLTOutInterceptor(String phase, Class<?> before, Class<?> after, String xsltPath) {
+    public XSLTOutInterceptor(String phase, Class<?> before, Class<?> after, @RUntainted String xsltPath) {
         super(phase, before, after, xsltPath);
     }
 

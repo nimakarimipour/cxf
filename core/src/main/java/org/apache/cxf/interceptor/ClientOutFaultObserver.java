@@ -29,6 +29,7 @@ import org.apache.cxf.helpers.CastUtils;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.Phase;
 import org.apache.cxf.phase.PhaseManager;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class ClientOutFaultObserver extends AbstractFaultChainInitiatorObserver {
 

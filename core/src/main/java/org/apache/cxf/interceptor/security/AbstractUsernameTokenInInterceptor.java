@@ -23,6 +23,7 @@ import javax.security.auth.Subject;
 import org.apache.cxf.common.security.SecurityToken;
 import org.apache.cxf.common.security.TokenType;
 import org.apache.cxf.common.security.UsernameToken;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public abstract class AbstractUsernameTokenInInterceptor extends AbstractSecurityContextInInterceptor {
 

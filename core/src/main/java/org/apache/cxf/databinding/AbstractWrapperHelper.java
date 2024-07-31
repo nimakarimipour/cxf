@@ -26,6 +26,7 @@ import java.util.List;
 
 import org.apache.cxf.helpers.CastUtils;
 import org.apache.cxf.interceptor.Fault;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  *  This wrapper helper will use reflection to handle the wrapped message

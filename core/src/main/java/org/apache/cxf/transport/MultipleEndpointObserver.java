@@ -34,6 +34,7 @@ import org.apache.cxf.message.ExchangeImpl;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.PhaseInterceptorChain;
 import org.apache.cxf.phase.PhaseManager;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * This MessageObserver creates an Interceptor chain which adds in the interceptors
@@ -60,7 +61,7 @@ public class MultipleEndpointObserver implements MessageObserver {
         this.loader = bus.getExtension(ClassLoader.class);
     }
 
-    public void onMessage(Message message) {
+    public void onMessage(@RUntainted Message message) {
         Bus origBus = BusFactory.getAndSetThreadDefaultBus(bus);
         ClassLoaderHolder origLoader = null;
         try {
@@ -109,7 +110,7 @@ public class MultipleEndpointObserver implements MessageObserver {
     /**
      * Give a chance for a Binding to customize their message
      */
-    protected Message createMessage(Message message) {
+    protected @RUntainted Message createMessage(@RUntainted Message message) {
         return message;
     }
 

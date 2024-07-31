@@ -35,6 +35,7 @@ import org.apache.cxf.message.Message;
 import org.apache.cxf.message.MessageUtils;
 import org.apache.cxf.phase.AbstractPhaseInterceptor;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 
 /**
@@ -45,7 +46,7 @@ public abstract class AbstractXSLTInterceptor extends AbstractPhaseInterceptor<M
     private String contextPropertyName;
     private final Templates xsltTemplate;
 
-    public AbstractXSLTInterceptor(String phase, Class<?> before, Class<?> after, String xsltPath) {
+    public AbstractXSLTInterceptor(String phase, Class<?> before, Class<?> after, @RUntainted String xsltPath) {
         super(phase);
         if (before != null) {
             addBefore(before.getName());

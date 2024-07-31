@@ -26,6 +26,7 @@ import org.apache.cxf.interceptor.Interceptor;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.AbstractPhaseInterceptor;
 import org.apache.cxf.phase.Phase;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class DelegatingAuthenticationInterceptor extends AbstractPhaseInterceptor<Message> {
 
@@ -41,7 +42,7 @@ public class DelegatingAuthenticationInterceptor extends AbstractPhaseIntercepto
         super(phase);
     }
 
-    public void handleMessage(Message message) {
+    public void handleMessage(@RUntainted Message message) {
 
         String scheme = getAuthenticationScheme(message);
         Interceptor<Message> handler = authenticationHandlers.get(scheme);

@@ -25,6 +25,7 @@ import java.util.Set;
 import jakarta.xml.ws.handler.MessageContext;
 import org.apache.cxf.interceptor.InterceptorChain;
 import org.apache.cxf.transport.Destination;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * The base interface for all all message implementations.
@@ -233,7 +234,7 @@ public interface Message extends StringMap {
      */
     Collection<Attachment> getAttachments();
 
-    void setAttachments(Collection<Attachment> attachments);
+    void setAttachments(@RUntainted Collection<Attachment> attachments);
 
     /**
      * Retrieve the encapsulated content as a particular type. The content is
@@ -244,7 +245,7 @@ public interface Message extends StringMap {
      * @param format the expected content format
      * @return the encapsulated content
      */
-    <T> T getContent(Class<T> format);
+    <T> @RUntainted T getContent(Class<T> format);
 
     /**
      * Provide the encapsulated content as a particular type (a result type
@@ -253,12 +254,12 @@ public interface Message extends StringMap {
      * @param format the provided content format
      * @param content the content to be encapsulated
      */
-    <T> void setContent(Class<T> format, Object content);
+    <T> void setContent(@RUntainted Class<T> format, Object content);
 
     /**
      * @return the set of currently encapsulated content formats
      */
-    Set<Class<?>> getContentFormats();
+    Set<@RUntainted Class<?>> getContentFormats();
 
     /**
      * Removes a content from a message.  If some contents are completely consumed,
@@ -274,7 +275,7 @@ public interface Message extends StringMap {
      * correlates to the desired property
      * @return the property's value
      */
-    Object getContextualProperty(String key);
+    @RUntainted Object getContextualProperty(String key);
 
     /**
      * Resets the cache of contextual properties that messages may contain.  Subsequent

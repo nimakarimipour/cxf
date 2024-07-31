@@ -24,6 +24,7 @@ import java.lang.reflect.Method;
 import org.apache.cxf.common.util.ReflectionInvokationHandler.Optional;
 import org.apache.cxf.common.util.ReflectionInvokationHandler.UnwrapParam;
 import org.apache.cxf.common.util.ReflectionInvokationHandler.WrapReturn;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 
 public interface ASMHelper {
@@ -33,7 +34,7 @@ public interface ASMHelper {
     ASMType getType(String type);
     Label createLabel();
     OpcodesProxy getOpCodes();
-    Class<?> getASMClass() throws ClassNotFoundException;
+    @RUntainted Class<?> getASMClass() throws ClassNotFoundException;
     String getMethodSignature(Method m);
     String getNonPrimitive(Class<?> tp);
     String getPrimitive(Class<?> tp);

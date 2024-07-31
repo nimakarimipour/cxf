@@ -40,6 +40,7 @@ import org.apache.cxf.service.model.BindingOperationInfo;
 import org.apache.cxf.service.model.FaultInfo;
 import org.apache.cxf.service.model.MessagePartInfo;
 import org.apache.cxf.staxutils.W3CDOMStreamWriter;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class FaultOutInterceptor extends AbstractPhaseInterceptor<Message> {
     private static final Logger LOG = LogUtils.getL7dLogger(FaultOutInterceptor.class);
@@ -128,7 +129,7 @@ public class FaultOutInterceptor extends AbstractPhaseInterceptor<Message> {
         return supportsDOM;
     }
 
-    protected Object getFaultBean(Throwable cause, FaultInfo faultPart, Message message) {
+    protected @RUntainted Object getFaultBean(@RUntainted Throwable cause, FaultInfo faultPart, Message message) {
         if (cause instanceof FaultInfoException) {
             try {
                 Method method = cause.getClass().getMethod("getFaultInfo");

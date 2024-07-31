@@ -35,6 +35,7 @@ import org.apache.cxf.io.CachedOutputStream;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.Phase;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 
 /** Class provides XSLT transformation of incoming message.
@@ -43,11 +44,11 @@ import org.apache.cxf.staxutils.StaxUtils;
 public class XSLTInInterceptor extends AbstractXSLTInterceptor {
     private static final Logger LOG = LogUtils.getL7dLogger(XSLTInInterceptor.class);
 
-    public XSLTInInterceptor(String xsltPath) {
+    public XSLTInInterceptor(@RUntainted String xsltPath) {
         super(Phase.POST_STREAM, StaxInInterceptor.class, null, xsltPath);
     }
 
-    public XSLTInInterceptor(String phase, Class<?> before, Class<?> after, String xsltPath) {
+    public XSLTInInterceptor(String phase, Class<?> before, Class<?> after, @RUntainted String xsltPath) {
         super(phase, before, after, xsltPath);
     }
 

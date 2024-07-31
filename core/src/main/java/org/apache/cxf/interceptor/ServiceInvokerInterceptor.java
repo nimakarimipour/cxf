@@ -35,6 +35,7 @@ import org.apache.cxf.phase.Phase;
 import org.apache.cxf.phase.PhaseInterceptorChain;
 import org.apache.cxf.service.Service;
 import org.apache.cxf.service.invoker.Invoker;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Invokes a Binding's invoker with the <code>INVOCATION_INPUT</code> from
@@ -46,7 +47,7 @@ public class ServiceInvokerInterceptor extends AbstractPhaseInterceptor<Message>
         super(Phase.INVOKE);
     }
 
-    public void handleMessage(final Message message) {
+    public void handleMessage(final @RUntainted Message message) {
         final Exchange exchange = message.getExchange();
         final Endpoint endpoint = exchange.getEndpoint();
         final Service service = endpoint.getService();

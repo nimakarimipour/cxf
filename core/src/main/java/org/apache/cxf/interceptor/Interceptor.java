@@ -20,6 +20,7 @@
 package org.apache.cxf.interceptor;
 
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Base interface for all interceptors.
@@ -33,7 +34,7 @@ public interface Interceptor<T extends Message> {
      *
      * @param message
      */
-    void handleMessage(T message) throws Fault;
+    void handleMessage(@RUntainted T message) throws Fault;
 
     /**
      * Called for all interceptors (in reverse order) on which handleMessage

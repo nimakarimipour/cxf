@@ -35,18 +35,18 @@
 [INFO] --- buildnumber:3.2.0:create (create-buildnumber) @ cxf-core ---
 [INFO] Executing: /bin/sh -c cd '/home/nima/Developer/taint-benchmarks/cxf/core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/nima/Developer/taint-benchmarks/cxf/core
-[INFO] Storing buildNumber: 8e4abdc34180e202391fa71f62223df1aa47315f at timestamp: 1722281020836
+[INFO] Storing buildNumber: 1fa9e69804934f31dd17007c3a959f63c5920342 at timestamp: 1722457781768
 [INFO] Executing: /bin/sh -c cd '/home/nima/Developer/taint-benchmarks/cxf/core' && 'git' 'symbolic-ref' 'HEAD'
 [INFO] Working directory: /home/nima/Developer/taint-benchmarks/cxf/core
 [INFO] Storing scmBranch: nimak/annotator
 [INFO] 
 [INFO] --- cxf-xjc:4.0.0:xsdtojava (generate-sources) @ cxf-core ---
-[INFO] Building jar: /tmp/cxf-xjc-plugin18016119963203470358.jar
-[INFO] Building jar: /tmp/cxf-xjc-plugin13612426146612472775.jar
-[INFO] Building jar: /tmp/cxf-xjc-plugin2161331982918862481.jar
-[INFO] Building jar: /tmp/cxf-xjc-plugin9706515105354471159.jar
-[INFO] Building jar: /tmp/cxf-xjc-plugin14669577752358175787.jar
-[INFO] Building jar: /tmp/cxf-xjc-plugin9033017720487173863.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin3387382040337088687.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin10931824490367146108.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin5066709187695945083.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin4814797875291810060.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin2536027995551889045.jar
+[INFO] Building jar: /tmp/cxf-xjc-plugin2526575416488389647.jar
 [INFO] 
 [INFO] --- cxf-xml2fastinfoset:4.0.1:xml2fastinfoset (xml2fastinfoset) @ cxf-core ---
 [INFO] 
@@ -64,7 +64,6 @@
 [INFO] 
 [INFO] --- compiler:3.11.0:compile (default-compile) @ cxf-core ---
 [WARNING] Parameter 'compilerArguments' is deprecated: use compilerArgs instead.
-Downloading from apache.snapshots: https://repository.apache.org/snapshots/edu/ucr/cs/riple/taint/ucrtainting-checker/0.1-alpha-3-SNAPSHOT/maven-metadata.xml
 [INFO] Changes detected - recompiling the module! :source
 [INFO] Compiling 593 source files with javac [forked debug deprecation release 11] to target/classes
 [INFO] -------------------------------------------------------------
@@ -88,7 +87,8 @@ Downloading from apache.snapshots: https://repository.apache.org/snapshots/edu/u
 [INFO] -------------------------------------------------------------
 [ERROR] COMPILATION ERROR : 
 [INFO] -------------------------------------------------------------
-[ERROR]  Library: true, Poly: true, Type Argument: true, Validation: false, Side Effect: false
+[ERROR]  Unannotated Code Handling: true, Poly: false, Type Argument: true, Validation: false, Side Effect: false
+Local Variable Optimization: true
 /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/extension/Extension.java:[167,45] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
   found   : @RTainted String
   required: @RUntainted String, index: 1
@@ -391,11 +391,12 @@ Downloading from apache.snapshots: https://repository.apache.org/snapshots/edu/u
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  26.230 s
-[INFO] Finished at: 2024-07-29T12:24:04-07:00
+[INFO] Total time:  28.208 s
+[INFO] Finished at: 2024-07-31T13:30:06-07:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project cxf-core: Compilation failure: Compilation failure: 
-[ERROR]  Library: true, Poly: true, Type Argument: true, Validation: false, Side Effect: false
+[ERROR]  Unannotated Code Handling: true, Poly: false, Type Argument: true, Validation: false, Side Effect: false
+[ERROR] Local Variable Optimization: true
 [ERROR] /home/nima/Developer/taint-benchmarks/cxf/core/src/main/java/org/apache/cxf/bus/extension/Extension.java:[167,45] error: [argument] incompatible argument for parameter arg0 of ClassLoader.loadClass.
 [ERROR]   found   : @RTainted String
 [ERROR]   required: @RUntainted String, index: 1

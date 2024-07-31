@@ -25,6 +25,7 @@ import java.util.Set;
 
 import org.apache.cxf.interceptor.InterceptorChain;
 import org.apache.cxf.transport.Destination;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * A base class to build your own message implementations on.
@@ -65,7 +66,7 @@ public abstract class AbstractWrappedMessage implements Message {
         return message.getAttachments();
     }
 
-    public void setAttachments(Collection<Attachment> attachments) {
+    public void setAttachments(@RUntainted Collection<Attachment> attachments) {
         message.setAttachments(attachments);
     }
 
@@ -104,14 +105,14 @@ public abstract class AbstractWrappedMessage implements Message {
         message.setInterceptorChain(chain);
     }
 
-    public <T> T getContent(Class<T> format) {
+    public <T> @RUntainted T getContent(Class<T> format) {
         return message.getContent(format);
     }
     public <T> void removeContent(Class<T> format) {
         message.removeContent(format);
     }
 
-    public Set<Class<?>> getContentFormats() {
+    public Set<@RUntainted Class<?>> getContentFormats() {
         return message.getContentFormats();
     }
 
@@ -139,7 +140,7 @@ public abstract class AbstractWrappedMessage implements Message {
         return message.remove(key);
     }
 
-    public <T> void setContent(Class<T> format, Object content) {
+    public <T> void setContent(@RUntainted Class<T> format, Object content) {
         message.setContent(format, content);
     }
 
@@ -161,10 +162,10 @@ public abstract class AbstractWrappedMessage implements Message {
         return message.remove(key);
     }
 
-    public Object getContextualProperty(String key) {
+    public @RUntainted Object getContextualProperty(String key) {
         return message.getContextualProperty(key);
     }
-    void setContextualProperty(String key, Object v) {
+    void setContextualProperty(String key, @RUntainted Object v) {
         if (message instanceof MessageImpl) {
             ((MessageImpl)message).setContextualProperty(key, v);
         }  else if (message instanceof AbstractWrappedMessage) {

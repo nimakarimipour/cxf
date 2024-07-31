@@ -49,6 +49,7 @@ import org.apache.cxf.staxutils.StaxUtils;
 import org.apache.cxf.staxutils.W3CDOMStreamWriter;
 import org.springframework.beans.factory.xml.DefaultDocumentLoader;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * A Spring DocumentLoader that uses WoodStox when we are not validating to speed up the process.
@@ -69,12 +70,12 @@ class TunedDocumentLoader extends DefaultDocumentLoader {
             hasFastInfoSet = false;
         }
     }
-    private SAXParserFactory saxParserFactory;
-    private SAXParserFactory nsasaxParserFactory;
+    private @RUntainted SAXParserFactory saxParserFactory;
+    private @RUntainted SAXParserFactory nsasaxParserFactory;
 
     TunedDocumentLoader() {
         try {
-            Class<?> cls = ClassLoaderUtils.loadClass("com.ctc.wstx.sax.WstxSAXParserFactory",
+            Class<@RUntainted ?> cls = ClassLoaderUtils.loadClass("com.ctc.wstx.sax.WstxSAXParserFactory",
                                                       TunedDocumentLoader.class);
             saxParserFactory = (SAXParserFactory)cls.getDeclaredConstructor().newInstance();
             nsasaxParserFactory = (SAXParserFactory)cls.getDeclaredConstructor().newInstance();
@@ -103,7 +104,7 @@ class TunedDocumentLoader extends DefaultDocumentLoader {
     }
 
     @Override
-    public Document loadDocument(InputSource inputSource, EntityResolver entityResolver,
+    public Document loadDocument(@RUntainted InputSource inputSource, EntityResolver entityResolver,
                                  ErrorHandler errorHandler, int validationMode, boolean namespaceAware)
         throws Exception {
         if (validationMode == XmlBeanDefinitionReader.VALIDATION_NONE) {

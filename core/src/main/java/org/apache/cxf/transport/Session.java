@@ -18,6 +18,7 @@
  */
 
 package org.apache.cxf.transport;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * A Session which can be bound to HTTP, WS-Adddressing, etc.

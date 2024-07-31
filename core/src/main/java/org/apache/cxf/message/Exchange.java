@@ -27,6 +27,7 @@ import org.apache.cxf.service.model.BindingOperationInfo;
 import org.apache.cxf.transport.Conduit;
 import org.apache.cxf.transport.Destination;
 import org.apache.cxf.transport.Session;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public interface Exchange extends StringMap {
 
@@ -46,8 +47,8 @@ public interface Exchange extends StringMap {
      *
      * @return the outbound message
      */
-    Message getOutMessage();
-    void setOutMessage(Message m);
+    @RUntainted Message getOutMessage();
+    void setOutMessage(@RUntainted Message m);
 
     Message getInFaultMessage();
     void setInFaultMessage(Message m);

@@ -22,6 +22,7 @@ package org.apache.cxf.common.util;
 import java.util.Map;
 
 import org.apache.cxf.message.Message;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Holder of generic property related methods

@@ -23,6 +23,7 @@ import org.apache.cxf.common.injection.NoJSR250Annotations;
 import org.apache.cxf.feature.AbstractPortableFeature;
 import org.apache.cxf.feature.DelegatingFeature;
 import org.apache.cxf.interceptor.InterceptorProvider;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * This class defines a feature is used to transform message using XSLT script.
@@ -37,17 +38,17 @@ public class XSLTFeature extends DelegatingFeature<XSLTFeature.Portable> {
         super(new Portable());
     }
 
-    public void setInXSLTPath(String inXSLTPath) {
+    public void setInXSLTPath(@RUntainted String inXSLTPath) {
         delegate.setInXSLTPath(inXSLTPath);
     }
 
-    public void setOutXSLTPath(String outXSLTPath) {
+    public void setOutXSLTPath(@RUntainted String outXSLTPath) {
         delegate.setOutXSLTPath(outXSLTPath);
     }
 
     public static class Portable implements AbstractPortableFeature {
-        private String inXSLTPath;
-        private String outXSLTPath;
+        private @RUntainted String inXSLTPath;
+        private @RUntainted String outXSLTPath;
 
         @Override
         public void doInitializeProvider(InterceptorProvider provider, Bus bus) {
@@ -63,11 +64,11 @@ public class XSLTFeature extends DelegatingFeature<XSLTFeature.Portable> {
             }
         }
 
-        public void setInXSLTPath(String inXSLTPath) {
+        public void setInXSLTPath(@RUntainted String inXSLTPath) {
             this.inXSLTPath = inXSLTPath;
         }
 
-        public void setOutXSLTPath(String outXSLTPath) {
+        public void setOutXSLTPath(@RUntainted String outXSLTPath) {
             this.outXSLTPath = outXSLTPath;
         }
     }

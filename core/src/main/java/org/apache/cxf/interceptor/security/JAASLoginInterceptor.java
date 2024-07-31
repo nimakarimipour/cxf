@@ -41,6 +41,7 @@ import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.AbstractPhaseInterceptor;
 import org.apache.cxf.phase.Phase;
 import org.apache.cxf.security.SecurityContext;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class JAASLoginInterceptor extends AbstractPhaseInterceptor<Message> {
     public static final String ROLE_CLASSIFIER_PREFIX = "prefix";
@@ -124,7 +125,7 @@ public class JAASLoginInterceptor extends AbstractPhaseInterceptor<Message> {
         return null;
     }
 
-    public void handleMessage(final Message message) {
+    public void handleMessage(final @RUntainted Message message) {
         if (allowNamedPrincipals) {
             SecurityContext sc = message.get(SecurityContext.class);
             if (sc != null && sc.getUserPrincipal() != null

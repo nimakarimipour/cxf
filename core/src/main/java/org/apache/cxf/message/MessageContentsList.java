@@ -27,6 +27,7 @@ import java.util.Set;
 
 import org.apache.cxf.helpers.CastUtils;
 import org.apache.cxf.service.model.MessagePartInfo;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class MessageContentsList extends ArrayList<Object> {
 
@@ -104,7 +105,7 @@ public class MessageContentsList extends ArrayList<Object> {
      * @return the element to which the index property of the specified key
      * is mapped, or {@code null} if mapped element is marked as removed.
      */
-    public Object get(MessagePartInfo key) {
+    public @RUntainted Object get(MessagePartInfo key) {
         return super.get(key.getIndex());
     }
 

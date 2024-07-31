@@ -21,6 +21,7 @@ package org.apache.cxf.service.invoker;
 
 import org.apache.cxf.common.injection.NoJSR250Annotations;
 import org.apache.cxf.message.Exchange;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Invoker for externally created service objects.

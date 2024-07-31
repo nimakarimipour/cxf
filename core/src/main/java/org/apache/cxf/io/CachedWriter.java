@@ -49,12 +49,13 @@ import org.apache.cxf.helpers.FileUtils;
 import org.apache.cxf.helpers.IOUtils;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class CachedWriter extends Writer {
-    private static final File DEFAULT_TEMP_DIR;
+    private static final @RUntainted File DEFAULT_TEMP_DIR;
     private static int defaultThreshold;
     private static long defaultMaxSize;
-    private static String defaultCipherTransformation;
+    private static @RUntainted String defaultCipherTransformation;
 
     static {
 
@@ -80,20 +81,20 @@ public class CachedWriter extends Writer {
     }
 
     protected boolean outputLocked;
-    protected Writer currentStream;
+    protected @RUntainted Writer currentStream;
 
     private boolean cosClosed;
     private long threshold = defaultThreshold;
     private long maxSize = defaultMaxSize;
-    private File outputDir = DEFAULT_TEMP_DIR;
-    private String cipherTransformation = defaultCipherTransformation;
+    private @RUntainted File outputDir = DEFAULT_TEMP_DIR;
+    private @RUntainted String cipherTransformation = defaultCipherTransformation;
 
     private long totalLength;
 
     private boolean inmem;
 
     private boolean tempFileFailed;
-    private File tempFile;
+    private @RUntainted File tempFile;
     private boolean allowDeleteOfFile = true;
     private CipherPair ciphers;
 
@@ -106,7 +107,7 @@ public class CachedWriter extends Writer {
         LoadingCharArrayWriter() {
             super(1024);
         }
-        public char[] rawCharArray() {
+        public @RUntainted char[] rawCharArray() {
             return super.buf;
         }
     }
@@ -150,7 +151,7 @@ public class CachedWriter extends Writer {
         }
     }
 
-    private static String getBusProperty(Bus b, String key, String dflt) {
+    private static @RUntainted String getBusProperty(@RUntainted Bus b, @RUntainted String key, @RUntainted String dflt) {
         String v = (String)b.getProperty(key);
         return v != null ? v : dflt;
     }
@@ -274,7 +275,7 @@ public class CachedWriter extends Writer {
      * @param copyOldContent flag indicating if the old content should be copied
      * @throws IOException
      */
-    public void resetOut(Writer out, boolean copyOldContent) throws IOException {
+    public void resetOut(@RUntainted Writer out, boolean copyOldContent) throws IOException {
         if (out == null) {
             out = new LoadingCharArrayWriter();
         }
@@ -325,7 +326,7 @@ public class CachedWriter extends Writer {
         // read the file
         try (Reader fin = createInputStreamReader(tempFile)) {
             CharArrayWriter out = new CharArrayWriter((int)tempFile.length());
-            char[] bytes = new char[1024];
+            @RUntainted char[] bytes = new char[1024];
             int x = fin.read(bytes);
             while (x != -1) {
                 out.write(bytes, 0, x);
@@ -346,7 +347,7 @@ public class CachedWriter extends Writer {
         } else {
             // read the file
             try (Reader fin = createInputStreamReader(tempFile)) {
-                char[] bytes = new char[1024];
+                @RUntainted char[] bytes = new char[1024];
                 int x = fin.read(bytes);
                 while (x != -1) {
                     out.write(bytes, 0, x);
@@ -454,7 +455,7 @@ public class CachedWriter extends Writer {
     }
 
 
-    public void write(char[] cbuf, int off, int len) throws IOException {
+    public void write(@RUntainted char[] cbuf, int off, int len) throws IOException {
         if (!outputLocked) {
             onWrite();
             this.totalLength += len;
@@ -495,7 +496,7 @@ public class CachedWriter extends Writer {
         return tempFile != null && tempFile.exists() ? tempFile : null;
     }
 
-    public Reader getReader() throws IOException {
+    public @RUntainted Reader getReader() throws IOException {
         flush();
         if (inmem) {
             if (currentStream instanceof LoadingCharArrayWriter) {
@@ -561,7 +562,7 @@ public class CachedWriter extends Writer {
         }
     }
 
-    public void setOutputDir(File outputDir) throws IOException {
+    public void setOutputDir(@RUntainted File outputDir) throws IOException {
         this.outputDir = outputDir;
     }
     public void setThreshold(long threshold) {
@@ -572,7 +573,7 @@ public class CachedWriter extends Writer {
         this.maxSize = maxSize;
     }
 
-    public void setCipherTransformation(String cipherTransformation) {
+    public void setCipherTransformation(@RUntainted String cipherTransformation) {
         this.cipherTransformation = cipherTransformation;
     }
 
@@ -603,14 +604,14 @@ public class CachedWriter extends Writer {
 
     }
 
-    public static void setDefaultCipherTransformation(String n) {
+    public static void setDefaultCipherTransformation(@RUntainted String n) {
         if (n == null) {
             n = SystemPropertyAction.getPropertyOrNull(CachedConstants.CIPHER_TRANSFORMATION_SYS_PROP);
         }
         defaultCipherTransformation = n;
     }
 
-    private OutputStreamWriter createOutputStreamWriter(File file) throws IOException {
+    private @RUntainted OutputStreamWriter createOutputStreamWriter(@RUntainted File file) throws IOException {
         OutputStream out = new BufferedOutputStream(Files.newOutputStream(file.toPath()));
         if (cipherTransformation != null) {
             try {
