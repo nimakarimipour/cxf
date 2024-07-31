@@ -23,6 +23,7 @@ import org.apache.cxf.endpoint.Endpoint;
 import org.apache.cxf.service.Service;
 import org.apache.cxf.service.model.BindingInfo;
 import org.apache.cxf.transport.Destination;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * A factory interface for creating Bindings from BindingInfo metadata.

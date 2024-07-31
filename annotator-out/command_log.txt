@@ -22,3 +22,365 @@
 
 2024-03-27T08:37:09.499675:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
 
+2024-07-31T11:29:41.836587:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:30:12.119128:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:30:42.727997:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:31:12.596529:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:31:42.203384:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:32:11.759362:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:32:40.844038:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:33:10.754274:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:33:39.840713:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:34:09.860129:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:34:38.658544:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:35:07.859810:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:35:36.614819:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:36:05.679236:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:36:35.401823:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:37:04.916417:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:37:35.058043:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:38:04.769839:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:38:32.953065:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:39:01.647354:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:39:29.874099:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:39:58.468766:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:40:26.191744:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:40:54.360031:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:41:22.177229:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:41:50.009933:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:42:18.411865:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:42:46.691074:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:43:15.436751:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:43:43.682992:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:44:11.825581:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:44:40.107559:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:45:08.910746:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:45:36.967795:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:46:05.010510:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:46:33.615919:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:47:02.035086:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:47:30.426595:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:47:58.920360:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:48:27.048984:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:48:55.299653:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:49:23.454241:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:49:52.115961:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:50:20.698854:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:50:49.215518:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:51:17.522901:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:51:46.762960:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:52:15.216300:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:52:43.488582:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:53:11.875016:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:53:40.963504:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:54:09.590398:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:54:38.163380:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:55:06.613303:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:55:35.242942:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:56:03.883023:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:56:32.593377:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:57:01.523330:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:57:29.745400:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:57:58.386105:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:58:26.760676:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:58:55.357469:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:59:23.109478:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T11:59:51.351372:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:00:19.554984:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:00:48.106786:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:01:16.728411:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:01:44.809296:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:02:13.088599:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:02:41.766717:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:03:10.041918:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:03:38.544435:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:04:07.224271:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:04:36.112364:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:05:04.941812:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:05:33.543529:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:06:01.796137:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:06:29.549287:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:06:57.323593:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:07:25.612572:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:07:53.416848:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:08:21.742327:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:08:49.604643:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:09:17.510296:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:09:45.679787:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:10:13.549719:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:10:41.680610:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:11:10.008661:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:11:37.950394:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:12:05.902526:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:12:33.809321:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:13:01.771098:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:13:29.962743:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:13:58.140447:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:14:26.734345:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:14:54.589197:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:15:22.800553:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:15:50.929298:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:16:19.350292:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:16:47.597061:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:17:16.028719:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:17:44.090955:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:18:12.501451:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:18:41.090542:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:19:09.887090:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:19:38.130390:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:20:07.131971:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:20:35.545424:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:21:03.615788:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:21:31.336385:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:21:59.386280:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:22:27.471331:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:22:55.407261:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:23:23.652852:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:23:51.743742:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:24:19.720769:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:24:47.501684:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:25:15.559910:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:25:44.330166:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:26:12.536088:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:26:40.189454:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:27:07.910381:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:27:35.807160:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:28:03.921814:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:28:32.353886:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:29:00.233209:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:29:28.429497:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:29:55.876844:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:30:23.958976:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:30:51.557047:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:31:19.683396:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:31:47.715240:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:32:16.723192:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:32:44.956647:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:33:13.378922:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:33:41.397841:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:34:09.013547:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:34:37.170549:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:35:05.126315:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:35:33.204474:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:36:01.532757:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:36:29.353882:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:36:57.399506:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:37:25.756192:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:37:53.924445:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:38:21.820619:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:38:49.977717:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:39:18.519352:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:39:47.138503:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:40:15.627588:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:40:43.580401:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:41:12.490842:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:41:40.589309:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:42:09.181710:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:42:37.259288:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:43:05.471552:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:43:34.628612:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:44:02.918176:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:44:31.345164:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:44:59.905405:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:45:28.789341:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:45:57.269921:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:46:25.728914:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:46:54.678304:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:47:23.513599:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:47:52.251681:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:48:21.192963:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:48:49.480149:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:49:18.210184:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:49:46.699850:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:50:15.427918:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:50:43.882101:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:51:12.854911:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:51:41.581994:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:52:11.048407:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:52:39.722684:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:53:07.849936:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:53:36.107560:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:54:04.162833:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:54:32.207454:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+
+2024-07-31T12:55:00.477117:cd /home/nima/Developer/taint-benchmarks/cxf && ./annotator-command.sh
+

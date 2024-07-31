@@ -41,6 +41,7 @@ import org.apache.cxf.io.CachedOutputStream;
 import org.apache.cxf.io.CachedWriter;
 import org.apache.cxf.staxutils.StaxSource;
 import org.apache.cxf.staxutils.StaxUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public final class XSLTUtils {
     private static final Logger LOG = LogUtils.getL7dLogger(XSLTUtils.class);

@@ -22,6 +22,7 @@ package org.apache.cxf.common.util;
 import java.lang.reflect.Field;
 
 import org.apache.cxf.common.classloader.ClassLoaderUtils;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class OpcodesProxy {
     //CHECKSTYLE:OFF
