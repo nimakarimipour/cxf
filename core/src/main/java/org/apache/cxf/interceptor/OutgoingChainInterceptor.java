@@ -44,6 +44,7 @@ import org.apache.cxf.service.model.BindingMessageInfo;
 import org.apache.cxf.service.model.BindingOperationInfo;
 import org.apache.cxf.service.model.MessageInfo;
 import org.apache.cxf.transport.Conduit;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public class OutgoingChainInterceptor extends AbstractPhaseInterceptor<Message> {
     private static final Logger LOG = LogUtils.getL7dLogger(OutgoingChainInterceptor.class);

@@ -21,6 +21,7 @@ package org.apache.cxf.common.util;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 /**
  * Utility class loader that can be used to create proxies in cases where
@@ -51,7 +52,7 @@ public class ProxyClassLoader extends ClassLoader {
     }
 
     @Override
-    public Class<?> findClass(String name) throws ClassNotFoundException {
+    public Class<?> findClass(@RUntainted String name) throws ClassNotFoundException {
         if (classes != null) {
             for (Class<?> c : classes) {
                 if (name.equals(c.getName())) {

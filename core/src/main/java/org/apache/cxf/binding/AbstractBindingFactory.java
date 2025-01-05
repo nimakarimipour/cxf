@@ -31,6 +31,7 @@ import org.apache.cxf.service.model.BindingInfo;
 import org.apache.cxf.service.model.ServiceInfo;
 import org.apache.cxf.transport.ChainInitiationObserver;
 import org.apache.cxf.transport.Destination;
+import edu.ucr.cs.riple.taint.ucrtainting.qual.RUntainted;
 
 public abstract class AbstractBindingFactory implements BindingFactory {
 
